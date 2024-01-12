@@ -1,0 +1,8 @@
+Aloxaf/fzf-tab
+getantidote/use-omz
+MichaelAquilina/zsh-you-should-use
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/git
+romkatv/powerlevel10k
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting

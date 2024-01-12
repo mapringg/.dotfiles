@@ -1,0 +1,36 @@
+[user]
+  name = Sorawit Kongnurat
+  email = sorawit.k@tutanota.com
+
+[branch]
+  sort = -committerdate
+
+[column]
+  ui = auto
+
+[commit]
+  verbose = true
+
+[diff]
+  algorithm = histogram
+  colorMoved = default
+  mnemonicPrefix = true
+
+[fetch]
+  prune = true
+
+[merge]
+  conflictstyle = diff3
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true
+
+[rerere]
+  enabled = true
+  autoupdate = true
+
+[tag]
+  sort = -version:refname

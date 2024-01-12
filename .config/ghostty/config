@@ -1,0 +1,17 @@
+font-family = "MonoLisa Nerd Font"
+theme = Catppuccin Mocha
+
+maximize = true
+window-padding-balance = true
+window-padding-x = 12
+window-padding-y = 12,8
+
+confirm-close-surface = false
+copy-on-select = clipboard
+macos-option-as-alt = true
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = hidden
+shell-integration-features = no-title,no-cursor,ssh-env
+
+keybind = alt+backspace=text:\x1b\x7f
+keybind = shift+enter=text:\n

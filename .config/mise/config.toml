@@ -1,0 +1,14 @@
+[tools]
+bun = "latest"
+node = { version = "lts", postinstall = "corepack enable" }
+python = "latest"
+rust = "latest"
+uv = "latest"
+
+"npm:@antfu/ni" = "latest"
+"npm:counselors" = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+npm.bun = true
+pipx.uvx = true
