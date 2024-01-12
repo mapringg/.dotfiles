@@ -90,7 +90,7 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls -F'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -116,8 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# personal settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 eval "$(starship init bash)"
+eval "$(fnm env --use-on-cd)"
+eval "$(zoxide init bash)"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
