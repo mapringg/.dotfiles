@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "defaults": {
+    "timeout": 540,
+    "outputDir": "./agents/counselors",
+    "readOnly": "bestEffort",
+    "maxContextKb": 50,
+    "maxParallel": 4
+  },
+  "tools": {
+    "claude-opus": {
+      "binary": "claude",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "adapter": "claude",
+      "extraFlags": [
+        "--model",
+        "claude-opus-4-6"
+      ]
+    },
+    "claude-sonnet": {
+      "binary": "claude",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "adapter": "claude",
+      "extraFlags": [
+        "--model",
+        "claude-sonnet-4-6"
+      ]
+    },
+    "claude-haiku": {
+      "binary": "claude",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "adapter": "claude",
+      "extraFlags": [
+        "--model",
+        "claude-haiku-4-5"
+      ]
+    },
+    "codex-5.3-xhigh": {
+      "binary": "codex",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "codex",
+      "extraFlags": [
+        "-m",
+        "gpt-5.3-codex",
+        "-c",
+        "model_reasoning_effort=xhigh"
+      ]
+    },
+    "codex-5.3-high": {
+      "binary": "codex",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "codex",
+      "extraFlags": [
+        "-m",
+        "gpt-5.3-codex",
+        "-c",
+        "model_reasoning_effort=high"
+      ]
+    },
+    "gemini-3.1-pro": {
+      "binary": "gemini",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "gemini",
+      "extraFlags": [
+        "-m",
+        "gemini-3.1-pro-preview"
+      ]
+    },
+    "gemini-3-flash": {
+      "binary": "gemini",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "gemini",
+      "extraFlags": [
+        "-m",
+        "gemini-3-flash-preview"
+      ]
+    },
+    "amp-smart": {
+      "binary": "amp",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "adapter": "amp",
+      "extraFlags": [
+        "-m",
+        "smart"
+      ]
+    },
+    "amp-deep": {
+      "binary": "amp",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "adapter": "amp",
+      "extraFlags": [
+        "-m",
+        "deep"
+      ]
+    }
+  },
+  "groups": {
+    "smart": [
+      "claude-opus",
+      "codex-5.3-xhigh",
+      "gemini-3.1-pro"
+    ],
+    "fast": [
+      "claude-sonnet",
+      "codex-5.3-high",
+      "gemini-3-flash"
+    ],
+    "opus-swarm": [
+      "claude-opus",
+      "claude-opus",
+      "claude-opus"
+    ]
+  }
+}

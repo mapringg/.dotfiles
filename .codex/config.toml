@@ -1,0 +1,14 @@
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+suppress_unstable_features_warning = true
+
+[features]
+apply_patch_freeform = true
+shell_snapshot = true
+unified_exec = true
+
+[projects."/Users/mapring/.dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/mapring/code"]
+trust_level = "trusted"
