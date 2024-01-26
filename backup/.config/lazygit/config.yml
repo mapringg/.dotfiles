@@ -1,5 +1,4 @@
 gui:
   nerdFontsVersion: "3"
 os:
-  openLink: 'wslview {{link}}'
-  editPreset: 'vscode'
+  editPreset: "vscode"
