@@ -117,8 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 # personal settings
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(starship init bash)"
+export PATH="/home/mapring/.local/share/fnm:$PATH"
 eval "$(fnm env --use-on-cd)"
+eval "$(starship init bash)"
 eval "$(zoxide init bash)"
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
