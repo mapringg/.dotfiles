@@ -24,8 +24,18 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# Personal settings
-export PATH="/home/mapring/.local/share/fnm:$PATH"
-eval "$(fnm env)"
-eval "$(zoxide init bash)"
-source /usr/share/fzf/shell/key-bindings.bash
+# FNM
+if command -v fnm >/dev/null 2>&1; then
+    export PATH="/home/mapring/.local/share/fnm:$PATH"
+    eval "$(fnm env)"
+fi
+
+# Zoxide
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
+
+# FZF
+if command -v fzf >/dev/null 2>&1; then
+    source /usr/share/fzf/shell/key-bindings.bash
+fi
