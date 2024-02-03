@@ -119,7 +119,7 @@ fi
 # FNM
 export PATH="/home/mapring/.local/share/fnm:$PATH"
 if command -v fnm >/dev/null 2>&1; then
-    eval "$(fnm env)"
+    eval "$(fnm env --use-on-cd)"
 fi
 
 # Zoxide
