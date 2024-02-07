@@ -30,6 +30,11 @@ if command -v fnm >/dev/null 2>&1; then
     eval "$(fnm env --use-on-cd)"
 fi
 
+# Zoxide
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
+
 # FZF
 if command -v fzf >/dev/null 2>&1; then
     source /usr/share/fzf/shell/key-bindings.bash
