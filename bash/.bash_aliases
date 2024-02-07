@@ -1,5 +1,0 @@
-alias lg="lazygit"
-alias ?="gh copilot explain"
-alias ??="gh copilot suggest"
-alias up="wg-quick up ~/Documents/Sync/wg0.conf"
-alias down="wg-quick down ~/Documents/Sync/wg0.conf"
