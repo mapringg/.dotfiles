@@ -1,4 +1,4 @@
 alias lg="lazygit"
-alias pt="podman-tui"
+alias ld="lazydocker"
 alias ?="gh copilot explain"
 alias ??="gh copilot suggest"
