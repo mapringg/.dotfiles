@@ -1,4 +1,4 @@
 alias lg='lazygit'
 alias ld='lazydocker'
-alias ?='gh copilot explain'
-alias ??='gh copilot suggest'
+alias e='gh copilot explain'
+alias s='gh copilot suggest'
