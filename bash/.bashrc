@@ -22,6 +22,17 @@ if command -v /opt/homebrew/bin/brew >/dev/null 2>&1; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# bat
+if command -v bat >/dev/null 2>&1; then
+    alias cat='bat'
+fi
+
+# eza
+if command -v eza >/dev/null 2>&1; then
+    alias la='eza -al'
+    alias ll='eza -l'
+fi
+
 # fnm
 [[ "$OSTYPE" == "linux-gnu" && ! "$PATH" =~ "$HOME/.local/share/fnm:" ]] && export PATH="$HOME/.local/share/fnm:$PATH"
 if command -v fnm >/dev/null 2>&1; then
