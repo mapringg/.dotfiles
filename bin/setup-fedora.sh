@@ -21,7 +21,7 @@ update_groups() {
 
 install_packages() {
 	sudo dnf install stow gh zoxide bat ripgrep fd-find eza xsel \
-		adw-gtk3-theme keepassxc syncthing brave-browser code \
+		adw-gtk3-theme keepassxc syncthing brave-browser code gnome-extensions-app \
 		docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
