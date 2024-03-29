@@ -6,6 +6,8 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #    # smth smth
 #end
 
+set fzf_fd_opts --hidden
+
 alias lg='lazygit'
 alias ld='lazydocker'
 alias e='gh copilot explain'
