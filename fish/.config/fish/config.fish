@@ -6,6 +6,7 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #    # smth smth
 #end
 
+functions -e fish_greeting
 set fzf_fd_opts --hidden
 
 alias lg='lazygit'
