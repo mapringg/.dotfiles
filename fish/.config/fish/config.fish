@@ -7,6 +7,8 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 #end
 
 functions -e fish_greeting
+functions -e history
+fzf --fish | source
 
 alias lg='lazygit'
 alias ld='lazydocker'
