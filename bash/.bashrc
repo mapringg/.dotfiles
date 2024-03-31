@@ -29,20 +29,18 @@ fi
 
 # eza
 if command -v eza >/dev/null 2>&1; then
+    alias ls='eza'
     alias la='eza -al'
     alias ll='eza -l'
 fi
 
 # fnm
-[[ "$OSTYPE" == "linux-gnu" && ! "$PATH" =~ "$HOME/.local/share/fnm:" ]] && export PATH="$HOME/.local/share/fnm:$PATH"
 if command -v fnm >/dev/null 2>&1; then
     eval "$(fnm env --use-on-cd)"
 fi
 
 # fzf
-if [[ "$OSTYPE" == "linux-gnu" && -f ~/.fzf.bash ]]; then
-    source ~/.fzf.bash
-elif command -v fzf >/dev/null 2>&1; then
+if command -v fzf >/dev/null 2>&1; then
     eval "$(fzf --bash)"
 fi
 
