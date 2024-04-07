@@ -41,7 +41,7 @@ fi
 
 # fzf
 if command -v fzf >/dev/null 2>&1; then
-    eval "$(fzf --bash)"
+    source "$HOME/.bashrc.d/fzf.bash"
 fi
 
 # starship
