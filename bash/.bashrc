@@ -35,6 +35,9 @@ if command -v eza >/dev/null 2>&1; then
 fi
 
 # fnm
+if [ "$(uname)" == "Linux" ]; then
+    export PATH="$HOME/.local/share/fnm:$PATH"
+fi
 if command -v fnm >/dev/null 2>&1; then
     eval "$(fnm env --use-on-cd)"
 fi
