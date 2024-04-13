@@ -1,6 +1,0 @@
-alias lg="lazygit"
-alias ld="lazydocker"
-alias ?="gh copilot explain"
-alias ??="gh copilot suggest"
-alias la="ls -la"
-alias ll="ls -l"
