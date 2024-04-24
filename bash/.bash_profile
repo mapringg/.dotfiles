@@ -1,4 +1,8 @@
-[ -f ~/.bashrc ] && . ~/.bashrc
+# .bash_profile
 
-export HISTSIZE=10000
-export EDITOR=vi
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+
+# User specific environment and startup programs
