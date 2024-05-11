@@ -10,3 +10,4 @@ alias gpv="gh pr view"
 alias gpm="gh pr merge"
 alias gpr="gh pr review"
 alias p="pnpm"
+alias mn='comm -23 <(apt-mark showmanual | sort -u) <(cat ~/Sync/ubuntu-24.04-desktop-amd64.manifest | awk "{print \$1}" | sort -u)'
