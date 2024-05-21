@@ -72,17 +72,12 @@ alias gpc="gh pr checkout"
 alias gpv="gh pr view"
 alias gpm="gh pr merge"
 alias gpr="gh pr review"
-alias p="pnpm"
-alias mn='comm -23 <(apt-mark showmanual | sort -u) <(cat ~/Sync/ubuntu-24.04-desktop-amd64.manifest | awk "{print \$1}" | sort -u)'
 
 # Environments
 export LS_COLORS="di=1;34:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-[[ -d $HOME/.local/share/fnm ]] && export PATH="$HOME/.local/share/fnm:$PATH"
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # Setup shell integrations
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(pyenv init -)"
