@@ -11,6 +11,9 @@ config.font = wezterm.font_with_fallback {
 }
 config.tab_bar_at_bottom = true
 config.window_close_confirmation = 'NeverPrompt'
+config.default_prog = {
+  '/bin/zsh'
+}
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Snazzy'
