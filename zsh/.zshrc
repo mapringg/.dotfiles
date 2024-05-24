@@ -80,15 +80,16 @@ alias wgs='sudo wg show'
 # Environments
 export LS_COLORS="di=1;34:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 [ "$(uname -s)" = "Linux" ] && export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-[ "$(uname -s)" = "Linux" ] && export PATH=$PATH:$HOME/.local/bin
-[ "$(uname -s)" = "Linux" ] && export PATH="$PATH:$HOME/.local/share/fnm"
+[ "$(uname -s)" = "Linux" ] && export PATH="$PATH:$HOME/.fnm"
 [ "$(uname -s)" = "Linux" ] && export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
 [ "$(uname -s)" = "Darwin" ] && export PATH=$PATH:/usr/local/bin
 
 # Setup shell integrations
+[[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(fzf --zsh)"
+[ "$(uname -s)" = "Darwin" ] && eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(pyenv init -)"
 eval "$(zoxide init --cmd cd zsh)"
