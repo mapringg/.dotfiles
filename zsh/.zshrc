@@ -1,6 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -12,7 +10,8 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add zsh plugins
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -26,7 +25,8 @@ zinit snippet OMZP::fnm
 
 # Load completions
 fpath+=("$ZSH_CACHE_DIR/completions")
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit
 zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -79,12 +79,16 @@ alias wgs='sudo wg show'
 
 # Environments
 export LS_COLORS="di=1;34:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-[ "$(uname -s)" = "Linux" ] && export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-[ "$(uname -s)" = "Linux" ] && export PATH="$PATH:$HOME/.fnm"
-[ "$(uname -s)" = "Linux" ] && export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-[[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
-[ "$(uname -s)" = "Darwin" ] && export PATH=$PATH:/usr/local/bin
+if [ "$(uname -s)" = "Linux" ]; then
+  export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+  export PATH="$PATH:$HOME/.fnm"
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  [[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
+fi
+if [ "$(uname -s)" = "Darwin" ]; then
+  export PATH=$PATH:/usr/local/bin
+fi
 
 # Setup shell integrations
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
