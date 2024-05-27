@@ -32,9 +32,6 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Setup homebrew
-[[ -f "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -73,27 +70,17 @@ alias gpv="gh pr view"
 alias gpm="gh pr merge"
 alias gpr="gh pr review"
 alias sa="alias | grep"
-alias wgu='sudo wg-quick up wg0'
-alias wgd='sudo wg-quick down wg0'
-alias wgs='sudo wg show'
 
 # Environments
-export LS_COLORS="di=1;34:ln=1;35:so=1;32:pi=1;33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-if [ "$(uname -s)" = "Linux" ]; then
-  export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-  export PATH="$PATH:$HOME/.fnm"
-  export PYENV_ROOT="$HOME/.pyenv"
-  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-  [[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
-fi
-if [ "$(uname -s)" = "Darwin" ]; then
-  export PATH=$PATH:/usr/local/bin
-fi
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+export PATH="$PATH:$HOME/.fnm"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
 
 # Setup shell integrations
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ "$(uname -s)" = "Darwin" ] && eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(pyenv init -)"
 eval "$(zoxide init --cmd cd zsh)"
