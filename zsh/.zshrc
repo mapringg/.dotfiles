@@ -72,15 +72,9 @@ alias gpr="gh pr review"
 alias sa="alias | grep"
 
 # Environments
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-export PATH="$PATH:$HOME/.fnm"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-[[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
 
 # Setup shell integrations
-[[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(pyenv init -)"
 eval "$(zoxide init --cmd cd zsh)"
