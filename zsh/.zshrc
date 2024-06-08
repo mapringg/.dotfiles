@@ -57,9 +57,9 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls --color'
-alias ll="ls -l"
-alias la="ls -la"
+alias ls='eza -lh --group-directories-first --icons'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
 alias lg="lazygit"
 alias ld="lazydocker"
 alias ce="gh copilot explain"
@@ -70,6 +70,9 @@ alias gpv="gh pr view"
 alias gpm="gh pr merge"
 alias gpr="gh pr review"
 alias sa="alias | grep"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Environments
 
