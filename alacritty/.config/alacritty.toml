@@ -19,3 +19,4 @@ style = "Regular"
 
 [window]
 padding = { x = 4, y = 4 }
+option_as_alt = "Both"
