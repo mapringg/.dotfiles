@@ -21,7 +21,6 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::gh
-zinit snippet OMZP::fnm
 
 # Load completions
 fpath+=("$ZSH_CACHE_DIR/completions")
@@ -83,6 +82,5 @@ export LC_ALL=en_US.UTF-8
 # Setup shell integrations
 [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
-eval "$(fnm env --use-on-cd)"
-eval "$(pyenv init -)"
+eval "$(mise activate zsh)"
 eval "$(zoxide init --cmd cd zsh)"
