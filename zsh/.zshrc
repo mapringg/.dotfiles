@@ -74,6 +74,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Environments
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Setup shell integrations
 [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
