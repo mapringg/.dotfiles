@@ -5,4 +5,5 @@ sudo apt install -y \
 	ca-certificates curl \
 	eza stow ripgrep wireguard-tools \
 	blueman xsel virt-manager \
-	libspa-0.2-bluetooth transmission-gtk libreoffice
+	libspa-0.2-bluetooth transmission-gtk libreoffice \
+	tealdeer
