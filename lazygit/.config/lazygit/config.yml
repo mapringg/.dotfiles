@@ -1,3 +1,7 @@
+git:
+  paging:
+    pager: "delta --dark --paging=never"
+
 gui:
   nerdFontsVersion: "3"
   theme:
