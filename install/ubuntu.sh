@@ -1,5 +1,5 @@
 sudo apt install -y \
-	firefox fd-find \
+	firefox fd-find bat \
 	zsh syncthing keepassxc \
 	alacritty zoxide tmux \
 	ca-certificates curl \
