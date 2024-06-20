@@ -72,7 +72,8 @@ alias sa="alias | grep"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias cat="batcat"
+alias cat=$(uname -s | grep -q "Darwin" && echo "bat" || echo "batcat")
+alias v="nvim"
 
 # Environments
 export LANG=en_US.UTF-8
