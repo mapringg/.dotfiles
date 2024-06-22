@@ -34,6 +34,9 @@ zinit cdreplay -q
 # Setup sesh for tmux session management
 [[ ! -f ~/.sesh.zsh ]] || source ~/.sesh.zsh
 
+# Setup yazi shell wrapper
+[[ ! -f ~/.yazi.zsh ]] || source ~/.yazi.zsh
+
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
