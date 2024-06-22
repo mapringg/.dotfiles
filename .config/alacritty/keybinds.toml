@@ -1,52 +1,52 @@
 [[keyboard.bindings]]
 chars = "\u0002 "
 key = "C"
-mods = "Super|Shift"
+mods = "Option|Shift"
 
 [[keyboard.bindings]]
 chars = "\u0002\""
 key = "E"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u0002%"
 key = "E"
-mods = "Super|Shift"
+mods = "Option|Shift"
 
 [[keyboard.bindings]]
 chars = "\u0002[/"
 key = "F"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u0002L"
 key = "L"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
-chars = "\u0002K"
-key = "K"
-mods = "Super"
+chars = "\u0002s"
+key = "S"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u0002d"
 key = "D"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u0002c"
 key = "T"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u0002x"
 key = "W"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u0002z"
 key = "Z"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u0002p"
@@ -61,59 +61,59 @@ mods = "Control"
 [[keyboard.bindings]]
 chars = "\u0002p"
 key = "{"
-mods = "Super|Shift"
+mods = "Command|Shift"
 
 [[keyboard.bindings]]
 chars = "\u0002n"
 key = "}"
-mods = "Super|Shift"
+mods = "Command|Shift"
 
 [[keyboard.bindings]]
 chars = "\u0002:"
 key = "Semicolon"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00021"
 key = "Key1"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00022"
 key = "Key2"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00023"
 key = "Key3"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00024"
 key = "Key4"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00025"
 key = "Key5"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00026"
 key = "Key6"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00027"
 key = "Key7"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00028"
 key = "Key8"
-mods = "Super"
+mods = "Option"
 
 [[keyboard.bindings]]
 chars = "\u00029"
 key = "Key9"
-mods = "Super"
+mods = "Option"
