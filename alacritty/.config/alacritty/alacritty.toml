@@ -19,11 +19,11 @@ style = "Bold Italic"
 
 [font.italic]
 family = "MonoLisa Nerd Font"
-style = "Italic"
+style = "Medium Italic"
 
 [font.normal]
 family = "MonoLisa Nerd Font"
-style = "Regular"
+style = "Medium Regular"
 
 [window]
 padding = { x = 4, y = 4 }
