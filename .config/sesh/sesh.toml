@@ -1,0 +1,11 @@
+[[session]]
+name = "Home 🏡"
+path = "~"
+
+[[session]]
+name = "Code 💻"
+path = "~/Projects"
+
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"

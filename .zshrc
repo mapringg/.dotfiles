@@ -31,6 +31,9 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Setup sesh for tmux session management
+[[ ! -f ~/.sesh.zsh ]] || source ~/.sesh.zsh
+
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
