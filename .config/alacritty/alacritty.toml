@@ -1,4 +1,7 @@
-import = ["~/.config/alacritty/tokyonight_night.toml"]
+import = [
+    "~/.config/alacritty/tokyonight_night.toml",
+    "~/.config/alacritty/keybinds.toml"
+]
 
 [env]
 TERM = "xterm-256color"
@@ -28,3 +31,4 @@ style = "Medium Regular"
 [window]
 padding = { x = 4, y = 4 }
 option_as_alt = "Both"
+dynamic_title = false
