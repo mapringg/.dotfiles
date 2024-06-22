@@ -1,52 +1,52 @@
 [[keyboard.bindings]]
 chars = "\u0002 "
 key = "C"
-mods = "Option|Shift"
+mods = "Super|Shift"
 
 [[keyboard.bindings]]
 chars = "\u0002\""
 key = "E"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002%"
 key = "E"
-mods = "Option|Shift"
+mods = "Super|Shift"
 
 [[keyboard.bindings]]
 chars = "\u0002[/"
 key = "F"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002L"
 key = "L"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002s"
 key = "S"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002d"
 key = "D"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002c"
 key = "T"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002x"
 key = "W"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002z"
 key = "Z"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u0002p"
@@ -71,49 +71,49 @@ mods = "Command|Shift"
 [[keyboard.bindings]]
 chars = "\u0002:"
 key = "Semicolon"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00021"
 key = "Key1"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00022"
 key = "Key2"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00023"
 key = "Key3"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00024"
 key = "Key4"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00025"
 key = "Key5"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00026"
 key = "Key6"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00027"
 key = "Key7"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00028"
 key = "Key8"
-mods = "Option"
+mods = "Super"
 
 [[keyboard.bindings]]
 chars = "\u00029"
 key = "Key9"
-mods = "Option"
+mods = "Super"
