@@ -29,6 +29,11 @@ key = "S"
 mods = "Super"
 
 [[keyboard.bindings]]
+chars = "\u0002K"
+key = "K"
+mods = "Super"
+
+[[keyboard.bindings]]
 chars = "\u0002d"
 key = "D"
 mods = "Super"

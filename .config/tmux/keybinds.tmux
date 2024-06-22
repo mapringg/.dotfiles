@@ -8,3 +8,7 @@ bind-key -T copy-mode-vi 'C-k' select-pane -U
 bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
 bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt (cmd+w)
+
+bind-key "K" display-popup -E -w 40% "sesh connect \"$(
+  sesh list -i | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a sesh' --prompt='⚡'
+)\""
