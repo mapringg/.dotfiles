@@ -1,2 +1,3 @@
+dconf reset -f /
 gsettings set org.gnome.shell app-picker-layout "[]"
-for i in {1..9}; do gsettings set org.gnome.shell.keybindings switch-to-application-$i "[]"; done
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
