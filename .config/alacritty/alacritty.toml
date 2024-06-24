@@ -1,7 +1,4 @@
-import = [
-    "~/.config/alacritty/tokyonight_night.toml",
-    "~/.config/alacritty/keybinds.toml"
-]
+import = ["~/.config/alacritty/tokyonight_night.toml"]
 
 [env]
 TERM = "xterm-256color"
