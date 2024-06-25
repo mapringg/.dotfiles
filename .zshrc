@@ -78,6 +78,7 @@ alias sa="alias | grep"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias cat="bat"
 alias v=$(command -v nvim >/dev/null 2>&1 && echo nvim || echo vi)
 
 # Environments
