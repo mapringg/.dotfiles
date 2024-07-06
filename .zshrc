@@ -3,6 +3,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Setup homebrew
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Setup zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -95,29 +98,23 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --border\
   --border-label ' fzf ' \
   --prompt '⚡  ' \
-  --color=bg+:#283457 \
-  --color=bg:#16161e \
-  --color=border:#27a1b9 \
-  --color=fg:#c0caf5 \
-  --color=gutter:#16161e \
-  --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#2ac3de \
-  --color=query:#c0caf5:regular \
-  --color=scrollbar:#27a1b9 \
-  --color=separator:#ff9e64 \
-  --color=spinner:#ff007c \
+  --color=bg+:#313244 \
+  --color=bg:#1e1e2e \
+  --color=fg+:#cdd6f4 \
+  --color=header:#f38ba8 \
+  --color=hl+:#f38ba8 \
+  --color=hl:#f38ba8 \
+  --color=info:#cba6f7 \
+  --color=marker:#f5e0dc \
+  --color=pointer:#f5e0dc \
+  --color=prompt:#cba6f7 \
+  --color=spinner:#f5e0dc \
 "
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"
 
 # Setup shell integrations
-[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
 eval "$(mise activate zsh)"
 eval "$(zoxide init --cmd cd zsh)"
