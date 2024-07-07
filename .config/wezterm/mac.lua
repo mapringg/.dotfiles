@@ -21,6 +21,13 @@ function module.apply_to_config(config)
 		keys.cmd_to_tmux_prefix("-", '"'),
 		keys.cmd_to_tmux_prefix("d", "d"),
 		keys.cmd_to_tmux_prefix("z", "z"),
+    keys.cmd_key(
+			"s",
+			wezterm_action.Multiple({
+				wezterm_action.SendKey({ key = "\x1b" }), -- escape
+				keys.multiple_actions(":w"),
+			})
+		),
 		{
 			mods = "CMD|SHIFT",
 			key = "|",
