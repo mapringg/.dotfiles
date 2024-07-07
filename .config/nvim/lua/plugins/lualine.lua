@@ -2,6 +2,7 @@ local icons = LazyVim.config.icons
 
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = false,
   opts = {
     options = {
       component_separators = "",

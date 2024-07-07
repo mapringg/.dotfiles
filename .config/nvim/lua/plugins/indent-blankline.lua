@@ -1,4 +1,4 @@
 return {
-  "nvimdev/dashboard-nvim",
+  "indent-blankline.nvim",
   enabled = false,
 }
