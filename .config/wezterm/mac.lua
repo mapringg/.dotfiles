@@ -20,6 +20,7 @@ function module.apply_to_config(config)
 		keys.cmd_to_tmux_prefix("k", "k"),
 		keys.cmd_to_tmux_prefix("-", '"'),
 		keys.cmd_to_tmux_prefix("d", "d"),
+		keys.cmd_to_tmux_prefix("z", "z"),
 		{
 			mods = "CMD|SHIFT",
 			key = "|",
