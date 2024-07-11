@@ -6,9 +6,6 @@ TERM = "xterm-256color"
 [colors]
 draw_bold_text_with_bright_colors = true
 
-[font]
-size = 13.0
-
 [font.bold]
 family = "MonoLisa Nerd Font"
 style = "Bold"
