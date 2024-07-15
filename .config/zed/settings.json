@@ -39,10 +39,5 @@
   "telemetry": {
     "metrics": true
   },
-  "theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
-  },
   "ui_font_size": 14
 }
