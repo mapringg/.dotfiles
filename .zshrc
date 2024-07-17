@@ -117,7 +117,6 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 "
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"
 [[ ! $PATH =~ ~/.local/bin ]] && PATH=$PATH:~/.local/bin
 
 # Setup shell integrations
