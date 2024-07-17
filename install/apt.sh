@@ -1,9 +1,11 @@
 sudo apt install -y \
-	firefox fd-find bat \
-	zsh syncthing keepassxc \
-	alacritty zoxide tmux \
-	ca-certificates curl \
-	eza stow ripgrep wireguard-tools \
-	blueman xsel virt-manager \
-	libspa-0.2-bluetooth transmission-gtk libreoffice \
-	tealdeer
+  fd-find bat zsh python3.12-venv \
+  zoxide tmux tealdeer neovim \
+  eza ripgrep wireguard-tools
+
+sudo ln -s /usr/bin/batcat /usr/bin/bat
+sudo ln -s /usr/bin/fdfind /usr/bin/fd
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+bat cache --build
