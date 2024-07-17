@@ -1,6 +1,6 @@
 sudo apt install -y \
   fd-find bat zsh python3.12-venv \
-  zoxide tmux tealdeer neovim \
+  zoxide tmux tealdeer \
   eza ripgrep wireguard-tools
 
 sudo ln -s /usr/bin/batcat /usr/bin/bat
