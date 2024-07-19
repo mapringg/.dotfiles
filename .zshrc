@@ -118,6 +118,9 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [[ ! $PATH =~ ~/.local/bin ]] && PATH=$PATH:~/.local/bin
+if [[ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
 
 # Setup shell integrations
 eval "$(fzf --zsh)"
