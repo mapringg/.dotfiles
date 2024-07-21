@@ -1,8 +1,8 @@
-ORIGINAL_DIR=$(pwd)
-mkdir ~/build && cd ~/build
-sudo apt-get install ninja-build gettext cmake unzip curl build-essential
-git clone https://github.com/neovim/neovim
-cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-git checkout stable
-sudo make install
-cd "$ORIGINAL_DIR"
+cd /tmp
+wget -O nvim.tar.gz "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz"
+tar -xf nvim.tar.gz
+sudo install nvim-linux64/bin/nvim /usr/local/bin/nvim
+sudo cp -R nvim-linux64/lib /usr/local/
+sudo cp -R nvim-linux64/share /usr/local/
+rm -rf nvim-linux64 nvim.tar.gz
+cd -
