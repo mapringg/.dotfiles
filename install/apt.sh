@@ -1,5 +1,5 @@
 sudo apt install -y \
-  fd-find bat zsh python3.12-venv \
+  fd-find bat zsh \
   zoxide tmux tealdeer \
   eza ripgrep wireguard-tools
 
