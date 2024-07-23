@@ -45,6 +45,9 @@ bindkey "^X^E" edit-command-line
 # Setup yazi shell wrapper
 [[ ! -f ~/.yazi.zsh ]] || source ~/.yazi.zsh
 
+# Setup ssh agent
+[[ ! -f ~/.ssh.zsh ]] || source ~/.ssh.zsh
+
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -118,9 +121,6 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 export FZF_DEFAULT_COMMAND="fd -H -E '.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [[ ! $PATH =~ ~/.local/bin ]] && PATH=$PATH:~/.local/bin
-if [[ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]]; then
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-fi
 
 # Setup shell integrations
 eval "$(fzf --zsh)"
