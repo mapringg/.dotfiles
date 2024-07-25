@@ -5,5 +5,5 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
         # Launch a new instance of the agent
         ssh-agent -s &> .ssh/ssh-agent
    fi
-   eval `cat .ssh/ssh-agent`
+   eval `cat ~/.ssh/ssh-agent`
 fi
