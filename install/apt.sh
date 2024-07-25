@@ -1,5 +1,5 @@
 sudo apt install -y \
-  fd-find bat zsh python-venv \
+  fd-find bat zsh python3-venv \
   tmux ripgrep wireguard-tools
 
 sudo ln -s /usr/bin/batcat /usr/bin/bat
