@@ -1,7 +1,7 @@
 local cmp = require("cmp")
 
 return {
-  "nvim-cmp",
+  "hrsh7th/nvim-cmp",
   opts = {
     window = {
       completion = cmp.config.window.bordered(),
