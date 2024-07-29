@@ -14,3 +14,6 @@ italic = { style = "Medium Italic" }
 padding = { x = 4, y = 4 }
 option_as_alt = "Both"
 dynamic_title = false
+
+[mouse]
+hide_when_typing = true
