@@ -22,6 +22,7 @@ zinit light Aloxaf/fzf-tab
 
 # Add oh-my-zsh plugins
 zinit snippet OMZP::git
+zinit snippet OMZL::git.zsh
 zinit snippet OMZP::sudo
 zinit snippet OMZP::gh
 
