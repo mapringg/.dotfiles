@@ -46,9 +46,6 @@ bindkey "^X^E" edit-command-line
 # Setup yazi shell wrapper
 [[ ! -f ~/.yazi.zsh ]] || source ~/.yazi.zsh
 
-# Setup ssh agent
-[[ ! -f ~/.ssh.zsh ]] || source ~/.ssh.zsh
-
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -126,5 +123,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Setup shell integrations
 eval "$(fzf --zsh)"
 eval "$(mise activate zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
