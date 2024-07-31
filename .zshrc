@@ -85,7 +85,6 @@ alias sa="alias | grep"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias cat="bat"
 
 # Environments
 export EDITOR="vi"
