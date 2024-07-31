@@ -118,5 +118,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Setup shell integrations
 eval "$(fzf --zsh)"
 eval "$(mise activate zsh)"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
