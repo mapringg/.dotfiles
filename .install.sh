@@ -4,7 +4,7 @@ sudo apt update && sudo apt upgrade -y
 
 sudo apt install -y \
   stow curl xsel \
-  fd-find bat zsh python3-venv \
+  fd-find bat zsh \
   tmux ripgrep wireguard-tools \
   build-essential
 

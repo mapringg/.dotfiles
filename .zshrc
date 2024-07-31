@@ -43,9 +43,6 @@ bindkey "^X^E" edit-command-line
 # Setup sesh for tmux session management
 [[ ! -f ~/.sesh.zsh ]] || source ~/.sesh.zsh
 
-# Setup yazi shell wrapper
-[[ ! -f ~/.yazi.zsh ]] || source ~/.yazi.zsh
-
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -89,10 +86,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias cat="bat"
-alias v=$(command -v nvim >/dev/null 2>&1 && echo nvim || echo vi)
 
 # Environments
-export EDITOR=$(command -v nvim >/dev/null 2>&1 && echo nvim || echo vi)
+export EDITOR="vi"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config"
