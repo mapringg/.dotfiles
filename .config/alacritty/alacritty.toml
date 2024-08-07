@@ -10,9 +10,9 @@ draw_bold_text_with_bright_colors = true
 normal = { family = "MonoLisa Nerd Font" }
 
 [window]
-padding = { x = 4, y = 4 }
 option_as_alt = "Both"
 dynamic_title = false
+startup_mode = "Maximized"
 
 [mouse]
 hide_when_typing = true
