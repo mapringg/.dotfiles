@@ -1,5 +1,0 @@
-# Main
-
-```sh
-./install.sh
-```
