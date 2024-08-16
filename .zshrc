@@ -42,6 +42,7 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Aliases
+alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -la'
 alias ..='cd ..'
@@ -53,6 +54,7 @@ export EDITOR="vi"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config"
+export CLICOLOR=1
 [[ ! $PATH =~ ~/.local/bin ]] && PATH=$PATH:~/.local/bin
 
 # Setup shell integrations
