@@ -48,6 +48,26 @@ alias la='ls -la'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias a='alias'
+alias lg='lazygit'
+
+# Git aliases
+alias gpl='git pull'
+alias gp='git push'
+alias gf='git fetch'
+alias gst='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gl='git log'
+alias glo='git log --oneline'
+alias glg='git log --oneline --decorate --graph --parents'
+alias gb='git branch'
+alias gs='git switch'
+alias gm='git merge'
+alias grb='git rebase'
+alias gd='git diff'
+alias grs='git reset'
+alias grm='git remote'
 
 # Environments
 export EDITOR="vi"
