@@ -1,24 +1,42 @@
 [user]
-email = work@sorawitk.com
-name = Sorawit Kongnurat
+    email = work@sorawitk.com
+    name = Sorawit Kongnurat
 
 [github]
-user = mapringg
+    user = mapringg
 
 [merge]
-conflictstyle = diff3
+    conflictstyle = diff3
 
 [diff]
-colorMoved = default
+    colorMoved = default
 
 [init]
-defaultBranch = main
+    defaultBranch = main
 
 [pull]
-rebase = true
+    rebase = true
 
 [push]
-default = upstream
+    default = upstream
 
 [rebase]
-autoStash = true
+    autoStash = true
+
+[alias]
+    a = add
+    br = branch
+    c = commit
+    d = diff
+    f = fetch
+    lg = log
+    lgg = log --oneline --decorate --graph --parents
+    lo = log --oneline
+    m = merge
+    ps = push
+    pl = pull
+    rb = rebase
+    r = remote
+    rs = reset
+    sw = switch
+    st = status
