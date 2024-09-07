@@ -41,6 +41,16 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# Function to get Git commits since a specific date
+get_git_commits_since() {
+    if [ -z "$1" ]; then
+        echo "Please provide a date in the format YYYY-MM-DD"
+        return 1
+    fi
+    git log --since="$1" --no-merges --format="%s" | pbcopy
+    echo "Commits since $1 have been copied to clipboard"
+}
+
 # Aliases
 alias ls='ls --color=auto'
 alias ll='ls -l'
@@ -51,6 +61,7 @@ alias ....='cd ../../..'
 alias a='alias'
 alias lg='lazygit'
 alias g='git'
+alias gcs='get_git_commits_since'
 
 # Environments
 export EDITOR="vi"
