@@ -40,3 +40,4 @@
     rs = reset
     sw = switch
     st = status
+    aliases = !git config --get-regexp ^alias\\.
