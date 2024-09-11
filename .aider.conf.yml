@@ -48,7 +48,7 @@
 #35turbo: false
 
 ## Use deepseek/deepseek-coder model for the main chat
-deepseek: true
+#deepseek: false
 
 #################
 # Model Settings:
