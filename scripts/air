@@ -1,0 +1,146 @@
+#!/bin/bash
+
+# Check if required commands are installed
+for cmd in fzf fd rg; do
+    if ! command -v $cmd &> /dev/null; then
+        echo "Error: $cmd is not installed. Please install it first." >&2
+        exit 1
+    fi
+done
+
+# Set default recursion level
+RECURSION_LEVEL=${1:-1}
+
+# Function to copy to clipboard based on OS
+copy_to_clipboard() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        pbcopy
+    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        if command -v xclip &> /dev/null; then
+            xclip -selection clipboard
+        else
+            echo "Error: xclip is not installed. Please install it first." >&2
+            exit 1
+        fi
+    else
+        echo "Error: Unsupported operating system" >&2
+        exit 1
+    fi
+}
+
+# Function to find the correct file with extension
+find_file_with_extension() {
+    local base_path="$1"
+    local extensions=("ts" "tsx" "js" "jsx")
+    
+    for ext in "${extensions[@]}"; do
+        if [ -f "${base_path}.${ext}" ]; then
+            echo "${base_path}.${ext}"
+            return 0
+        fi
+    done
+    
+    # If no file with known extension is found, return the original path
+    echo "$base_path"
+    return 1
+}
+
+# Function to process a single file
+process_file() {
+    local file_path="$1"
+    local processed_files="$2"
+    local current_level="$3"
+    local base_dir=$(dirname "$file_path")
+    
+    # Check if the file has already been processed
+    if [[ $processed_files == *"$file_path"* ]]; then
+        return 0
+    fi
+    
+    # Add the file to the list of processed files
+    processed_files="$processed_files $file_path"
+    
+    # Check if the file exists
+    if [ ! -f "$file_path" ]; then
+        echo "Error: File not found: $file_path" >&2
+        return 1
+    fi
+    
+    # Extract the file extension
+    local extension="${file_path##*.}"
+    
+    # Output the filename as a header
+    echo "### File: $file_path"
+    
+    # Output the opening triple backticks with the file extension
+    echo '```'"$extension"
+    
+    # Read and output the file content
+    cat "$file_path" || {
+        echo "Error: Unable to read file: $file_path" >&2
+        return 1
+    }
+    
+    # Output the closing triple backticks on a new line
+    echo
+    echo '```'
+    
+    # Add a newline for separation
+    echo
+    
+    # If we haven't reached the maximum recursion level, process imported files
+    if [ "$current_level" -lt "$RECURSION_LEVEL" ]; then
+        # Extract and process imported files
+        rg -o "^import .+ from ['\"](@/[^'\"]+|\\./[^'\"]+|\\.\\.?/[^'\"]+)['\"]" "$file_path" --replace '$1' | while read -r import; do
+            # Convert the import path to a file path
+            local import_file
+            if [[ $import == @/* ]]; then
+                import_file=$(echo "$import" | sed 's|^@/|./src/|')
+            elif [[ $import == ./* || $import == ../* ]]; then
+                import_file=$(realpath --relative-to=. "$base_dir/$import")
+            else
+                import_file="$import"
+            fi
+            
+            # Find the correct file with extension
+            import_file=$(find_file_with_extension "$import_file")
+            
+            # Process the imported file if it exists
+            if [ -f "$import_file" ]; then
+                process_file "$import_file" "$processed_files" $((current_level + 1))
+            else
+                echo "Warning: Imported file not found: $import_file" >&2
+            fi
+        done
+    fi
+}
+
+# Use fd to find files and directories, sort them by last modified time, then use fzf to select
+selected_items=$(fd -t f -t d -0 | xargs -0 ls -td | fzf --multi --preview 'if [ -d {} ]; then ls -l {}; else cat {}; fi')
+
+# Check if any items were selected
+if [ -z "$selected_items" ]; then
+    echo "No items selected. Exiting."
+    exit 0
+fi
+
+# Process each selected item and store the output
+output=$(echo "$selected_items" | while read -r item; do
+    if [ -d "$item" ]; then
+        # If it's a directory, process all files in it
+        find "$item" -type f | while read -r file; do
+            process_file "$file" "" 0
+        done
+    else
+        # If it's a file, process it directly
+        process_file "$item" "" 0
+    fi
+done)
+
+# Copy the output to clipboard
+echo "$output" | copy_to_clipboard
+
+# Also print the output to the terminal
+echo "$output"
+
+echo "Output has been copied to clipboard."
