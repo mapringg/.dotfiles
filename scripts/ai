@@ -13,10 +13,12 @@ copy_to_clipboard() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         pbcopy
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        if command -v xclip &> /dev/null; then
+        if command -v wl-copy &> /dev/null; then
+            wl-copy
+        elif command -v xclip &> /dev/null; then
             xclip -selection clipboard
         else
-            echo "Error: xclip is not installed. Please install it first." >&2
+            echo "Error: Neither wl-clipboard nor xclip is installed. Please install one of them first." >&2
             exit 1
         fi
     else
