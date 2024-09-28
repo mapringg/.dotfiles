@@ -1,1 +1,2 @@
-eval "$($HOME/.local/bin/mise activate zsh --shims)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/mise activate zsh --shims)"
