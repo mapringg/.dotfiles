@@ -1,17 +1,18 @@
 ## GUI
-- vscode
+
+- cursor
 - chrome
 - syncthing
 - keepassxc
-- tailscale
-- wireguard
 
 ## CLI
+
+- tailscale
+- fish
 - fd
 - gh
 - lazygit
 - mise
 - ripgrep
 - stow
-- tlrc
 - zoxide
