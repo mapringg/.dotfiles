@@ -1,3 +1,6 @@
+[core]
+    excludesFile = ~/.gitignore
+
 [user]
     email = work@sorawitk.com
     name = Sorawit Kongnurat
@@ -78,8 +81,8 @@
     plo = pull origin
 
     # Cleanup
-    prune = fetch --prune
-    cleanup = !git branch --merged | grep -v '*' | xargs git branch -d
+    pr = fetch --prune
+    cu = !git branch --merged | grep -v '*' | xargs git branch -d
 
     # Show changes in a file
     changes = log -p --follow --
