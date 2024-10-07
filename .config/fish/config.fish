@@ -32,7 +32,7 @@ fish_add_path ~/.local/bin
 fish_add_path ~/scripts
 
 # Setup shell integrations
-zoxide init --cmd cd fish | source
+zoxide init fish | source
 
 if status is-interactive
   mise activate fish | source
