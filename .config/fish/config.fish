@@ -1,3 +1,5 @@
+set -g fish_greeting ""
+
 # Keybindings
 function fish_user_key_bindings
     bind \cp history-search-backward
@@ -39,3 +41,5 @@ if status is-interactive
 else
   mise activate fish --shims | source
 end
+
+oh-my-posh init fish --config $HOME/.config/ohmyposh/config.toml | source
