@@ -61,7 +61,7 @@ process_file() {
 }
 
 # Use fd to find files and directories, sort them by last modified time, then use fzf to select
-selected_items=$(fd -t f -t d -0 | xargs -0 ls -td | fzf --multi --preview 'if [ -d {} ]; then ls -l {}; else cat {}; fi')
+selected_items=$(fd -t f -t d -0 | xargs -0 ls -td | fzf --multi)
 
 # Check if any items were selected
 if [ -z "$selected_items" ]; then
