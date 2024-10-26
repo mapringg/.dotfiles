@@ -1,5 +1,9 @@
 [tools]
 go = "latest"
 node = "lts"
-python = "latest"
 bun = "latest"
+python = "3.12"
+"pipx:aider-chat" = "latest"
+
+[settings]
+experimental = true
