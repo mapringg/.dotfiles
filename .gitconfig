@@ -1,5 +1,5 @@
 [core]
-    excludesFile = ~/.gitignore
+    excludesFile = ~/.config/git/ignore
 
 [user]
     email = work@sorawitk.com
