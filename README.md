@@ -34,27 +34,20 @@ This guide will help you set up the Fish shell on your system.
 
 ### For Linux:
 
-1. **Add Fish to the list of valid login shells:**
-
-   ```sh
-   echo /usr/bin/fish | sudo tee -a /etc/shells
-   ```
-
-2. **Change your default shell to Fish:**
+1. **Change your default shell to Fish:**
 
    ```sh
    chsh -s /usr/bin/fish
    ```
 
-3. **Add common paths to Fish's PATH variable:**
+2. **Add common paths to Fish's PATH variable:**
 
    ```sh
-   fish_add_path "/usr/bin/"
    fish_add_path ~/.local/bin
    fish_add_path ~/scripts
    ```
 
-4. **Update Fish completions:**
+3. **Update Fish completions:**
 
    ```sh
    fish_update_completions
