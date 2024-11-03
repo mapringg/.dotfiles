@@ -1,11 +1,5 @@
 set -g fish_greeting ""
 
-# Keybindings
-function fish_user_key_bindings
-    bind \cp history-search-backward
-    bind \cn history-search-forward
-end
-
 # History
 set -g HISTSIZE 5000
 set -g HISTFILE ~/.fish_history
@@ -29,10 +23,6 @@ set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx CLICOLOR 1
-
-# Add directories to PATH
-fish_add_path ~/.local/bin
-fish_add_path ~/scripts
 
 # Setup shell integrations
 zoxide init fish | source
