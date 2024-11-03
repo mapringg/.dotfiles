@@ -21,6 +21,7 @@ alias ....='cd ../../..'
 alias a='alias'
 alias lg='lazygit'
 alias g='git'
+alias zl='zellij'
 
 # Environment variables
 set -gx EDITOR vi
