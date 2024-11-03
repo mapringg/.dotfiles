@@ -65,7 +65,7 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     visual = !gitk
-    aliases = config --get-regexp alias
+    alias = config --get-regexp alias
 
     # File operations
     untrack = rm --cached
