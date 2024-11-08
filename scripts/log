@@ -25,8 +25,20 @@ if [ "$2" == "-c" ]; then
     sort_order=""
 fi
 
-# Get the commits
-commits=$(git log $sort_order --since="$start_date" --until="$end_date" --no-merges --format="%s" 2>/dev/null)
+# Determine the log format
+log_format="%s"
+if [ "$2" == "-t" ]; then
+    log_format="%ad"
+    date_format="--date=format:%m-%d-%Y"
+else
+    date_format=""
+fi
+
+# Get the current user's Git email
+author_email=$(git config user.email)
+
+# Get the commits by the current user
+commits=$(git log $sort_order --since="$start_date" --until="$end_date" --no-merges --author="$author_email" --format="$log_format" $date_format 2>/dev/null)
 
 # Check if git log command was successful
 if [ $? -ne 0 ]; then
