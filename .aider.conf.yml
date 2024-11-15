@@ -1,5 +1,3 @@
-## Use colors suitable for a dark terminal background (default: False)
-dark-mode: true
 ## Enable caching of prompts (default: False)
 cache-prompts: true
 ## Enable/disable auto commit of LLM changes (default: True)
