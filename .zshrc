@@ -79,8 +79,21 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
+alias lg='lazygit'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(mise activate zsh)"
+
+# Function to add a directory to PATH if it exists and is not already in PATH
+add_to_path() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        export PATH="$1:$PATH"
+    fi
+}
+
+# Add directories to PATH
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/bin"
+
