@@ -20,7 +20,7 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 14
+size = 12
 
 [font.bold]
 family = "MonoLisa Nerd Font"
@@ -51,8 +51,8 @@ mouse = "Middle"
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[terminal.shell]
-program = "/bin/zsh"
+[terminal]
+shell = "/bin/zsh"
 
 [window]
 decorations = "full"
@@ -61,11 +61,9 @@ option_as_alt = "Both"
 #startup_mode = "Maximized"
 
 [window.dimensions]
-columns = 160
+columns = 195
 lines = 80
 
 [window.padding]
 x = 4
 y = 4
-
-[terminal]
