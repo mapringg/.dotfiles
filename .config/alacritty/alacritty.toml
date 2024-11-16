@@ -51,9 +51,6 @@ mouse = "Middle"
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
-[terminal]
-shell = "/bin/zsh"
-
 [window]
 decorations = "full"
 dynamic_title = true
