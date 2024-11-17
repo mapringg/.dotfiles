@@ -81,11 +81,6 @@ alias vim='nvim'
 alias c='clear'
 alias lg='lazygit'
 
-# Shell integrations
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(mise activate zsh)"
-
 # Function to add a directory to PATH if it exists and is not already in PATH
 add_to_path() {
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
@@ -97,3 +92,7 @@ add_to_path() {
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/bin"
 
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(mise activate zsh)"
