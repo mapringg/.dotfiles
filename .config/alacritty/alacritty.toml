@@ -20,7 +20,7 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 10
+size = 12
 
 [font.bold]
 family = "MonoLisa Nerd Font"
