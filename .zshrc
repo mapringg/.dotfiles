@@ -79,3 +79,6 @@ alias lg='lazygit'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Environment variables
+export XDG_CONFIG_HOME="$HOME/.config"
