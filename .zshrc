@@ -77,6 +77,7 @@ alias c='clear'
 alias lg='lazygit'
 
 # Shell integrations
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
