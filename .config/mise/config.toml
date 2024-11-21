@@ -3,7 +3,3 @@ go = "latest"
 node = "lts"
 bun = "latest"
 python = "3.12"
-"pipx:aider-chat" = "latest"
-
-[settings]
-experimental = true
