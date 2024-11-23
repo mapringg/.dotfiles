@@ -17,6 +17,12 @@
   "buffer_font_family": "MonoLisa",
   "buffer_font_size": 12,
   "cursor_blink": false,
+  "indent_guides": {
+    "enabled": false
+  },
+  "scrollbar": {
+    "show": "never"
+  },
   "ssh_connections": [
     {
       "host": "dev",
@@ -28,7 +34,8 @@
     }
   ],
   "telemetry": {
-    "metrics": true
+    "metrics": true,
+    "diagnostics": true
   },
   "theme": "Gruvbox Dark Hard",
   "ui_font_size": 14
