@@ -57,11 +57,11 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 decorations = "full"
 dynamic_title = true
 option_as_alt = "Both"
-#startup_mode = "Maximized"
+startup_mode = "Maximized"
 
 [window.dimensions]
-columns = 195
-lines = 80
+#columns = 195
+#lines = 80
 
 [window.padding]
 x = 4
