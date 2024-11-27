@@ -1,0 +1,11 @@
+[[session]]
+name = "influencer-client"
+path = "~/Developer/influencer-client"
+
+[[session]]
+name = "influencer-admin"
+path = "~/Developer/influencer-admin"
+
+[[session]]
+name = "dsp-master-client"
+path = "~/Developer/dsp-master-client"

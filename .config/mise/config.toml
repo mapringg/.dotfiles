@@ -3,3 +3,6 @@ go = "latest"
 node = "lts"
 bun = "latest"
 python = "3.12"
+
+[settings]
+go_set_gobin = true
