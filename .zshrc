@@ -79,6 +79,8 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
+export CHROME_DEVEL_SANDBOX=/opt/google/chrome/chrome-sandbox
+
 # Open in tmux popup if on tmux, otherwise use --height mode
 export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
 
