@@ -45,7 +45,7 @@
   },
   "theme": "Gruvbox Dark Hard",
   "ui_font_size": 13,
+  "unstable.ui_density": "compact",
   "use_autoclose": false,
-  "vim_mode": true,
   "wrap_guides": [80]
 }
