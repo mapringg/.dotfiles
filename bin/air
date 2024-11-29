@@ -18,10 +18,8 @@ copy_to_clipboard() {
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
         if command -v wl-copy &> /dev/null; then
             wl-copy
-        elif command -v xclip &> /dev/null; then
-            xclip -selection clipboard
         else
-            echo "Error: Neither wl-clipboard nor xclip is installed. Please install one of them first." >&2
+            echo "Error: wl-copy is not installed. Please install wl-clipboard first." >&2
             exit 1
         fi
     else
@@ -34,14 +32,14 @@ copy_to_clipboard() {
 find_file_with_extension() {
     local base_path="$1"
     local extensions=("ts" "tsx" "js" "jsx")
-    
+
     for ext in "${extensions[@]}"; do
         if [ -f "${base_path}.${ext}" ]; then
             echo "${base_path}.${ext}"
             return 0
         fi
     done
-    
+
     # If no file with known extension is found, return the original path
     echo "$base_path"
     return 1
@@ -53,43 +51,43 @@ process_file() {
     local processed_files="$2"
     local current_level="$3"
     local base_dir=$(dirname "$file_path")
-    
+
     # Check if the file has already been processed
     if [[ $processed_files == *"$file_path"* ]]; then
         return 0
     fi
-    
+
     # Add the file to the list of processed files
     processed_files="$processed_files $file_path"
-    
+
     # Check if the file exists
     if [ ! -f "$file_path" ]; then
         echo "Error: File not found: $file_path" >&2
         return 1
     fi
-    
+
     # Extract the file extension
     local extension="${file_path##*.}"
-    
+
     # Output the filename as a header
     echo "### File: $file_path"
-    
+
     # Output the opening triple backticks with the file extension
     echo '```'"$extension"
-    
+
     # Read and output the file content
     cat "$file_path" || {
         echo "Error: Unable to read file: $file_path" >&2
         return 1
     }
-    
+
     # Output the closing triple backticks on a new line
     echo
     echo '```'
-    
+
     # Add a newline for separation
     echo
-    
+
     # If we haven't reached the maximum recursion level, process imported files
     if [ "$current_level" -lt "$RECURSION_LEVEL" ]; then
         # Extract and process imported files
@@ -103,10 +101,10 @@ process_file() {
             else
                 import_file="$import"
             fi
-            
+
             # Find the correct file with extension
             import_file=$(find_file_with_extension "$import_file")
-            
+
             # Process the imported file if it exists
             if [ -f "$import_file" ]; then
                 process_file "$import_file" "$processed_files" $((current_level + 1))
