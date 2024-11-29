@@ -11,6 +11,9 @@
   "buffer_line_height": "standard",
   "current_line_highlight": "none",
   "cursor_blink": false,
+  "file_types": {
+    "CSS": ["scss"]
+  },
   "indent_guides": {
     "enabled": false
   },
@@ -43,5 +46,6 @@
   "theme": "Gruvbox Dark Hard",
   "ui_font_size": 13,
   "use_autoclose": false,
+  "vim_mode": true,
   "wrap_guides": [80]
 }
