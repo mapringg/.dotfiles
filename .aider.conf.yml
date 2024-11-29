@@ -1,12 +1,9 @@
 ## Enable caching of prompts (default: False)
-#cache-prompts: true
-## Enable/disable auto commit of LLM changes (default: True)
-#auto-commits: false
-## Specify the api base url
-#openai-api-base: https://glhf.chat/api/openai/v1
+cache-prompts: true
 ## Specify the model to use for the main chat
 model: openai/gpt-4o-2024-11-20
-#model: openai/hf:Qwen/Qwen2.5-Coder-32B-Instruct
+## Specify the model to use for commit messages and chat history summarization (default depends on --model)
+weak-model: openai/gpt-4o-mini-2024-07-18
 ## Specify the model to use for editor tasks (default depends on --model)
 editor-model: deepseek/deepseek-coder
 ## Specify a custom prompt for generating commit messages
@@ -24,3 +21,10 @@ commit-prompt: |
   - Does not exceed 72 characters.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
+## Specify multiple values like this:
+alias:
+  - "cheap:deepseek/deepseek-coder"
+  - "fast:openai/gpt-4o-mini-2024-07-18"
+  - "smart:openai/gpt-4o-2024-11-20"
+## Specify which editor to use for the /editor command
+editor: "zed --wait"
