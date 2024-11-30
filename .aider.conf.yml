@@ -23,6 +23,7 @@ commit-prompt: |
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 ## Specify multiple values like this:
 alias:
+  - "ollama:ollama/qwen2.5-coder:14b"
   - "cheap:deepseek/deepseek-coder"
   - "fast:openai/gpt-4o-mini-2024-07-18"
   - "smart:openai/gpt-4o-2024-11-20"
