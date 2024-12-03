@@ -29,3 +29,5 @@ alias:
   - "smart:openai/gpt-4o-2024-11-20"
 ## Specify which editor to use for the /editor command
 editor: "zed --wait"
+## Use colors suitable for a dark terminal background (default: False)
+dark-mode: true
