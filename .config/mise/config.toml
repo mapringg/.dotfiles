@@ -3,7 +3,7 @@ go = "latest"
 node = "lts"
 bun = "latest"
 python = "3.12"
-"pipx:git+https://github.com/Aider-AI/aider.git" = "main"
+"pipx:git+https://github.com/Aider-AI/aider.git" = "v0.66.0"
 
 [settings]
 go_set_gobin = true
