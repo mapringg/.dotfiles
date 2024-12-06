@@ -18,6 +18,22 @@
           "paths": ["~/influally-client-staging"]
         }
       ]
+    },
+    {
+      "host": "pre",
+      "projects": [
+        {
+          "paths": ["~/influencer-client"]
+        }
+      ]
+    },
+    {
+      "host": "pro",
+      "projects": [
+        {
+          "paths": ["~/influencer-client"]
+        }
+      ]
     }
   ],
   "theme": "Gruvbox Dark Hard",
