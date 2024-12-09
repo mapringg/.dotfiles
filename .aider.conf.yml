@@ -1,12 +1,11 @@
-## Enable caching of prompts (default: False)
+dark-mode: true
+architect: true
 cache-prompts: true
-## Specify the model to use for the main chat
+watch-files: true
+editor: "zed --wait"
 model: openai/gpt-4o-2024-11-20
-## Specify the model to use for commit messages and chat history summarization (default depends on --model)
 weak-model: openai/gpt-4o-mini-2024-07-18
-## Specify the model to use for editor tasks (default depends on --model)
 editor-model: deepseek/deepseek-coder
-## Specify a custom prompt for generating commit messages
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
@@ -21,13 +20,8 @@ commit-prompt: |
   - Does not exceed 72 characters.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
-## Specify multiple values like this:
 alias:
   - "ollama:ollama/qwen2.5-coder:14b"
   - "cheap:deepseek/deepseek-coder"
   - "fast:openai/gpt-4o-mini-2024-07-18"
   - "smart:openai/gpt-4o-2024-11-20"
-## Specify which editor to use for the /editor command
-editor: "zed --wait"
-## Use colors suitable for a dark terminal background (default: False)
-dark-mode: true
