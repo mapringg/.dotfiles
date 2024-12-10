@@ -7,6 +7,7 @@
     "version": "2"
   },
   "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 12,
   "file_types": {
     "CSS": ["scss"]
   },
@@ -36,4 +37,5 @@
       ]
     }
   ],
+  "ui_font_size": 15
 }
