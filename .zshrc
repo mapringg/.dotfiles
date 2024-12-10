@@ -68,12 +68,13 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias ls='ls --color'
+alias ll='ls -l'
+alias l.='ls -al'
 alias vim='nvim'
 alias c='clear'
 alias lg='lazygit'
 
 # Shell integrations
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
