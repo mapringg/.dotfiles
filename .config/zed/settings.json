@@ -6,7 +6,7 @@
     },
     "version": "2"
   },
-  "buffer_font_family": "MonoLisa",
+  "buffer_font_family": "JetBrains Mono",
   "file_types": {
     "CSS": ["scss"]
   },
