@@ -1,11 +1,8 @@
-dark-mode: true
-architect: true
 cache-prompts: true
 watch-files: true
 editor: "zed --wait"
 model: openai/gpt-4o-2024-11-20
 weak-model: openai/gpt-4o-mini-2024-07-18
-editor-model: deepseek/deepseek-coder
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
