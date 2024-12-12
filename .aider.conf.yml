@@ -3,7 +3,7 @@ watch-files: true
 show-model-warnings: false
 gitignore: false
 editor: "zed --wait"
-model: gemini/gemini-exp-1206
+model: gemini/gemini-2.0-flash-exp
 weak-model: deepseek/deepseek-coder
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
