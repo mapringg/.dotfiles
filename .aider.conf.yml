@@ -1,9 +1,7 @@
 cache-prompts: true
-watch-files: true
 show-model-warnings: false
-gitignore: false
 editor: "zed --wait"
-model: gemini/gemini-2.0-flash-exp
+model: openrouter/anthropic/claude-3.5-haiku
 weak-model: deepseek/deepseek-coder
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
