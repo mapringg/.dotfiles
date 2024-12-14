@@ -1,8 +1,6 @@
 cache-prompts: true
-show-model-warnings: false
 editor: "zed --wait"
-model: openrouter/anthropic/claude-3.5-haiku
-weak-model: deepseek/deepseek-coder
+model: openrouter/anthropic/claude-3.5-sonnet
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
@@ -19,5 +17,5 @@ commit-prompt: |
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 alias:
   - "smart:openrouter/anthropic/claude-3.5-sonnet"
-  - "fast:openrouter/anthropic/claude-3.5-haiku"
+  - "fast:gemini/gemini-2.0-flash-exp"
   - "cheap:deepseek/deepseek-coder"
