@@ -6,8 +6,9 @@
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
-      "ctrl-alt-shift-down": "editor::DuplicateLineDown"
+      "cmd-d": ["editor::SelectNext", { "replace_newest": false }],
+      "cmd-alt-up": "editor::AddSelectionAbove",
+      "cmd-alt-down": "editor::AddSelectionBelow"
     }
   }
 ]
