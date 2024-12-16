@@ -1,3 +1,5 @@
+export ANDROID_HOME=$HOME/Android/Sdk
+
 # Function to add a directory to PATH if it exists and is not already in PATH
 add_to_path() {
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
@@ -8,6 +10,8 @@ add_to_path() {
 # Add directories to PATH
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/bin"
+add_to_path "$ANDROID_HOME/emulator"
+add_to_path "$ANDROID_HOME/platform-tools"
 
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled

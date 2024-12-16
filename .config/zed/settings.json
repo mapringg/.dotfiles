@@ -7,9 +7,9 @@
     "version": "2"
   },
   "buffer_font_family": "MonoLisa",
-  "buffer_font_size": 12,
+  "buffer_font_size": 14,
   "buffer_line_height": {
-    "custom": 1.5
+    "custom": 1.35
   },
   "file_types": {
     "CSS": ["scss"]
@@ -40,5 +40,5 @@
       ]
     }
   ],
-  "ui_font_size": 13
+  "ui_font_size": 15
 }
