@@ -9,3 +9,7 @@ path = "~/Developer/influencer-admin"
 [[session]]
 name = "dsp-master-client"
 path = "~/Developer/dsp-master-client"
+
+[[session]]
+name = "tarot"
+path = "~/Developer/tarot"
