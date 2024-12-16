@@ -1,1 +1,10 @@
 *node_modules/
+*Library/
+*.cache/
+*.zsh_sessions/
+*.vscode/
+*.node-gyp/
+*go/
+*.npm/
+*.bun/
+*.local/share/mise/
