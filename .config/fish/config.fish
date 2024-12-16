@@ -8,7 +8,7 @@ alias l. "ls -al"
 alias c clear
 
 set -g fish_greeting
-set -U fish_key_bindings fish_vi_key_bindings
+set -U fish_key_bindings fish_default_key_bindings
 
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x EDITOR vi
@@ -16,7 +16,8 @@ set -x FZF_DEFAULT_OPTS "--height 40% --tmux bottom,40% --layout reverse --borde
 set -x FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x FZF_ALT_C_COMMAND "fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-set -x ANDROID_HOME "$HOME/Android/Sdk"
+set -x ANDROID_HOME "$HOME/Library/Android/sdk"
+set -x JAVA_HOME "/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 
 fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/bin"

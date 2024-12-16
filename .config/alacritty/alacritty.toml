@@ -15,3 +15,8 @@ y = 1
 [window]
 option_as_alt = "Both"
 padding = { x = 4, y = 2 }
+startup_mode = "Maximized"
+dynamic_title = false
+
+[terminal]
+shell = { program = "/opt/homebrew/bin/fish", args = ["--login"] }

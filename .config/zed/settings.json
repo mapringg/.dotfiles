@@ -9,7 +9,7 @@
   "buffer_font_family": "MonoLisa",
   "buffer_font_size": 12,
   "buffer_line_height": {
-    "custom": 1.5
+    "custom": 1.35
   },
   "file_types": {
     "CSS": ["scss"]
