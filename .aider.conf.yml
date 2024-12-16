@@ -17,6 +17,7 @@ commit-prompt: |
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 alias:
-  - "smart:openrouter/anthropic/claude-3.5-sonnet"
-  - "fast:gemini/gemini-2.0-flash-exp"
-  - "cheap:deepseek/deepseek-coder"
+  - "1:openrouter/anthropic/claude-3.5-sonnet"
+  - "2:gemini/gemini-exp-1206"
+  - "3:gemini/gemini-2.0-flash-exp"
+  - "4:deepseek/deepseek-coder"
