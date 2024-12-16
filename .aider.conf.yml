@@ -1,4 +1,5 @@
 cache-prompts: true
+completion-menu-color: "#11111b"
 editor: "zed --wait"
 model: openrouter/anthropic/claude-3.5-sonnet
 commit-prompt: |
