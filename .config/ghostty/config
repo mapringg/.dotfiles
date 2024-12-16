@@ -1,3 +1,0 @@
-font-family = "MonoLisa"
-command = "/opt/homebrew/bin/fish --login"
-theme = poimandres

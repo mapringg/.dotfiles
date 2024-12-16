@@ -1,4 +1,0 @@
-- name: openrouter/openai/o3-mini
-  extra_params:
-    extra_body:
-      reasoning_effort: high
