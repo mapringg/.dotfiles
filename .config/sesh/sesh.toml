@@ -13,3 +13,7 @@ path = "~/Developer/dsp-master-client"
 [[session]]
 name = "tarot"
 path = "~/Developer/tarot"
+
+[[session]]
+name = "practical-vim"
+path = "~/Developer/practical-vim"
