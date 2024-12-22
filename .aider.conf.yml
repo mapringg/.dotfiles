@@ -1,7 +1,7 @@
 cache-prompts: true
 completion-menu-color: "#11111b"
 editor: "zed --wait"
-model: openrouter/anthropic/claude-3.5-sonnet
+model: 2
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
