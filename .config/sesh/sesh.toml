@@ -11,8 +11,12 @@ name = "dsp-master-client"
 path = "~/Developer/dsp-master-client"
 
 [[session]]
-name = "tarot"
-path = "~/Developer/tarot"
+name = "tarot-mobile"
+path = "~/Developer/tarot-mobile"
+
+[[session]]
+name = "tarot-backend"
+path = "~/Developer/tarot-backend"
 
 [[session]]
 name = "practical-vim"
