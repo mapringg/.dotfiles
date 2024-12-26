@@ -14,3 +14,4 @@ y = 1
 
 [window]
 option_as_alt = "Both"
+padding = { x = 4, y = 2 }
