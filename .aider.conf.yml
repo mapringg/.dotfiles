@@ -1,7 +1,7 @@
 cache-prompts: true
 completion-menu-color: "#11111b"
 editor: "zed --wait"
-model: 2
+model: deepseek
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
@@ -14,10 +14,11 @@ commit-prompt: |
   - Starts with the appropriate prefix.
   - Is in the imperative mood (e.g., "add feature" not "added feature" or "adding feature").
   - Does not exceed 72 characters.
+  - Do not start with a capital letter.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 alias:
-  - "1:openrouter/anthropic/claude-3.5-sonnet"
-  - "2:gemini/gemini-exp-1206"
-  - "3:gemini/gemini-2.0-flash-exp"
-  - "4:deepseek/deepseek-coder"
+  - "claude:openrouter/anthropic/claude-3.5-sonnet"
+  - "google:gemini/gemini-exp-1206"
+  - "openai:gpt-4o-2024-11-20"
+  - "deepseek:deepseek/deepseek-chat"
