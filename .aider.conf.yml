@@ -1,6 +1,5 @@
 cache-prompts: true
 completion-menu-color: "#11111b"
-editor: "zed --wait"
 model: deepseek
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.

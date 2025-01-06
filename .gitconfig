@@ -1,6 +1,5 @@
 [core]
     excludesFile = ~/.config/git/ignore
-    editor = zed --wait
     pager = delta
 
 [user]
