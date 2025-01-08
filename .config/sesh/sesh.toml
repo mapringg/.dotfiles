@@ -1,5 +1,5 @@
 [[session]]
-name = ".dotfiles"
+name = "_dotfiles"
 path = "~/.dotfiles"
 
 [[session]]
