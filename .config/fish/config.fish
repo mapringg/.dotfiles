@@ -22,10 +22,12 @@ fish_add_path "$HOME/bin"
 fish_add_path "$ANDROID_HOME/emulator"
 fish_add_path "$ANDROID_HOME/platform-tools"
 
-mise activate fish --shims | source
-fzf --fish | source
-zoxide init fish | source
-starship init fish | source
+if status is-interactive
+    mise activate fish --shims | source
+    fzf --fish | source
+    zoxide init fish | source
+    starship init fish | source
 
-source ~/.config/fish/functions/sesh.fish
-bind \ek sesh-sessions
+    source ~/.config/fish/functions/sesh.fish
+    bind \ek sesh-sessions
+end
