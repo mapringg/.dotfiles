@@ -26,3 +26,4 @@ fish_add_path "$ANDROID_HOME/platform-tools"
 mise activate fish --shims | source
 fzf --fish | source
 zoxide init fish | source
+starship init fish | source
