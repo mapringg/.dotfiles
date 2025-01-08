@@ -1,4 +1,8 @@
 [[session]]
+name = ".dotfiles"
+path = "~/.dotfiles"
+
+[[session]]
 name = "influencer-client"
 path = "~/Developer/influencer-client"
 
