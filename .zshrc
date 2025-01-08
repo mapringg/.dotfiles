@@ -80,6 +80,7 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR="vi"
 
 # FZF
 source ~/.config/zsh/fzf.zsh
