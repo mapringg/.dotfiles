@@ -1,17 +1,16 @@
-if test -f "/opt/homebrew/bin/brew"
+if test -f /opt/homebrew/bin/brew
     eval (/opt/homebrew/bin/brew shellenv)
 end
 
 alias ls "ls --color"
 alias ll "ls -l"
 alias l. "ls -al"
-alias c "clear"
-alias lg "lazygit"
-bind \ek 'sesh connect (sesh list | fzf)'
+alias c clear
+alias lg lazygit
 
 set -g fish_greeting
 set -x XDG_CONFIG_HOME "$HOME/.config"
-set -x EDITOR "vi"
+set -x EDITOR vi
 set -x FZF_DEFAULT_OPTS "--height 40% --tmux bottom,40% --layout reverse --border top"
 set -x FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
@@ -27,3 +26,6 @@ mise activate fish --shims | source
 fzf --fish | source
 zoxide init fish | source
 starship init fish | source
+
+source ~/.config/fish/functions/sesh.fish
+bind \ek sesh-sessions
