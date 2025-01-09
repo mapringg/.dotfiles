@@ -21,3 +21,4 @@ alias:
   - "google:gemini/gemini-exp-1206"
   - "openai:gpt-4o-2024-11-20"
   - "deepseek:deepseek/deepseek-chat"
+read: .cursorrules
