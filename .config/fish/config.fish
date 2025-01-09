@@ -9,6 +9,8 @@ alias c clear
 alias lg lazygit
 
 set -g fish_greeting
+set -U fish_key_bindings fish_vi_key_bindings
+
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x EDITOR vi
 set -x FZF_DEFAULT_OPTS "--height 40% --tmux bottom,40% --layout reverse --border top"
