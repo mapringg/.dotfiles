@@ -1,6 +1,6 @@
 cache-prompts: true
 completion-menu-color: "#11111b"
-model: deepseek
+model: r1
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
@@ -17,8 +17,9 @@ commit-prompt: |
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 alias:
+  - "r1:deepseek/deepseek-reasoner"
+  - "v3:deepseek/deepseek-chat"
   - "claude:openrouter/anthropic/claude-3.5-sonnet"
-  - "google:gemini/gemini-exp-1206"
   - "openai:gpt-4o-2024-11-20"
-  - "deepseek:deepseek/deepseek-chat"
+  - "google:gemini/gemini-exp-1206"
 read: .cursorrules
