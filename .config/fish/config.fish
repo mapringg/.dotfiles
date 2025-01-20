@@ -6,6 +6,7 @@ alias ls "ls --color"
 alias ll "ls -l"
 alias l. "ls -al"
 alias c clear
+alias lg "lazygit"
 
 set -g fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
