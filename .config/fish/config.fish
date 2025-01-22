@@ -9,7 +9,8 @@ alias c clear
 alias lg "lazygit"
 
 set -g fish_greeting
-set -U fish_key_bindings fish_vi_key_bindings
+set -U fish_key_bindings fish_default_key_bindings
+set -U ABBR_TIPS_PROMPT "\e[1m{{ .abbr }}\e[0m => {{ .cmd }}"
 
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x EDITOR vi
@@ -28,7 +29,7 @@ if status is-interactive
     mise activate fish --shims | source
     fzf --fish | source
     zoxide init fish | source
-    set --global hydro_symbol_prompt "🌊"
+    set --global hydro_symbol_prompt "#"
 
     source ~/.config/fish/functions/sesh.fish
     bind \ek sesh-sessions
