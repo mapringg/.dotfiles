@@ -6,8 +6,8 @@ alias ls "ls --color"
 alias ll "ls -l"
 alias l. "ls -al"
 alias c clear
-alias lzg "lazygit"
-alias lzd "lazydocker"
+alias lzg lazygit
+alias lzd lazydocker
 
 set -g fish_greeting
 set -U fish_key_bindings fish_default_key_bindings
@@ -20,7 +20,7 @@ set -x FZF_DEFAULT_COMMAND "fd --hidden --strip-cwd-prefix --exclude .git"
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x FZF_ALT_C_COMMAND "fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 set -x ANDROID_HOME "$HOME/Android/Sdk"
-set -x JAVA_HOME "/usr/lib/jvm/java-17-openjdk-amd64"
+set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
 
 fish_add_path "$HOME/.local/bin"
 fish_add_path "$HOME/bin"
