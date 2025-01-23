@@ -29,7 +29,7 @@ if status is-interactive
     mise activate fish --shims | source
     fzf --fish | source
     zoxide init fish | source
-    set --global hydro_symbol_prompt "#"
+    set --global hydro_symbol_prompt "👻"
 
     source ~/.config/fish/functions/sesh.fish
     bind \ek sesh-sessions
