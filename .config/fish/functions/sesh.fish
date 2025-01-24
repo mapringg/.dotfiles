@@ -1,6 +1,6 @@
 function sesh-sessions
     # Run fzf and capture the session
-    set -l session (sesh list -t -c | fzf)
+    set -l session (sesh list -t -c | sort -u | fzf)
 
     # If no session is selected (e.g., user cancels), reset the prompt and return
     if test -z "$session"
