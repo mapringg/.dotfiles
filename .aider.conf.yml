@@ -1,7 +1,7 @@
 cache-prompts: true
 completion-menu-color: "#11111b"
 model: r1
-architect: true
+watch-files: true
 gitignore: false
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
