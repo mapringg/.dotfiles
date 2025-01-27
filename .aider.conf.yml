@@ -1,11 +1,27 @@
-cache-prompts: true
-completion-menu-color: "#11111b"
+# UI Settings
 dark-mode: true
-editor: "cursor --wait"
-gitignore: false
-model: r1
-architect: true
+completion-menu-color: "#11111b"
+
+# Editor Settings
 editor-model: claude
+architect: true
+cache-prompts: true
+editor: "cursor --wait"
+
+# Git Settings
+gitignore: false
+auto-commits: false
+
+# Model Settings
+model: r1
+alias:
+  - "r1:deepseek/deepseek-reasoner"
+  - "v3:deepseek/deepseek-chat"
+  - "claude:openrouter/anthropic/claude-3.5-sonnet"
+  - "openai:gpt-4o-2024-11-20"
+  - "google:gemini/gemini-exp-1206"
+
+# Commit Message Settings
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
@@ -21,9 +37,3 @@ commit-prompt: |
   - Do not start with a capital letter.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
-alias:
-  - "r1:deepseek/deepseek-reasoner"
-  - "v3:deepseek/deepseek-chat"
-  - "claude:openrouter/anthropic/claude-3.5-sonnet"
-  - "openai:gpt-4o-2024-11-20"
-  - "google:gemini/gemini-exp-1206"
