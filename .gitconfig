@@ -1,5 +1,6 @@
 [core]
     excludesFile = ~/.config/git/ignore
+    editor = cursor --wait
 
 [user]
     email = work@sorawitk.com

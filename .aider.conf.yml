@@ -1,6 +1,7 @@
 cache-prompts: true
 completion-menu-color: "#11111b"
 dark-mode: true
+editor: "cursor --wait"
 gitignore: false
 model: r1
 architect: true
