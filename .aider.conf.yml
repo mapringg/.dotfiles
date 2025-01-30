@@ -1,19 +1,7 @@
-# UI Settings
-dark-mode: true
-completion-menu-color: "#11111b"
+#############
+# Main model:
 
-# Editor Settings
-editor-model: claude
-architect: true
-cache-prompts: true
-editor: "cursor --wait"
-
-# Git Settings
-gitignore: false
-auto-commits: false
-
-# Model Settings
-model: r1
+model: v3
 alias:
   - "r1:deepseek/deepseek-reasoner"
   - "v3:deepseek/deepseek-chat"
@@ -21,7 +9,41 @@ alias:
   - "openai:gpt-4o-2024-11-20"
   - "google:gemini/gemini-exp-1206"
 
-# Commit Message Settings
+##################
+# Output settings:
+
+dark-mode: true
+completion-menu-color: "#11111b"
+
+########
+# Modes:
+
+editor: "cursor --wait"
+
+###############
+# Git settings:
+
+gitignore: false
+watch-files: true
+
+########################
+# Fixing and committing:
+
+lint-cmd: "trunk check --fix"
+
+#################
+# Other settings:
+
+yes-always: true
+
+#################
+# Cache settings:
+
+cache-prompts: true
+
+################
+# Commit settings:
+
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
