@@ -14,18 +14,7 @@ path = "~/Developer/influencer-admin"
 name = "dsp-master-client"
 path = "~/Developer/dsp-master-client"
 
-[[session]]
-name = "flashcard-web"
-path = "~/Developer/flashcard-web"
 
 [[session]]
 name = "tarot-mobile"
 path = "~/Developer/tarot-mobile"
-
-[[session]]
-name = "tarot-cms"
-path = "~/Developer/tarot-cms"
-
-[[session]]
-name = "practical-vim"
-path = "~/Developer/practical-vim"
