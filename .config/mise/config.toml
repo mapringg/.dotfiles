@@ -4,7 +4,8 @@ node = "lts"
 bun = "latest"
 deno = "latest"
 python = "3.12"
-"pipx:git+https://github.com/Aider-AI/aider.git" = "v0.72.3"
+"pipx:git+https://github.com/Aider-AI/aider.git" = "v0.73.0"
+uv = "latest"
 
 [settings]
 go_set_gobin = true
