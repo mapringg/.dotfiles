@@ -5,8 +5,6 @@ alias:
   - "r1:deepseek/deepseek-reasoner"
   - "v3:deepseek/deepseek-chat"
   - "claude:openrouter/anthropic/claude-3.5-sonnet"
-  - "openai:gpt-4o-2024-11-20"
-  - "google:gemini/gemini-exp-1206"
 model: r1
 editor-model: claude
 architect: true
