@@ -1,24 +1,16 @@
 #############
 # Main model:
 
+model: v3
 alias:
   - "r1:deepseek/deepseek-reasoner"
   - "v3:deepseek/deepseek-chat"
-  - "claude:openrouter/anthropic/claude-3.5-sonnet"
-model: r1
-editor-model: claude
-architect: true
+  - "sonnet:openrouter/anthropic/claude-3.5-sonnet"
 
 ##################
 # Output settings:
 
-dark-mode: true
 completion-menu-color: "#11111b"
-
-########
-# Modes:
-
-editor: "cursor --wait"
 
 ###############
 # Git settings:
