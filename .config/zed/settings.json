@@ -11,6 +11,9 @@
   "buffer_line_height": {
     "custom": 1.5
   },
+  "features": {
+    "inline_completion_provider": "zed"
+  },
   "file_types": {
     "CSS": ["scss"]
   },
