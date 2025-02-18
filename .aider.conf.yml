@@ -5,11 +5,12 @@ alias:
   - "r1:deepseek/deepseek-reasoner"
   - "v3:deepseek/deepseek-chat"
   - "sonnet:openrouter/anthropic/claude-3.5-sonnet"
+  - "haiku:openrouter/anthropic/claude-3-5-haiku"
   - "o3-mini:openrouter/openai/o3-mini"
 
 architect: true
 model: o3-mini
-editor-model: sonnet
+editor-model: haiku
 
 ##################
 # Output settings:
