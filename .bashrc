@@ -43,4 +43,5 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 if [[ -n $PS1 ]]; then
     eval "$(fzf --bash)"
     eval "$(zoxide init bash)"
+    eval "$(starship init bash)"
 fi
