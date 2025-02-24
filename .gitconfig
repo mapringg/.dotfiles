@@ -1,5 +1,4 @@
 [core]
-    excludesFile = ~/.config/git/ignore
     editor = cursor --wait
     pager = delta
 
