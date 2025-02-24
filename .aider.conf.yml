@@ -1,16 +1,9 @@
 #############
 # Model settings:
 
-alias:
-  - "r1:deepseek/deepseek-reasoner"
-  - "v3:deepseek/deepseek-chat"
-  - "sonnet:openrouter/anthropic/claude-3.5-sonnet"
-  - "haiku:openrouter/anthropic/claude-3-5-haiku"
-  - "o3-mini:openrouter/openai/o3-mini-high"
-
 architect: true
-model: r1
-editor-model: sonnet
+model: openrouter/openai/o3-mini-high
+editor-model: openrouter/deepseek/deepseek-chat
 
 ##################
 # Output settings:
