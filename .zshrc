@@ -40,4 +40,5 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 if [[ -o interactive ]]; then
     source <(fzf --zsh)
     eval "$(zoxide init zsh)"
+    eval "$(starship init zsh)"
 fi
