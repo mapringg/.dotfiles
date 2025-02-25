@@ -1,2 +1,3 @@
 font-family = 'MonoLisa Nerd Font'
 window-save-state = always
+theme = cursor-midnight.conf
