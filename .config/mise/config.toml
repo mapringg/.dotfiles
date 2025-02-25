@@ -4,7 +4,7 @@ node = "lts"
 bun = "latest"
 deno = "latest"
 python = "3.12"
-"pipx:git+https://github.com/Aider-AI/aider.git" = "v0.74.3"
+"pipx:git+https://github.com/Aider-AI/aider.git" = "v0.75.1"
 uv = "latest"
 
 [settings]

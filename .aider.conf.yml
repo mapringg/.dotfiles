@@ -1,19 +1,16 @@
 #############
 # Model settings:
 
-architect: true
-model: openrouter/openai/o3-mini-high
-editor-model: openrouter/deepseek/deepseek-chat
+alias:
+  - "cheap:openrouter/deepseek/deepseek-chat"
+  - "smart:openrouter/openai/o3-mini-high"
+  - "hacker:openrouter/anthropic/claude-3.7-sonnet"
+model: cheap
 
 ##################
 # Output settings:
 
 completion-menu-color: "#11111b"
-
-###############
-# Git settings:
-
-gitignore: false
 
 #################
 # Cache settings:
