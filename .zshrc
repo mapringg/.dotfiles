@@ -45,6 +45,9 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 
 # Interactive shell setup
 if [[ -o interactive ]]; then
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
     source <(fzf --zsh)
     eval "$(zoxide init zsh)"
 
