@@ -1,3 +1,8 @@
 font-family = MonoLisa
 window-save-state = always
 theme = cursor-midnight.conf
+command = /bin/zsh
+confirm-close-surface = false
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
