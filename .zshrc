@@ -37,21 +37,49 @@ alias lad='lazydocker'
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=vi
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
 
-# PATH modification
-export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+# Detect OS for platform-specific configurations
+if [[ "$(uname)" == "Darwin" ]]; then
+    # macOS specific settings
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+    
+    # PATH modification for macOS
+    export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+else
+    # Linux specific settings (Fedora)
+    # Add any Fedora-specific environment variables here
+    export ANDROID_HOME="$HOME/Android/Sdk"
+    export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+    export PATH="$JAVA_HOME/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+fi
 
 # Interactive shell setup
 if [[ -o interactive ]]; then
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    if [[ "$(uname)" == "Darwin" ]]; then
+        # macOS (Homebrew) paths
+        source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+    else
+        # Fedora paths
+        source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        
+        # For powerlevel10k, you may need to install it manually on Fedora
+        # via: git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+        # Uncomment the line below after installation:
+        source ~/powerlevel10k/powerlevel10k.zsh-theme
+    fi
 
-    source <(fzf --zsh)
-    eval "$(zoxide init zsh)"
-
-    source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+    # Common interactive shell tools
+    if command -v fzf &> /dev/null; then
+        source <(fzf --zsh 2>/dev/null)
+    fi
+    
+    if command -v zoxide &> /dev/null; then
+        eval "$(zoxide init zsh)"
+    fi
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
