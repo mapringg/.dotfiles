@@ -1,11 +1,15 @@
 #############
 # Model settings:
 
-model: deepseek/deepseek-chat
+model: r1
+architect: true
+weak-model: deepseek
+editor-model: openrouter/anthropic/claude-3.5-sonnet
 
 ##################
 # Output settings:
 
+dark-mode: true
 completion-menu-color: "#11111b"
 
 #################
@@ -31,8 +35,3 @@ commit-prompt: |
   - Do not start with a capital letter.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
-
-#################
-# Other settings:
-
-editor: cursor
