@@ -38,6 +38,19 @@ alias lad='lazydocker'
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=vi
 
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY          # share history across multiple zsh sessions
+setopt APPEND_HISTORY         # append to history
+setopt INC_APPEND_HISTORY     # add commands to history as they are typed
+setopt HIST_EXPIRE_DUPS_FIRST # expire duplicates first
+setopt HIST_IGNORE_DUPS       # do not store duplications
+setopt HIST_FIND_NO_DUPS      # ignore duplicates when searching
+setopt HIST_REDUCE_BLANKS     # removes blank lines from history
+setopt HIST_VERIFY            # show command with history expansion before running it
+
 # Detect OS for platform-specific configurations
 if [[ "$(uname)" == "Darwin" ]]; then
     # macOS specific settings
