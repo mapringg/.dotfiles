@@ -1,0 +1,38 @@
+# Local .bashrc configuration
+# This file will be sourced from the default .bashrc
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+
+# Aliases
+alias ls='ls --color'
+alias ll='ls -l'
+alias la='ls -al'
+alias c='clear'
+alias lag='lazygit'
+alias lad='lazydocker'
+
+# Environment variables
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR=vi
+
+# Platform-specific configurations for Linux
+export ANDROID_HOME="$HOME/Android/Sdk"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+export PATH="$JAVA_HOME/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+
+# Interactive shell tools
+if command -v fzf &> /dev/null; then
+    source <(fzf --bash 2>/dev/null)
+fi
+
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init bash)"
+fi

@@ -1,0 +1,23 @@
+# .profile.local for linux
+# This file is executed for login shells
+
+# Source global definitions
+if [ -f /etc/profile ]; then
+    . /etc/profile
+fi
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Homebrew setup for linux
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Add any other local bash profile configurations here
+eval "$(mise activate bash --shims)"
