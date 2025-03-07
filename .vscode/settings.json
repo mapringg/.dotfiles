@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    ".bashrc.local": "shellscript",
+    ".profile.local": "shellscript"
+  }
+}
