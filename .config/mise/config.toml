@@ -2,10 +2,11 @@
 go = "latest"
 node = "lts"
 "npm:@antfu/ni" = "latest"
+"npm:cursor-tools" = "latest"
 bun = "latest"
 deno = "latest"
 python = "3.12"
-"pipx:git+https://github.com/Aider-AI/aider.git" = "v0.75.1"
+"pipx:Aider-AI/aider" = "latest"
 uv = "latest"
 
 [settings]
