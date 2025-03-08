@@ -1,6 +1,7 @@
 [tools]
 go = "latest"
 node = "lts"
+"npm:@antfu/ni" = "latest"
 bun = "latest"
 deno = "latest"
 python = "3.12"
