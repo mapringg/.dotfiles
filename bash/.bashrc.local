@@ -23,6 +23,17 @@ alias lad='lazydocker'
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=vi
 
+# History configuration
+HISTFILE=~/.bash_history
+HISTSIZE=10000
+HISTFILESIZE=10000
+HISTCONTROL=ignoredups:erasedups  # Equivalent to HIST_IGNORE_DUPS
+HISTTIMEFORMAT="%F %T "           # Add timestamps to history
+shopt -s histappend              # Equivalent to APPEND_HISTORY
+shopt -s cmdhist                 # Save multi-line commands in one history entry
+# Force commands to be written to history immediately
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 # Platform-specific configurations for Linux
 export ANDROID_HOME="$HOME/Android/Sdk"
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
