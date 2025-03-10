@@ -1,10 +1,16 @@
 #############
 # Model settings:
 
+alias:
+  - "gemini:openrouter/google/gemini-2.0-pro-exp-02-05:free"
+  - "r1:openrouter/deepseek/deepseek-r1:free"
+  - "v3:openrouter/deepseek/deepseek-chat:free"
+  - "claude:openrouter/anthropic/claude-3.7-sonnet"
+
 model: r1
 architect: true
-weak-model: deepseek
-editor-model: openrouter/anthropic/claude-3.5-sonnet
+weak-model: v3
+editor-model: v3
 
 ##################
 # Output settings:
@@ -35,3 +41,8 @@ commit-prompt: |
   - Do not start with a capital letter.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
+
+################
+# Other settings:
+
+notifications: true
