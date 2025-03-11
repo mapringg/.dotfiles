@@ -2,7 +2,10 @@
 # Model settings:
 
 alias:
+  - "3.7:openrouter/anthropic/claude-3.7-sonnet"
+  - "3.5:openrouter/anthropic/claude-3.5-sonnet"
   - "r1:openrouter/deepseek/deepseek-r1"
+  - "o3:openrouter/openai/o3-mini-high"
   - "v3:openrouter/deepseek/deepseek-chat"
 
 model: v3
