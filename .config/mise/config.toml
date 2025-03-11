@@ -2,7 +2,7 @@
 go = "latest"
 node = "lts"
 "npm:@antfu/ni" = "latest"
-"npm:cursor-tools" = "latest"
+"npm:cursor-tools" = "0.6.0-alpha.9"
 bun = "latest"
 deno = "latest"
 python = "3.12"
