@@ -1,0 +1,21 @@
+matches:
+  - trigger: ":r"
+    replace: "This function is too long and complex. Refactor it into smaller functions."
+
+  - trigger: ":s"
+    replace: "This code is hard to understand. Simplify the logic and make it more readable."
+
+  - trigger: ":d"
+    replace: "I'm getting this error: [error]. It seems to be from [code section]. Analyze this error and suggest a fix."
+
+  - trigger: ":i"
+    replace: "The application crashes when I [action]. The issue might be in [problem areas]. Help me find the root cause and propose a solution."
+
+  - trigger: ":b"
+    replace: "I want to add a feature that lets users [functionality]. Brainstorm some ideas and consider implementation challenges."
+
+  - trigger: ":p"
+    replace: 'Ask Perplexity to research "[topic]" and describe for us in detail exactly "[how]". Write the output to [spec]. Read the spec and ask Perplexity any clarifying questions that you have.'
+
+  - trigger: ":g"
+    replace: "Ask Gemini to make a plan for implementing the [spec] that is consistent with our architecture and existing patterns. Write the plan to [plan]. Review Gemini's plan checking the codebase and ask Gemini any clarifying questions. Update the plan so that it's ready to implement."
