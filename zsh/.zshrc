@@ -25,7 +25,6 @@ alias lad='lazydocker'
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR=vi
 
 # History configuration
 HISTFILE=~/.zsh_history
