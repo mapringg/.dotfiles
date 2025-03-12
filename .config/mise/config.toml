@@ -1,13 +1,13 @@
 [tools]
 go = "latest"
-node = "lts"
+node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
-"npm:cursor-tools" = "0.6.0-alpha.9"
 bun = "latest"
 deno = "latest"
-python = "3.12"
-"pipx:Aider-AI/aider" = "latest"
+python = "latest"
+"pipx:Aider-AI/aider" = { version = "v0.76.2", uvx_args = "--force --python python3.12" }
 uv = "latest"
 
 [settings]
 go_set_gobin = true
+npm.bun = true
