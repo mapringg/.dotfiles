@@ -1,29 +1,11 @@
-#############
-# Model settings:
-
 alias:
   - "3.7:openrouter/anthropic/claude-3.7-sonnet"
   - "3.5:openrouter/anthropic/claude-3.5-sonnet"
   - "r1:openrouter/deepseek/deepseek-r1"
   - "o3:openrouter/openai/o3-mini-high"
   - "v3:openrouter/deepseek/deepseek-chat"
-
-model: v3
-
-##################
-# Output settings:
-
-dark-mode: true
-completion-menu-color: "#11111b"
-
-#################
-# Cache settings:
-
 cache-prompts: true
-
-################
-# Commit settings:
-
+code-theme: "coffee"
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
   Review the provided context and diffs which are about to be committed to a git repo.
@@ -39,9 +21,7 @@ commit-prompt: |
   - Do not start with a capital letter.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
-
-################
-# Other settings:
-
-watch-files: true
+completion-menu-color: "#11111b"
+model: v3
 notifications: true
+watch-files: true

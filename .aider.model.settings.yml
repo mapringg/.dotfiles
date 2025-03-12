@@ -1,24 +1,58 @@
-- name: openrouter/anthropic/claude-3.5-sonnet
+- name: openrouter/anthropic/claude-3.7-sonnet
+  cache_control: true
+  edit_format: diff
+  editor_edit_format: editor-diff
+  editor_model_name: openrouter/anthropic/claude-3.7-sonnet
+  examples_as_sys_msg: true
   extra_params:
     extra_body:
       provider:
-        order: ["Anthropic"]
         allow_fallbacks: false
+        order: ["Anthropic"]
+    extra_headers:
+      anthropic-beta: prompt-caching-2024-07-31,pdfs-2024-09-25,output-128k-2025-02-19
+    max_tokens: 64000
+  use_repo_map: true
+  weak_model_name: openrouter/anthropic/claude-3-5-haiku
+
 - name: openrouter/anthropic/claude-3.5-sonnet
+  cache_control: true
+  edit_format: diff
+  editor_edit_format: editor-diff
+  editor_model_name: openrouter/anthropic/claude-3.5-sonnet
+  examples_as_sys_msg: true
   extra_params:
     extra_body:
       provider:
-        order: ["Anthropic"]
         allow_fallbacks: false
+        order: ["Anthropic"]
+    max_tokens: 8192
+  use_repo_map: true
+  weak_model_name: openrouter/anthropic/claude-3-5-haiku
+
 - name: openrouter/deepseek/deepseek-r1
+  caches_by_default: true
+  edit_format: diff
+  editor_edit_format: editor-diff
+  editor_model_name: openrouter/deepseek/deepseek-chat
+  examples_as_sys_msg: true
   extra_params:
     extra_body:
       provider:
-        order: ["Fireworks"]
         allow_fallbacks: false
+        order: ["Fireworks"]
+    include_reasoning: true
+    max_tokens: 8192
+  use_repo_map: true
+  weak_model_name: openrouter/deepseek/deepseek-chat
+
 - name: openrouter/deepseek/deepseek-chat
+  edit_format: diff
+  examples_as_sys_msg: true
   extra_params:
     extra_body:
       provider:
-        order: ["Fireworks"]
         allow_fallbacks: false
+        order: ["Fireworks"]
+  reminder: sys
+  use_repo_map: true
