@@ -16,8 +16,5 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Homebrew setup for linux
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Add any other local bash profile configurations here
 eval "$(mise activate bash --shims)"
