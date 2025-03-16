@@ -61,6 +61,24 @@ if [[ -o interactive ]]; then
     if command -v zoxide &> /dev/null; then
         eval "$(zoxide init zsh)"
     fi
+
+    # Completion system
+    autoload -Uz compinit
+    if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+        compinit
+    else
+        compinit -C
+    fi
+    
+    # Load zsh-completions
+    if [ -d $(brew --prefix)/share/zsh-completions ]; then
+        fpath=($(brew --prefix)/share/zsh-completions $fpath)
+    fi
+    
+    # Completion styling
+    zstyle ':completion:*' menu select
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
