@@ -6,6 +6,7 @@ bun = "latest"
 deno = "latest"
 python = "latest"
 "pipx:Aider-AI/aider" = { version = "v0.77.0", uvx_args = "--force --python python3.12" }
+"pipx:simonw/llm" = "latest"
 uv = "latest"
 
 [settings]
