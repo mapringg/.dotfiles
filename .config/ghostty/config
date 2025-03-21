@@ -1,6 +1,6 @@
 font-family = MonoLisa
 window-save-state = always
-theme = dark-modern.conf
+theme = cursor-midnight.conf
 confirm-close-surface = false
 shell-integration-features = no-cursor
 cursor-style = block
