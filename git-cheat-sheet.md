@@ -38,12 +38,37 @@
 - `grbc` - Continue rebase
 - `grbi` - Interactive rebase
 
-## 3. Code Collaboration
+## 3. GitHub Collaboration Workflows
 
-### Merge Requests
+### Pull Requests
 
-- `gmr` - Create GitLab merge request
-- `gmwps` - Create MR with pipeline merge
+1. Create Feature Branch:
+
+```bash
+gcb feature/new-login
+gp -u origin feature/new-login
+```
+
+2. Make Changes & Push:
+
+```bash
+gc "Add new login functionality"
+gp
+```
+
+3. Create PR:
+
+```bash
+gh pr create --title "New login feature" --body "Implements new login flow"
+```
+
+4. Review & Merge:
+
+```bash
+gh pr checkout 123  # Checkout PR branch
+gh pr review --approve  # Approve PR
+gh pr merge --squash  # Merge PR
+```
 
 ### Code Review
 
@@ -51,6 +76,8 @@
 - `glo` - One-line commit log
 - `gd` - Show changes
 - `gdt` - List changed files
+- `gh pr diff` - Show PR changes
+- `gh pr comment` - Add review comment
 
 ## 4. Conflict Resolution
 
@@ -77,12 +104,37 @@
 - `gbl` - Blame with whitespace ignore
 - `gsh` - Show commit details
 
-## 6. Team-Specific
+## 6. GitHub-Specific Tools
 
-### GitLab Integration
+### GitHub CLI
 
-- `gmr` - Create merge request
-- `gmwps` - Create MR with pipeline merge
+- `gh pr status` - Show PR status
+- `gh pr list` - List open PRs
+- `gh pr checkout` - Checkout PR branch
+- `gh issue create` - Create new issue
+- `gh repo fork` - Create fork of repository
+
+### Troubleshooting
+
+1. Fixing Broken PR:
+
+```bash
+gup  # Update with rebase
+# Fix conflicts
+gc "Fix merge conflicts"
+gp -f  # Force push fixed branch
+```
+
+2. Stashing Workflow:
+
+```bash
+gsta  # Stash current work
+gco main  # Switch to main
+gup  # Update main
+gco feature/branch  # Back to feature
+gstp  # Apply stash
+# Resolve conflicts if any
+```
 
 ---
 
