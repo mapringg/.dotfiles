@@ -2,12 +2,12 @@
 go = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 "npm:@anthropic-ai/claude-code" = "latest"
-"npm:cursor-tools" = "alpha"
+"npm:cursor-tools" = "0.6.0-alpha.17"
 "npm:@antfu/ni" = "latest"
 bun = "latest"
 deno = "latest"
 python = "latest"
-"pipx:Aider-AI/aider" = { version = "v0.79.0", uvx_args = "--force --python python3.12" }
+"pipx:Aider-AI/aider" = { version = "v0.79.1", uvx_args = "--force --python python3.12" }
 "pipx:simonw/llm" = "latest"
 uv = "latest"
 
