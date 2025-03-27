@@ -15,4 +15,5 @@ commit-prompt: |
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 completion-menu-color: "#11111b"
+dark-mode: true
 notifications: true
