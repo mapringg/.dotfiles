@@ -46,6 +46,3 @@ fi
 if command -v zoxide &> /dev/null; then
     eval "$(zoxide init bash)"
 fi
-
-# VSCode shell integration
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(cursor --locate-shell-integration-path bash)"
