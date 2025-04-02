@@ -1,7 +1,7 @@
 [tools]
 go = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
-"npm:cursor-tools" = "0.6.0-alpha.17"
+"npm:vibe-tools" = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:repomix" = "latest"
 bun = "latest"
