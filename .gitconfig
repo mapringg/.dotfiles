@@ -1,6 +1,5 @@
 [core]
     editor = cursor --wait
-    pager = delta
 
 [user]
     email = work@sorawitk.com
@@ -8,9 +7,6 @@
 
 [github]
     user = mapringg
-
-[merge]
-    conflictstyle = zdiff3
 
 [diff]
     colorMoved = default
@@ -26,10 +22,3 @@
 
 [rebase]
     autoStash = true
-
-[interactive]
-    diffFilter = delta --color-only
-
-[delta]
-    navigate = true  # use n and N to move between diff sections
-    dark = true      # or light = true, or omit for auto-detection
