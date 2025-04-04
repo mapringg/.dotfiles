@@ -1,13 +1,12 @@
 [tools]
 go = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
-"npm:vibe-tools" = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:repomix" = "latest"
 bun = "latest"
 deno = "latest"
 python = "latest"
-"pipx:Aider-AI/aider" = { version = "v0.80.0", uvx_args = "--force --python python3.12" }
+"pipx:Aider-AI/aider" = { version = "latest", uvx_args = "--force --python python3.12" }
 "pipx:simonw/llm" = "latest"
 uv = "latest"
 
