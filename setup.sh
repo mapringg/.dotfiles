@@ -51,9 +51,9 @@ fi
 if [[ "$OS" == "macos" ]]; then
     echo "Setting up for macOS..."
     
-    # Stow zsh configuration
-    echo "Stowing zsh configuration..."
-    stow zsh
+    # Stow fish configuration
+    echo "Stowing fish configuration..."
+    stow fish
 fi
 
 # Stow common configurations
@@ -65,7 +65,6 @@ stow .ssh -t $HOME/.ssh
 # Copy individual files directly
 echo "Copying individual configuration files..."
 ln -sf "$(pwd)/.gitconfig" $HOME/.gitconfig
-ln -sf "$(pwd)/.aider.conf.yml" $HOME/.aider.conf.yml
 
 
 echo "Setup complete!"

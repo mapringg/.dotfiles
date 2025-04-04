@@ -26,6 +26,10 @@ if status --is-interactive
         /opt/homebrew/bin/brew shellenv | source
     end
 
+    if test -d ~/.orbstack
+        source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+    end
+
     # mise (formerly rtx)
     if command -q mise
         mise activate fish --shims | source
