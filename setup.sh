@@ -42,9 +42,9 @@ if [[ "$OS" == "linux" ]]; then
         echo ".profile already configured."
     fi
     
-    # Stow bash configuration
-    echo "Stowing bash configuration..."
-    stow bash
+    # Stow fish configuration
+    echo "Stowing fish configuration..."
+    stow fish
 fi
 
 # Setup for macOS
