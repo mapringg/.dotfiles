@@ -1,0 +1,4 @@
+# Ignore files and directories managed by Fisher (or other plugin managers)
+completions/
+conf.d/
+functions/
