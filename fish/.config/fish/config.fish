@@ -55,6 +55,6 @@ if status --is-interactive
 
     # Optional: Configure other Hydro settings
     if not string match -q "$TERM_PROGRAM" "vscode"
-        set -g hydro_multiline true           # Show prompt on new line
+        set -g hydro_multiline true       # Show prompt on new line
     end
 end
