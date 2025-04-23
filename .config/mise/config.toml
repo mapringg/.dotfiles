@@ -12,3 +12,4 @@ uv = "latest"
 [settings]
 go_set_gobin = true
 npm.bun = true
+idiomatic_version_file_enable_tools = ["node"]
