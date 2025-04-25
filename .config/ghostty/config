@@ -1,4 +1,4 @@
-font-family = MonoLisa
+font-family = Geist Mono
 window-save-state = always
 theme = cursor-midnight.conf
 confirm-close-surface = false
