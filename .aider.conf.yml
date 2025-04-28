@@ -1,4 +1,3 @@
-edit-format: "udiff-simple"
 cache-prompts: true
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
@@ -17,4 +16,6 @@ commit-prompt: |
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 completion-menu-color: "#11111b"
 dark-mode: true
+edit-format: "udiff-simple"
+git-commit-verify: true
 notifications: true
