@@ -11,7 +11,7 @@ commit-prompt: |
   - Starts with the appropriate prefix.
   - Is in the imperative mood (e.g., "add feature" not "added feature" or "adding feature").
   - Does not exceed 72 characters.
-  - Do not start with a capital letter.
+  - Does not start with a capital letter.
 
   Reply only with the one-line commit message, without any additional text, explanations, or line breaks.
 completion-menu-color: "#11111b"
