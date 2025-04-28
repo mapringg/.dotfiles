@@ -1,3 +1,4 @@
+edit-format: "udiff-simple"
 cache-prompts: true
 commit-prompt: |
   You are an expert software engineer that generates concise, one-line Git commit messages based on the provided diffs.
