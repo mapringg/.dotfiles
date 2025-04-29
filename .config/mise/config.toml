@@ -6,7 +6,6 @@ node = { version = "lts", postinstall = "corepack enable" }
 bun = "latest"
 deno = "latest"
 python = "latest"
-"pipx:Aider-AI/aider" = { version = "latest", uvx_args = "--force --python python3.12" }
 "pipx:simonw/llm" = "latest"
 "pipx:simonw/files-to-prompt" = "latest"
 uv = "latest"
