@@ -2,6 +2,7 @@
 go = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
+"npm:@johnlindquist/ghx" = "latest"
 bun = "latest"
 deno = "latest"
 python = "latest"
