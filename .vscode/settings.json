@@ -1,6 +1,12 @@
 {
   "files.associations": {
     ".bashrc.local": "shellscript",
-    ".profile.local": "shellscript"
+    ".profile.local": "shellscript",
+    ".roomodes": "json",
+    "system-prompt-chat-mode": "markdown",
+    "system-prompt-code": "markdown",
+    "system-prompt-dev-research": "markdown",
+    "roo": "shellscript",
+    "unroo": "shellscript"
   }
 }

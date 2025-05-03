@@ -1,0 +1,35 @@
+#!/bin/sh
+# Script to link Roo configuration files into the current directory.
+
+# Absolute path to the dotfiles directory
+# Use the HOME environment variable to locate the dotfiles directory.
+DOTFILES_DIR="$HOME/.dotfiles"
+
+# Get the directory where the script is being run
+TARGET_DIR=$(pwd)
+
+echo "Setting up Roo links in $TARGET_DIR"
+
+# Link the .roomodes file
+SOURCE_FILE="$DOTFILES_DIR/.roomodes"
+LINK_NAME="$TARGET_DIR/$(basename "$SOURCE_FILE")"
+echo "Linking $SOURCE_FILE to $LINK_NAME"
+ln -sf "$SOURCE_FILE" "$TARGET_DIR"
+
+# Link files from the .roo directory
+SOURCE_DIR="$DOTFILES_DIR/.roo"
+if [ -d "$SOURCE_DIR" ]; then
+  mkdir -p "$TARGET_DIR/.roo"
+  echo "Linking files from $SOURCE_DIR to $TARGET_DIR/.roo..."
+  # Use find to get only files directly within .roo
+  find "$SOURCE_DIR" -maxdepth 1 -type f -print0 | while IFS= read -r -d $'\0' file; do
+    filename=$(basename "$file")
+    LINK_NAME_ROO="$TARGET_DIR/.roo/$filename"
+    echo "Linking $file to $LINK_NAME_ROO"
+    ln -sf "$file" "$TARGET_DIR/.roo"
+  done
+else
+  echo "Warning: Source directory $SOURCE_DIR not found. Skipping linking files from .roo."
+fi
+
+echo "Roo setup complete in $TARGET_DIR."

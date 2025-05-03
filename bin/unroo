@@ -1,0 +1,32 @@
+#!/bin/sh
+# Script to remove symbolic links created by 'roo' in the current directory.
+
+# Use the HOME environment variable to locate the dotfiles directory
+DOTFILES_DIR="$HOME/.dotfiles"
+
+# Get the directory where the script is being run
+TARGET_DIR=$(pwd)
+
+echo "Removing Roo links in $TARGET_DIR"
+
+# Remove the .roomodes link if it exists
+if [ -L "$TARGET_DIR/.roomodes" ]; then
+    echo "Removing .roomodes link"
+    rm "$TARGET_DIR/.roomodes"
+fi
+
+# Remove links from the .roo directory
+if [ -d "$TARGET_DIR/.roo" ]; then
+    echo "Removing links from $TARGET_DIR/.roo directory..."
+    # Use find to get only files directly within .roo
+    find "$DOTFILES_DIR/.roo" -maxdepth 1 -type f -print0 | while IFS= read -r -d $'\0' file; do
+        filename=$(basename "$file")
+        link_path="$TARGET_DIR/.roo/$filename"
+        if [ -L "$link_path" ]; then
+            echo "Removing $TARGET_DIR/.roo/$filename"
+            rm "$link_path"
+        fi
+    done
+fi
+
+echo "Roo links cleanup complete in $TARGET_DIR."
