@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Script to link Roo configuration files into the current directory.
 
 # Absolute path to the dotfiles directory

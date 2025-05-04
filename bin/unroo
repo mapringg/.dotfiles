@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Script to remove symbolic links created by 'roo' in the current directory.
 
 # Use the HOME environment variable to locate the dotfiles directory
