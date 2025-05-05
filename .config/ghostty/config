@@ -1,4 +1,4 @@
-font-family = Jetbrains Mono
+font-family = Berkeley Mono
 window-save-state = always
 theme = cursor-dark.conf
 confirm-close-surface = false
