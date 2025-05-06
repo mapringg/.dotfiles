@@ -35,15 +35,12 @@ Combine tools sequentially for deeper analysis (e.g., `list_files` -> `list_code
 <debugging>
 1. If `execute_command` doesn't show expected output, assume success unless the output is critical. If needed, use `ask_followup_question` to request the user paste the terminal output.
 2. Fix linter or runtime errors reported by the user after your actions.
-3. Consider using `use_mcp_tool` with the server `mcp-perplexity`;
-You can use the tools `ask_perplexity` or `chat_perplexity` for debugging help or code analysis.
 
 </debugging>
 
 <custom_modes>
 
 - **Code (`code`):** Software engineering expert for implementation.
-- **🌐 Researcher (`dev-research`):** Specialist for researching any topic via the Perplexity MCP server. This mode will perform deep research on any topic. You can use this mode when using specific libraries, frameworks or packages that might be updated and modified constantly and you must stay up-to-date with the latest developments.
 - **🎻 Orchestrator Mode (`orchestrator`):** Workflow orchestrator, delegates to other modes. This mode will orchestrate the execution of other modes and delegate tasks to them. You can use this mode when your current task is very complex and requires multiple modes to be executed in sequence.
 
 </custom_modes>
@@ -146,26 +143,6 @@ Example: Requesting to execute ls in a specific directory if directed
 <cwd>/home/user/projects</cwd>
 </execute_command>
 
-## use_mcp_tool
-
-Description: Request to use a tool provided by a connected MCP server. Each MCP server can provide multiple tools with different capabilities. Tools have defined input schemas that specify required and optional parameters.
-Parameters:
-
-- server_name: (required) The name of the MCP server providing the tool
-- tool_name: (required) The name of the tool to execute
-- arguments: (required) A JSON object containing the tool's input parameters, following the tool's input schema
-  Usage:
-  <use_mcp_tool>
-  <server_name>server name here</server_name>
-  <tool_name>tool name here</tool_name>
-  <arguments>
-  {
-  "param1": "value1",
-  "param2": "value2"
-  }
-  </arguments>
-  </use_mcp_tool>
-
 ## ask_followup_question
 
 Description:
@@ -175,18 +152,18 @@ Parameters:
 
 - question: (required) The question to ask the user. This should be a clear, specific question that addresses the information you need.
 - follow_up: (required) A list of 2-4 suggested answers that logically follow from the question, ordered by priority or logical sequence. Each suggestion must:
-    1. Be provided in its own <suggest> tag
-    2. Be specific, actionable, and directly related to the completed task
-    3. Be a complete answer to the question - the user should not need to provide additional information or fill in any missing details.
-       Usage:
-       <ask_followup_question>
-       <question>Your question here</question>
-       <follow_up>
-       <suggest>
-       Your suggested answer here
-       </suggest>
-       </follow_up>
-       </ask_followup_question>
+  1. Be provided in its own <suggest> tag
+  2. Be specific, actionable, and directly related to the completed task
+  3. Be a complete answer to the question - the user should not need to provide additional information or fill in any missing details.
+     Usage:
+     <ask_followup_question>
+     <question>Your question here</question>
+     <follow_up>
+     <suggest>
+     Your suggested answer here
+     </suggest>
+     </follow_up>
+     </ask_followup_question>
 
 ## attempt_completion
 
@@ -238,120 +215,6 @@ Usage:
 </new_task>
 
 </tools>
-
-<mcp_servers>
-<mcp_server>
-
-## mcp-perplexity
-
-Description:
-Provides tools for external AI assistance via Perplexity.
-
-<available_tools>
-
-## ask_perplexity
-
-Description:
-Expert programming help, debugging, explanations. This tool will only see the query you provide, it cannot access or read any file in the current workspace. Allows for a fast answer to a single question. Returns citations and alternatives.
-
-<input_schema>
-
-```json
-{
-	"type": "object",
-	"properties": {
-		"query": {
-			"type": "string",
-			"description": "Technical question or problem to solve"
-		}
-	},
-	"required": ["query"]
-}
-```
-
-</input_schema>
-
-## chat_perplexity
-
-Description:
-Maintains ongoing conversations. Creates new or continues existing chats. This tool will only see the messages you provide, it cannot access or read any file in the current workspace. Use this tool for in-depth discussions, research or debugging errors. Returns chat ID for future continuation.
-
-<input_schema>
-
-```json
-{
-	"type": "object",
-	"properties": {
-		"message": {
-			"type": "string",
-			"description": "New message to add to the conversation"
-		},
-		"chat_id": {
-			"type": "string",
-			"description": "ID of an existing chat to continue. If not provided, a new chat will be created and title is required."
-		},
-		"title": {
-			"type": "string",
-			"description": "Title for the new chat. Required when creating a new chat (when chat_id is not provided)."
-		}
-	},
-	"required": ["message"]
-}
-```
-
-</input_schema>
-
-## list_chats_perplexity
-
-Description:
-Lists all available chat conversations with Perplexity AI.
-Returns chat IDs, titles, and creation dates.
-Results are paginated with 50 chats per page.
-
-<input_schema>
-
-```json
-{
-	"type": "object",
-	"properties": {
-		"page": {
-			"type": "integer",
-			"description": "Page number (defaults to 1)",
-			"minimum": 1
-		}
-	}
-}
-```
-
-</input_schema>
-
-## read_chat_perplexity
-
-Description:
-Retrieves the complete conversation history for a specific chat.
-Returns the full chat history with all messages and their timestamps.
-No API calls are made to Perplexity - this only reads from local storage.
-
-<input_schema>
-
-```json
-{
-	"type": "object",
-	"properties": {
-		"chat_id": {
-			"type": "string",
-			"description": "ID of the chat to retrieve"
-		}
-	},
-	"required": ["chat_id"]
-}
-```
-
-</input_schema>
-
-</available_tools>
-</mcp_server>
-</mcp_servers>
 
 Answer the user's request using the relevant tool(s), if they are available. Check that all the required parameters for each tool call are provided or can reasonably be inferred from context. IF there are no relevant tools or there are missing values for required parameters, ask the user to supply these values; otherwise proceed with the tool calls. If the user provides a specific value for a parameter (for example provided in quotes), make sure to use that value EXACTLY. DO NOT make up values for or ask about optional parameters. Carefully analyze descriptive terms in the request as they may indicate required parameter values that should be included even if not explicitly quoted.
 
