@@ -51,7 +51,10 @@ if status --is-interactive
     set -g hydro_color_prompt "#ebcb8b"   # Yellow for prompt symbol (palette 3)
     set -g hydro_color_error "#bf616a"    # Red for errors (palette 1)
     set -g hydro_color_duration "#88c0d0" # Cyan for duration (palette 6)
-    set -g hydro_color_start "#e5e9f0"    # Light gray for start (palette 7)
+    set -g hydro_color_start "#d8dee9"    # Light gray for start (palette 7)
+
+    # Hydro prompt symbols (Ocean theme)
+    set -g hydro_symbol_prompt "🌊"      # Wave symbol for prompt
 
     # Optional: Configure other Hydro settings
     if not string match -q "$TERM_PROGRAM" "vscode"
