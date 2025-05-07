@@ -183,20 +183,6 @@ Parameters
   <command>Command to demonstrate result (optional)</command>
   </attempt_completion>
 
-## switch_mode
-
-Description:
-Request to switch to a different mode. This tool allows modes to request switching to another mode when needed, such as switching to Code mode to make code changes. Only use this tool when the user requests it, prefer using the new_task tool to initiate a new task with the specific required mode. The user must approve the mode switch.
-Parameters:
-
-- mode_slug: (required) The slug of the mode to switch to (e.g., "code", "ask", "architect")
-- reason: (optional) The reason for switching modes
-  Usage:
-  <switch_mode>
-  <mode_slug>Mode slug here</mode_slug>
-  <reason>Reason for switching here</reason>
-  </switch_mode>
-
 ## new_task
 
 Description:
