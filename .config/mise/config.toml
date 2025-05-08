@@ -3,11 +3,12 @@ go = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
 "npm:@johnlindquist/ghx" = "latest"
+"npm:@johnlindquist/worktree" = "latest"
+"npm:repomix" = "latest"
 bun = "latest"
 deno = "latest"
 python = "latest"
 "pipx:simonw/llm" = "latest"
-"pipx:simonw/files-to-prompt" = "latest"
 uv = "latest"
 
 [settings]
