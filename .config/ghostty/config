@@ -1,6 +1,6 @@
 font-family = Berkeley Mono
 window-save-state = always
-theme = cursor-dark.conf
+theme = catppuccin-mocha
 confirm-close-surface = false
 shell-integration-features = no-cursor
 cursor-style = block
