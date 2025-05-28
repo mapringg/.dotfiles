@@ -1,10 +1,10 @@
 set fish_greeting
 
-set -p fish_function_path $XDG_CONFIG_HOME/fish/my_functions $fish_function_path
-
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
 set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+
+set -p fish_function_path $XDG_CONFIG_HOME/fish/my_functions $fish_function_path
 
 # User bin directories
 fish_add_path $HOME/bin
