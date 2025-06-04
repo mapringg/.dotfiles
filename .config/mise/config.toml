@@ -8,7 +8,7 @@ node = { version = "lts", postinstall = "corepack enable" }
 bun = "latest"
 deno = "latest"
 python = "latest"
-"pipx:Aider-AI/aider" = { version = "latest", uvx_args = "--force --python python3.12" }
+"pipx:Aider-AI/aider" = { version = "latest", uvx_args = "--force --python python3.12 --with google-cloud-aiplatform" }
 "pipx:simonw/llm" = "latest"
 uv = "latest"
 
