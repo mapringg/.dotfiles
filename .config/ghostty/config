@@ -1,6 +1,5 @@
 font-family = Berkeley Mono
 window-save-state = always
-theme = Dark Modern
 confirm-close-surface = false
 shell-integration-features = no-cursor
 cursor-style = block
