@@ -65,6 +65,9 @@ stow .ssh -t $HOME/.ssh
 # Copy individual files directly
 echo "Copying individual configuration files..."
 ln -sf "$(pwd)/.gitconfig" $HOME/.gitconfig
+ln -sf "$(pwd)/.aider.conf.yml" $HOME/.aider.conf.yml
+ln -sf "$(pwd)/.aider.model.settings.yml" $HOME/.aider.model.settings.yml
+ln -sf "$(pwd)/.aider.model.metadata.json" $HOME/.aider.model.metadata.json
 
 
 echo "Setup complete!"
