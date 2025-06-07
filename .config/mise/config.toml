@@ -11,8 +11,10 @@ python = "latest"
 "pipx:Aider-AI/aider" = { version = "latest", uvx_args = "--force --python python3.12 --with google-cloud-aiplatform" }
 "pipx:simonw/llm" = "latest"
 uv = "latest"
+"go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
 
 [settings]
 go_set_gobin = true
 npm.bun = true
 idiomatic_version_file_enable_tools = ["node"]
+experimental = true
