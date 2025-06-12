@@ -84,7 +84,7 @@ model: gemini/gemini-2.5-pro-preview-06-05
 #reasoning-effort: xxx
 
 ## Set the thinking token budget for models that support it (default: not set)
-thinking-tokens: 32k
+#thinking-tokens: xxx
 
 ## Verify the SSL cert when connecting to models (default: True)
 #verify-ssl: true
@@ -96,7 +96,7 @@ thinking-tokens: 32k
 #edit-format: xxx
 
 ## Use architect edit format for the main chat
-architect: true
+#architect: false
 
 ## Enable/disable automatic acceptance of architect changes (default: True)
 #auto-accept-architect: true
@@ -105,10 +105,10 @@ architect: true
 #weak-model: xxx
 
 ## Specify the model to use for editor tasks (default depends on --model)
-editor-model: gemini/gemini-2.5-flash-preview-05-20
+#editor-model: xxx
 
 ## Specify the edit format for the editor model (default: depends on editor model)
-editor-edit-format: whole
+#editor-edit-format: xxx
 
 ## Only work with models that have meta-data available (default: True)
 #show-model-warnings: true
