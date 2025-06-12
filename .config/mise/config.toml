@@ -5,6 +5,7 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:@johnlindquist/ghx" = "latest"
 "npm:@johnlindquist/worktree" = "latest"
 "npm:repomix" = "latest"
+"npm:eas-cli" = "latest"
 bun = "latest"
 deno = "latest"
 python = "latest"
