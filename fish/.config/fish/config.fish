@@ -17,9 +17,9 @@ fish_add_path $ANDROID_HOME/platform-tools
 alias ls 'ls --color=auto'
 alias ll 'ls -l'
 alias la 'ls -al'
-alias c 'clear'
-alias lag 'lazygit'
-alias lad 'lazydocker'
+alias c 'cursor'
+alias lg 'lazygit'
+alias ld 'lazydocker'
 
 if status --is-interactive
     # Homebrew (macOS)
