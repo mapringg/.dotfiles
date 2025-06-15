@@ -1,16 +1,27 @@
 [tools]
+bun = "latest"
+"cargo:fd-find" = "latest"
+"cargo:ripgrep" = "latest"
+"cargo:tlrc" = "latest"
+"cargo:zoxide" = "latest"
+deno = "latest"
 go = "latest"
+"go:github.com/cli/cli/v2/cmd/gh" = "latest"
+"go:github.com/jesseduffield/lazydocker" = "latest"
+"go:github.com/junegunn/fzf" = "latest"
+lazygit = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
 "npm:@johnlindquist/ghx" = "latest"
 "npm:@johnlindquist/worktree" = "latest"
-"npm:repomix" = "latest"
+"npm:biome" = "latest"
 "npm:eas-cli" = "latest"
-bun = "latest"
-deno = "latest"
-python = "latest"
+"npm:opencode-ai" = "latest"
+"npm:repomix" = "latest"
 "pipx:aider-chat" = { version = "latest", uvx_args = "--force --python python3.12 --with pip" }
 "pipx:simonw/llm" = "latest"
+python = "latest"
+rust = "stable"
 uv = "latest"
 
 [settings]
