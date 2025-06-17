@@ -18,6 +18,7 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:eas-cli" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:repomix" = "latest"
+"npm:vibe-rules" = "latest"
 "pipx:aider-chat" = { version = "latest", uvx_args = "--force --python python3.12 --with pip" }
 "pipx:simonw/llm" = "latest"
 python = "latest"
