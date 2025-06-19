@@ -18,7 +18,7 @@
 # Main model:
 
 ## Specify the model to use for the main chat
-model: gemini/gemini-2.5-pro-preview-06-05
+model: gemini/gemini-2.5-pro
 
 ########################
 # API Keys and settings:
@@ -102,7 +102,7 @@ model: gemini/gemini-2.5-pro-preview-06-05
 #auto-accept-architect: true
 
 ## Specify the model to use for commit messages and chat history summarization (default depends on --model)
-#weak-model: xxx
+weak-model: gemini/gemini-2.5-flash
 
 ## Specify the model to use for editor tasks (default depends on --model)
 #editor-model: xxx

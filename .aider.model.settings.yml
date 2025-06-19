@@ -1,0 +1,14 @@
+- name: gemini/gemini-2.5-flash
+  overeager: true
+  edit_format: diff-fenced
+  use_repo_map: true
+  use_temperature: false
+  accepts_settings: ["thinking_tokens"]
+
+- name: gemini/gemini-2.5-pro
+  overeager: true
+  edit_format: diff-fenced
+  use_repo_map: true
+  weak_model_name: gemini/gemini-2.5-flash
+  use_temperature: false
+  accepts_settings: ["thinking_tokens"]
