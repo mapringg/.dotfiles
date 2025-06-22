@@ -1,0 +1,92 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "input": {
+    "maxFileSize": 52428800
+  },
+  "output": {
+    "filePath": "ai-studio-codebase.md",
+    "style": "markdown",
+    "parsableStyle": false,
+    "fileSummary": true,
+    "directoryStructure": true,
+    "files": true,
+    "removeComments": true,
+    "removeEmptyLines": true,
+    "compress": false,
+    "topFilesLength": 5,
+    "showLineNumbers": true,
+    "copyToClipboard": false,
+    "includeEmptyDirectories": false,
+    "git": {
+      "sortByChanges": true,
+      "sortByChangesMaxCommits": 100,
+      "includeDiffs": false
+    }
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.jsx",
+    "src/**/*.tsx",
+    "src/**/*.py",
+    "src/**/*.java",
+    "src/**/*.go",
+    "src/**/*.php",
+    "src/**/*.vue",
+    "src/**/*.svelte",
+    "**/*.json",
+    "**/*.yaml",
+    "**/*.yml",
+    "package.json",
+    "pyproject.toml",
+    "requirements.txt",
+    "pom.xml",
+    "go.mod",
+    "Dockerfile",
+    "README.md",
+    "docs/**/*",
+    "schema/**/*",
+    "config/**/*"
+  ],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      "**/node_modules/",
+      "**/dist/",
+      "**/build/",
+      "**/out/",
+      "**/coverage/",
+      "**/.venv/",
+      "**/venv/",
+      "**/.idea/",
+      "**/.vscode/",
+      "**/*.log",
+      "**/*.env",
+      "**/*.env.*",
+      "**/tmp/",
+      "**/.cache/",
+      "**/*.sqlite",
+      "**/*.db",
+      "**/*.db-journal",
+      "**/*.lock",
+      "**/*.min.js",
+      "**/*.map",
+      "public/",
+      "assets/",
+      "uploads/",
+      ".git/",
+      ".github/",
+      ".husky/",
+      "*.bak",
+      "*.tmp",
+      "*.old"
+    ]
+  },
+  "security": {
+    "enableSecurityCheck": true
+  },
+  "tokenCount": {
+    "encoding": "o200k_base"
+  }
+}
