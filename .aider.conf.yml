@@ -387,7 +387,7 @@ watch-files: true
 #  - zzz
 
 ## specify a read-only file (can be used multiple times)
-read: AGENTS.md
+read: .cursorrules
 ## Specify multiple values like this:
 #read:
 #  - xxx
