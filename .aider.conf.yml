@@ -387,7 +387,7 @@ watch-files: true
 #  - zzz
 
 ## specify a read-only file (can be used multiple times)
-#read: xxx
+read: AGENTS.md
 ## Specify multiple values like this:
 #read:
 #  - xxx
