@@ -14,11 +14,12 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
 "npm:@johnlindquist/ghx" = "latest"
 "npm:@johnlindquist/worktree" = "latest"
-"npm:biome" = "latest"
+"npm:@biomejs/biome" = "2.0.5"
 "npm:eas-cli" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:repomix" = "latest"
 "npm:vibe-rules" = "latest"
+"npm:@google/gemini-cli" = "latest"
 "pipx:Aider-AI/aider" = { version = "latest", uvx_args = "--force --python python3.12 --with pip" }
 "pipx:simonw/llm" = "latest"
 python = "latest"
