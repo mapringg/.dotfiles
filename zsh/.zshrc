@@ -13,8 +13,8 @@ alias ls='ls --color'
 alias ll='ls -l'
 alias la='ls -al'
 alias c='clear'
-alias lag='lazygit'
-alias lad='lazydocker'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"

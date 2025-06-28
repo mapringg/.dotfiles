@@ -29,7 +29,11 @@ if [[ "$OS" == "linux" ]]; then
     # Check if .bashrc.local is already sourced in .bashrc
     if ! grep -q "source ~/.bashrc.local" ~/.bashrc; then
         echo "Adding source line to .bashrc..."
-        echo -e "\n# Source local bashrc if it exists\nif [ -f ~/.bashrc.local ]; then\n    source ~/.bashrc.local\nfi" >> ~/.bashrc
+        echo -e "
+# Source local bashrc if it exists
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
+fi" >> ~/.bashrc
     else
         echo ".bashrc already configured."
     fi
@@ -37,23 +41,27 @@ if [[ "$OS" == "linux" ]]; then
     # Check if .profile.local is already sourced in .profile
     if ! grep -q "source ~/.profile.local" ~/.profile; then
         echo "Adding source line to .profile..."
-        echo -e "\n# Source local profile if it exists\nif [ -f ~/.profile.local ]; then\n    source ~/.profile.local\nfi" >> ~/.profile
+        echo -e "
+# Source local profile if it exists
+if [ -f ~/.profile.local ]; then
+    source ~/.profile.local
+fi" >> ~/.profile
     else
         echo ".profile already configured."
     fi
     
-    # Stow fish configuration
-    echo "Stowing fish configuration..."
-    stow fish
+    # Stow bash configuration
+    echo "Stowing bash configuration..."
+    stow bash
 fi
 
 # Setup for macOS
 if [[ "$OS" == "macos" ]]; then
     echo "Setting up for macOS..."
     
-    # Stow fish configuration
-    echo "Stowing fish configuration..."
-    stow fish
+    # Stow zsh configuration
+    echo "Stowing zsh configuration..."
+    stow zsh
 fi
 
 # Stow common configurations
