@@ -21,6 +21,7 @@ alias ld='lazydocker'
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
+export PS1='ubuntu:\w \$ '
 
 # History configuration
 HISTFILE=~/.bash_history

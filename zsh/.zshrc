@@ -18,6 +18,7 @@ alias ld='lazydocker'
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
+export PROMPT='apple:%~ %# '
 
 # History configuration
 HISTFILE=~/.zsh_history
