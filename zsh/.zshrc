@@ -79,4 +79,7 @@ if [[ -o interactive ]]; then
     zstyle ':completion:*' menu select
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+    # VSCode integration
+    [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 fi
