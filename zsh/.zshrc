@@ -18,7 +18,13 @@ alias ld='lazydocker'
 
 # Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
-export PROMPT='apple:%~ %# '
+
+# Git prompt using vcs_info
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '(%b)'
+precmd() { vcs_info }
+PROMPT='%F{cyan}%~%f %F{yellow}${vcs_info_msg_0_}%f ❯ '
 
 # History configuration
 HISTFILE=~/.zsh_history
@@ -43,8 +49,9 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 # Interactive shell setup
 if [[ -o interactive ]]; then
     # macOS (Homebrew) paths
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    local brew_prefix=$(brew --prefix)
+    source $brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
     # Common interactive shell tools
     if command -v fzf &> /dev/null; then
@@ -64,8 +71,8 @@ if [[ -o interactive ]]; then
     fi
     
     # Load zsh-completions
-    if [ -d $(brew --prefix)/share/zsh-completions ]; then
-        fpath=($(brew --prefix)/share/zsh-completions $fpath)
+    if [ -d $brew_prefix/share/zsh-completions ]; then
+        fpath=($brew_prefix/share/zsh-completions $fpath)
     fi
     
     # Completion styling
