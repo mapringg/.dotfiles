@@ -83,7 +83,7 @@ model: gemini/gemini-2.5-pro
 ## Set the reasoning_effort API parameter (default: not set)
 #reasoning-effort: xxx
 
-## Set the thinking token budget for models that support it (default: not set)
+## Set the thinking token budget for models that support it. Use 0 to disable. (default: not set)
 #thinking-tokens: xxx
 
 ## Verify the SSL cert when connecting to models (default: True)
@@ -212,6 +212,9 @@ dark-mode: true
 ## Enable/disable adding .aider* to .gitignore (default: True)
 #gitignore: true
 
+## Enable/disable the addition of files listed in .gitignore to Aider's editing scope.
+#add-gitignore-files: false
+
 ## Specify the aider ignore file (default: .aiderignore in git root)
 #aiderignore: .aiderignore
 
@@ -219,7 +222,7 @@ dark-mode: true
 #subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
-# auto-commits: true
+#auto-commits: true
 
 ## Enable/disable commits when repo is found dirty (default: True)
 #dirty-commits: true
@@ -236,8 +239,8 @@ dark-mode: true
 ## Prefix all commit messages with 'aider: ' (default: False)
 #attribute-commit-message-committer: false
 
-## Attribute aider edits using the Co-authored-by trailer in the commit message (default: False). If True, this takes precedence over default --attribute-author and --attribute-committer behavior unless they are explicitly set to True.
-#attribute-co-authored-by: false
+## Attribute aider edits using the Co-authored-by trailer in the commit message (default: True). If True, this takes precedence over default --attribute-author and --attribute-committer behavior unless they are explicitly set to True.
+#attribute-co-authored-by: true
 
 ## Enable/disable git pre-commit hooks with --no-verify (default: False)
 #git-commit-verify: false
@@ -269,7 +272,7 @@ commit-prompt: |
 #skip-sanity-check-repo: false
 
 ## Enable/disable watching files for ai coding comments (default: False)
-# watch-files: false
+#watch-files: false
 
 ########################
 # Fixing and committing:
@@ -308,6 +311,12 @@ commit-prompt: |
 
 ## Permanently disable analytics
 #analytics-disable: false
+
+## Send analytics to custom PostHog instance
+#analytics-posthog-host: xxx
+
+## Send analytics to custom PostHog project
+#analytics-posthog-project-api-key: xxx
 
 ############
 # Upgrading:

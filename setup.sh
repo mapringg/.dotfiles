@@ -32,6 +32,7 @@ stow_directories() {
     msg "Stowing directories..."
     # Stow zsh config to $HOME
     stow zsh
+    stow home
 
     # Stow other configs to their specific targets
     stow .config -t "$HOME/.config"
@@ -39,32 +40,12 @@ stow_directories() {
     msg "Stowing complete."
 }
 
-# Create symbolic links for individual configuration files in the home directory.
-link_config_files() {
-    msg "Linking individual configuration files..."
-    local dotfiles_dir
-    dotfiles_dir=$(pwd)
-
-    # Ensure the target directory for .gemini settings exists
-    mkdir -p "$HOME/.gemini"
-
-    ln -sfv "$dotfiles_dir/.gitconfig" "$HOME/.gitconfig"
-    ln -sfv "$dotfiles_dir/.aider.conf.yml" "$HOME/.aider.conf.yml"
-    ln -sfv "$dotfiles_dir/.shell-integration.zsh" "$HOME/.shell-integration.zsh"
-    ln -sfv "$dotfiles_dir/.p10k.zsh" "$HOME/.p10k.zsh"
-    ln -sfv "$dotfiles_dir/.gemini/settings.json" "$HOME/.gemini/settings.json"
-
-    msg "Linking complete."
-}
-
-
 # --- Main Execution ---
 
 main() {
     msg "Starting dotfiles setup..."
     check_dependencies
     stow_directories
-    link_config_files
     echo
     msg "✅ Setup complete!"
 }

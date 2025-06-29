@@ -1,90 +1,46 @@
 # Dotfiles
 
-This repository contains my personal dotfiles managed with GNU Stow.
+This repository contains my personal dotfiles. The setup process is automated via a script that uses `stow` to symlink configurations into their appropriate locations.
+
+## Prerequisites
+
+Before you begin, ensure you have `stow` installed.
+
+- **macOS (with Homebrew):** `brew install stow`
+- **Debian/Ubuntu:** `sudo apt-get install stow`
 
 ## Setup
 
-1. Clone this repository to your home directory:
-   ```bash
-   git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
-   cd ~/.dotfiles
-   ```
+1.  **Clone the repository:**
 
-2. Install GNU Stow if you don't have it already:
-   ```bash
-   # On Ubuntu/Debian/Linux Mint
-   sudo apt-get install stow
-   
-   # On macOS with Homebrew
-   brew install stow
-   ```
+    ```bash
+    git clone https://github.com/mapringg/.dotfiles.git ~/.dotfiles
+    cd ~/.dotfiles
 
-## Usage
+    ```
 
-### For Linux Systems
+2.  **Run the setup script:**
 
-On Linux systems, you need to modify your default `.bashrc` and `.profile` files to source the local configurations:
+    ```bash
+    ./setup.sh
+    ```
 
-1. Add the following line at the end of your `~/.bashrc`:
-   ```bash
-   # Source local bashrc if it exists
-   if [ -f ~/.bashrc.local ]; then
-       source ~/.bashrc.local
-   fi
-   ```
+The script will symlink the contents of the directories within this repository to your home directory (`$HOME`).
 
-2. Add the following line at the end of your `~/.profile`:
-   ```bash
-   # Source local profile if it exists
-   if [ -f ~/.profile.local ]; then
-       source ~/.profile.local
-   fi
-   ```
+## How It Works
 
-3. Use stow to symlink the bash configuration:
-   ```bash
-   stow bash
-   ```
+This setup uses `stow` to manage symlinks. Each top-level directory in this repository (e.g., `home`, `zsh`, `.config`) is a "stow package."
 
-### For macOS Systems
+- Files and directories within the `home` directory are symlinked directly into `$HOME`. For example, `home/.gitconfig` becomes `~/.gitconfig`.
+- Files and directories within other packages are symlinked to their corresponding locations. For example, `zsh/.zshrc` becomes `~/.zshrc`, and `.config/lazygit/config.yml` becomes `~/.config/lazygit/config.yml`.
 
-On macOS systems, use stow to symlink the zsh configuration:
-
-```bash
-stow zsh
-```
-
-## Other Configurations
-
-For other configurations that are common across systems:
-
-```bash
-stow bin
-stow .config
-# Add other stow commands for additional configurations
-```
+To add a new configuration file for your home directory, simply add it to the `home` directory in this repository and re-run `./setup.sh`.
 
 ## Updating
 
-To update your dotfiles:
-
-1. Pull the latest changes:
-   ```bash
-   cd ~/.dotfiles
-   git pull
-   ```
-
-2. Re-stow the packages if needed:
-   ```bash
-   stow -R bash  # On Linux
-   stow -R zsh   # On macOS
-   ```
-
-## Unstowing
-
-To remove the symlinks created by stow:
+To update your dotfiles, simply pull the latest changes from the repository:
 
 ```bash
-stow -D bash  # Remove bash symlinks
-stow -D zsh   # Remove zsh symlinks
-``` 
+cd ~/.dotfiles
+git pull
+```
