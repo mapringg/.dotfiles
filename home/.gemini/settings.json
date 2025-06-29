@@ -2,5 +2,9 @@
   "selectedAuthType": "gemini-api-key",
   "preferredEditor": "cursor",
   "contextFileName": ".cursorrules",
-  "theme": "Default"
+  "theme": "Default",
+  "autoAccept": true,
+  "checkpointing": {
+    "enabled": true
+  }
 }
