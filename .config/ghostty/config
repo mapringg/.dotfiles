@@ -7,23 +7,3 @@ cursor-style-blink = false
 window-padding-x = 8
 window-padding-y = 4
 theme = catppuccin-mocha
-
-keybind = "super+d=unbind"
-keybind = "super+shift+d=unbind"
-keybind = "super+shift+left_bracket=unbind"
-keybind = "super+shift+right_bracket=unbind"
-keybind = "super+alt+up=unbind"
-keybind = "super+alt+down=unbind"
-keybind = "super+alt+right=unbind"
-keybind = "super+alt+left=unbind"
-keybind = "super+ctrl+equal=unbind"
-
-keybind = "alt+h=goto_split:left"
-keybind = "alt+l=goto_split:right"
-keybind = "alt+k=goto_split:up"
-keybind = "alt+j=goto_split:down"
-
-keybind = "alt+-=new_split:down"
-keybind = "alt+\=new_split:right"
-
-keybind = "alt+equal=equalize_splits"
