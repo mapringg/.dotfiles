@@ -1,24 +1,22 @@
-# .zprofile for macOS
-# This file is executed for login shells
-
-# Source global definitions
-if [ -f /etc/zshrc ]; then
-    . /etc/zshrc
-fi
-
-# Set PATH so it includes user's private bin if it exists
+# Add user's private bin directories to PATH if they exist
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Homebrew setup for macOS
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# macOS-specific configurations
+if [[ "$(uname)" == "Darwin" ]]; then
+    # Homebrew setup for macOS
+    if [ -f /opt/homebrew/bin/brew ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+    
+    # OrbStack setup for macOS
+    source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+fi
 
-# Add any other local zprofile configurations here
+# Cross-platform tool configurations
 eval "$(mise activate zsh --shims)"
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :
