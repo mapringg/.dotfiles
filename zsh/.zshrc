@@ -80,6 +80,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 # Shell integrations
 eval "$(fzf --zsh)"
