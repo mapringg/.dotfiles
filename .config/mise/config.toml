@@ -19,6 +19,7 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:repomix" = "latest"
 "npm:vibe-rules" = "latest"
 "npm:@google/gemini-cli" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
 "pipx:Aider-AI/aider" = { version = "latest", uvx_args = "--force --python python3.12 --with pip" }
 "pipx:simonw/llm" = "latest"
 python = "latest"
