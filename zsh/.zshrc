@@ -64,7 +64,7 @@ if [[ -o interactive ]]; then
 
     # Completion system
     autoload -Uz compinit
-    if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+    if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
         compinit
     else
         compinit -C
