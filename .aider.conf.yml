@@ -219,7 +219,7 @@ dark-mode: true
 #subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
-auto-commits: false
+# auto-commits: true
 
 ## Enable/disable commits when repo is found dirty (default: True)
 #dirty-commits: true
@@ -269,7 +269,7 @@ commit-prompt: |
 #skip-sanity-check-repo: false
 
 ## Enable/disable watching files for ai coding comments (default: False)
-watch-files: true
+# watch-files: false
 
 ########################
 # Fixing and committing:
@@ -387,7 +387,7 @@ watch-files: true
 #  - zzz
 
 ## specify a read-only file (can be used multiple times)
-read: .cursorrules
+#read: xxx
 ## Specify multiple values like this:
 #read:
 #  - xxx
