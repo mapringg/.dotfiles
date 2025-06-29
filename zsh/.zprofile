@@ -18,5 +18,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
     source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 fi
 
+# Environment variables
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Cross-platform tool configurations
 eval "$(mise activate zsh --shims)"
