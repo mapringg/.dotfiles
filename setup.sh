@@ -26,33 +26,37 @@ fi
 if [[ "$OS" == "linux" ]]; then
     echo "Setting up for Linux..."
     
-    # Check if .bashrc.local is already sourced in .bashrc
-    if ! grep -q "source ~/.bashrc.local" ~/.bashrc; then
-        echo "Adding source line to .bashrc..."
-        echo -e "
-# Source local bashrc if it exists
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
-fi" >> ~/.bashrc
-    else
-        echo ".bashrc already configured."
-    fi
+#     # Check if .bashrc.local is already sourced in .bashrc
+#     if ! grep -q "source ~/.bashrc.local" ~/.bashrc; then
+#         echo "Adding source line to .bashrc..."
+#         echo -e "
+# # Source local bashrc if it exists
+# if [ -f ~/.bashrc.local ]; then
+#     source ~/.bashrc.local
+# fi" >> ~/.bashrc
+#     else
+#         echo ".bashrc already configured."
+#     fi
     
-    # Check if .profile.local is already sourced in .profile
-    if ! grep -q "source ~/.profile.local" ~/.profile; then
-        echo "Adding source line to .profile..."
-        echo -e "
-# Source local profile if it exists
-if [ -f ~/.profile.local ]; then
-    source ~/.profile.local
-fi" >> ~/.profile
-    else
-        echo ".profile already configured."
-    fi
+#     # Check if .profile.local is already sourced in .profile
+#     if ! grep -q "source ~/.profile.local" ~/.profile; then
+#         echo "Adding source line to .profile..."
+#         echo -e "
+# # Source local profile if it exists
+# if [ -f ~/.profile.local ]; then
+#     source ~/.profile.local
+# fi" >> ~/.profile
+#     else
+#         echo ".profile already configured."
+#     fi
     
-    # Stow bash configuration
-    echo "Stowing bash configuration..."
-    stow bash
+#     # Stow bash configuration
+#     echo "Stowing bash configuration..."
+#     stow bash
+
+    # Stow zsh configuration
+    echo "Stowing zsh configuration..."
+    stow zsh
 fi
 
 # Setup for macOS
