@@ -79,5 +79,6 @@ echo "Copying individual configuration files..."
 ln -sf "$(pwd)/.gitconfig" $HOME/.gitconfig
 ln -sf "$(pwd)/.aider.conf.yml" $HOME/.aider.conf.yml
 ln -sf "$(pwd)/.shell-integration.zsh" $HOME/.shell-integration.zsh
+ln -sf "$(pwd)/.p10k.zsh" $HOME/.p10k.zsh
 
 echo "Setup complete!"
