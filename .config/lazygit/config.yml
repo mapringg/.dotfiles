@@ -1,5 +1,3 @@
-gui:
-  showBottomLine: false
 os:
   edit: "cursor --reuse-window -- {{filename}}"
   editAtLine: "cursor --reuse-window --goto -- {{filename}}:{{line}}"
