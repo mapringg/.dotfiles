@@ -66,7 +66,7 @@ fi
 
 # Stow common configurations
 echo "Stowing common configurations..."
-stow bin -t $HOME/.local/bin
+# stow bin -t $HOME/.local/bin
 stow .config -t $HOME/.config
 stow .ssh -t $HOME/.ssh
 
@@ -74,5 +74,6 @@ stow .ssh -t $HOME/.ssh
 echo "Copying individual configuration files..."
 ln -sf "$(pwd)/.gitconfig" $HOME/.gitconfig
 ln -sf "$(pwd)/.aider.conf.yml" $HOME/.aider.conf.yml
+ln -sf "$(pwd)/.shell-integration.zsh" $HOME/.shell-integration.zsh
 
 echo "Setup complete!"

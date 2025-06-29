@@ -19,6 +19,12 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+if [[ -n $CURSOR_TRACE_ID ]]; then
+  PROMPT_EOL_MARK=""
+  test -e "${HOME}/.shell-integration.zsh" && source "${HOME}/.shell-integration.zsh"
+  precmd() { print -Pn "\e]133;D;%?\a" }
+  preexec() { print -Pn "\e]133;C;\a" }
+fi
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
