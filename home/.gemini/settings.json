@@ -1,7 +1,7 @@
 {
   "selectedAuthType": "gemini-api-key",
   "preferredEditor": "cursor",
-  "contextFileName": ".cursorrules",
+  "contextFileName": "CLAUDE.md",
   "theme": "Default",
   "autoAccept": true,
   "checkpointing": {
