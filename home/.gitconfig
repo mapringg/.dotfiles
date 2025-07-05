@@ -1,24 +1,12 @@
-[core]
-    editor = cursor --wait
-
-[user]
-    email = work@sorawitk.com
-    name = Sorawit Kongnurat
-
-[github]
-    user = mapringg
-
-[diff]
-    colorMoved = default
-
-[init]
-    defaultBranch = main
-
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
 [pull]
-    rebase = true
-
-[push]
-    default = upstream
-
-[rebase]
-    autoStash = true
+	rebase = true
+[init]
+	defaultBranch = main
+[user]
+	name = Sorawit Kongnurat
+	email = work@sorawitk.com
