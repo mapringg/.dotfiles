@@ -1,5 +1,6 @@
 {
   "selectedAuthType": "gemini-api-key",
   "preferredEditor": "code",
-  "contextFileName": "CLAUDE.md"
+  "contextFileName": "CLAUDE.md",
+  "theme": "Default"
 }
