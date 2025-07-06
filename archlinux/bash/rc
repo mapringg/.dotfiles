@@ -1,0 +1,6 @@
+source ~/.dotfiles/archlinux/bash/shell
+source ~/.dotfiles/archlinux/bash/aliases
+source ~/.dotfiles/archlinux/bash/functions
+source ~/.dotfiles/archlinux/bash/prompt
+source ~/.dotfiles/archlinux/bash/init
+source ~/.dotfiles/archlinux/bash/envs
