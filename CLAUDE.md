@@ -4,46 +4,55 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Architecture
 
-This is a personal dotfiles repository that uses GNU Stow for configuration management. The repository follows a structured approach to organize configuration files:
+This is a personal dotfiles repository with platform-specific configurations. The repository follows a structured approach to organize configuration files by platform:
 
-- **`home/`** - Files symlinked directly to `$HOME` (e.g., `.gitconfig`, `.p10k.zsh`)
-- **`.config/`** - Application configurations symlinked to `~/.config/` (ghostty, lazygit, mise, etc.)
-- **`zsh/`** - Zsh shell configuration files
-- **`.ssh/`** - SSH configuration and keys
-- **`bash/`** - Bash shell configurations
+- **`apple/`** - Apple/macOS-specific configurations (shell configs, terminal settings)
+- **`archlinux/`** - Arch Linux-specific configurations (currently empty, same structure as apple when populated)
+- **Root directories** - Shared configurations that work across platforms:
+  - **`.config/`** - Application configurations (lazygit, mise, etc.)
+  - **`.ssh/`** - SSH configuration and keys
+  - **`.gemini/`** - AI tool settings
+  - **`.gitconfig`** - Git configuration
 
 ## Setup and Management Commands
 
 ### Initial Setup
 ```bash
-# Install dependencies (macOS)
-brew install stow
+# No special dependencies required - uses standard Unix commands
 
 # Clone and setup dotfiles
 git clone https://github.com/mapringg/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-./setup.sh
+
+# Run platform-specific setup
+./apple/install.sh          # For macOS/Apple
+./archlinux/install.sh      # For Arch Linux (when available)
 ```
 
 ### Key Operations
-- **Setup/Install dotfiles**: `./setup.sh` - Uses stow to symlink all configurations
+- **Setup/Install dotfiles**: `./apple/install.sh` - Creates symbolic links for all configurations
 - **Update dotfiles**: `git pull` in the `.dotfiles` directory
-- **Add new config**: Place in appropriate directory (`home/`, `.config/`, etc.) and re-run `./setup.sh`
+- **Add new config**: Place in appropriate platform directory (`apple/`, `archlinux/`) or shared directory, then update the relevant install script
 
-## Stow Package Structure
+## Symlink Structure
 
-The setup script (`setup.sh`) stows packages as follows:
-- `stow zsh` → Links zsh configs to `$HOME`
-- `stow home` → Links home directory files to `$HOME`  
-- `stow .config -t "$HOME/.config"` → Links app configs to `~/.config/`
-- `stow .ssh -t "$HOME/.ssh"` → Links SSH configs to `~/.ssh/`
+The install script (`apple/install.sh`) creates symbolic links as follows:
+- **Shared configs**: `ln -nsf ~/.dotfiles/.config/lazygit/config.yml ~/.config/lazygit/config.yml`
+- **Apple-specific configs**: `ln -nsf ~/.dotfiles/apple/.zshrc ~/.zshrc`
+- **SSH configs**: `ln -nsf ~/.dotfiles/.ssh/config ~/.ssh/config`
+- **Git config**: `ln -nsf ~/.dotfiles/.gitconfig ~/.gitconfig`
 
 When modifying configurations, understand that files are symlinked - changes in the repository immediately affect the live system.
 
 ## Key Configuration Files
 
-- **Shell**: `.p10k.zsh` (Powerlevel10k theme), `.shell-integration.zsh`
-- **Git**: `home/.gitconfig`
-- **AI Tools**: `home/.aider.conf.yml`, `home/.gemini/settings.json`
-- **Terminal**: `.config/ghostty/config`
+### Apple-Specific Files
+- **Shell**: `apple/.p10k.zsh` (Powerlevel10k theme), `apple/.shell-integration.zsh`, `apple/.zshrc`, `apple/.zprofile`
+- **Terminal**: `apple/.config/ghostty/config`
+
+### Shared Files
+- **Git**: `.gitconfig`
+- **AI Tools**: `.gemini/settings.json`
 - **Development**: `.config/mise/config.toml` (runtime manager)
+- **Version Control**: `.config/lazygit/config.yml`
+- **SSH**: `.ssh/config`

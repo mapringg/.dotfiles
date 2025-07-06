@@ -1,13 +1,10 @@
 # Dotfiles
 
-This repository contains my personal dotfiles. The setup process is automated via a script that uses `stow` to symlink configurations into their appropriate locations.
+This repository contains my personal dotfiles with platform-specific configurations. The setup is organized by platform, with Apple-specific configurations in the `apple/` directory and shared configurations in the root directories.
 
 ## Prerequisites
 
-Before you begin, ensure you have `stow` installed.
-
-- **macOS (with Homebrew):** `brew install stow`
-- **Debian/Ubuntu:** `sudo apt-get install stow`
+No special tools are required - the setup script uses standard Unix commands (`ln`, `mkdir`) to create symbolic links.
 
 ## Setup
 
@@ -16,25 +13,45 @@ Before you begin, ensure you have `stow` installed.
     ```bash
     git clone https://github.com/mapringg/.dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
-
     ```
 
-2.  **Run the setup script:**
+2.  **Run the platform-specific setup script:**
 
+    **For macOS/Apple:**
     ```bash
-    ./setup.sh
+    ./apple/install.sh
     ```
 
-The script will symlink the contents of the directories within this repository to your home directory (`$HOME`).
+    **For Arch Linux:**
+    ```bash
+    ./archlinux/install.sh  # (when available)
+    ```
+
+The script will create symbolic links from the configuration files in this repository to their appropriate locations in your home directory.
 
 ## How It Works
 
-This setup uses `stow` to manage symlinks. Each top-level directory in this repository (e.g., `home`, `zsh`, `.config`) is a "stow package."
+This setup uses direct symbolic links to manage configurations. The repository is organized as follows:
 
-- Files and directories within the `home` directory are symlinked directly into `$HOME`. For example, `home/.gitconfig` becomes `~/.gitconfig`.
-- Files and directories within other packages are symlinked to their corresponding locations. For example, `zsh/.zshrc` becomes `~/.zshrc`, and `.config/lazygit/config.yml` becomes `~/.config/lazygit/config.yml`.
+- **`apple/`** - Apple/macOS-specific configurations (shell configs, terminal settings)
+- **`archlinux/`** - Arch Linux-specific configurations (currently empty)
+- **Root directories** - Shared configurations that work across platforms:
+  - `.config/` - Application configurations (lazygit, mise, etc.)
+  - `.ssh/` - SSH configuration
+  - `.gemini/` - AI tool settings
+  - `.gitconfig` - Git configuration
 
-To add a new configuration file for your home directory, simply add it to the `home` directory in this repository and re-run `./setup.sh`.
+### Apple-Specific Files
+- Shell configurations: `.zshrc`, `.zprofile`, `.p10k.zsh`, `.shell-integration.zsh`
+- Terminal configuration: `apple/.config/ghostty/config`
+
+### Shared Files
+- Application configs: `.config/lazygit/config.yml`, `.config/mise/config.toml`
+- SSH configuration: `.ssh/config`
+- Git configuration: `.gitconfig`
+- AI tool settings: `.gemini/settings.json`
+
+To add a new configuration file, place it in the appropriate platform directory (`apple/`, `archlinux/`) or shared directory, then update the relevant install script.
 
 ## Updating
 
