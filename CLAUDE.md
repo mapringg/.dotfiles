@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a personal dotfiles repository with platform-specific configurations. The repository follows a structured approach to organize configuration files by platform:
 
 - **`apple/`** - Apple/macOS-specific configurations (shell configs, terminal settings)
-- **`archlinux/`** - Arch Linux-specific configurations (currently empty, same structure as apple when populated)
+- **`archlinux/`** - Arch Linux-specific configurations (Hyprland, Waybar, Alacritty, bash)
 - **Root directories** - Shared configurations that work across platforms:
   - **`.config/`** - Application configurations (lazygit, mise, etc.)
   - **`.ssh/`** - SSH configuration and keys
@@ -49,6 +49,14 @@ When modifying configurations, understand that files are symlinked - changes in 
 ### Apple-Specific Files
 - **Shell**: `apple/.p10k.zsh` (Powerlevel10k theme), `apple/.shell-integration.zsh`, `apple/.zshrc`, `apple/.zprofile`
 - **Terminal**: `apple/.config/ghostty/config`
+
+### Arch Linux-Specific Files
+- **Window Manager**: `archlinux/.config/hypr/hyprland.conf` (Hyprland Wayland compositor)
+- **Status Bar**: `archlinux/.config/waybar/config`, `archlinux/.config/waybar/style.css`
+- **Terminal**: `archlinux/.config/alacritty/alacritty.toml`
+- **Application Launcher**: `archlinux/.config/wofi/config`
+- **Shell**: `archlinux/.bashrc`, `archlinux/.bash_profile`
+- **Hyprland Modules**: `archlinux/hypr/` (autostart, bindings, envs, input, looknfeel, windows configurations)
 
 ### Shared Files
 - **Git**: `.gitconfig`

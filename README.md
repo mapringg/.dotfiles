@@ -34,7 +34,7 @@ The script will create symbolic links from the configuration files in this repos
 This setup uses direct symbolic links to manage configurations. The repository is organized as follows:
 
 - **`apple/`** - Apple/macOS-specific configurations (shell configs, terminal settings)
-- **`archlinux/`** - Arch Linux-specific configurations (currently empty)
+- **`archlinux/`** - Arch Linux-specific configurations (Hyprland, Waybar, Alacritty, bash)
 - **Root directories** - Shared configurations that work across platforms:
   - `.config/` - Application configurations (lazygit, mise, etc.)
   - `.ssh/` - SSH configuration
@@ -44,6 +44,13 @@ This setup uses direct symbolic links to manage configurations. The repository i
 ### Apple-Specific Files
 - Shell configurations: `.zshrc`, `.zprofile`, `.p10k.zsh`, `.shell-integration.zsh`
 - Terminal configuration: `apple/.config/ghostty/config`
+
+### Arch Linux-Specific Files
+- Window manager: `archlinux/.config/hypr/hyprland.conf` (Hyprland configuration)
+- Status bar: `archlinux/.config/waybar/config` and `archlinux/.config/waybar/style.css`
+- Terminal: `archlinux/.config/alacritty/alacritty.toml`
+- Application launcher: `archlinux/.config/wofi/config`
+- Shell configurations: `archlinux/.bashrc`, `archlinux/.bash_profile`
 
 ### Shared Files
 - Application configs: `.config/lazygit/config.yml`, `.config/mise/config.toml`
