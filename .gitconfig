@@ -1,3 +1,31 @@
+[core]
+    	pager = delta
+
+[interactive]
+    	diffFilter = delta --color-only
+
+[delta]
+    	navigate = true
+    	dark = true
+    	line-numbers = true
+    	line-numbers-left-format = "{nm:>4}┊"
+    	line-numbers-right-format = "{np:>4}│"
+    	line-numbers-zero-style = "#434C5E"
+    	side-by-side = true
+    	width = 200
+    	syntax-theme = Monokai Extended
+    	file-style = bold yellow ul
+    	file-decoration-style = none
+    	file-added-label = [+]
+    	file-removed-label = [-]
+    	file-modified-label = [~]
+    	hunk-header-decoration-style = cyan box ul
+    	plus-style = syntax "#012800"
+    	minus-style = syntax "#340001"
+    	whitespace-error-style = 22 reverse
+
+[merge]
+    	conflictstyle = zdiff3
 [alias]
 	co = checkout
 	br = branch
