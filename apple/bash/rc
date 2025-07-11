@@ -1,0 +1,5 @@
+source ~/.dotfiles/apple/bash/shell
+source ~/.dotfiles/apple/bash/aliases
+source ~/.dotfiles/apple/bash/prompt
+source ~/.dotfiles/apple/bash/init
+source ~/.dotfiles/apple/bash/envs

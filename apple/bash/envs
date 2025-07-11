@@ -1,0 +1,5 @@
+# Editor used by CLI
+export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
+
+export XDG_CONFIG_HOME="$HOME/.config"

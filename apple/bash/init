@@ -1,0 +1,25 @@
+if [[ -d /opt/homebrew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if [[ -d ~/.orbstack ]]; then
+  source ~/.orbstack/shell/init.bash 2>/dev/null || :
+fi
+
+if command -v mise &> /dev/null; then
+  eval "$(mise activate bash --shims)"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init bash)"
+fi
+
+if command -v fzf &> /dev/null; then
+  # Homebrew fzf completion and key bindings for macOS
+  if [[ -f /opt/homebrew/opt/fzf/shell/completion.bash ]]; then
+    source /opt/homebrew/opt/fzf/shell/completion.bash
+  fi
+  if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.bash ]]; then
+    source /opt/homebrew/opt/fzf/shell/key-bindings.bash
+  fi
+fi
