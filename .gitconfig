@@ -11,7 +11,7 @@
     	line-numbers-left-format = "{nm:>4}┊"
     	line-numbers-right-format = "{np:>4}│"
     	line-numbers-zero-style = "#434C5E"
-    	side-by-side = true
+    	side-by-side = false
     	width = 200
     	syntax-theme = Monokai Extended
     	file-style = bold yellow ul
@@ -26,17 +26,22 @@
 
 [merge]
     	conflictstyle = zdiff3
+
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
+		co = checkout
+		br = branch
+		ci = commit
+		st = status
+
 [pull]
-	rebase = true
+		rebase = true
+
 [init]
-	defaultBranch = main
+		defaultBranch = main
+
 [user]
-	name = Sorawit Kongnurat
-	email = work@sorawitk.com
+		name = Sorawit Kongnurat
+		email = work@sorawitk.com
+
 [extensions]
-	worktreeConfig = true
+		worktreeConfig = true
