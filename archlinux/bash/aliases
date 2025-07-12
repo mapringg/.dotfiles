@@ -28,6 +28,7 @@ alias n='nvim'
 alias g='git'
 alias d='docker'
 alias r='rails'
+alias l='lazygit'
 
 # Git
 alias gcm='git commit -m'
