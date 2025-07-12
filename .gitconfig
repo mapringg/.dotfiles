@@ -38,3 +38,5 @@
 [user]
 	name = Sorawit Kongnurat
 	email = work@sorawitk.com
+[extensions]
+	worktreeConfig = true
