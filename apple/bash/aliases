@@ -26,6 +26,7 @@ alias g='git'
 alias d='docker'
 alias r='rails'
 alias l='lazygit'
+alias c='claude --dangerously-skip-permissions'
 
 # Git
 alias gcm='git commit -m'
