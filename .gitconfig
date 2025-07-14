@@ -43,6 +43,8 @@
 		br = branch
 		ci = commit
 		st = status
+		pf = push --force
+		fp = fetch --prune
 
 [pull]
 		rebase = true
