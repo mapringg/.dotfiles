@@ -4,3 +4,14 @@ export SUDO_EDITOR="$EDITOR"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export DISABLE_AUTOUPDATER=1
+export FZF_CTRL_T_COMMAND="rg --files --hidden --follow \
+  --glob '!Library/' \
+  --glob '!.cache/' \
+  --glob '!.npm/' \
+  --glob '!.local/' \
+  --glob '!.bun/' \
+  --glob '!.gradle/' \
+  --glob '!.rustup/' \
+  --glob '!go/' \
+  --glob '!.git/' \
+  --glob '!.Trash/'"
