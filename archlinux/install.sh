@@ -72,4 +72,9 @@ create_symlink ~/.dotfiles/.gitconfig ~/.gitconfig
 create_symlink ~/.dotfiles/.ssh/config ~/.ssh/config
 create_symlink ~/.dotfiles/.gemini/settings.json ~/.gemini/settings.json
 
+# Link .claude/commands directory
+if [ -d ~/.dotfiles/claude/commands ]; then
+    link_directory_contents ~/.dotfiles/claude ~/.claude
+fi
+
 echo "Dotfiles setup complete."
