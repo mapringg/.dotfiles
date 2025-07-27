@@ -1,8 +1,7 @@
 #!/bin/bash
 #
 # This script creates symbolic links for all configurations in the dotfiles repository.
-# It uses loops to automatically handle new files, so you don't have to manually
-# add a new `ln` command for each new file.
+# It detects the operating system and links the appropriate platform-specific files.
 
 # --- Helper Functions ---
 
@@ -47,38 +46,58 @@ link_directory_contents() {
 
 # --- Main Script ---
 
-# Shared configurations - handle nested directory structures
-for dir in ~/.dotfiles/.config/*/; do
+DOTFILES_DIR=~/.dotfiles
+
+# --- Shared Configurations ---
+
+echo "Setting up shared configurations..."
+# Shared .config directories
+for dir in $DOTFILES_DIR/.config/*/; do
   if [ -d "$dir" ]; then
     dirname=$(basename "$dir")
     link_directory_contents "$dir" "$HOME/.config/$dirname"
   fi
 done
 
-# Arch Linux-specific dotfiles (hidden files starting with .)
-for file in ~/.dotfiles/archlinux/.*; do
+# Special cases for root-level files
+create_symlink $DOTFILES_DIR/.gitconfig ~/.gitconfig
+create_symlink $DOTFILES_DIR/.ssh/config ~/.ssh/config
+
+# Link .claude and .gemini directories
+if [ -d $DOTFILES_DIR/claude ]; then
+  link_directory_contents $DOTFILES_DIR/claude ~/.claude
+fi
+if [ -d $DOTFILES_DIR/gemini ]; then
+  link_directory_contents $DOTFILES_DIR/gemini ~/.gemini
+fi
+
+# --- Platform-Specific Configurations ---
+
+OS=$(uname -s)
+PLATFORM_DIR=""
+
+if [ "$OS" == "Darwin" ]; then
+  PLATFORM_DIR="apple"
+elif [ "$OS" == "Linux" ]; then
+  # Add more specific linux checks here if needed
+  PLATFORM_DIR="archlinux"
+else
+  echo "Unsupported OS: $OS"
+  exit 1
+fi
+
+echo "Setting up $PLATFORM_DIR configurations for $OS..."
+
+# Link platform-specific dotfiles (hidden files)
+for file in $DOTFILES_DIR/$PLATFORM_DIR/.*; do
   if [ -f "$file" ] && [ "$(basename "$file")" != "." ] && [ "$(basename "$file")" != ".." ]; then
     create_symlink "$file" ~/"$(basename "$file")"
   fi
 done
 
-# Arch Linux-specific .config directory
-if [ -d ~/.dotfiles/archlinux/.config ]; then
-  link_directory_contents ~/.dotfiles/archlinux/.config ~/.config
-fi
-
-# Special cases for root-level files
-create_symlink ~/.dotfiles/.gitconfig ~/.gitconfig
-create_symlink ~/.dotfiles/.ssh/config ~/.ssh/config
-
-# Link .claude directory
-if [ -d ~/.dotfiles/claude ]; then
-  link_directory_contents ~/.dotfiles/claude ~/.claude
-fi
-
-# Link .gemini directory
-if [ -d ~/.dotfiles/gemini ]; then
-  link_directory_contents ~/.dotfiles/gemini ~/.gemini
+# Link platform-specific .config directory
+if [ -d $DOTFILES_DIR/$PLATFORM_DIR/.config ]; then
+  link_directory_contents $DOTFILES_DIR/$PLATFORM_DIR/.config ~/.config
 fi
 
 echo "Dotfiles setup complete."
