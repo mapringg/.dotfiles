@@ -2,10 +2,6 @@ if [[ -d /opt/homebrew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-if [[ -d ~/.orbstack ]]; then
-  source ~/.orbstack/shell/init.bash 2>/dev/null || :
-fi
-
 if command -v mise &> /dev/null; then
   eval "$(mise activate bash --shims)"
 fi
