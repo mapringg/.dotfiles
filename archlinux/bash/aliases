@@ -29,6 +29,7 @@ alias g='git'
 alias d='docker'
 alias l='lazygit'
 alias c='claude --dangerously-skip-permissions'
+alias new='bun create better-t-stack@latest'
 
 # Git
 alias gcm='git commit -m'
