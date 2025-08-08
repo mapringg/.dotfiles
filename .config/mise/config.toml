@@ -6,6 +6,7 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@google/gemini-cli" = "latest"
+"npm:opencode-ai" = "latest"
 "npm:eas-cli" = "latest"
 python = "latest"
 rust = "stable"
