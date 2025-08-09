@@ -29,7 +29,8 @@ alias g='git'
 alias d='docker'
 alias l='lazygit'
 alias c='claude --dangerously-skip-permissions'
-alias new='nlx create-next-app@latest'
+alias next='nlx create-next-app@latest'
+alias shadcn='nlx shadcn@latest add'
 
 # Git
 alias gcm='git commit -m'
