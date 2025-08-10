@@ -1,22 +1,8 @@
 [tools]
-bun = "latest"
-deno = "latest"
-go = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@google/gemini-cli" = "latest"
-"npm:opencode-ai" = "latest"
-"npm:eas-cli" = "latest"
-python = "latest"
-rust = "stable"
-uv = "latest"
 
 [settings]
-go_set_gobin = true
-npm.bun = true
-idiomatic_version_file_enable_tools = ["node", "ruby"]
-experimental = true
-
-[settings.ruby]
-ruby_build_opts = "CC=gcc-14 CXX=g++-14"
+idiomatic_version_file_enable_tools = ["node"]

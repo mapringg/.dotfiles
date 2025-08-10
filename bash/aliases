@@ -14,9 +14,6 @@ zd() {
     z "$@" && printf " \U000F17A9 " && pwd || echo "Error: Directory not found"
   fi
 }
-open() {
-  xdg-open "$@" >/dev/null 2>&1
-}
 
 # Directories
 alias ..='cd ..'
@@ -24,18 +21,14 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Tools
-alias n='nvim'
 alias g='git'
 alias d='docker'
 alias l='lazygit'
 alias c='claude --dangerously-skip-permissions'
-alias next='nlx create-next-app@latest'
-alias shadcn='nlx shadcn@latest add'
+alias n='nlx create-next-app@latest'
+alias s='nlx shadcn@latest add'
 
 # Git
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
-
-# Find packages without leaving the terminal
-alias yayf="yay -Slq | fzf --multi --preview 'yay -Sii {1}' --preview-window=down:75% | xargs -ro yay -S"

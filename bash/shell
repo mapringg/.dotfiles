@@ -5,7 +5,9 @@ HISTSIZE=32768
 HISTFILESIZE="${HISTSIZE}"
 
 # Autocompletion
-# Bash completion will be handled in init file for macOS
+if [[ ! -v BASH_COMPLETION_VERSINFO && -f /usr/share/bash-completion/bash_completion ]]; then
+  source /usr/share/bash-completion/bash_completion
+fi
 
 # Set complete path
 export PATH="./bin:$HOME/.local/bin:$PATH"
