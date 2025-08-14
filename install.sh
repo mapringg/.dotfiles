@@ -32,15 +32,26 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Setting up dotfiles from $DOTFILES_DIR..."
 
-# Root-level dotfiles
-[ -f "$DOTFILES_DIR/.bashrc" ] && create_symlink "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+# Detect OS
+OS="$(uname)"
+
+# Root-level dotfiles (skip bash-related on Linux)
+if [ "$OS" = "Darwin" ]; then
+  [ -f "$DOTFILES_DIR/.bashrc" ] && create_symlink "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+fi
 [ -f "$DOTFILES_DIR/.gitconfig" ] && create_symlink "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 
 # .config directory
 if [ -d "$DOTFILES_DIR/.config" ]; then
-  for dir in "$DOTFILES_DIR/.config"/*; do
-    [ -d "$dir" ] && link_directory_contents "$dir" "$HOME/.config/$(basename "$dir")"
-  done
+  if [ "$OS" = "Darwin" ]; then
+    # macOS: link all directories
+    for dir in "$DOTFILES_DIR/.config"/*; do
+      [ -d "$dir" ] && link_directory_contents "$dir" "$HOME/.config/$(basename "$dir")"
+    done
+  else
+    # Linux: only link mise
+    [ -d "$DOTFILES_DIR/.config/mise" ] && link_directory_contents "$DOTFILES_DIR/.config/mise" "$HOME/.config/mise"
+  fi
 fi
 
 # .ssh directory
