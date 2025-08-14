@@ -1,17 +1,14 @@
-[user]
-		name = Sorawit Kongnurat
-		email = sorawit.k@tutanota.com
-
 [alias]
-		co = checkout
-		br = branch
-		ci = commit
-		st = status
-		pf = push --force
-		fp = fetch --prune
-
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    pf = push --force
+    fp = fetch --prune
 [pull]
-		rebase = true
-
+    rebase = true
 [init]
-		defaultBranch = main
+    defaultBranch = main
+[user]
+    name = Sorawit Kongnurat
+    email = sorawit.k@tutanota.com
