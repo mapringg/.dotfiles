@@ -27,6 +27,7 @@ alias l='lazygit'
 alias c='claude --dangerously-skip-permissions'
 alias n='nlx create-next-app@latest'
 alias s='nlx shadcn@latest add'
+alias t='sesh connect $(sesh list | fzf)'
 
 # Git
 alias gcm='git commit -m'

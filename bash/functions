@@ -1,14 +1,3 @@
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
-
-# Tmux
-tmux() {
-    if ! command tmux has-session 2>/dev/null; then
-        # No sessions exist, create 'dev' session in ~/dev
-        command tmux new-session -s dev -c ~/dev
-    else
-        # Sessions exist, run tmux normally
-        command tmux "$@"
-    fi
-}
