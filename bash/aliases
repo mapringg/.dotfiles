@@ -25,8 +25,7 @@ alias g='git'
 alias d='docker'
 alias l='lazygit'
 alias c='claude --dangerously-skip-permissions'
-alias t='sesh connect $(sesh list | fzf)'
-alias new='nlx create-next-app@latest'
+alias next='nlx create-next-app@latest'
 alias shadcn='nlx shadcn@latest add'
 
 # Git
