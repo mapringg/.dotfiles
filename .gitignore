@@ -9,3 +9,6 @@ gemini/installation_id
 gemini/oauth_creds.json
 gemini/tmp/*/logs.json
 gemini/tmp/*/shell_history
+qwen/installation_id
+qwen/oauth_creds.json
+qwen/tmp/*/logs.json

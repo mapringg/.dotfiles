@@ -37,6 +37,7 @@ declare -A links=(
   [".ssh/config"]=".ssh/config"
   ["claude"]=".claude"
   ["gemini"]=".gemini"
+  ["qwen"]=".qwen"
 )
 
 # Detect OS
