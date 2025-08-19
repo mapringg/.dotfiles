@@ -3,3 +3,9 @@ claude/projects
 claude/statsig
 claude/todos
 claude/shell-snapshots
+gemini/.env
+gemini/google_accounts.json
+gemini/installation_id
+gemini/oauth_creds.json
+gemini/tmp/*/logs.json
+gemini/tmp/*/shell_history
