@@ -1,6 +1,8 @@
 {
-  "selectedAuthType": "gemini-api-key",
+  "selectedAuthType": "oauth-personal",
   "preferredEditor": "code",
   "contextFileName": "CLAUDE.md",
-  "theme": "Default"
+  "theme": "Default",
+  "ideMode": true,
+  "hasSeenIdeIntegrationNudge": true
 }
