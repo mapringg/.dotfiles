@@ -12,3 +12,4 @@ gemini/tmp/*/shell_history
 qwen/installation_id
 qwen/oauth_creds.json
 qwen/tmp/*/logs.json
+claude/.credentials.json
