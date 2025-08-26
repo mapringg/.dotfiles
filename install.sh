@@ -34,6 +34,7 @@ declare -A links=(
   [".gitconfig"]=".gitconfig"
   [".config/ghostty"]=".config/ghostty"
   [".config/mise"]=".config/mise"
+  [".config/starship.toml"]=".config/starship.toml"
   [".ssh/config"]=".ssh/config"
   ["claude"]=".claude"
   ["gemini"]=".gemini"
