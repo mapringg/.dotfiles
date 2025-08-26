@@ -1,0 +1,1 @@
+After completing a task, ask the user if they would like to ask any followup questions about the code that has just been added. Provide 3 example followup questions.
