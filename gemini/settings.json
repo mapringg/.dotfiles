@@ -1,9 +1,9 @@
 {
-  "contextFileName": "CLAUDE.md",
-  "hasSeenIdeIntegrationNudge": true,
-  "hideBanner": true,
-  "ideMode": true,
-  "preferredEditor": "code",
-  "selectedAuthType": "oauth-personal",
-  "theme": "Default"
+	"contextFileName": "AGENTS.md",
+	"hasSeenIdeIntegrationNudge": true,
+	"hideBanner": true,
+	"ideMode": true,
+	"preferredEditor": "code",
+	"selectedAuthType": "oauth-personal",
+	"theme": "Default"
 }
