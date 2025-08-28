@@ -5,15 +5,16 @@
   },
   "includeCoAuthoredBy": false,
   "permissions": {
-    "allow": [
-      "Bash(npm run lint)",
-      "Bash(npm run test:*)"
-    ],
+		"allow": ["Bash(npm run lint)", "Bash(npm run test:*)"],
     "deny": [
       "Bash(curl:*)",
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./secrets/**)"
     ]
+	},
+	"statusLine": {
+		"type": "command",
+		"command": "bash /Users/mapring/.claude/statusline.sh"
   }
 }

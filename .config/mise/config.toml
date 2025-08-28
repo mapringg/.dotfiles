@@ -1,4 +1,5 @@
 [tools]
+bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
@@ -9,3 +10,4 @@ node = { version = "lts", postinstall = "corepack enable" }
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
+npm.bun = true
