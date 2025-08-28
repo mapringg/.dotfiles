@@ -1,20 +1,21 @@
 {
-  "env": {
-    "DISABLE_AUTOUPDATER": "1",
-    "DISABLE_TELEMETRY": "1"
-  },
-  "includeCoAuthoredBy": false,
-  "permissions": {
+	"env": {
+		"DISABLE_AUTOUPDATER": "1",
+		"DISABLE_TELEMETRY": "1",
+		"CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
+	},
+	"includeCoAuthoredBy": false,
+	"permissions": {
 		"allow": ["Bash(npm run lint)", "Bash(npm run test:*)"],
-    "deny": [
-      "Bash(curl:*)",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)"
-    ]
+		"deny": [
+			"Bash(curl:*)",
+			"Read(./.env)",
+			"Read(./.env.*)",
+			"Read(./secrets/**)"
+		]
 	},
 	"statusLine": {
 		"type": "command",
 		"command": "bash /Users/mapring/.claude/statusline.sh"
-  }
+	}
 }
