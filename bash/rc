@@ -1,6 +1,0 @@
-source ~/.dotfiles/bash/shell
-source ~/.dotfiles/bash/aliases
-source ~/.dotfiles/bash/functions
-source ~/.dotfiles/bash/prompt
-source ~/.dotfiles/bash/init
-source ~/.dotfiles/bash/envs

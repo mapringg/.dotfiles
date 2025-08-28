@@ -30,7 +30,9 @@ echo "Setting up dotfiles from $DOTFILES_DIR..."
 # Key: Source path relative to this script's location.
 # Value: Target path relative to the user's home directory.
 declare -A links=(
+  [".bash_profile"]=".bash_profile"
   [".bashrc"]=".bashrc"
+  [".inputrc"]=".inputrc"
   [".gitconfig"]=".gitconfig"
   [".config/ghostty"]=".config/ghostty"
   [".config/mise"]=".config/mise"
@@ -46,7 +48,9 @@ OS="$(uname)"
 
 # Define OS-specific files to skip. Use an associative array for easy lookups.
 declare -A linux_skips=(
+  [".bash_profile"]=1
   [".bashrc"]=1
+  [".inputrc"]=1
   [".config/ghostty"]=1
 )
 
