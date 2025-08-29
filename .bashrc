@@ -94,8 +94,8 @@ alias g='git'
 alias d='docker'
 alias l='lazygit'
 alias c='claude --dangerously-skip-permissions'
-alias t3='nlx create-t3-app@latest'
-alias shadcn='nlx shadcn@latest add'
+alias t='nlx create-better-t-stack@latest'
+alias s='nlx shadcn@latest add'
 
 # Git
 alias gcm='git commit -m'
