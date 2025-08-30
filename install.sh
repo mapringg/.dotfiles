@@ -38,9 +38,9 @@ declare -A links=(
   [".config/mise"]=".config/mise"
   [".config/opencode"]=".config/opencode"
   [".ssh/config"]=".ssh/config"
-  ["claude"]=".claude"
-  ["gemini"]=".gemini"
-  ["qwen"]=".qwen"
+  [".claude"]=".claude"
+  [".gemini"]=".gemini"
+  [".qwen"]=".qwen"
 )
 
 # Detect OS
