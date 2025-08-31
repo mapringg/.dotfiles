@@ -8,6 +8,7 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:@openai/codex" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:@qwen-code/qwen-code" = "latest"
+"npm:@upstash/qstash-cli" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
