@@ -40,7 +40,7 @@ fi
 branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'N/A')
 
 # Base status line with existing information
-base_status="📁 $folder${lang_info} | 🌿 $branch | 🤖 $model"
+base_status="📁 $folder${lang_info} | 🌿 $branch"
 
 # Try to get ccusage information
 cost_info=""
