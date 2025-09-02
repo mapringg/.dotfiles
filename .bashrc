@@ -96,7 +96,8 @@ alias l='lazygit'
 alias c='claude --dangerously-skip-permissions'
 alias m='gemini --yolo'
 alias x='codex --dangerously-bypass-approvals-and-sandbox'
-alias t='nlx create-better-t-stack@latest'
+alias n='nlx create-next-app@latest'
+alias h='nlx hono@latest'
 alias s='nlx shadcn@latest add'
 
 # Git
