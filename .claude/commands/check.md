@@ -17,11 +17,11 @@ Fix all issues found during quality verification. Do not just report problems.
 
 Find and run all applicable commands:
 
-- **Lint**: `npm run lint`
-- **Test**: `npm test`
-- **Build**: `npm run build`
-- **Format**: `prettier`
-- **Security**: `npm audit`
+- **Lint**: `pnpm run lint`
+- **Test**: `pnpm run test`
+- **Build**: `pnpm run build`
+- **Format**: `pnpm run format`
+- **Security**: `pnpm audit`
 
 ## Parallel Fixing Strategy
 
