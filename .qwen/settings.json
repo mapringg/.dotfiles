@@ -1,5 +1,5 @@
 {
-  "contextFileName": "AGENTS.md",
-  "hideBanner": true,
-  "selectedAuthType": "qwen-oauth"
+	"contextFileName": "CLAUDE.md",
+	"hideBanner": true,
+	"selectedAuthType": "qwen-oauth"
 }
