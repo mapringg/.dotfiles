@@ -1,48 +1,60 @@
 ---
 allowed-tools: all
 description: Execute production-quality implementation
+arguments: task to implement ($ARGUMENTS)
 ---
 
 # Production Implementation
 
-Implement: $ARGUMENTS
+Implement: `$ARGUMENTS`
 
-## Required Workflow
+## Inputs
 
-1. **Research** - "Let me research the codebase and create a plan before implementing"
-2. **Plan** - Present approach for validation
-3. **Implement** - Build with continuous validation
+- `$ARGUMENTS`: Task description and scope to implement.
 
-For complex architecture decisions: "Let me ultrathink about this architecture"
+## Workflow
 
-For tasks with independent parts: Spawn multiple agents in parallel
+1. Research
+   - Explore the codebase, dependencies, and constraints.
+   - Identify affected modules and integration points.
+2. Plan
+   - Propose a concise approach and receive confirmation if needed.
+   - Define milestones and validation steps.
+3. Implement
+   - Build iteratively with continuous validation and small commits.
+   - For independent parts, parallelize effort where possible.
+   - For complex architecture, perform deep design thinking ("ultrathink") before coding.
+4. Validate
+   - Run lint, typecheck, tests, and build frequently.
+   - Verify behavior in realistic scenarios.
+5. Wrap up
+   - Remove dead code and TODOs; finalize docs and tests.
 
-## Implementation Standards
+## Rules
 
 ### Code Evolution
 
-- Replace old code entirely when refactoring
-- No versioned function names (processV2, handleNew)
-- No compatibility layers or migration code
-- This is a feature branch - implement the final solution directly
+- Replace old code entirely when refactoring.
+- Avoid versioned names (e.g., `processV2`, `handleNew`).
+- No temporary compatibility layers or migration scaffolding.
+- Implement the final solution directly for this branch.
 
-### Quality Checkpoints
+### Quality Gates
 
-- Run linters after every 3 file edits
-- Validate each component works before proceeding
-- Run full test suite before completion
-- Fix linter warnings immediately when found
+- Run linters after every few file edits.
+- Keep the working tree green; fix warnings immediately.
+- Run the full test suite before declaring completion.
 
 ### General Requirements
 
-- Follow existing codebase patterns
-- Use language-appropriate linters at maximum strictness
-- Write tests for business logic
-- Ensure end-to-end functionality
+- Follow existing codebase patterns and conventions.
+- Use strict, language-appropriate linters and formatters.
+- Write focused tests for business logic and critical paths.
+- Ensure end-to-end functionality and error handling.
 
-## Completion Criteria
+## Success Criteria
 
-- All linters pass with zero warnings
-- All tests pass (including race detection)
-- Feature works in realistic scenarios
-- No TODOs or temporary code remains
+- All linters and type checks pass with zero warnings.
+- All tests pass (including race checks where applicable).
+- The feature works in realistic scenarios and edge cases.
+- No TODOs, temporary code, or dead paths remain.
