@@ -40,6 +40,10 @@ if command -v mise &> /dev/null; then
   eval "$(mise activate bash --shims)"
 fi
 
+if command -v starship &> /dev/null; then
+  eval "$(starship init bash)"
+fi
+
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init bash)"
 fi
@@ -51,7 +55,7 @@ fi
 # -----------------------------------------------------------------------------
 # Prompt Configuration
 # -----------------------------------------------------------------------------
-PS1=$'λ '
+PS1=$'\uf0a9 '
 PS1="\[\e]0;\w\a\]$PS1"
 
 # -----------------------------------------------------------------------------
