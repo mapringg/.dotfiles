@@ -2,5 +2,5 @@ font-family = CaskaydiaMono Nerd Font
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
-theme = Github-Light-Default
+theme = dark:Github-Dark-Default,light:Github-Light-Default
 keybind = shift+enter=text:\n
