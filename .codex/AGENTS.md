@@ -1,0 +1,5 @@
+- Larger files > many small components
+- Colocate code that changes often close together
+- Copy/paste is better than the wrong abstraction
+- Do not run dev
+- Do not run build
