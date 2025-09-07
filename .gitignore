@@ -3,6 +3,7 @@
 .gemini/**
 .qwen/**
 
+!.claude/CLAUDE.md
 !.claude/settings.json
 !.claude/statusline.sh
 !.codex/config.toml
