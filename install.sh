@@ -34,6 +34,7 @@ declare -A links=(
   [".bashrc"]=".bashrc"
   [".inputrc"]=".inputrc"
   [".gitconfig"]=".gitconfig"
+  [".tmux.conf"]=".tmux.conf"
   [".config/ghostty"]=".config/ghostty"
   [".config/mise"]=".config/mise"
   [".config/opencode"]=".config/opencode"
