@@ -1,5 +1,7 @@
 - Larger files > many small components
 - Colocate code that changes often close together
 - Copy/paste is better than the wrong abstraction
-- Do not run dev
-- Do not run build
+- After completing a task, ask the user if they would like to ask any followup questions about the code that has just been added. Provide 3 example followup questions.
+- Use pnpm unless package-lock.json (npm) or yarn.lock (yarn) exists
+- Do not run pnpm dev, npm run dev, or yarn dev
+- Do not run pnpm build, npm run build, or yarn build
