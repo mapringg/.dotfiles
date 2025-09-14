@@ -20,9 +20,5 @@
       "Read(./.env.*)",
       "Read(./secrets/**)"
     ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash $HOME/.claude/statusline.sh"
   }
 }
