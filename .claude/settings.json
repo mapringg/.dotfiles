@@ -1,19 +1,11 @@
 {
   "env": {
     "DISABLE_AUTOUPDATER": "1",
-    "DISABLE_TELEMETRY": "1",
-    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1"
+    "DISABLE_TELEMETRY": "1"
   },
   "includeCoAuthoredBy": false,
   "permissions": {
     "defaultMode": "plan",
-    "allow": [
-      "Bash(pnpm run lint)",
-      "Bash(pnpm run test:*)",
-      "Bash(pnpm run build)",
-      "Bash(pnpm run format)",
-      "Bash(pnpm audit)"
-    ],
     "deny": [
       "Bash(curl:*)",
       "Read(./.env)",
