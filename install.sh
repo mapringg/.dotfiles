@@ -38,6 +38,7 @@ declare -A links=(
   [".config/ghostty"]=".config/ghostty"
   [".config/mise"]=".config/mise"
   [".config/opencode"]=".config/opencode"
+  [".config/nvim"]=".config/nvim"
   [".ssh/config"]=".ssh/config"
   [".claude"]=".claude"
   [".gemini"]=".gemini"
