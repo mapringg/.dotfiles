@@ -97,9 +97,10 @@ alias ....='cd ../../..'
 alias g='git'
 alias d='docker'
 alias l='lazygit'
-alias n='nlx create-next-app@latest'
-alias h='nlx hono@latest'
-alias s='nlx shadcn@latest add'
+alias next='pnpm create next-app@latest'
+alias hono='pnpm create hono@latest'
+alias shadcn='pnpm dlx shadcn@latest'
+alias ultracite='pnpm dlx ultracite init'
 
 # Git
 alias gcm='git commit -m'
