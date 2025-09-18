@@ -30,19 +30,19 @@ echo "Setting up dotfiles from $DOTFILES_DIR..."
 # Key: Source path relative to this script's location.
 # Value: Target path relative to the user's home directory.
 declare -A links=(
+  [".claude"]=".claude"
+  [".codex"]=".codex"
+  [".config/ghostty"]=".config/ghostty"
+  [".config/git"]=".config/git"
+  [".config/mise"]=".config/mise"
+  [".config/nvim"]=".config/nvim"
+  [".config/starship.toml"]=".config/starship.toml"
+  [".gemini"]=".gemini"
+  [".ssh/config"]=".ssh/config"
   [".bash_profile"]=".bash_profile"
   [".bashrc"]=".bashrc"
   [".inputrc"]=".inputrc"
-  [".gitconfig"]=".gitconfig"
   [".tmux.conf"]=".tmux.conf"
-  [".config/ghostty"]=".config/ghostty"
-  [".config/mise"]=".config/mise"
-  [".config/opencode"]=".config/opencode"
-  [".config/nvim"]=".config/nvim"
-  [".ssh/config"]=".ssh/config"
-  [".claude"]=".claude"
-  [".gemini"]=".gemini"
-  [".qwen"]=".qwen"
 )
 
 # Detect OS

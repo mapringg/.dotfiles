@@ -5,9 +5,6 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
-"npm:opencode-ai" = "latest"
-"npm:@qwen-code/qwen-code" = "latest"
-"npm:vercel" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

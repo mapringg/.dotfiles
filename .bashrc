@@ -20,7 +20,7 @@ set +h
 # -----------------------------------------------------------------------------
 # Environment Variables
 # -----------------------------------------------------------------------------
-export EDITOR="vi"
+export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 export BAT_THEME=ansi
 
@@ -36,19 +36,19 @@ fi
 # -----------------------------------------------------------------------------
 # Tool Initialization
 # -----------------------------------------------------------------------------
-if command -v mise &> /dev/null; then
+if command -v mise &>/dev/null; then
   eval "$(mise activate bash --shims)"
 fi
 
-if command -v starship &> /dev/null; then
+if command -v starship &>/dev/null; then
   eval "$(starship init bash)"
 fi
 
-if command -v zoxide &> /dev/null; then
+if command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
 fi
 
-if command -v fzf &> /dev/null; then
+if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
 fi
 
@@ -96,11 +96,6 @@ alias ....='cd ../../..'
 # Tools
 alias g='git'
 alias d='docker'
-alias l='lazygit'
-alias next='pnpm create next-app@latest'
-alias hono='pnpm create hono@latest'
-alias shadcn='pnpm dlx shadcn@latest'
-alias ultracite='pnpm dlx ultracite init'
 
 # Git
 alias gcm='git commit -m'

@@ -1,7 +1,0 @@
-[pull]
-    rebase = true
-[init]
-    defaultBranch = main
-[user]
-    name = Sorawit Kongnurat
-    email = sorawit.k@tutanota.com
