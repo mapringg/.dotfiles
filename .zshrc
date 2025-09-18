@@ -97,6 +97,9 @@ zd() {
 # Compression utilities
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 
+# Nvim wrapper - opens current directory if no args, otherwise opens specified files
+n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
+
 # -----------------------------------------------------------------------------
 # Aliases
 # -----------------------------------------------------------------------------
