@@ -1,21 +1,23 @@
 # =============================================================================
-# BASH CONFIGURATION
+# ZSH CONFIGURATION
 # =============================================================================
 
 # -----------------------------------------------------------------------------
 # Shell Options & History
 # -----------------------------------------------------------------------------
-shopt -s histappend
-HISTCONTROL=ignoreboth
-HISTSIZE=32768
-HISTFILESIZE="${HISTSIZE}"
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
 
-force_color_prompt=yes
-color_prompt=yes
+HISTSIZE=32768
+SAVEHIST=32768
+HISTFILE=~/.zsh_history
 
 # Set complete path
 export PATH="./bin:$HOME/.local/bin:$PATH"
-set +h
 
 # -----------------------------------------------------------------------------
 # Environment Variables
@@ -25,38 +27,57 @@ export SUDO_EDITOR="$EDITOR"
 export BAT_THEME=ansi
 
 # -----------------------------------------------------------------------------
-# Autocompletion
+# ZSH Completion System
 # -----------------------------------------------------------------------------
-if [[ -z "${BASH_COMPLETION_VERSINFO:-}" ]]; then
-  if [[ -r "$(brew --prefix 2>/dev/null)/etc/profile.d/bash_completion.sh" ]]; then
-    source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-  fi
-fi
+autoload -Uz compinit
+compinit
+
+# Case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Menu selection for completion
+zstyle ':completion:*' menu select
+
+# Color completion based on LS_COLORS
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+# -----------------------------------------------------------------------------
+# Key Bindings
+# -----------------------------------------------------------------------------
+# Use emacs key bindings
+bindkey -e
+
+# History search with arrow keys
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
 
 # -----------------------------------------------------------------------------
 # Tool Initialization
 # -----------------------------------------------------------------------------
 if command -v mise &>/dev/null; then
-  eval "$(mise activate bash --shims)"
+  eval "$(mise activate zsh --shims)"
 fi
 
 if command -v starship &>/dev/null; then
-  eval "$(starship init bash)"
+  eval "$(starship init zsh)"
 fi
 
 if command -v zoxide &>/dev/null; then
-  eval "$(zoxide init bash)"
+  eval "$(zoxide init zsh)"
 fi
 
 if command -v fzf &>/dev/null; then
-  eval "$(fzf --bash)"
+  source <(fzf --zsh)
 fi
 
 # -----------------------------------------------------------------------------
 # Prompt Configuration
 # -----------------------------------------------------------------------------
 PS1=$'\uf0a9 '
-PS1="\[\e]0;\w\a\]$PS1"
+# Set terminal title to current directory
+precmd() {
+  print -Pn "\e]0;%~\a"
+}
 
 # -----------------------------------------------------------------------------
 # Functions

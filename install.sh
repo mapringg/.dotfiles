@@ -39,9 +39,8 @@ declare -A links=(
   [".config/starship.toml"]=".config/starship.toml"
   [".gemini"]=".gemini"
   [".ssh/config"]=".ssh/config"
-  [".bash_profile"]=".bash_profile"
-  [".bashrc"]=".bashrc"
-  [".inputrc"]=".inputrc"
+  [".zprofile"]=".zprofile"
+  [".zshrc"]=".zshrc"
   [".tmux.conf"]=".tmux.conf"
 )
 
@@ -50,9 +49,8 @@ OS="$(uname)"
 
 # Define OS-specific files to skip. Use an associative array for easy lookups.
 declare -A linux_skips=(
-  [".bash_profile"]=1
-  [".bashrc"]=1
-  [".inputrc"]=1
+  [".zprofile"]=".zprofile"
+  [".zshrc"]=".zshrc"
   [".config/ghostty"]=1
 )
 
