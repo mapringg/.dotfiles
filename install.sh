@@ -26,42 +26,77 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Setting up dotfiles from $DOTFILES_DIR..."
 
-# Associative array of paths to link.
-# Key: Source path relative to this script's location.
-# Value: Target path relative to the user's home directory.
-declare -A links=(
-  [".claude"]=".claude"
-  [".codex"]=".codex"
-  [".config/ghostty"]=".config/ghostty"
-  [".config/git"]=".config/git"
-  [".config/mise"]=".config/mise"
-  [".config/nvim"]=".config/nvim"
-  [".config/starship.toml"]=".config/starship.toml"
-  [".gemini"]=".gemini"
-  [".ssh/config"]=".ssh/config"
-  [".zprofile"]=".zprofile"
-  [".zshrc"]=".zshrc"
-  [".tmux.conf"]=".tmux.conf"
+# Array of paths to link.
+# Format: "source_path:target_path"
+links=(
+  ".claude:.claude"
+  ".codex:.codex"
+  ".config/ghostty:.config/ghostty"
+  ".config/git:.config/git"
+  ".config/mise:.config/mise"
+  ".config/nvim:.config/nvim"
+  ".config/starship.toml:.config/starship.toml"
+  ".gemini:.gemini"
+  ".ssh/config:.ssh/config"
+  ".zprofile:.zprofile"
+  ".zshrc:.zshrc"
+  ".tmux.conf:.tmux.conf"
 )
+
+# Check for existing .bak files before proceeding
+echo "Checking for existing backup files..."
+backup_files_found=false
+for link in "${links[@]}"; do
+  target="${link#*:}"
+  backup_path="$HOME/$target.bak"
+  if [ -e "$backup_path" ]; then
+    echo "Found existing backup: $backup_path"
+    backup_files_found=true
+  fi
+done
+
+if [ "$backup_files_found" = true ]; then
+  echo ""
+  echo "WARNING: Existing backup files (.bak) were found!"
+  echo "Running this script again will overwrite these backups."
+  echo "Please review and handle these backup files before proceeding."
+  echo ""
+  echo "Options:"
+  echo "1. Remove backup files if they're no longer needed"
+  echo "2. Move them to a different location"
+  echo "3. Cancel this installation"
+  echo ""
+  read -p "Do you want to continue anyway? (y/N): " -r
+  if [ "$REPLY" != "y" ] && [ "$REPLY" != "Y" ]; then
+    echo "Installation cancelled."
+    exit 1
+  fi
+  echo ""
+fi
 
 # Detect OS
 OS="$(uname)"
 
-# Define OS-specific files to skip. Use an associative array for easy lookups.
-declare -A linux_skips=(
-  [".zprofile"]=".zprofile"
-  [".zshrc"]=".zshrc"
-  [".config/ghostty"]=1
-)
+# Define OS-specific files to skip on Linux
+linux_skips=".zprofile .zshrc .config/ghostty"
 
-for source in "${!links[@]}"; do
-  target="${links[$source]}"
+for link in "${links[@]}"; do
+  source="${link%:*}"
+  target="${link#*:}"
 
-  # Check for and apply OS-specific skips
-  # Use -n to check if the key exists and has a non-empty value, for better bash compatibility.
-  if [[ "$OS" == "Linux" && -n "${linux_skips[$source]}" ]]; then
-    echo "Skipping $source on Linux."
-    continue
+  # Check for and apply OS-specific skips on Linux
+  if [ "$OS" = "Linux" ]; then
+    skip_this=false
+    for skip_item in $linux_skips; do
+      if [ "$source" = "$skip_item" ]; then
+        echo "Skipping $source on Linux."
+        skip_this=true
+        break
+      fi
+    done
+    if [ "$skip_this" = true ]; then
+      continue
+    fi
   fi
 
   create_symlink "$DOTFILES_DIR/$source" "$HOME/$target"
