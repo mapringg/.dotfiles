@@ -1,9 +1,4 @@
-.claude/**
 .codex/**
-.gemini/**
 
-!.claude/CLAUDE.md
-!.claude/settings.json
 !.codex/AGENTS.md
 !.codex/config.toml
-!.gemini/settings.json
