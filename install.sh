@@ -10,9 +10,20 @@ create_symlink() {
   # Handle existing files or symlinks at the target path
   if [ -L "$target_path" ]; then
     # If it's a symlink, remove it
+    echo "Removing existing symlink: $target_path"
     rm "$target_path"
   elif [ -e "$target_path" ]; then
-    # If it's any other file/directory, back it up
+    # If it's any other file/directory, ask for confirmation
+    echo "File exists: $target_path"
+    if [ -e "$target_path.bak" ]; then
+      echo "WARNING: Backup file $target_path.bak already exists and will be overwritten."
+    fi
+    read -p "Overwrite $target_path? (y/N): " -r
+    if [ "$REPLY" != "y" ] && [ "$REPLY" != "Y" ]; then
+      echo "Skipping $target_path"
+      return
+    fi
+    echo "Backing up $target_path to $target_path.bak"
     mv "$target_path" "$target_path.bak"
   fi
 
@@ -42,34 +53,23 @@ links=(
   ".tmux.conf:.tmux.conf"
 )
 
-# Check for existing .bak files before proceeding
-echo "Checking for existing backup files..."
-backup_files_found=false
+# Check for configs that would create new .bak files
+echo "Checking for existing files..."
+configs_found=false
 for link in "${links[@]}"; do
   target="${link#*:}"
-  backup_path="$HOME/$target.bak"
-  if [ -e "$backup_path" ]; then
-    echo "Found existing backup: $backup_path"
-    backup_files_found=true
+  target_path="$HOME/$target"
+  
+  # Only warn if the target exists and is not a symlink
+  if [ -e "$target_path" ] && [ ! -L "$target_path" ]; then
+    echo "Found existing file: $target_path"
+    configs_found=true
   fi
 done
 
-if [ "$backup_files_found" = true ]; then
+if [ "$configs_found" = true ]; then
   echo ""
-  echo "WARNING: Existing backup files (.bak) were found!"
-  echo "Running this script again will overwrite these backups."
-  echo "Please review and handle these backup files before proceeding."
-  echo ""
-  echo "Options:"
-  echo "1. Remove backup files if they're no longer needed"
-  echo "2. Move them to a different location"
-  echo "3. Cancel this installation"
-  echo ""
-  read -p "Do you want to continue anyway? (y/N): " -r
-  if [ "$REPLY" != "y" ] && [ "$REPLY" != "Y" ]; then
-    echo "Installation cancelled."
-    exit 1
-  fi
+  echo "Some existing files were found. You will be prompted individually for each file."
   echo ""
 fi
 
