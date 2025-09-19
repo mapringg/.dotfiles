@@ -60,6 +60,8 @@ fi
 
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
+else
+  PS1=$'\uf0a9 '
 fi
 
 if command -v zoxide &>/dev/null; then
@@ -73,7 +75,7 @@ fi
 # -----------------------------------------------------------------------------
 # Prompt Configuration
 # -----------------------------------------------------------------------------
-PS1=$'\uf0a9 '
+
 # Set terminal title to current directory
 precmd() {
   print -Pn "\e]0;%~\a"
