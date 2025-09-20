@@ -73,6 +73,9 @@ alias ....='cd ../../..'
 
 alias g='git'
 alias d='docker'
+alias l='lazygit'
+alias o='opencode'
+alias x='codex'
 
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
