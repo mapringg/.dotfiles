@@ -10,10 +10,10 @@ SAVEHIST=32768
 HISTFILE=~/.zsh_history
 
 export PATH="./bin:$HOME/.local/bin:$PATH"
-
-export EDITOR="nvim"
+export EDITOR="code"
 export SUDO_EDITOR="$EDITOR"
 export BAT_THEME=ansi
+
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -56,10 +56,6 @@ zd() {
   fi
 }
 
-compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
-
-n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
-
 alias ls='eza -lh --group-directories-first --icons=auto'
 alias lsa='ls -a'
 alias lt='eza --tree --level=2 --long --icons --git'
@@ -70,15 +66,3 @@ alias cd="zd"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
-alias g='git'
-alias d='docker'
-alias l='lazygit'
-alias o='opencode'
-alias x='codex'
-
-alias gcm='git commit -m'
-alias gcam='git commit -a -m'
-alias gcad='git commit -a --amend'
-
-alias decompress="tar -xzf"

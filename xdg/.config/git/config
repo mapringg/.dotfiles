@@ -1,8 +1,5 @@
-[alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
+[core]
+	editor = code --wait
 [pull]
 	rebase = true
 [init]
