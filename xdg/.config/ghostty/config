@@ -2,6 +2,6 @@ font-family = CaskaydiaMono Nerd Font
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
-theme = TokyoNight
+theme = Catppuccin Mocha
 keybind = shift+enter=text:\n
 macos-option-as-alt = true
