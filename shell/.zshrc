@@ -61,7 +61,8 @@ alias lsa='ls -a'
 alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
-alias cd="zd"
+alias cd='zd'
+alias lg='lazygit'
 
 alias ..='cd ..'
 alias ...='cd ../..'
