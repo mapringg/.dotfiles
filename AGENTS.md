@@ -1,21 +1,32 @@
 # Repository Guidelines
 
-This repository keeps the dotfiles for the workstation setup. Treat it as infra-as-code: review before linking into $HOME.
-
 ## Project Structure & Module Organization
-The top level contains `install.sh` for bootstrap and a `Brewfile` listing Homebrew taps, CLI tools, and GUI apps. Shell startup files live in `shell/` and are stowed into `~/.zshrc` and `~/.zprofile`. User-level app configs live under `xdg/.config/` (Neovim, git, ghostty, starship, mise); each subdirectory maps directly to the XDG config path.
+- Root: `install.sh` orchestrates bootstrap; `Brewfile` pins taps, CLI tools, GUI apps.
+- `shell/`: zsh profiles stowed into `~/.zshrc` and `~/.zprofile`.
+- `xdg/.config/`: mirrors `~/.config/` for nvim, git, ghostty, starship, mise; keep subdirectories 1:1.
+- New tool configs belong in stow-ready trees; validate with `stow --simulate <package>`.
 
 ## Build, Test, and Development Commands
-Run `./install.sh` after cloning to delete broken links and `stow` both packages into `$HOME`. Use `stow --simulate shell` before committing structural changes to preview link results. Install dependencies with `brew bundle --file Brewfile` and runtimes via `mise install`. When adjusting Neovim plugins, run `nvim --headless "+Lazy sync" +qa` to refresh the lazy.nvim lock files.
+- `./install.sh`: clean dead links, stow `shell` and `xdg`.
+- `stow --simulate shell`: preview link map before committing structure changes.
+- `brew bundle --file Brewfile`: sync Homebrew packages defined here.
+- `mise install`: install runtimes declared in `mise.toml`.
 
 ## Coding Style & Naming Conventions
-Shell scripts and configs prefer two-space indentation; align environment exports and alias blocks for readability. Lua files follow stylua settings in `xdg/.config/nvim/stylua.toml`; format with `stylua xdg/.config/nvim/lua`. Plugin modules in `lua/plugins/` use descriptive kebab-case filenames that match the feature they configure. Keep environment-specific paths in `shell/.zshrc` behind capability checks (`if command -v ...`).
+- Shell, config files: two-space indent; align related exports and alias blocks.
+- Guard host-specific paths behind `if command -v …` checks in `shell/.zshrc`.
 
 ## Testing Guidelines
-Lint zsh updates with `zsh -n shell/.zshrc` and run `stow --no-folding --simulate xdg` to confirm symlink targets exist. Validate Neovim changes using `nvim --headless "+checkhealth" +qa` and launch once interactively to ensure plugin changes apply. For mise updates, execute `mise doctor` and restart the shell to confirm hooks run.
+- `zsh -n shell/.zshrc`: lint shell startup.
+- `stow --no-folding --simulate xdg`: ensure symlink targets exist.
+- `mise doctor`: confirm runtime hooks after version updates; restart shell session.
 
 ## Commit & Pull Request Guidelines
-Commit messages in this repo are short, imperative phrases (e.g., `add neovim`, `swap ghostty to catppuccin`). Group related dotfile edits into single commits and include why the change is needed in the body when not obvious. Pull requests should list impacted tools, mention any manual steps (like rerunning `brew bundle`), and attach screenshots for theming tweaks where practical.
+- Commits stay short, imperative (`add neovim`, `swap ghostty to catppuccin`); group related dotfiles.
+- Include rationale or manual follow-ups (e.g., rerun `brew bundle`) in bodies.
+- Pull requests list impacted tools, link issues, attach theming screenshots when relevant.
 
 ## Security & Configuration Tips
-Keep secrets, SSH keys, and personal tokens out of version control; rely on system keychains or `.local` overrides ignored by git. Verify new binaries before adding to `Brewfile`, and mirror environment-specific tweaks via conditional guards so the repo stays portable.
+- Keep secrets, SSH keys, tokens outside git; prefer ignored `.local` overrides or keychain storage.
+- Verify new binaries before adding to `Brewfile`; document manual install steps if needed.
+- Maintain portability by wrapping environment-specific tweaks in capability guards.
