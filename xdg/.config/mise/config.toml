@@ -4,6 +4,7 @@ node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@openai/codex" = "latest"
+"npm:@google/gemini-cli" = "latest"
 "npm:@sourcegraph/amp" = "latest"
 
 [settings]
