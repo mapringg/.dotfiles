@@ -55,12 +55,6 @@ if command -v mise &>/dev/null; then
   eval "$(mise activate bash --shims)"
 fi
 
-if command -v starship &>/dev/null; then
-  eval "$(starship init bash)"
-else
-  PS1=$'\uf0a9 '
-fi
-
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
 fi
@@ -68,6 +62,9 @@ fi
 if command -v fzf &>/dev/null; then
   eval "$(fzf --bash)"
 fi
+
+# Prompt
+PS1=$'\uf0a9 '
 
 # Directory navigation function
 zd() {

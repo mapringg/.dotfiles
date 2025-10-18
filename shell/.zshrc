@@ -43,12 +43,6 @@ if command -v mise &>/dev/null; then
   eval "$(mise activate zsh --shims)"
 fi
 
-if command -v starship &>/dev/null; then
-  eval "$(starship init zsh)"
-else
-  PS1=$'\uf0a9 '
-fi
-
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
 fi
@@ -56,6 +50,9 @@ fi
 if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
 fi
+
+# Prompt
+PS1=$'\uf0a9 '
 
 # Prompt command hook for window title
 precmd() {
