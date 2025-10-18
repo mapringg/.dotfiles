@@ -1,4 +1,6 @@
-font-family = InputMono Nerd Font
+theme = light:Github Light Default,dark:Github Dark Default
+
+font-family = MonoLisa Nerd Font
 
 window-padding-x = 4
 window-padding-y = 4
