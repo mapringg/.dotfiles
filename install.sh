@@ -8,6 +8,9 @@ echo "Installing dotfiles..."
 find ~ -maxdepth 2 -type l ! -exec test -e {} \; -delete 2>/dev/null || true
 
 # Stow packages
+echo "Linking ai config..."
+stow ai
+
 echo "Linking shell configs..."
 stow shell
 
