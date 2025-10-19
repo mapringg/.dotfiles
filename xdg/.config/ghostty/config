@@ -1,15 +1,31 @@
-theme = light:Github Light Default,dark:Github Dark Default
+# Theme
+theme = TokyoNight
 
-font-family = MonoLisa Nerd Font
+# Font
+font-family = "CaskaydiaMono Nerd Font"
+font-style = Regular
 
+# Window
+window-theme = ghostty
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
-maximize = true
+confirm-close-surface=false
+resize-overlay = never
+gtk-toolbar-style = flat
 
-keybind = shift+enter=text:\n
-macos-option-as-alt = true
-
-cursor-style = block
+# Cursor styling
+cursor-style = "block"
 cursor-style-blink = false
 shell-integration-features = no-cursor
+
+# Keyboard bindings
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+keybind = shift+enter=text:\n
+
+# SSH session terminfo
+shell-integration-features = ssh-env
+
+# Mac
+macos-option-as-alt = true
