@@ -43,6 +43,10 @@ if command -v mise &>/dev/null; then
   eval "$(mise activate zsh --shims)"
 fi
 
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
+
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
 fi
@@ -52,7 +56,7 @@ if command -v fzf &>/dev/null; then
 fi
 
 # Prompt
-PS1=$'\uf0a9 '
+# PS1=$'\uf0a9 '
 
 # Prompt command hook for window title
 precmd() {
@@ -84,11 +88,18 @@ alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias cd='zd'
-alias lg='lazygit'
 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+alias lg='lazygit'
+n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
+
+alias g='git'
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gcad='git commit -a --amend'
 
 # Source local overrides if they exist
 if [[ -f ~/.zshrc.local ]]; then

@@ -55,6 +55,10 @@ if command -v mise &>/dev/null; then
   eval "$(mise activate bash --shims)"
 fi
 
+if command -v starship &> /dev/null; then
+  eval "$(starship init bash)"
+fi
+
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
 fi
@@ -64,7 +68,7 @@ if command -v fzf &>/dev/null; then
 fi
 
 # Prompt
-PS1=$'\uf0a9 '
+# PS1=$'\uf0a9 '
 
 # Directory navigation function
 zd() {
@@ -91,11 +95,18 @@ alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias cd='zd'
-alias lg='lazygit'
 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+alias lg='lazygit'
+n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
+
+alias g='git'
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gcad='git commit -a --amend'
 
 # Source local overrides if they exist
 if [[ -f ~/.bashrc.local ]]; then
