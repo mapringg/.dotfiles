@@ -1,6 +1,6 @@
 # Dynamic theme colors
 # config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
-theme = TokyoNight
+theme = Catppuccin Macchiato
 
 # Font
 font-family = "CaskaydiaMono Nerd Font"
