@@ -12,7 +12,8 @@
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./secrets/**)"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "alwaysThinkingEnabled": false
 }
