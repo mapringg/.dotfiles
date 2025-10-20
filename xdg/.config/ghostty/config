@@ -1,9 +1,11 @@
-# Theme
+# Dynamic theme colors
+# config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 theme = TokyoNight
 
 # Font
 font-family = "CaskaydiaMono Nerd Font"
 font-style = Regular
+# font-size = 9
 
 # Window
 window-theme = ghostty
@@ -27,5 +29,5 @@ keybind = shift+enter=text:\n
 # SSH session terminfo
 shell-integration-features = ssh-env
 
-# Mac
+# Others
 macos-option-as-alt = true
