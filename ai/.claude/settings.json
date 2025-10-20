@@ -4,9 +4,7 @@
     "CLAUDE_CODE_USE_VERTEX": "1",
     "CLOUD_ML_REGION": "global",
     "ANTHROPIC_VERTEX_PROJECT_ID": "gen-lang-client-0873367143",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5@20251001",
-    "ANTHROPIC_MODEL": "claude-haiku-4-5@20251001",
-    "ANTHROPIC_SMALL_FAST_MODEL": "claude-haiku-4-5@20251001"
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5@20251001"
   },
   "permissions": {
     "deny": [
@@ -14,8 +12,7 @@
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./secrets/**)"
-    ],
-    "defaultMode": "plan"
+    ]
   },
   "alwaysThinkingEnabled": false
 }
