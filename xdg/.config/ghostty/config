@@ -1,33 +1,24 @@
-# Dynamic theme colors
-# config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
-theme = Catppuccin Macchiato
+# Theme
+theme = Catppuccin Mocha
 
 # Font
-font-family = "CaskaydiaMono Nerd Font"
+font-family = "BerkeleyMono Nerd Font"
 font-style = Regular
-# font-size = 9
 
 # Window
-window-theme = ghostty
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
-confirm-close-surface=false
+confirm-close-surface = false
 resize-overlay = never
-gtk-toolbar-style = flat
 
 # Cursor styling
 cursor-style = "block"
 cursor-style-blink = false
-shell-integration-features = no-cursor
 
 # Keyboard bindings
-keybind = shift+insert=paste_from_clipboard
-keybind = control+insert=copy_to_clipboard
 keybind = shift+enter=text:\n
 
-# SSH session terminfo
-shell-integration-features = ssh-env
-
 # Others
+shell-integration-features = no-cursor, ssh-env
 macos-option-as-alt = true
