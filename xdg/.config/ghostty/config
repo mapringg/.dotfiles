@@ -1,9 +1,10 @@
 # Theme
-theme = Catppuccin Mocha
+theme = Gruvbox Dark Hard
 
 # Font
-font-family = "BerkeleyMono Nerd Font"
+font-family = "CaskaydiaMono Nerd Font"
 font-style = Regular
+font-size = 15
 
 # Window
 window-padding-x = 4
@@ -22,3 +23,4 @@ keybind = shift+enter=text:\n
 # Others
 shell-integration-features = no-cursor, ssh-env
 macos-option-as-alt = true
+macos-icon = chalkboard
