@@ -4,7 +4,6 @@ theme = Catppuccin Mocha
 # Font
 font-family = "CaskaydiaMono Nerd Font"
 font-style = Regular
-font-size = 15
 
 # Window
 window-padding-x = 4
