@@ -1,7 +1,22 @@
-[pull]
-	rebase = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[color]
+	ui = auto
+[core]
+	editor = nvim
+[diff]
+	tool = nvimdiff
 [init]
 	defaultBranch = main
+[merge]
+	conflictstyle = diff3
+[pull]
+	rebase = true
+[push]
+	default = simple
 [user]
 	name = Sorawit Kongnurat
 	email = sorawit.k@tutanota.com
