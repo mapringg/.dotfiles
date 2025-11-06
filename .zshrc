@@ -56,11 +56,10 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-alias ls='ls --color'
+alias ls='ls -l --color'
 alias vim='nvim'
 alias c='clear'
-alias app='pnpm create next-app@latest'
-alias web='pnpm create astro@latest'
+alias app='pnpm create cloudflare@latest'
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
