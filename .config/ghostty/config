@@ -1,0 +1,9 @@
+command = /bin/zsh
+confirm-close-surface = false
+font-family = "Cascadia Code"
+keybind = shift+enter=text:\x1b\r
+shell-integration-features = ssh-env
+theme = Catppuccin Frappe
+window-padding-balance = true
+window-padding-x = 8
+window-padding-y = 8
