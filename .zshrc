@@ -59,6 +59,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
+alias app='pnpm create next-app@latest'
+alias web='pnpm create astro@latest'
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
