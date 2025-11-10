@@ -7,6 +7,7 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
 fi
 
 export EDITOR=nvim
+export PATH="$HOME/bin:$PATH"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
