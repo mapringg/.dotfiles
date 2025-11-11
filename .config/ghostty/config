@@ -1,5 +1,6 @@
 confirm-close-surface = false
 font-family = "Cascadia Code"
+maximize = true
 window-padding-balance = true
 window-padding-x = 8
 window-padding-y = 8
