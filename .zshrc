@@ -7,7 +7,6 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
 fi
 
 export EDITOR=nvim
-export PATH="$HOME/bin:$PATH"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -41,7 +40,7 @@ bindkey '^[w' kill-region
 zle_highlight+=(paste:none)
 
 HISTSIZE=5000
-HISTFILE=~/.local/share/zsh/history
+HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 setopt appendhistory
 setopt sharehistory
@@ -65,3 +64,5 @@ alias app='pnpm create cloudflare@latest'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(mise activate zsh)"
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
