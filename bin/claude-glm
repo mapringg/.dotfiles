@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+if [[ -z "${ZAI_API_KEY:-}" ]]; then
+  if [[ -r "${HOME}/.zai_api_key" ]]; then
+    export ANTHROPIC_AUTH_TOKEN="$(< "${HOME}/.zai_api_key")"
+  else
+    print -u2 "Error: set ZAI_API_KEY or create ~/.zai_api_key"
+    exit 1
+  fi
+else
+  export ANTHROPIC_AUTH_TOKEN="$ZAI_API_KEY"
+fi
+
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+
+export ANTHROPIC_SMALL_FAST_MODEL="glm-4.6"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="glm-4.6"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="glm-4.6"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="glm-4.5-air"
+
+export API_TIMEOUT_MS="${API_TIMEOUT_MS:-3000000}"
+
+exec claude "$@"
