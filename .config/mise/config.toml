@@ -1,9 +1,11 @@
 [tools]
 bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
+uv = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@sourcegraph/amp" = "latest"
+"pipx:github/spec-kit" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
