@@ -59,7 +59,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls -l --color'
 alias vim='nvim'
 alias c='clear'
-alias app='pnpm create cloudflare@latest'
+alias app='pnpm create t3-app@latest'
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
