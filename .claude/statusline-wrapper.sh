@@ -7,7 +7,7 @@ input=$(cat)
 git_info=$(echo "$input" | bash ~/.claude/statusline-command.sh)
 
 # Get context percentage from ccstatusline
-context_pct=$(echo "$input" | ccstatusline)
+context_pct=$(echo "$input" | npx ccstatusline)
 
 # Combine outputs
 printf '%s | %s' "$git_info" "$context_pct"
