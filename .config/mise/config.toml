@@ -6,6 +6,7 @@ uv = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@sourcegraph/amp" = "latest"
 "npm:@google/gemini-cli" = "latest"
+"npm:opencode-ai" = "latest"
 "npm:ccstatusline" = "latest"
 "pipx:github/spec-kit" = "latest"
 
