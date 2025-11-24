@@ -1,5 +1,5 @@
 confirm-close-surface = false
-font-family = "Cascadia Code"
+font-family = "JetBrainsMono Nerd Font"
 maximize = true
 window-padding-balance = true
 window-padding-x = 8
