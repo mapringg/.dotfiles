@@ -61,16 +61,21 @@ zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-alias vim='nvim'
-alias c='clear'
-alias app='pnpm create t3-app@latest'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+alias vim='nvim'
+alias c='clear'
+alias app='pnpm create t3-app@latest'
 alias pb='pbcopy'
 alias pbc='pbcopy'
 alias pbp='pbpaste'
 alias lg='lazygit'
+alias oc='opencode'
+alias cl='claude'
+alias g='gemini'
+
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
