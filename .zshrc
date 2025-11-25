@@ -74,9 +74,7 @@ alias lg='lazygit'
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(mise activate zsh)"
 
-# Deduplicate PATH
 typeset -U path
 
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
