@@ -1,18 +1,21 @@
 {
-  "general": {
-    "previewFeatures": true,
-    "disableAutoUpdate": true,
-    "disableUpdateNag": true,
-    "preferredEditor": "vscode"
-  },
-  "ui": {
-    "footer": {
-      "hideSandboxStatus": true
-    }
-  },
-  "security": {
-    "auth": {
-      "selectedType": "oauth-personal"
-    }
-  }
+	"general": {
+		"previewFeatures": true,
+		"disableAutoUpdate": true,
+		"disableUpdateNag": true,
+		"preferredEditor": "vscode"
+	},
+	"ui": {
+		"footer": {
+			"hideSandboxStatus": true
+		}
+	},
+	"security": {
+		"auth": {
+			"selectedType": "oauth-personal"
+		}
+	},
+	"context": {
+		"fileName": "AGENTS.md"
+	}
 }
