@@ -16,17 +16,17 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+    Aloxaf/fzf-tab \
+    zdharma-continuum/fast-syntax-highlighting
 
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
-
-autoload -Uz compinit && compinit -C
-zinit cdreplay -q
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -58,8 +58,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -67,10 +68,11 @@ alias ....='cd ../../..'
 
 alias vim='nvim'
 alias c='clear'
-alias app='pnpm create t3-app@latest'
-alias pb='pbcopy'
-alias pbc='pbcopy'
-alias pbp='pbpaste'
+alias ls='eza'
+alias ll='eza -l'
+alias la='eza -la'
+alias tree='eza --tree'
+alias cat='bat --paging=never'
 alias lg='lazygit'
 alias oc='opencode'
 alias cl='claude'
