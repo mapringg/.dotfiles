@@ -73,7 +73,7 @@ alias cat='bat --paging=never'
 alias lg='lazygit'
 alias oc='opencode'
 alias cl='claude'
-alias g='gemini'
+alias ge='gemini'
 
 
 eval "$(fzf --zsh)"
