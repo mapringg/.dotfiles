@@ -1,6 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "tui": {
+    "scroll_speed": 3,
+    "scroll_acceleration": {
+      "enabled": true
+    }
+  },
   "theme": "catppuccin",
   "model": "vercel/google/gemini-3-pro-preview",
-  "autoupdate": false,
+  "autoupdate": false
 }
