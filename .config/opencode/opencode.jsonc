@@ -3,10 +3,10 @@
   "tui": {
     "scroll_speed": 3,
     "scroll_acceleration": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "theme": "catppuccin",
-  "model": "vercel/google/gemini-3-pro-preview",
-  "autoupdate": false
+  "model": "vercel/anthropic/claude-4.5-sonnet",
+  "autoupdate": false,
 }
