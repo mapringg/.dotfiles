@@ -1,14 +1,6 @@
 {
   "general": {
-    "previewFeatures": true,
-    "disableAutoUpdate": true,
-    "disableUpdateNag": true,
-    "preferredEditor": "vscode"
-  },
-  "ui": {
-    "footer": {
-      "hideSandboxStatus": true
-    }
+    "previewFeatures": true
   },
   "security": {
     "auth": {

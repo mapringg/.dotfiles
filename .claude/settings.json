@@ -6,21 +6,5 @@
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5@20251001",
     "DISABLE_AUTOUPDATER": "1"
   },
-  "permissions": {
-    "deny": [
-      "Bash(curl:*)",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)"
-    ],
-    "defaultMode": "plan"
-  },
-  "enabledPlugins": {
-    "learning-output-style@claude-code-plugins": false,
-    "frontend-design@claude-code-plugins": true,
-    "code-review@claude-code-plugins": false,
-    "commit-commands@claude-code-plugins": true,
-    "feature-dev@claude-code-plugins": true
-  },
   "alwaysThinkingEnabled": false
 }

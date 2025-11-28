@@ -1,18 +1,14 @@
-[alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
 [color]
 	ui = auto
 [core]
 	editor = nvim
+	excludesfile = ~/.config/git/ignore
 [diff]
 	tool = nvimdiff
 [init]
 	defaultBranch = main
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [pull]
 	rebase = true
 [push]
@@ -22,3 +18,7 @@
 	email = sorawit.k@tutanota.com
 [coderabbit]
 	machineId = cli/cdd7df205e0841a7bd1a2f365a1c4856
+[fetch]
+	prune = true
+[rerere]
+	enabled = true
