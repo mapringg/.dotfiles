@@ -16,8 +16,7 @@
 [user]
 	name = Sorawit Kongnurat
 	email = sorawit.k@tutanota.com
-[coderabbit]
-	machineId = cli/cdd7df205e0841a7bd1a2f365a1c4856
+
 [fetch]
 	prune = true
 [rerere]
