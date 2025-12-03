@@ -6,7 +6,7 @@
       "enabled": true,
     },
   },
-  "theme": "github",
+  "theme": "system",
   "model": "vercel/anthropic/claude-4.5-sonnet",
   "autoupdate": false,
 }
