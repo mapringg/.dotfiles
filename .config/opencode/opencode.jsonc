@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-openai-codex-auth@4.0.2"],
+  "plugin": ["opencode-openai-codex-auth@4.0.2", "opencode-gemini-auth@1.1.6"],
   "provider": {
     "openai": {
       "options": {
