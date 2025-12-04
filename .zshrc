@@ -64,20 +64,26 @@ zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias vim='nvim'
 alias c='clear'
-alias ls='eza'
-alias ll='eza -l'
-alias la='eza -la'
-alias tree='eza --tree'
-alias cat='bat --paging=never'
-alias lg='lazygit'
+
+(( $+commands[nvim] )) && alias vim='nvim'
+(( $+commands[lazygit] )) && alias lg='lazygit'
+
+if (( $+commands[eza] )); then
+  alias ls='eza'
+  alias ll='eza -l'
+  alias la='eza -la'
+  alias tree='eza --tree'
+fi
+
+(( $+commands[bat] )) && alias cat='bat --paging=never'
+
 alias oc='opencode'
 alias cl='claude'
 alias ge='gemini'
 
-eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+(( $+commands[fzf] )) && eval "$(fzf --zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
 typeset -U path
 
 function ghelp() {
