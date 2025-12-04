@@ -2,7 +2,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [[ -f "/opt/homebrew/bin/brew" ]] then
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -87,28 +87,39 @@ alias ge='gemini'
 typeset -U path
 
 function ghelp() {
-    echo "\033[1;36mEssential Git Aliases\033[0m"
+    echo "\033[1;36mGit Aliases\033[0m"
     echo ""
-    echo "  \033[1;33mgst\033[0m    git status"
-    echo "  \033[1;33mgaa\033[0m    git add --all"
-    echo "  \033[1;33mgcmsg\033[0m  git commit -m"
-    echo "  \033[1;33mgp\033[0m     git push"
-    echo "  \033[1;33mgl\033[0m     git pull"
-    echo "  \033[1;33mgd\033[0m     git diff"
-    echo "  \033[1;33mgds\033[0m    git diff --staged"
-    echo "  \033[1;33mglog\033[0m   git log --oneline --graph --decorate"
+    echo "\033[1;35mDaily\033[0m"
+    echo "  \033[1;33mgst\033[0m       git status"
+    echo "  \033[1;33mgaa\033[0m       git add --all"
+    echo "  \033[1;33mgcmsg\033[0m     git commit -m"
+    echo "  \033[1;33mgp\033[0m        git push"
+    echo "  \033[1;33mgl\033[0m        git pull"
     echo ""
-    echo "  \033[1;35mBranching\033[0m"
-    echo "  \033[1;33mgco\033[0m    git checkout"
-    echo "  \033[1;33mgcb\033[0m    git checkout -b"
-    echo "  \033[1;33mgb\033[0m     git branch"
-    echo "  \033[1;33mgm\033[0m     git merge"
+    echo "\033[1;35mInspecting\033[0m"
+    echo "  \033[1;33mgd\033[0m        git diff"
+    echo "  \033[1;33mgds\033[0m       git diff --staged"
+    echo "  \033[1;33mglog\033[0m      git log --oneline --graph"
+    echo "  \033[1;33mgsh\033[0m       git show"
     echo ""
-    echo "  \033[1;35mAdvanced\033[0m"
-    echo "  \033[1;33mgrb\033[0m    git rebase"
-    echo "  \033[1;33mgrbi\033[0m   git rebase -i (interactive)"
-    echo "  \033[1;33mgsta\033[0m   git stash push"
-    echo "  \033[1;33mgstp\033[0m   git stash pop"
+    echo "\033[1;35mStaging\033[0m"
+    echo "  \033[1;33mgap\033[0m       git add --patch"
+    echo "  \033[1;33mgrs\033[0m       git reset"
+    echo ""
+    echo "\033[1;35mBranching\033[0m"
+    echo "  \033[1;33mgco\033[0m       git checkout"
+    echo "  \033[1;33mgcb\033[0m       git checkout -b"
+    echo "  \033[1;33mgb\033[0m        git branch"
+    echo "  \033[1;33mgm\033[0m        git merge"
+    echo ""
+    echo "\033[1;35mAdvanced\033[0m"
+    echo "  \033[1;33mgrbi\033[0m      git rebase -i"
+    echo "  \033[1;33mgrb\033[0m       git rebase"
+    echo "  \033[1;33mgsta\033[0m      git stash push"
+    echo "  \033[1;33mgstp\033[0m      git stash pop"
+    echo "  \033[1;33mgstl\033[0m      git stash list"
+    echo "  \033[1;33mgsts\033[0m      git stash show"
+    echo "  \033[1;33mgcp\033[0m       git cherry-pick"
     echo ""
 }
 
