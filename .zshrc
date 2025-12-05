@@ -65,8 +65,11 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias c='clear'
+alias rr='rm -rf'
+alias sz='source ~/.zshrc'
 
 (( $+commands[nvim] )) && alias vim='nvim'
+(( $+commands[code] )) && alias c.='code .'
 (( $+commands[lazygit] )) && alias lg='lazygit'
 
 if (( $+commands[eza] )); then
@@ -78,9 +81,14 @@ fi
 
 (( $+commands[bat] )) && alias cat='bat --paging=never'
 
-alias oc='opencode'
-alias cl='claude'
-alias ge='gemini'
+(( $+commands[opencode] )) && alias oc='opencode'
+(( $+commands[claude] )) && alias cl='claude'
+(( $+commands[gemini] )) && alias ge='gemini'
+
+if (( $+commands[brew] )); then
+  alias bz='brew uninstall --zap'
+  alias bup='brew update && brew upgrade'
+fi
 
 (( $+commands[fzf] )) && eval "$(fzf --zsh)"
 (( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
@@ -120,6 +128,30 @@ function ghelp() {
     echo "  \033[1;33mgstl\033[0m      git stash list"
     echo "  \033[1;33mgsts\033[0m      git stash show"
     echo "  \033[1;33mgcp\033[0m       git cherry-pick"
+    echo ""
+}
+
+function dhelp() {
+    echo "\033[1;36mDevelopment & System Aliases\033[0m"
+    echo ""
+    echo "  \033[1;35mNavigation & System\033[0m"
+    echo "  \033[1;33mc\033[0m      clear"
+    echo "  \033[1;33mrr\033[0m     rm -rf (Recursive Force Remove)"
+    echo "  \033[1;33msz\033[0m     source ~/.zshrc"
+    echo "  \033[1;33m..\033[0m     cd .."
+    echo "  \033[1;33m...\033[0m    cd ../.."
+    echo ""
+    echo "  \033[1;35mEditors & Tools\033[0m"
+    echo "  \033[1;33mc.\033[0m     code . (VS Code current dir)"
+    echo "  \033[1;33mvim\033[0m    nvim"
+    echo "  \033[1;33mlg\033[0m     lazygit"
+    echo "  \033[1;33moc\033[0m     opencode"
+    echo "  \033[1;33mcl\033[0m     claude"
+    echo "  \033[1;33mge\033[0m     gemini"
+    echo ""
+    echo "  \033[1;35mMaintenance (Brew)\033[0m"
+    echo "  \033[1;33mbz\033[0m     brew uninstall --zap"
+    echo "  \033[1;33mbup\033[0m    brew update && brew upgrade"
     echo ""
 }
 
