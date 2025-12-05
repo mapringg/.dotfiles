@@ -5,7 +5,7 @@ uv = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@google/gemini-cli" = "latest"
-"npm:opencode-ai" = "1.0.129"
+"npm:opencode-ai" = "latest"
 "npm:@sourcegraph/amp" = "latest"
 
 [settings]
