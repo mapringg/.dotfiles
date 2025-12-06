@@ -54,6 +54,9 @@ setopt hist_find_no_dups
 setopt hist_verify
 setopt hist_expire_dups_first
 setopt extended_glob
+setopt autocd
+setopt auto_pushd
+setopt pushd_ignore_dups
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
