@@ -5,6 +5,7 @@ fi
 if [[ -f "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+typeset -U path
 
 export EDITOR=nvim
 export ZSH_PLUGINS_ALIAS_TIPS_TEXT="💡 Alias tip: "
@@ -33,14 +34,6 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
-bindkey -e
-bindkey '^[[A' history-search-backward
-bindkey '^p' history-search-backward
-bindkey '^[[B' history-search-forward
-bindkey '^n' history-search-forward
-bindkey '^[w' kill-region
-zle_highlight+=(paste:none)
-
 HISTSIZE=50000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -58,11 +51,22 @@ setopt autocd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
+bindkey -e
+bindkey '^[[A' history-search-backward
+bindkey '^p' history-search-backward
+bindkey '^[[B' history-search-forward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
+zle_highlight+=(paste:none)
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
+
+(( $+commands[fzf] )) && eval "$(fzf --zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -73,7 +77,11 @@ alias sz='source ~/.zshrc'
 
 (( $+commands[nvim] )) && alias vim='nvim'
 (( $+commands[code] )) && alias c.='code .'
+(( $+commands[agy] )) && alias a.='agy .'
 (( $+commands[lazygit] )) && alias lg='lazygit'
+(( $+commands[opencode] )) && alias oc='opencode'
+(( $+commands[claude] )) && alias cl='claude'
+(( $+commands[gemini] )) && alias ge='gemini'
 
 if (( $+commands[eza] )); then
   alias ls='eza'
@@ -84,18 +92,10 @@ fi
 
 (( $+commands[bat] )) && alias cat='bat --paging=never'
 
-(( $+commands[opencode] )) && alias oc='opencode'
-(( $+commands[claude] )) && alias cl='claude'
-(( $+commands[gemini] )) && alias ge='gemini'
-
 if (( $+commands[brew] )); then
   alias bz='brew uninstall --zap'
   alias bup='brew update && brew upgrade'
 fi
-
-(( $+commands[fzf] )) && eval "$(fzf --zsh)"
-(( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
-typeset -U path
 
 function ghelp() {
     echo "\033[1;36mGit Aliases\033[0m"
@@ -138,15 +138,17 @@ function dhelp() {
     echo "\033[1;36mDevelopment & System Aliases\033[0m"
     echo ""
     echo "  \033[1;35mNavigation & System\033[0m"
-    echo "  \033[1;33mc\033[0m      clear"
-    echo "  \033[1;33mrr\033[0m     rm -rf (Recursive Force Remove)"
-    echo "  \033[1;33msz\033[0m     source ~/.zshrc"
     echo "  \033[1;33m..\033[0m     cd .."
     echo "  \033[1;33m...\033[0m    cd ../.."
+    echo "  \033[1;33m....\033[0m   cd ../../.."
+    echo "  \033[1;33mc\033[0m      clear"
+    echo "  \033[1;33mrr\033[0m     rm -rf"
+    echo "  \033[1;33msz\033[0m     source ~/.zshrc"
     echo ""
     echo "  \033[1;35mEditors & Tools\033[0m"
-    echo "  \033[1;33mc.\033[0m     code . (VS Code current dir)"
     echo "  \033[1;33mvim\033[0m    nvim"
+    echo "  \033[1;33mc.\033[0m     code ."
+    echo "  \033[1;33ma.\033[0m     agy ."
     echo "  \033[1;33mlg\033[0m     lazygit"
     echo "  \033[1;33moc\033[0m     opencode"
     echo "  \033[1;33mcl\033[0m     claude"
