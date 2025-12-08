@@ -77,7 +77,6 @@ alias sz='source ~/.zshrc'
 
 (( $+commands[nvim] )) && alias vim='nvim'
 (( $+commands[code] )) && alias c.='code .'
-(( $+commands[agy] )) && alias a.='agy .'
 (( $+commands[lazygit] )) && alias lg='lazygit'
 (( $+commands[opencode] )) && alias oc='opencode'
 (( $+commands[claude] )) && alias cl='claude'
@@ -148,7 +147,6 @@ function dhelp() {
     echo "  \033[1;35mEditors & Tools\033[0m"
     echo "  \033[1;33mvim\033[0m    nvim"
     echo "  \033[1;33mc.\033[0m     code ."
-    echo "  \033[1;33ma.\033[0m     agy ."
     echo "  \033[1;33mlg\033[0m     lazygit"
     echo "  \033[1;33moc\033[0m     opencode"
     echo "  \033[1;33mcl\033[0m     claude"
