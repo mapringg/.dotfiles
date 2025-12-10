@@ -9,7 +9,6 @@ typeset -U path
 
 export EDITOR=nvim
 export ZSH_PLUGINS_ALIAS_TIPS_TEXT="💡 Alias tip: "
-export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDE='(_|ll|la|ls)'
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -26,7 +25,6 @@ zinit wait lucid for \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
-    Aloxaf/fzf-tab \
     zdharma-continuum/fast-syntax-highlighting \
     djui/alias-tips
 
@@ -65,9 +63,6 @@ zstyle ':completion:*' menu no
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$HOME/.zsh/cache"
 
-(( $+commands[fzf] )) && eval "$(fzf --zsh)"
-(( $+commands[zoxide] )) && eval "$(zoxide init --cmd cd zsh)"
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -81,15 +76,6 @@ alias sz='source ~/.zshrc'
 (( $+commands[opencode] )) && alias oc='opencode'
 (( $+commands[claude] )) && alias cl='claude'
 (( $+commands[gemini] )) && alias ge='gemini'
-
-if (( $+commands[eza] )); then
-  alias ls='eza'
-  alias ll='eza -l'
-  alias la='eza -la'
-  alias tree='eza --tree'
-fi
-
-(( $+commands[bat] )) && alias cat='bat --paging=never'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if (( $+commands[brew] )); then

@@ -16,7 +16,6 @@
 [user]
 	name = Sorawit Kongnurat
 	email = sorawit.k@tutanota.com
-
 [fetch]
 	prune = true
 [rerere]
