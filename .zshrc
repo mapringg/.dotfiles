@@ -91,9 +91,14 @@ fi
 
 (( $+commands[bat] )) && alias cat='bat --paging=never'
 
-if (( $+commands[brew] )); then
-  alias bz='brew uninstall --zap'
-  alias bup='brew update && brew upgrade'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if (( $+commands[brew] )); then
+    alias pz='brew uninstall --zap'
+    alias pup='brew update && brew upgrade'
+  fi
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  alias pup='sudo apt update && sudo apt upgrade'
+  alias pz='sudo apt remove --purge'
 fi
 
 function ghelp() {
@@ -152,9 +157,9 @@ function dhelp() {
     echo "  \033[1;33mcl\033[0m     claude"
     echo "  \033[1;33mge\033[0m     gemini"
     echo ""
-    echo "  \033[1;35mMaintenance (Brew)\033[0m"
-    echo "  \033[1;33mbz\033[0m     brew uninstall --zap"
-    echo "  \033[1;33mbup\033[0m    brew update && brew upgrade"
+    echo "  \033[1;35mMaintenance\033[0m"
+    echo "  \033[1;33mpz\033[0m     package uninstall"
+    echo "  \033[1;33mpup\033[0m    package update & upgrade"
     echo ""
 }
 
