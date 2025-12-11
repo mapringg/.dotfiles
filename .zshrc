@@ -77,15 +77,7 @@ alias sz='source ~/.zshrc'
 (( $+commands[claude] )) && alias cl='claude'
 (( $+commands[gemini] )) && alias ge='gemini'
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if (( $+commands[brew] )); then
-    alias pz='brew uninstall --zap'
-    alias pup='brew update && brew upgrade'
-  fi
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  alias pup='sudo apt update && sudo apt upgrade'
-  alias pz='sudo apt remove --purge'
-fi
+
 
 function ghelp() {
     echo "\033[1;36mGit Aliases\033[0m"
@@ -142,10 +134,6 @@ function dhelp() {
     echo "  \033[1;33moc\033[0m     opencode"
     echo "  \033[1;33mcl\033[0m     claude"
     echo "  \033[1;33mge\033[0m     gemini"
-    echo ""
-    echo "  \033[1;35mMaintenance\033[0m"
-    echo "  \033[1;33mpz\033[0m     package uninstall"
-    echo "  \033[1;33mpup\033[0m    package update & upgrade"
     echo ""
 }
 
