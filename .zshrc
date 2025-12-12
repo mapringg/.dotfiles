@@ -79,7 +79,7 @@ alias sz='source ~/.zshrc'
 
 
 
-function ghelp() {
+function hg() {
     echo "\033[1;36mGit Aliases\033[0m"
     echo ""
     echo "\033[1;35mDaily\033[0m"
@@ -116,7 +116,7 @@ function ghelp() {
     echo ""
 }
 
-function dhelp() {
+function ht() {
     echo "\033[1;36mDevelopment & System Aliases\033[0m"
     echo ""
     echo "  \033[1;35mNavigation & System\033[0m"
