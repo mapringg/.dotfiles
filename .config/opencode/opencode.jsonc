@@ -2,7 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
   "model": "vercel/anthropic/claude-4.5-sonnet",
-  "theme": "catppuccin",
   "tui": {
     "scroll_acceleration": {
       "enabled": true

@@ -1,7 +1,1 @@
-confirm-close-surface = false
 font-family = "Geist Mono"
-maximize = true
-window-padding-balance = true
-window-padding-x = 8
-window-padding-y = 8
-theme = Catppuccin Mocha
