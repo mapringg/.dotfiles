@@ -3,5 +3,8 @@
     "auth": {
       "selectedType": "oauth-personal"
     }
+  },
+  "general": {
+    "previewFeatures": true
   }
 }
