@@ -1,7 +1,3 @@
 [user]
 	name = Sorawit Kongnurat
 	email = sorawit.k@tutanota.com
-[push]
-	default = simple
-[init]
-	defaultBranch = main
