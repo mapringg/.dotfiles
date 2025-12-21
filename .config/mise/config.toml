@@ -3,11 +3,6 @@ bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 uv = "latest"
 "npm:@antfu/ni" = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
-"npm:@google/gemini-cli" = "latest"
-"npm:opencode-ai" = "latest"
-"npm:@sourcegraph/amp" = "latest"
-"npm:mongosh" = "1.10"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

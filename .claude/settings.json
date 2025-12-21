@@ -1,9 +1,0 @@
-{
-  "env": {
-    "DISABLE_AUTOUPDATER": "1"
-  },
-  "model": "claude-opus-4-5@20251101",
-  "enabledPlugins": {
-    "frontend-design@claude-code-plugins": true
-  }
-}
