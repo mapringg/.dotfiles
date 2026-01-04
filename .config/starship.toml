@@ -13,7 +13,7 @@ repo_root_style = "bold cyan"
 repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-format = "[$branch]($style)"
+format = "[$branch]($style) "
 style = "italic cyan"
 
 [git_status]
@@ -22,10 +22,10 @@ style      = "cyan"
 ahead      = "⇡${count} "
 diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
 behind     = "⇣${count} "
-conflicted = " "
-up_to_date = " "
+conflicted = " "
+up_to_date = " "
 untracked  = "? "
-modified   = " "
+modified   = " "
 stashed    = ""
 staged     = ""
 renamed    = ""
