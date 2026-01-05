@@ -8,6 +8,7 @@ brew "fzf"
 brew "gemini-cli"
 brew "gh"
 brew "git"
+brew 'gum'
 brew "imagemagick"
 brew "lazygit"
 brew "mise"
