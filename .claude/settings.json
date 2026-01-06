@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "defaultMode": "plan"
+  },
+  "model": "claude-opus-4-5@20251101",
+  "enabledPlugins": {
+    "code-review@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true
+}
