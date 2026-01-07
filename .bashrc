@@ -10,3 +10,4 @@ source ~/.config/bash/init
 source ~/.config/bash/envs
 
 # Add your own exports, aliases, and functions below
+[[ -f ~/.config/bash/envs.local ]] && source ~/.config/bash/envs.local

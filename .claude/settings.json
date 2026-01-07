@@ -1,17 +1,10 @@
 {
-  "env": {
-    "CLAUDE_CODE_USE_VERTEX": "1",
-    "CLOUD_ML_REGION": "global",
-    "ANTHROPIC_VERTEX_PROJECT_ID": "gen-lang-client-0873367143"
-  },
   "permissions": {
     "defaultMode": "plan"
   },
   "model": "claude-opus-4-5@20251101",
   "enabledPlugins": {
-    "code-review@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true
+    "context7@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true
 }
