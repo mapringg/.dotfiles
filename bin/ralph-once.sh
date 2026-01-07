@@ -1,6 +1,6 @@
 set -e
 
-claude --permission-mode acceptEdits "@plans/prd.json @progress.txt \
+claude --dangerously-skip-permissions "@plans/prd.json @progress.txt \
 1. Find the highest priority feature to work on and work only on that feature. \
 This should be the one YOU decide has the highest priority, not necessarily the first in the list. \
 2. Check that the types check via pnpm typecheck and that the tests pass via pnpm test. \
