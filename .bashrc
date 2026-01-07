@@ -5,6 +5,7 @@
 source ~/.config/bash/shell
 source ~/.config/bash/aliases
 source ~/.config/bash/functions
+source ~/.config/bash/prompt
 source ~/.config/bash/init
 source ~/.config/bash/envs
 
