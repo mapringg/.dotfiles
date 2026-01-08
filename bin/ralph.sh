@@ -10,11 +10,11 @@ for ((i = 1; i <= $1; i++)); do
 	result=$(opencode run "@PRD.json @progress.txt \
   QUALITY: Production code. Must be maintainable. No shortcuts. Fight entropy. \
   1. Pick the task YOU determine has highest priority - not necessarily the first. \
-     Prioritize: architecture > integration > unknowns > features > polish. \
+     Prioritize: architecture > integration > unknown > feature > polish. \
   2. Implement with small, focused changes. One logical change per commit. \
   3. Before committing, run ALL checks (types, tests, lint). Do NOT commit if any fail. \
   4. Update the PRD (set passes: true). \
-  5. Append to progress.txt: Task, Decisions, Files changed. Keep concise. \
+  5. Append to progress.txt in format: '## Iteration N\\n- Task: [desc]\\n- Decisions: [x]\\n- Files: [x]\\n- Blockers: [x]\\n- Notes: [x]'. Keep concise. \
   6. Commit your changes. \
   ONLY WORK ON A SINGLE TASK. \
   If the PRD is complete, output <promise>COMPLETE</promise>.")
