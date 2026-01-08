@@ -16,6 +16,7 @@ brew "neovim"
 brew "anomalyco/tap/opencode"
 brew "ripgrep"
 brew "stow"
+brew "stripe/stripe-cli/stripe"
 brew "zoxide"
 
 cask "android-platform-tools"
