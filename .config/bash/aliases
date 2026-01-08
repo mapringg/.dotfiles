@@ -27,6 +27,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 # Tools
+alias c='opencode'
 alias d='docker'
 n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
 
