@@ -1,8 +1,13 @@
 #!/bin/bash
 
-opencode run "@PRD.md @progress.txt \
+opencode run "@PRD.json @progress.txt \
+QUALITY: Production code. Must be maintainable. No shortcuts. Fight entropy. \
 1. Read the PRD and progress file. \
-2. Find the next incomplete task and implement it. \
-3. Commit your changes. \
-4. Update progress.txt with what you did. \
+2. Pick the task YOU determine has highest priority - not necessarily the first. \
+   Prioritize: architecture > integration > unknowns > features > polish. \
+3. Implement with small, focused changes. One logical change per commit. \
+4. Before committing, run ALL checks (types, tests, lint). Do NOT commit if any fail. \
+5. Update the PRD (set passes: true). \
+6. Append to progress.txt: Task, Decisions, Files changed. Keep concise. \
+7. Commit your changes. \
 ONLY DO ONE TASK AT A TIME."
