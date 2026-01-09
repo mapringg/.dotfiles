@@ -1,7 +1,9 @@
 # AGENTS.md
 
-- Be extremely concise in responses, plans, and commits
-- Split multi-step plans into phases with headings
-- Use Context7 MCP to research unfamiliar libraries
-- **Python:** miniconda for virtual environments
-- **JS/TS:** pnpm preferred, `type` over `interface`, JSDoc Hemingway-style
+- Be extremely concise and sacrifice grammar for brevity
+
+## Plan
+
+- List unresolved questions about edge cases and errors before the summary
+- Put the actionable summary at the end
+- End every plan with a numbered list of concrete steps
