@@ -1,2 +1,2 @@
 **/.claude/settings.local.json
-.config/bash/envs.local
+env.fish
