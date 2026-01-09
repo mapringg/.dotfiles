@@ -13,11 +13,11 @@ set -gx BAT_THEME ansi
 fish_add_path -g $HOME/bin
 
 # Hydro customization
-set -g hydro_color_pwd '#fabd2f'
-set -g hydro_color_git '#b8bb26'
-set -g hydro_color_prompt '#928374'
-set -g hydro_color_error '#fb4934'
-set -g hydro_color_duration '#fe8019'
+set -g hydro_color_pwd '#e5c890'
+set -g hydro_color_git '#a6d189'
+set -g hydro_color_prompt '#a5adce'
+set -g hydro_color_error '#e78284'
+set -g hydro_color_duration '#f4b8e4'
 set -g hydro_fetch true
 set -g fish_prompt_pwd_dir_length 0
 
