@@ -7,7 +7,7 @@ if test -x /opt/homebrew/bin/brew
 end
 
 # Environment variables
-set -gx EDITOR nvim
+set -gx EDITOR vim
 set -gx SUDO_EDITOR $EDITOR
 set -gx BAT_THEME ansi
 fish_add_path -g $HOME/bin
