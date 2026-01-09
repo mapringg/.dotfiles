@@ -21,6 +21,7 @@ alias .... 'cd ../../..'
 # Tools
 alias c opencode
 alias d docker
+alias l lazygit
 
 # Git
 alias g git
