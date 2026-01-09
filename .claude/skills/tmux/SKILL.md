@@ -5,7 +5,7 @@ description: Instructions for using tmux to spawn multiple processes, inspect th
 
 # Tmux Skill
 
-This skill empowers you to manage multiple concurrent processes (like servers, watchers, or long builds) using `tmux` directly from the `Bash` tool.
+This skill empowers you to manage multiple concurrent processes (like servers, watchers, or long builds) using `tmux`.
 
 Since you are likely already running inside a tmux session, you can spawn new windows or panes to handle these tasks without blocking your main communication channel.
 
