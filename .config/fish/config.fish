@@ -11,7 +11,6 @@ set -gx EDITOR vim
 set -gx SUDO_EDITOR $EDITOR
 set -gx BAT_THEME ansi
 set -gx SSH_AUTH_SOCK ~/.bitwarden-ssh-agent.sock
-fish_add_path -g $HOME/bin
 
 # Tool initializations
 if command -q mise
