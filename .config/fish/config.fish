@@ -13,6 +13,9 @@ set -gx BAT_THEME ansi
 set -gx SSH_AUTH_SOCK ~/.bitwarden-ssh-agent.sock
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
 
+# Hydro prompt
+set -gx hydro_multiline true
+
 # fzf uses fd for faster file/directory searching
 set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden'
 set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
