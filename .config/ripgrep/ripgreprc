@@ -1,0 +1,24 @@
+# Search settings
+--smart-case
+--hidden
+
+# Ignore directories
+--glob=!.git/*
+--glob=!node_modules/*
+--glob=!.next/*
+--glob=!dist/*
+--glob=!build/*
+--glob=!coverage/*
+--glob=!.turbo/*
+--glob=!.nuxt/*
+--glob=!.output/*
+--glob=!.venv/*
+--glob=!__pycache__/*
+--glob=!.mypy_cache/*
+
+# Ignore files
+--glob=!*.lock
+--glob=!*-lock.json
+--glob=!*.min.js
+--glob=!*.min.css
+--glob=!*.map

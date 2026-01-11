@@ -1,0 +1,17 @@
+.git/
+node_modules/
+.next/
+dist/
+build/
+coverage/
+.turbo/
+.nuxt/
+.output/
+.venv/
+__pycache__/
+.mypy_cache/
+*.lock
+*-lock.json
+*.min.js
+*.min.css
+*.map
