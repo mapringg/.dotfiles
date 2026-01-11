@@ -1,6 +1,6 @@
 [tools]
 bun = "latest"
-node = { version = "25.2.1", postinstall = "corepack enable" }
+node = { version = "lts", postinstall = "corepack enable" }
 uv = "latest"
 "npm:@antfu/ni" = "latest"
 
