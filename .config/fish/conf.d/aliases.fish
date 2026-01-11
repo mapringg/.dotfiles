@@ -7,6 +7,7 @@ if command -q eza
 end
 
 alias ff "fzf --preview 'bat --style=numbers --color=always {}'"
+alias cat bat
 
 # zoxide cd wrapper
 if command -q zoxide
