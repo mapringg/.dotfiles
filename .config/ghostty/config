@@ -1,11 +1,6 @@
-theme = Catppuccin Latte
-
-# Font
-font-family = "GeistMono Nerd Font"
-font-style = Regular
+theme = TokyoNight
 
 # Window
-window-theme = ghostty
 window-padding-x = 8
 window-padding-y = 8
 window-padding-balance = true
