@@ -383,6 +383,10 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # this is the place to override or undo settings
 
+# use fish as the default shell
+set -g default-command /opt/homebrew/bin/fish
+set -g default-shell /opt/homebrew/bin/fish
+
 # increase history size
 #set -g history-limit 10000
 
