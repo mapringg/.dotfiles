@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# tmproj - Quick tmux session manager for projects
+# Usage: tmproj [directory]
+
+set -euo pipefail
+
+PROJECTS_DIR="${HOME}/Developer"
+
+if [[ $# -eq 1 ]]; then
+    dir="$1"
+else
+    dir=$(fd . "$PROJECTS_DIR" -t d -d 2 2>/dev/null | fzf --preview 'eza -la --icons=auto {}' --preview-window=right:40%) || exit 0
+fi
+
+[[ -z "$dir" ]] && exit 0
+
+name=$(basename "$dir")
+
+if ! tmux has-session -t "$name" 2>/dev/null; then
+    tmux new-session -ds "$name" -c "$dir"
+fi
+
+if [[ -n "${TMUX:-}" ]]; then
+    tmux switch-client -t "$name"
+else
+    tmux attach -t "$name"
+fi
