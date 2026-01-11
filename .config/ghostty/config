@@ -1,4 +1,5 @@
 theme = TokyoNight
+command = /opt/homebrew/bin/fish --login --interactive
 
 # Window
 window-padding-x = 8
