@@ -7,6 +7,7 @@ if test -x /opt/homebrew/bin/brew
 end
 
 # Environment variables
+set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx EDITOR vim
 set -gx SUDO_EDITOR $EDITOR
 set -gx BAT_THEME ansi
