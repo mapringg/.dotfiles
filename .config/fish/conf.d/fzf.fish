@@ -2,6 +2,7 @@
 
 set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+set -x FZF_CTRL_T_OPTS "--preview 'bat --style=numbers --color=always {}'"
 set -x FZF_ALT_C_COMMAND 'fd --type d --hidden'
 set -x FZF_ALT_C_OPTS "--preview 'eza --tree --level=2 --icons {}'"
 
