@@ -1,0 +1,3 @@
+--style=numbers,changes
+--map-syntax "*.fish:bash"
+--map-syntax "*.conf:ini"
