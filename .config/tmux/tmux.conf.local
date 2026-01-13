@@ -411,6 +411,9 @@ set -g default-shell /opt/homebrew/bin/fish
 # display a message after toggling mouse support
 bind m run "cut -c3- '#{TMUX_CONF}' | sh -s _toggle_mouse" \; display 'mouse #{?#{mouse},on,off}'
 
+# quick project session picker (<prefix> o)
+bind o display-popup -E "tmproj"
+
 # move status line to top
 #set -g status-position top
 

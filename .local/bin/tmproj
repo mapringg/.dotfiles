@@ -9,7 +9,12 @@ PROJECTS_DIR="${HOME}/Developer"
 if [[ $# -eq 1 ]]; then
     dir="$1"
 else
-    dir=$(fd . "$PROJECTS_DIR" -t d -d 2 2>/dev/null | fzf --preview 'eza -la --icons=auto {}' --preview-window=right:40%) || exit 0
+    # Show preview only when not in tmux popup (popup sets TMUX_PANE but has small terminal)
+    if [[ -n "${TMUX:-}" ]] && [[ $(tput cols) -lt 100 ]]; then
+        dir=$(fd . "$PROJECTS_DIR" -t d -d 2 2>/dev/null | fzf) || exit 0
+    else
+        dir=$(fd . "$PROJECTS_DIR" -t d -d 2 2>/dev/null | fzf --preview 'eza -la --icons=auto {}' --preview-window=right:40%) || exit 0
+    fi
 fi
 
 [[ -z "$dir" ]] && exit 0
