@@ -34,6 +34,7 @@ elif [[ "$OS" == "Darwin" ]]; then
     export EDITOR="vim"
     export SUDO_EDITOR="$EDITOR"
     export BAT_THEME=ansi
+    export PATH="$HOME/.local/bin:$PATH"
 
     # ===== ALIASES (omarchy/aliases) =====
 
@@ -91,6 +92,10 @@ elif [[ "$OS" == "Darwin" ]]; then
 
     if command -v zoxide &> /dev/null; then
         eval "$(zoxide init bash)"
+    fi
+
+    if command -v try &> /dev/null; then
+        eval "$(try init ~/Work/tries)"
     fi
 
     if command -v fzf &> /dev/null; then
