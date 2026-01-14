@@ -1,8 +1,6 @@
 # Tools
-abbr -a la lazygit
-abbr -a op opencode
-abbr -a mi mise
-abbr -a br brew
+abbr -a l lazygit
+abbr -a o opencode
 
 # Navigation
 abbr -a cdev 'cd ~/Developer'
