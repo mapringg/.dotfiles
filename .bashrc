@@ -11,6 +11,11 @@ if [[ -f ~/.local/share/omarchy/default/bash/rc ]]; then
 # Replicate Omarchy setup on macOS
 elif [[ "$OS" == "Darwin" ]]; then
 
+    # ===== HOMEBREW =====
+    if [[ -f /opt/homebrew/bin/brew ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
+
     # ===== SHELL SETTINGS (omarchy/shell) =====
     shopt -s histappend
     HISTCONTROL=ignoreboth
