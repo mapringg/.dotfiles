@@ -1,5 +1,4 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "catppuccin",
-  "model": "vercel/anthropic/claude-opus-4.5",
+  "theme": "system",
 }
