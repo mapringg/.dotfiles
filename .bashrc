@@ -108,3 +108,6 @@ fi
 
 # Bitwarden SSH agent
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+
+# Ripgrep config
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
