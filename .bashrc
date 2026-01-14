@@ -71,7 +71,7 @@ elif [[ "$OS" == "Darwin" ]]; then
     alias c='opencode'
     alias d='docker'
     alias r='rails'
-    n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
+    n() { if [ "$#" -eq 0 ]; then vim .; else vim "$@"; fi; }
 
     # Git
     alias g='git'
