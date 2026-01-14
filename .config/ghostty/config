@@ -4,11 +4,10 @@ config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
 # Font
 font-family = "JetBrainsMono Nerd Font"
-font-size = 14
 
 # Window
-window-padding-x = 14
-window-padding-y = 14
+window-padding-x = 12
+window-padding-y = 12
 window-padding-balance = true
 confirm-close-surface = false
 resize-overlay = never
