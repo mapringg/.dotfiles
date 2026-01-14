@@ -1,4 +1,4 @@
-theme = TokyoNight
+theme = Catppuccin Mocha
 command = /opt/homebrew/bin/fish --login --interactive
 
 # Window
