@@ -116,3 +116,9 @@ export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 
 # Ripgrep config
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
+
+# Window title - show current directory name
+function set_win_title(){
+    echo -ne "\033]0; ${PWD##*/} \007"
+}
+starship_precmd_user_func="set_win_title"
