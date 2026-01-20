@@ -6,4 +6,3 @@ uv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
-npm.bun = true
