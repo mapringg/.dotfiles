@@ -1,10 +1,18 @@
 # See https://git-scm.com/docs/git-config
 
 [alias]
-        co = checkout
-        br = branch
-        ci = commit
-        st = status
+        s = status -s
+        l = log --oneline -15
+        d = diff
+        ds = diff --staged
+        sw = switch
+        swc = switch -c
+        br = branch -vv
+        aa = add -A
+        unstage = restore --staged
+        undo = reset HEAD~1
+        last = log -1 --stat
+        aliases = config --get-regexp ^alias\\.
 [init]
         defaultBranch = master
 [pull]
