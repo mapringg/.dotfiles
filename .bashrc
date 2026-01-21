@@ -34,6 +34,7 @@ elif [[ "$OS" == "Darwin" ]]; then
     export EDITOR="vim"
     export SUDO_EDITOR="$EDITOR"
     export BAT_THEME=ansi
+    export HOMEBREW_NO_ENV_HINTS=1
 
     # ===== ALIASES (omarchy/aliases) =====
 
