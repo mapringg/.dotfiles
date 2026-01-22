@@ -1,11 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "system",
-  "keybinds": {
-    "leader": "ctrl+x",
-    "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d",
-  },
   "tui": {
     "diff_style": "stacked",
   },
