@@ -69,12 +69,6 @@ elif [[ "$OS" == "Darwin" ]]; then
     alias r='rails'
     n() { if [ "$#" -eq 0 ]; then vim .; else vim "$@"; fi; }
 
-    # Git
-    alias g='git'
-    alias gcm='git commit -m'
-    alias gcam='git commit -a -m'
-    alias gcad='git commit -a --amend'
-
     # ===== TOOL INIT (omarchy/init) =====
 
     if command -v mise &> /dev/null; then

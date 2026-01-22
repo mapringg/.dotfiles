@@ -1,23 +1,5 @@
 # See https://git-scm.com/docs/git-config
 
-[alias]
-        s = status -s
-        l = log --oneline -15
-        d = diff
-        ds = diff --staged
-        sw = switch
-        swc = switch -c
-        br = branch -vv
-        aa = add -A
-        unstage = restore --staged
-        undo = reset HEAD~1
-        last = log -1 --stat
-        alias = config --get-regexp ^alias\\.
-        graph = log --oneline --graph --all
-        who = shortlog -sn
-        sync = !git fetch --all --prune && git pull
-        gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
-        prune-local = !git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
 [init]
         defaultBranch = main
 [pull]
