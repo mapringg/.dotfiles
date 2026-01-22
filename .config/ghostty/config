@@ -1,27 +1,13 @@
-# Theme
-# On Linux (Omarchy): uses the dynamic theme from Omarchy
-config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
-
-# Font
 font-family = "JetBrainsMono Nerd Font"
-
-# Window
-window-padding-x = 8
-window-padding-y = 8
-window-padding-balance = true
-confirm-close-surface = false
-resize-overlay = never
-
-# Cursor styling
+theme = Catppuccin Mocha
 cursor-style = "block"
-cursor-style-blink = false
-
-# Shell integration + SSH session terminfo
 shell-integration-features = no-cursor,ssh-env
-
-# Cross-platform keybindings
-keybind = shift+enter=text:\x1b\r
-
-# Platform-specific configs (loaded conditionally)
-config-file = ?"~/.config/ghostty/linux.conf"
-config-file = ?"~/.config/ghostty/macos.conf"
+window-padding-x = 10
+window-padding-y = 10
+window-height = 100000
+window-width = 100000
+copy-on-select = clipboard
+confirm-close-surface = false
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+gtk-titlebar = false
+macos-titlebar-style = tabs
