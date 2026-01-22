@@ -107,6 +107,9 @@ fi
 
 # ===== PERSONAL CUSTOMIZATIONS (both platforms) =====
 
+# Add local bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
 # Bitwarden SSH agent
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 
