@@ -12,7 +12,7 @@
         unstage = restore --staged
         undo = reset HEAD~1
         last = log -1 --stat
-        aliases = config --get-regexp ^alias\\.
+        alias = config --get-regexp ^alias\\.
 [init]
         defaultBranch = master
 [pull]
