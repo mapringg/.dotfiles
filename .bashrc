@@ -22,11 +22,6 @@ elif [[ "$OS" == "Darwin" ]]; then
     HISTSIZE=32768
     HISTFILESIZE="${HISTSIZE}"
 
-    # Bash completion (Homebrew path)
-    if [[ -f /opt/homebrew/etc/profile.d/bash_completion.sh ]]; then
-        source /opt/homebrew/etc/profile.d/bash_completion.sh
-    fi
-
     # Ensure command hashing is off for mise
     set +h
 

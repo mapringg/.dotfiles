@@ -1,6 +1,5 @@
 brew "anomalyco/tap/opencode"
 brew "bash"
-brew "bash-completion@2"
 brew "bat"
 brew "biome"
 brew "eza"
