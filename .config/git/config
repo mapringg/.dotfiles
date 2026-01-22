@@ -13,6 +13,11 @@
         undo = reset HEAD~1
         last = log -1 --stat
         alias = config --get-regexp ^alias\\.
+        graph = log --oneline --graph --all
+        who = shortlog -sn
+        sync = !git fetch --all --prune && git pull
+        gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
+        prune-local = !git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
 [init]
         defaultBranch = master
 [pull]
