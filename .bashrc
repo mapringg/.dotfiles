@@ -113,6 +113,9 @@ export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 # Ripgrep config
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 
+# fd with hidden and case-insensitive by default
+alias fd='fd --hidden --ignore-case'
+
 # Window title - show current directory name
 function set_win_title(){
     echo -ne "\033]0; ${PWD##*/} \007"
