@@ -1,5 +1,4 @@
 #!/bin/sh
-# Find broken symlinks in home directory
 fd --type l \
   --exclude node_modules \
   --exclude .git \

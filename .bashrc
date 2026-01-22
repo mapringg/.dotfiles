@@ -1,39 +1,31 @@
-# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Platform detection
 OS="$(uname -s)"
 
-# Source Omarchy defaults on Linux (if available)
 if [[ -f ~/.local/share/omarchy/default/bash/rc ]]; then
     source ~/.local/share/omarchy/default/bash/rc
 
-# Replicate Omarchy setup on macOS
 elif [[ "$OS" == "Darwin" ]]; then
 
-    # ===== HOMEBREW =====
+    # Homebrew
     if [[ -f /opt/homebrew/bin/brew ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
-    # ===== SHELL SETTINGS (omarchy/shell) =====
+    # Shell
     shopt -s histappend
     HISTCONTROL=ignoreboth
     HISTSIZE=32768
     HISTFILESIZE="${HISTSIZE}"
-
-    # Ensure command hashing is off for mise
     set +h
 
-    # ===== ENVIRONMENT (omarchy/envs) =====
+    # Environment
     export EDITOR="vim"
     export SUDO_EDITOR="$EDITOR"
     export BAT_THEME=ansi
     export HOMEBREW_NO_ENV_HINTS=1
 
-    # ===== ALIASES (omarchy/aliases) =====
-
-    # File system - eza
+    # Aliases
     if command -v eza &> /dev/null; then
         alias ls='eza -lh --group-directories-first --icons=auto'
         alias lsa='ls -a'
@@ -41,10 +33,8 @@ elif [[ "$OS" == "Darwin" ]]; then
         alias lta='lt -a'
     fi
 
-    # fzf with bat preview
     alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
-    # zoxide smart cd
     if command -v zoxide &> /dev/null; then
         alias cd="zd"
         zd() {
@@ -58,19 +48,16 @@ elif [[ "$OS" == "Darwin" ]]; then
         }
     fi
 
-    # Directories
     alias ..='cd ..'
     alias ...='cd ../..'
     alias ....='cd ../../..'
 
-    # Tools
     alias c='opencode'
     alias d='docker'
     alias r='rails'
     n() { if [ "$#" -eq 0 ]; then vim .; else vim "$@"; fi; }
 
-    # ===== TOOL INIT (omarchy/init) =====
-
+    # Tool init
     if command -v mise &> /dev/null; then
         eval "$(mise activate bash)"
     fi
@@ -84,7 +71,6 @@ elif [[ "$OS" == "Darwin" ]]; then
     fi
 
     if command -v fzf &> /dev/null; then
-        # Homebrew fzf paths
         if [[ -f /opt/homebrew/opt/fzf/shell/completion.bash ]]; then
             source /opt/homebrew/opt/fzf/shell/completion.bash
         fi
@@ -94,16 +80,8 @@ elif [[ "$OS" == "Darwin" ]]; then
     fi
 fi
 
-# ===== PERSONAL CUSTOMIZATIONS (both platforms) =====
-
-# Add local bin to PATH
+# Personal
 export PATH="$HOME/.local/bin:$PATH"
-
-# Bitwarden SSH agent
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
-
-# Ripgrep config
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-
-# fd with hidden and case-insensitive by default
 alias fd='fd --hidden --ignore-case'

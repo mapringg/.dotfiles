@@ -1,8 +1,8 @@
-# Search settings
+# Search
 --smart-case
 --hidden
 
-# Ignore directories
+# Ignore
 --glob=!.git/*
 --glob=!node_modules/*
 --glob=!.next/*
@@ -15,8 +15,6 @@
 --glob=!.venv/*
 --glob=!__pycache__/*
 --glob=!.mypy_cache/*
-
-# Ignore files
 --glob=!*.lock
 --glob=!*-lock.json
 --glob=!*.min.js
