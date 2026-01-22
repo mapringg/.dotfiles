@@ -19,9 +19,9 @@
         gone = !git branch -vv | grep ': gone]' | awk '{print $1}'
         prune-local = !git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d
 [init]
-        defaultBranch = master
+        defaultBranch = main
 [pull]
-        rebase = true                    # Rebase (instead of merge) on pull
+        rebase = true            # Rebase (instead of merge) on pull
 [push]
         autoSetupRemote = true   # Automatically set upstream branch on push
 [diff]
@@ -31,7 +31,7 @@
 [commit]
         verbose = true           # Include diff comment in commit message template
 [column]
-        ui = auto                            # Output in columns when possible
+        ui = auto                # Output in columns when possible
 [branch]
         sort = -committerdate    # Sort branches by most recent commit first
 [tag]
