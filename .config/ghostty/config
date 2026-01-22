@@ -3,6 +3,8 @@ theme = Catppuccin Mocha
 cursor-style = "block"
 shell-integration-features = no-cursor,ssh-env
 title = ghostty
+keybind = alt+backspace=text:\x1b\x7f
+keybind = shift+enter=text:\n
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
