@@ -45,9 +45,9 @@ alias .. 'cd ..'
 alias ... 'cd ../..'
 alias .... 'cd ../../..'
 
-alias c opencode
-alias d docker
-alias l lazygit
+abbr -a o opencode
+abbr -a d docker
+abbr -a l lazygit
 
 # Tool init (keep last - some override aliases like cd)
 if command -q zoxide
