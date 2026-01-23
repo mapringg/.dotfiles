@@ -1,5 +1,3 @@
-// Code review extension
-
 import type {
   ExtensionAPI,
   ExtensionCommandContext,
@@ -13,17 +11,14 @@ import {
   Text,
 } from "@mariozechner/pi-tui";
 
-// Review origin tracking
 let reviewOriginId: string | undefined;
 
-// Review target types
 type ReviewTarget =
   | { type: "uncommitted" }
   | { type: "baseBranch"; branch: string }
   | { type: "commit"; sha: string; title?: string }
   | { type: "custom"; instructions: string };
 
-// Prompts
 const UNCOMMITTED_PROMPT =
   "Review the current code changes (staged, unstaged, and untracked files) and provide prioritized findings.";
 
@@ -39,7 +34,6 @@ const COMMIT_PROMPT_WITH_TITLE =
 const COMMIT_PROMPT =
   "Review the code changes introduced by commit {sha}. Provide prioritized, actionable findings.";
 
-// Review rubric
 const REVIEW_RUBRIC = `# Review Guidelines
 
 You are acting as a code reviewer for a proposed code change.
@@ -103,7 +97,6 @@ Provide your findings in a clear, structured format:
 
 Output all findings the author would fix if they knew about them. If there are no qualifying findings, explicitly state the code looks good. Don't stop at the first finding - list every qualifying issue.`;
 
-// Get merge base between HEAD and a branch
 async function getMergeBase(
   pi: ExtensionAPI,
   branch: string,
@@ -141,7 +134,6 @@ async function getMergeBase(
   }
 }
 
-// Get list of local branches
 async function getLocalBranches(pi: ExtensionAPI): Promise<string[]> {
   const { stdout, code } = await pi.exec("git", [
     "branch",
@@ -154,7 +146,6 @@ async function getLocalBranches(pi: ExtensionAPI): Promise<string[]> {
     .filter((b) => b.trim());
 }
 
-// Get list of recent commits
 async function getRecentCommits(
   pi: ExtensionAPI,
   limit: number = 10,
@@ -177,13 +168,11 @@ async function getRecentCommits(
     });
 }
 
-// Check for uncommitted changes
 async function hasUncommittedChanges(pi: ExtensionAPI): Promise<boolean> {
   const { stdout, code } = await pi.exec("git", ["status", "--porcelain"]);
   return code === 0 && stdout.trim().length > 0;
 }
 
-// Get current branch name
 async function getCurrentBranch(pi: ExtensionAPI): Promise<string | null> {
   const { stdout, code } = await pi.exec("git", ["branch", "--show-current"]);
   if (code === 0 && stdout.trim()) {
@@ -192,7 +181,6 @@ async function getCurrentBranch(pi: ExtensionAPI): Promise<string | null> {
   return null;
 }
 
-// Get default branch
 async function getDefaultBranch(pi: ExtensionAPI): Promise<string> {
   const { stdout, code } = await pi.exec("git", [
     "symbolic-ref",
@@ -210,7 +198,6 @@ async function getDefaultBranch(pi: ExtensionAPI): Promise<string> {
   return "main";
 }
 
-// Build review prompt based on target
 async function buildReviewPrompt(
   pi: ExtensionAPI,
   target: ReviewTarget,
@@ -244,7 +231,6 @@ async function buildReviewPrompt(
   }
 }
 
-// Get user-facing hint for review target
 function getUserFacingHint(target: ReviewTarget): string {
   switch (target.type) {
     case "uncommitted":
@@ -264,7 +250,6 @@ function getUserFacingHint(target: ReviewTarget): string {
   }
 }
 
-// Review preset options for the selector
 const REVIEW_PRESETS = [
   {
     value: "baseBranch",
@@ -281,7 +266,6 @@ const REVIEW_PRESETS = [
 ] as const;
 
 export default function reviewExtension(pi: ExtensionAPI) {
-  // Determine smart default based on git state
   async function getSmartDefault(): Promise<
     "uncommitted" | "baseBranch" | "commit"
   > {
@@ -298,7 +282,6 @@ export default function reviewExtension(pi: ExtensionAPI) {
     return "commit";
   }
 
-  // Show review preset selector
   async function showReviewSelector(
     ctx: ExtensionContext,
   ): Promise<ReviewTarget | null> {
@@ -375,7 +358,6 @@ export default function reviewExtension(pi: ExtensionAPI) {
     }
   }
 
-  // Show branch selector
   async function showBranchSelector(
     ctx: ExtensionContext,
   ): Promise<ReviewTarget | null> {
@@ -445,7 +427,6 @@ export default function reviewExtension(pi: ExtensionAPI) {
     return { type: "baseBranch", branch: result };
   }
 
-  // Show commit selector
   async function showCommitSelector(
     ctx: ExtensionContext,
   ): Promise<ReviewTarget | null> {
@@ -515,7 +496,6 @@ export default function reviewExtension(pi: ExtensionAPI) {
     return { type: "commit", sha: result.sha, title: result.title };
   }
 
-  // Show custom instructions input
   async function showCustomInput(
     ctx: ExtensionContext,
   ): Promise<ReviewTarget | null> {
@@ -528,7 +508,6 @@ export default function reviewExtension(pi: ExtensionAPI) {
     return { type: "custom", instructions: result.trim() };
   }
 
-  // Execute review
   async function executeReview(
     ctx: ExtensionCommandContext,
     target: ReviewTarget,
@@ -601,7 +580,6 @@ export default function reviewExtension(pi: ExtensionAPI) {
     pi.sendUserMessage(fullPrompt);
   }
 
-  // Parse command arguments
   function parseArgs(args: string | undefined): ReviewTarget | null {
     if (!args?.trim()) return null;
 
@@ -692,7 +670,6 @@ export default function reviewExtension(pi: ExtensionAPI) {
     },
   });
 
-  // Review summary prompt
   const REVIEW_SUMMARY_PROMPT = `We are switching to a coding session to continue working on the code. 
 Create a structured summary of this review branch for context when returning later.
 	

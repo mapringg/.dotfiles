@@ -1,5 +1,3 @@
-// Loop extension - follow-up loop with breakout condition
-
 import {
   type Api,
   complete,
@@ -39,7 +37,7 @@ const LOOP_PRESETS = [
 
 const LOOP_STATE_ENTRY = "loop-state";
 
-const HAIKU_MODEL_ID = "claude-haiku-4-5";
+const HAIKU_MODEL_ID = "anthropic/claude-haiku-4.5";
 
 const SUMMARY_SYSTEM_PROMPT = `You summarize loop breakout conditions for a status widget.
 Return a concise phrase (max 6 words) that says when the loop should stop.
@@ -98,8 +96,13 @@ async function selectSummaryModel(
 ): Promise<{ model: Model<Api>; apiKey: string } | null> {
   if (!ctx.model) return null;
 
-  if (ctx.model.provider === "anthropic") {
-    const haikuModel = ctx.modelRegistry.find("anthropic", HAIKU_MODEL_ID);
+  const modelId = ctx.model.id.toLowerCase();
+  const isOpusOrSonnet = modelId.includes("opus") || modelId.includes("sonnet");
+  if (isOpusOrSonnet) {
+    const haikuModel = ctx.modelRegistry.find(
+      ctx.model.provider,
+      HAIKU_MODEL_ID,
+    );
     if (haikuModel) {
       const apiKey = await ctx.modelRegistry.getApiKey(haikuModel);
       if (apiKey) {
@@ -416,7 +419,11 @@ export default function loopExtension(pi: ExtensionAPI): void {
       const { mode, condition } = nextState;
       if (mode) {
         void (async () => {
-          const summary = await summarizeBreakoutCondition(ctx, mode, condition);
+          const summary = await summarizeBreakoutCondition(
+            ctx,
+            mode,
+            condition,
+          );
           if (
             !loopState.active ||
             loopState.mode !== mode ||

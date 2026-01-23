@@ -1,8 +1,6 @@
-# Search
 --smart-case
 --hidden
 
-# Ignore
 --glob=!.git/*
 --glob=!node_modules/*
 --glob=!.next/*

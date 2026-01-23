@@ -1,5 +1,3 @@
-// Q&A extraction - extracts questions from assistant responses
-
 import {
   type Api,
   complete,
@@ -32,7 +30,6 @@ Keep questions in the order they appeared. Be concise.`;
 
 const HAIKU_MODEL_ID = "anthropic/claude-haiku-4.5";
 
-// Select cost-efficient model for extraction
 async function selectExtractionModel(
   currentModel: Model<Api>,
   modelRegistry: {
@@ -40,20 +37,17 @@ async function selectExtractionModel(
     getApiKey: (model: Model<Api>) => Promise<string | undefined>;
   },
 ): Promise<Model<Api>> {
-  // Check if the model is opus or sonnet (works with any provider)
   const modelId = currentModel.id.toLowerCase();
   const isOpusOrSonnet = modelId.includes("opus") || modelId.includes("sonnet");
   if (!isOpusOrSonnet) {
     return currentModel;
   }
 
-  // Try to find and use claude-haiku-4.5 with the same provider
   const haikuModel = modelRegistry.find(currentModel.provider, HAIKU_MODEL_ID);
   if (!haikuModel) {
     return currentModel;
   }
 
-  // Check if we have an API key for the haiku model
   const apiKey = await modelRegistry.getApiKey(haikuModel);
   if (!apiKey) {
     return currentModel;
@@ -72,10 +66,9 @@ export default function (pi: ExtensionAPI) {
     if (!ctx.model) {
       ctx.ui.notify("No model selected", "error");
       return;
-    }
+      }
 
-    // Find the last assistant message on the current branch
-    const branch = ctx.sessionManager.getBranch();
+      const branch = ctx.sessionManager.getBranch();
     let lastAssistantText: string | undefined;
 
     for (let i = branch.length - 1; i >= 0; i--) {
@@ -106,16 +99,14 @@ export default function (pi: ExtensionAPI) {
     if (!lastAssistantText) {
       ctx.ui.notify("No assistant messages found", "error");
       return;
-    }
+      }
 
-    // Select the best model for extraction (prefer haiku for cost efficiency)
-    const extractionModel = await selectExtractionModel(
+      const extractionModel = await selectExtractionModel(
       ctx.model,
       ctx.modelRegistry,
-    );
+      );
 
-    // Run extraction with loader UI
-    const result = await ctx.ui.custom<string | null>(
+      const result = await ctx.ui.custom<string | null>(
       (tui, theme, _kb, done) => {
         const loader = new BorderedLoader(
           tui,
@@ -124,7 +115,6 @@ export default function (pi: ExtensionAPI) {
         );
         loader.onAbort = () => done(null);
 
-        // Do the work
         const doExtract = async () => {
           const apiKey = await ctx.modelRegistry.getApiKey(extractionModel);
           const userMessage: UserMessage = {

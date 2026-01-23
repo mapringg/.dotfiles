@@ -1,18 +1,13 @@
-# Exit if not interactive
 status is-interactive || exit
 
-# Disable greeting
 set -g fish_greeting
 
-# Homebrew
 if test -f /opt/homebrew/bin/brew
     eval (/opt/homebrew/bin/brew shellenv)
 end
 
-# Path
 fish_add_path -g ~/.local/bin
 
-# Environment
 if command -q nvim
     set -gx EDITOR nvim
 else
@@ -24,13 +19,11 @@ set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx SSH_AUTH_SOCK ~/.bitwarden-ssh-agent.sock
 set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
 
-# Hydro prompt
 set -g hydro_color_pwd cyan
 set -g hydro_color_git cyan
 set -g hydro_color_prompt cyan
 set -g hydro_color_error cyan
 
-# Aliases
 if command -q eza
     alias ls 'eza -lh --group-directories-first --icons=auto'
     alias lsa 'ls -a'
@@ -49,7 +42,6 @@ abbr -a o opencode
 abbr -a d docker
 abbr -a l lazygit
 
-# Tool init (keep last - some override aliases like cd)
 if command -q zoxide
     zoxide init fish --cmd cd | source
 end

@@ -1,5 +1,3 @@
-// Commit extension - interactive git commit workflow
-
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { Text } from "@mariozechner/pi-tui";
 import { Type } from "@sinclair/typebox";
@@ -17,7 +15,6 @@ Commit message format guidelines:
 `.trim();
 
 export default function commit(pi: ExtensionAPI) {
-  // Command: /commit
   pi.registerCommand("commit", {
     description: "Draft and create a git commit with LLM assistance",
     handler: async (args, ctx) => {
@@ -97,7 +94,6 @@ When in doubt, leave a file out.`;
     },
   });
 
-  // Tool: git_commit_with_user_approval
   pi.registerTool({
     name: "git_commit_with_user_approval",
     label: "Git Commit (with approval)",
