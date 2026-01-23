@@ -1,0 +1,9 @@
+{
+  "name": "pi-extensions",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@mariozechner/pi-ai": "latest",
+    "@mariozechner/pi-coding-agent": "latest"
+  }
+}
