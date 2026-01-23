@@ -24,9 +24,9 @@ if (process.argv[2] && process.argv[2] !== "--profile") {
 
 try {
   if (isMac) {
-    execSync("killall 'Google Chrome'", { stdio: "ignore" });
+    execSync("killall 'Chromium' 'Brave Browser' 2>/dev/null || true", { stdio: "ignore", shell: true });
   } else {
-    execSync("pkill -f 'chrome|chromium'", { stdio: "ignore" });
+    execSync("pkill -f 'chromium|brave' 2>/dev/null || true", { stdio: "ignore", shell: true });
   }
 } catch {}
 
@@ -34,41 +34,56 @@ await new Promise((r) => setTimeout(r, 1000));
 
 execSync("mkdir -p ~/.cache/scraping", { stdio: "ignore" });
 
+function findChromePath() {
+  if (isMac) {
+    const paths = [
+      "/Applications/Chromium.app/Contents/MacOS/Chromium",
+      "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+    ];
+    for (const p of paths) {
+      if (existsSync(p)) return p;
+    }
+    return paths[1];
+  }
+  const linuxPaths = [
+    "/usr/bin/chromium-browser",
+    "/usr/bin/chromium",
+    "/snap/bin/chromium",
+    "/usr/bin/brave-browser",
+    "/usr/bin/brave",
+    "/snap/bin/brave",
+  ];
+  for (const p of linuxPaths) {
+    if (existsSync(p)) return p;
+  }
+  return "chromium";
+}
+
+const browserPath = findChromePath();
+const isBrave = browserPath.toLowerCase().includes("brave");
+const isChromium = browserPath.toLowerCase().includes("chromium");
+const browserName = isBrave ? "Brave" : "Chromium";
+
+function getProfileSource() {
+  if (isMac) {
+    if (isBrave) return `${process.env["HOME"]}/Library/Application Support/BraveSoftware/Brave-Browser/`;
+    if (isChromium) return `${process.env["HOME"]}/Library/Application Support/Chromium/`;
+    return `${process.env["HOME"]}/Library/Application Support/Chromium/`;
+  }
+  if (isBrave) return `${process.env["HOME"]}/.config/BraveSoftware/Brave-Browser/`;
+  if (isChromium) return `${process.env["HOME"]}/.config/chromium/`;
+  return `${process.env["HOME"]}/.config/chromium/`;
+}
+
 if (useProfile) {
-  const profileSource = isMac
-    ? `${process.env["HOME"]}/Library/Application Support/Google/Chrome/`
-    : `${process.env["HOME"]}/.config/google-chrome/`;
+  const profileSource = getProfileSource();
   execSync(`rsync -a --delete "${profileSource}" ~/.cache/scraping/`, {
     stdio: "pipe",
   });
 }
 
-function findChromePath() {
-  if (isMac) {
-    const paths = [
-      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-      "/Applications/Chromium.app/Contents/MacOS/Chromium",
-    ];
-    for (const p of paths) {
-      if (existsSync(p)) return p;
-    }
-    return paths[0];
-  }
-  const linuxPaths = [
-    "/usr/bin/google-chrome-stable",
-    "/usr/bin/google-chrome",
-    "/usr/bin/chromium-browser",
-    "/usr/bin/chromium",
-    "/snap/bin/chromium",
-  ];
-  for (const p of linuxPaths) {
-    if (existsSync(p)) return p;
-  }
-  return "google-chrome";
-}
-
 spawn(
-  findChromePath(),
+  browserPath,
   [
     "--remote-debugging-port=9222",
     `--user-data-dir=${process.env["HOME"]}/.cache/scraping`,
@@ -94,7 +109,7 @@ for (let i = 0; i < 30; i++) {
 }
 
 if (!connected) {
-  console.error("✗ Failed to connect to Chrome");
+  console.error(`✗ Failed to connect to ${browserName}`);
   process.exit(1);
 }
 
@@ -106,5 +121,5 @@ spawn(process.execPath, [watcherPath], {
 }).unref();
 
 console.log(
-  `✓ Chrome started on :9222${useProfile ? " with your profile" : ""}`,
+  `✓ ${browserName} started on :9222${useProfile ? " with your profile" : ""}`,
 );
