@@ -10,7 +10,11 @@ if test -f /opt/homebrew/bin/brew
 end
 
 # Environment
-set -gx EDITOR vim
+if command -q nvim
+    set -gx EDITOR nvim
+else
+    set -gx EDITOR vim
+end
 set -gx SUDO_EDITOR $EDITOR
 set -gx BAT_THEME ansi
 set -gx HOMEBREW_NO_ENV_HINTS 1
