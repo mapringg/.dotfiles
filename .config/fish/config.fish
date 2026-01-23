@@ -35,6 +35,7 @@ alias .... 'cd ../../..'
 
 alias c opencode
 alias d docker
+alias l lazygit
 
 # Tool init
 if command -q zoxide
