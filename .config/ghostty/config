@@ -1,18 +1,28 @@
+# Appearance
 font-family = "JetBrainsMono Nerd Font"
 theme = Catppuccin Mocha
 cursor-style = "block"
-shell-integration-features = no-cursor,ssh-env
+cursor-style-blink = false
+
+# Window
 title = ghostty
-keybind = alt+backspace=text:\x1b\x7f
-keybind = shift+enter=text:\n
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
 window-height = 100000
 window-width = 100000
-copy-on-select = clipboard
-confirm-close-surface = false
-config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 gtk-titlebar = false
 macos-titlebar-style = tabs
+
+# Behavior
+shell-integration-features = no-cursor,ssh-env
+copy-on-select = clipboard
+confirm-close-surface = false
 macos-option-as-alt = true
+
+# External config
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+
+# Input keybinds
+keybind = alt+backspace=text:\x1b\x7f
+keybind = shift+enter=text:\n
