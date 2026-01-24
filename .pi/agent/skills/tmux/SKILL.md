@@ -1,7 +1,6 @@
 ---
 name: tmux
 description: "Remote control tmux sessions for interactive CLIs (python, gdb, etc.) by sending keystrokes and scraping pane output."
-license: Vibecoded
 ---
 
 # tmux Skill
@@ -24,6 +23,7 @@ tmux -S "$SOCKET" kill-session -t "$SESSION"                    # clean up
 After starting a session ALWAYS tell the user how to monitor the session by giving them a command to copy paste.
 
 Detect the user's shell first:
+
 ```bash
 basename "$SHELL"
 ```
@@ -31,6 +31,7 @@ basename "$SHELL"
 Then provide shell-appropriate commands:
 
 **For bash/zsh:**
+
 ```
 To monitor this session yourself:
   tmux -S ${TMPDIR:-/tmp}/claude-tmux-sockets/claude.sock attach -t claude-lldb
@@ -40,6 +41,7 @@ Or to capture the output once:
 ```
 
 **For fish:**
+
 ```
 To monitor this session yourself:
   tmux -S $TMPDIR/claude-tmux-sockets/claude.sock attach -t claude-lldb
