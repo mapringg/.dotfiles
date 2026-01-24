@@ -39,7 +39,7 @@ if (useProfile) {
 
 const browserPath = isMac
   ? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-  : "/usr/bin/google-chrome";
+  : "/usr/bin/google-chrome-stable";
 
 spawn(
   browserPath,
