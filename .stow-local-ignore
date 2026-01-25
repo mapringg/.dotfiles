@@ -3,4 +3,3 @@ Brewfile
 node_modules
 package-lock\.json
 package\.json
-git.md
