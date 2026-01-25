@@ -1,12 +1,7 @@
-function n --description 'Open editor with args or current directory'
-    set -l editor vim
-    if command -q nvim
-        set editor nvim
-    end
-
+function n --description 'Open neovim with args or current directory'
     if test (count $argv) -eq 0
-        $editor .
+        nvim .
     else
-        $editor $argv
+        nvim $argv
     end
 end

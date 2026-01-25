@@ -8,11 +8,7 @@ end
 
 fish_add_path -g ~/.local/bin
 
-if command -q nvim
-    set -gx EDITOR nvim
-else
-    set -gx EDITOR vim
-end
+set -gx EDITOR nvim
 set -gx SUDO_EDITOR $EDITOR
 set -gx BAT_THEME ansi
 set -gx HOMEBREW_NO_ENV_HINTS 1
