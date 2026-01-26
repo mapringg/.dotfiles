@@ -1,10 +1,15 @@
 [tools]
 bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
-uv = "latest"
 "npm:@antfu/ni" = "latest"
 "npm:@mariozechner/pi-coding-agent" = "latest"
 "npm:@sourcegraph/amp" = "latest"
 
+uv = "latest"
+python = "latest"
+"pipx:browser-use" = "latest"
+
 [settings]
+npm.bun = true
+pipx.uvx = true
 idiomatic_version_file_enable_tools = ["node"]
