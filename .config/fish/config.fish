@@ -34,9 +34,10 @@ alias .. 'cd ..'
 alias ... 'cd ../..'
 alias .... 'cd ../../..'
 
-abbr -a o opencode
+abbr -a a amp --dangerously-allow-all
 abbr -a d docker
 abbr -a l lazygit
+abbr -a o opencode
 
 if command -q zoxide
     zoxide init fish --cmd cd | source
