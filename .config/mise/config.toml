@@ -7,7 +7,6 @@ node = { version = "lts", postinstall = "corepack enable" }
 
 uv = "latest"
 python = "latest"
-"pipx:browser-use" = "latest"
 
 [settings]
 npm.bun = true
