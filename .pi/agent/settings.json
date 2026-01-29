@@ -8,5 +8,8 @@
     "gemini-3-pro-preview",
     "gemini-3-flash-preview"
   ],
+  "skills": [
+    "~/.claude/skills"
+  ],
   "lastChangelogVersion": "0.50.3"
 }
