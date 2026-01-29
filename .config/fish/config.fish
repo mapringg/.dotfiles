@@ -46,3 +46,5 @@ end
 if command -q fzf
     fzf --fish | source
 end
+
+bind \cg tmux-sessionizer

@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# Directories to search for projects (git repos)
+SEARCH_DIRS=(
+    "$HOME/Work"
+    "$HOME/.dotfiles"
+)
+
+# If argument provided, use it directly
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    # Find all git repos and pipe to fzf
+    selected=$(
+        find "${SEARCH_DIRS[@]}" -maxdepth 3 -type d -name ".git" 2>/dev/null \
+        | sed 's|/.git$||' \
+        | while read -r dir; do
+            # Show relative path from home for cleaner display, strip Work/ prefix
+            echo "${dir/#$HOME\//}" | sed 's|^Work/||'
+        done \
+        | sort \
+        | fzf --no-border --no-info --no-scrollbar \
+              --prompt=" " --pointer="▶" --reverse
+    )
+fi
+
+# Exit if nothing selected
+[[ -z "$selected" ]] && exit 0
+
+# Convert back to full path if needed
+if [[ "$selected" != /* ]]; then
+    # Try $HOME/Work first, then $HOME
+    if [[ -d "$HOME/Work/$selected" ]]; then
+        selected="$HOME/Work/$selected"
+    elif [[ -d "$HOME/$selected" ]]; then
+        selected="$HOME/$selected"
+    else
+        echo "Directory not found: $selected" >&2
+        exit 1
+    fi
+fi
+
+# Create session name from path (e.g., Work/zanroo/publisher -> zanroo/publisher)
+# Remove common prefixes for cleaner names
+session_name=$(echo "$selected" | sed "s|$HOME/||" | sed "s|^Work/||" | tr '.:' '__')
+
+# Check if tmux is running
+tmux_running=$(pgrep tmux)
+
+# If not in tmux and tmux isn't running, start new session
+if [[ -z "$TMUX" ]] && [[ -z "$tmux_running" ]]; then
+    tmux new-session -s "$session_name" -c "$selected"
+    exit 0
+fi
+
+# Create session if it doesn't exist
+if ! tmux has-session -t="$session_name" 2>/dev/null; then
+    tmux new-session -ds "$session_name" -c "$selected"
+fi
+
+# Switch to session
+if [[ -z "$TMUX" ]]; then
+    tmux attach-session -t "$session_name"
+else
+    tmux switch-client -t "$session_name"
+fi
