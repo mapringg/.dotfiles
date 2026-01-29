@@ -2,7 +2,7 @@
 
 # Directories to search for projects (git repos)
 SEARCH_DIRS=(
-    "$HOME/Work"
+    "$HOME/code"
     "$HOME/.dotfiles"
 )
 
@@ -12,11 +12,11 @@ if [[ $# -eq 1 ]]; then
 else
     # Find all git repos and pipe to fzf
     selected=$(
-        find "${SEARCH_DIRS[@]}" -maxdepth 3 -type d -name ".git" 2>/dev/null \
+        find "${SEARCH_DIRS[@]}" -maxdepth 2 -type d -name ".git" 2>/dev/null \
         | sed 's|/.git$||' \
         | while read -r dir; do
-            # Show relative path from home for cleaner display, strip Work/ prefix
-            echo "${dir/#$HOME\//}" | sed 's|^Work/||'
+            # Show relative path from home for cleaner display, strip code/ prefix
+            echo "${dir/#$HOME\//}" | sed 's|^code/||'
         done \
         | sort \
         | fzf --no-border --no-info --no-scrollbar \
@@ -29,9 +29,9 @@ fi
 
 # Convert back to full path if needed
 if [[ "$selected" != /* ]]; then
-    # Try $HOME/Work first, then $HOME
-    if [[ -d "$HOME/Work/$selected" ]]; then
-        selected="$HOME/Work/$selected"
+    # Try $HOME/code first, then $HOME
+    if [[ -d "$HOME/code/$selected" ]]; then
+        selected="$HOME/code/$selected"
     elif [[ -d "$HOME/$selected" ]]; then
         selected="$HOME/$selected"
     else
@@ -40,9 +40,8 @@ if [[ "$selected" != /* ]]; then
     fi
 fi
 
-# Create session name from path (e.g., Work/zanroo/publisher -> zanroo/publisher)
-# Remove common prefixes for cleaner names
-session_name=$(echo "$selected" | sed "s|$HOME/||" | sed "s|^Work/||" | tr '.:' '__')
+# Create session name from path
+session_name=$(echo "$selected" | sed "s|$HOME/||" | sed "s|^code/||" | tr '.:' '__')
 
 # Check if tmux is running
 tmux_running=$(pgrep tmux)
