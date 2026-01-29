@@ -34,7 +34,7 @@ alias .. 'cd ..'
 alias ... 'cd ../..'
 alias .... 'cd ../../..'
 
-abbr -a a amp --dangerously-allow-all
+abbr -a a amp
 abbr -a d docker
 abbr -a l lazygit
 abbr -a o opencode
