@@ -2,6 +2,5 @@
   "amp.dangerouslyAllowAll": true,
   "amp.terminal.theme": "catppuccin-mocha",
   "amp.git.commit.coauthor.enabled": false,
-  "amp.git.commit.ampThread.enabled": false,
-  "amp.updates.mode": "disabled"
+  "amp.git.commit.ampThread.enabled": false
 }
