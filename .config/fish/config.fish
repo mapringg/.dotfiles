@@ -47,4 +47,8 @@ if command -q fzf
     fzf --fish | source
 end
 
+if command -q direnv
+    direnv hook fish | source
+end
+
 bind \cg tmux-sessionizer
