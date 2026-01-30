@@ -1,9 +1,9 @@
 ---
-name: committing
+name: commit
 description: "Creates git commits following conventional commit patterns. Use when asked to commit, make a commit, or save changes."
 ---
 
-# Committing Skill
+# Commit Skill
 
 Creates well-formatted git commits by detecting the repository's existing commit style.
 
