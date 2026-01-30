@@ -2,7 +2,6 @@
 bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 "npm:@antfu/ni" = "latest"
-"npm:@mariozechner/pi-coding-agent" = "latest"
 "npm:@sourcegraph/amp" = "latest"
 
 uv = "latest"
