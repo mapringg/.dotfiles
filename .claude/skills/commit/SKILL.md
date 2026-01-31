@@ -1,79 +1,42 @@
 ---
 name: commit
-description: "Creates git commits following conventional commit patterns. Use when asked to commit, make a commit, or save changes."
+description: Create git commits matching the repo's existing style.
 ---
 
 # Commit Skill
 
-Creates well-formatted git commits by detecting the repository's existing commit style.
+Create well-formatted commits by detecting and following the repository's commit style.
+
+## Quick Reference
+
+| Type | When to use |
+|------|-------------|
+| feat | New feature |
+| fix | Bug fix |
+| docs | Documentation only |
+| refactor | Code restructuring |
+| test | Adding/fixing tests |
+| chore | Maintenance tasks |
 
 ## Workflow
 
-1. **Analyze repo pattern first**: Run `git log --oneline -20` to detect the commit style
-2. **Identify the pattern**:
-   - Look for consistent prefixes (feat:, fix:, add, update, etc.)
-   - Check for colons, scopes, capitalization
-   - Note any consistent formatting
-3. **Follow detected pattern** if one exists
-4. **Fall back to conventional commits** if no clear pattern
+1. Detect style: `git log --oneline -20`
+2. Review changes: `git status` and `git diff --staged`
+3. Stage files: `git add <files>`
+4. Commit using detected pattern (or conventional commits as fallback)
 
-## Pattern Detection Examples
+## Pattern Detection
 
-| Detected Pattern | Example Commits |
-|-----------------|-----------------|
-| `type: desc` | `feat: add login`, `fix: resolve crash` |
-| `type(scope): desc` | `feat(auth): add JWT`, `fix(api): handle null` |
-| `type desc` (no colon) | `add login feature`, `fix crash on startup` |
-| `[type] desc` | `[feat] add login`, `[fix] resolve crash` |
-| Capitalized | `Add login feature`, `Fix crash` |
+| Pattern | Example |
+|---------|---------|
+| `type: desc` | `feat: add login` |
+| `type(scope): desc` | `fix(api): handle null` |
+| `type desc` | `add login feature` |
+| `Capitalized` | `Add login feature` |
 
-## Default: Conventional Commits
-
-When no repo pattern exists, use standard conventional commits:
-
-```
-<type>(<optional-scope>): <description>
-```
-
-### Types
-
-| Type     | When to use                              |
-|----------|------------------------------------------|
-| feat     | New feature                              |
-| fix      | Bug fix                                  |
-| docs     | Documentation only                       |
-| style    | Formatting, no code change               |
-| refactor | Code restructuring, no behavior change   |
-| perf     | Performance improvement                  |
-| test     | Adding or fixing tests                   |
-| build    | Build system or dependencies             |
-| ci       | CI configuration                         |
-| chore    | Maintenance tasks                        |
-| revert   | Reverting a previous commit              |
-
-### Default Examples
+## Examples
 
 ```bash
 git commit -m "feat: add user authentication"
-git commit -m "fix: resolve null pointer in login"
-git commit -m "feat(auth): implement JWT tokens"
-git commit -m "docs: update API documentation"
-```
-
-## Commit Steps
-
-1. Run `git log --oneline -20` to detect pattern
-2. Run `git status` to see changes
-3. Run `git diff --staged` (or `git diff`) to understand changes
-4. Stage files if needed: `git add <files>`
-5. Commit using detected pattern (or conventional commits as fallback)
-
-## Multi-line Commits
-
-For complex changes:
-
-```bash
-git commit -m "feat: add user authentication" -m "- implement JWT tokens
-- add login/logout endpoints
-- create user session middleware"
+git commit -m "fix(auth): resolve token expiry"
 ```
