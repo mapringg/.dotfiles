@@ -16,6 +16,8 @@
         sort = -committerdate
 [tag]
         sort = -version:refname
+[fetch]
+	      prune = true
 [rerere]
         enabled = true
         autoupdate = true
