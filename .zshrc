@@ -4,6 +4,7 @@
 
 path=("$HOME/.local/bin" $path)
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=nvim
 export SUDO_EDITOR="$EDITOR"
 export BAT_THEME=ansi
