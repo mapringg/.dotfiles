@@ -65,6 +65,14 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit
 compinit
 
+if [[ -f $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]]; then
+  source "$HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
+fi
+
+if [[ -f $HOME/.config/zsh/plugins/git/git.plugin.zsh ]]; then
+  source "$HOME/.config/zsh/plugins/git/git.plugin.zsh"
+fi
+
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh --cmd cd)"
 fi
