@@ -1,6 +1,7 @@
 brew "anomalyco/tap/opencode"
 brew "bat"
 brew "biome"
+brew "delta"
 brew "eza"
 brew "fd"
 brew "fzf"

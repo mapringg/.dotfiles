@@ -1,5 +1,7 @@
 [init]
         defaultBranch = main
+[include]
+        path = ~/.config/git/delta-catppuccin.gitconfig
 [pull]
         rebase = true
 [push]
@@ -21,6 +23,17 @@
 [rerere]
         enabled = true
         autoupdate = true
+[core]
+        pager = delta
+[delta]
+        features = catppuccin-mocha line-numbers decorations
+        navigate = true
+[interactive]
+        diffFilter = delta --color-only
+[merge]
+        conflictstyle = diff3
+[diff]
+        colorMoved = default
 [user]
         name = Sorawit Kongnurat
         email = sorawit.k@tutanota.com
