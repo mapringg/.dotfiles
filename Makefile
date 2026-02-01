@@ -8,7 +8,7 @@ else
     OS := linux
 endif
 
-ANTIDOTE := $(shell command -v antidote 2>/dev/null || (command -v brew >/dev/null 2>&1 && brew --prefix 2>/dev/null | xargs -I{} printf "%s" "{}/opt/antidote/share/antidote/antidote.zsh"))
+ANTIDOTE := $(shell command -v antidote 2>/dev/null || ([ -f /usr/share/zsh-antidote/antidote.zsh ] && printf "%s" "/usr/share/zsh-antidote/antidote.zsh") || (command -v brew >/dev/null 2>&1 && brew --prefix 2>/dev/null | xargs -I{} printf "%s" "{}/opt/antidote/share/antidote/antidote.zsh"))
 BREW := $(shell command -v brew 2>/dev/null)
 MISE := $(shell command -v mise 2>/dev/null)
 STOW := $(shell command -v stow 2>/dev/null)
