@@ -60,8 +60,23 @@ h() {
   fi
 }
 
+fzf-git-branch() {
+  git rev-parse HEAD > /dev/null 2>&1 || return
+  local branch=$(git branch --color=always --all --sort=-committerdate | grep -v HEAD | fzf --ansi --no-multi --preview 'git log -n 50 --color=always --date=short --pretty=format:"%C(auto)%cd %h%d %s" $(sed "s/^[* ]*//" <<<{})' | sed "s/^[* ]*//")
+  [[ -n "$branch" ]] && git checkout "$branch"
+}
+
+fzf-git-log() {
+  git rev-parse HEAD > /dev/null 2>&1 || return
+  local commit=$(git log --color=always --oneline --no-decorate -50 | fzf --ansi --no-multi --preview 'git show --color=always {1}' | cut -d' ' -f1)
+  [[ -n "$commit" ]] && git show "$commit"
+}
+
 bindkey -e
 bindkey -s '^g' $'tmux-sessionizer\n'
+
+bindkey -s '\eg' $'\C-ufzf-git-branch\n'
+bindkey -s '\eG' $'\C-ufzf-git-log\n'
 
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
