@@ -2,9 +2,6 @@
     name = Sorawit Kongnurat
     email = sorawit.k@tutanota.com
 
-[init]
-    defaultBranch = master
-
 [branch]
     sort = -committerdate
 

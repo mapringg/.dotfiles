@@ -50,8 +50,12 @@ deps-mac:
 
 .PHONY: deps-linux
 deps-linux:
-	@printf "%s\n" "Linux deps not implemented yet." "Ask me again on your Linux machine and we'll add pacman/AUR support."
-	@exit 1
+	@if ! command -v pacman >/dev/null 2>&1; then printf "%s\n" "Missing: pacman"; exit 1; fi
+	@if ! command -v yay >/dev/null 2>&1; then printf "%s\n" "Missing: yay"; exit 1; fi
+	@if [ ! -f packages/arch/pacman.txt ]; then printf "%s\n" "Missing: packages/arch/pacman.txt"; exit 1; fi
+	@if [ ! -f packages/arch/aur.txt ]; then printf "%s\n" "Missing: packages/arch/aur.txt"; exit 1; fi
+	@sudo pacman -S --needed - < packages/arch/pacman.txt
+	@yay -S --needed - < packages/arch/aur.txt
 
 .PHONY: link
 link:
