@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 fd --hidden --type l \
   --exclude node_modules \
   --exclude .git \

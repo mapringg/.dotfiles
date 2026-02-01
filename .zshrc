@@ -20,9 +20,9 @@ export SUDO_EDITOR="$EDITOR"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND="fd --type f --hidden --strip-cwd-prefix"
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {}'"
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
 --color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
