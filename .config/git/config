@@ -1,39 +1,52 @@
-[init]
-        defaultBranch = main
-[include]
-        path = ~/.config/git/delta-catppuccin.gitconfig
-[pull]
-        rebase = true
-[push]
-        autoSetupRemote = true
-[diff]
-        algorithm = histogram
-        colorMoved = plain
-        mnemonicPrefix = true
-[commit]
-        verbose = true
-[column]
-        ui = auto
-[branch]
-        sort = -committerdate
-[tag]
-        sort = -version:refname
-[fetch]
-	      prune = true
-[rerere]
-        enabled = true
-        autoupdate = true
-[core]
-        pager = delta
-[delta]
-        features = catppuccin-mocha line-numbers decorations
-        navigate = true
-[interactive]
-        diffFilter = delta --color-only
-[merge]
-        conflictstyle = diff3
-[diff]
-        colorMoved = default
 [user]
-        name = Sorawit Kongnurat
-        email = sorawit.k@tutanota.com
+    name = Sorawit Kongnurat
+    email = sorawit.k@tutanota.com
+
+[init]
+    defaultBranch = main
+
+[branch]
+    sort = -committerdate
+
+[column]
+    ui = auto
+
+[commit]
+    verbose = true
+
+[core]
+    pager = delta
+
+[delta]
+    features = catppuccin-mocha line-numbers decorations
+    navigate = true
+
+[diff]
+    algorithm = histogram
+    colorMoved = default
+    mnemonicPrefix = true
+
+[fetch]
+    prune = true
+
+[include]
+    path = ~/.config/git/delta-catppuccin.gitconfig
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[rerere]
+    enabled = true
+    autoupdate = true
+
+[tag]
+    sort = -version:refname

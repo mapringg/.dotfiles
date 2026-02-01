@@ -7,6 +7,7 @@ path=("$HOME/.local/bin" $path)
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=nvim
 export SUDO_EDITOR="$EDITOR"
+
 export BAT_THEME=ansi
 export HOMEBREW_NO_ENV_HINTS=1
 export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
@@ -18,10 +19,11 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
 --color=selected-bg:#45475A \
 --color=border:#6C7086,label:#CDD6F4"
-export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
+
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
 
 if command -v eza >/dev/null 2>&1; then
   alias ls='eza -lh --group-directories-first --icons=auto'
@@ -30,7 +32,6 @@ if command -v eza >/dev/null 2>&1; then
   alias lta='lt -a'
 fi
 
-alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias fd='fd --hidden --ignore-case'
 
 alias ..='cd ..'
@@ -50,6 +51,10 @@ n() {
   fi
 }
 
+ff() {
+  fzf --preview 'bat --style=numbers --color=always {}' "$@" || true
+}
+
 h() {
   if [[ -n "$API_COOKIE" ]]; then
     http "$@" Cookie:"$API_COOKIE"
@@ -64,23 +69,25 @@ fzf-git-branch() {
   git rev-parse HEAD > /dev/null 2>&1 || return
   local branch=$(git branch --color=always --all --sort=-committerdate | grep -v HEAD | fzf --ansi --no-multi --preview 'git log -n 50 --color=always --date=short --pretty=format:"%C(auto)%cd %h%d %s" $(sed "s/^[* ]*//" <<<{})' | sed "s/^[* ]*//")
   [[ -n "$branch" ]] && git checkout "$branch"
+  return 0
 }
 
 fzf-git-log() {
   git rev-parse HEAD > /dev/null 2>&1 || return
   local commit=$(git log --color=always --oneline --no-decorate -50 | fzf --ansi --no-multi --preview 'git show --color=always {1}' | cut -d' ' -f1)
   [[ -n "$commit" ]] && git show "$commit"
+  return 0
 }
 
 bindkey -e
 bindkey -s '^g' $'tmux-sessionizer\n'
-
 bindkey -s '\eg' $'\C-ufzf-git-branch\n'
 bindkey -s '\eG' $'\C-ufzf-git-log\n'
 
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
 HISTFILE=$HOME/.zsh_history
+
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_all_dups
@@ -125,5 +132,4 @@ for f in /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 done
 
 [[ -f "$HOME/.config/zsh/local.zsh" ]] && source "$HOME/.config/zsh/local.zsh"
-
 [[ -f $HOME/.p10k.zsh ]] && source "$HOME/.p10k.zsh"

@@ -1,5 +1,6 @@
 font-family = "MonoLisa Nerd Font"
 theme = Catppuccin Mocha
+
 cursor-style = "block"
 cursor-style-blink = false
 
@@ -12,12 +13,12 @@ window-width = 100000
 gtk-titlebar = false
 macos-titlebar-style = tabs
 
-shell-integration-features = no-cursor,ssh-env
-copy-on-select = clipboard
 confirm-close-surface = false
+copy-on-select = clipboard
 macos-option-as-alt = true
-
-config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+shell-integration-features = no-cursor,ssh-env
 
 keybind = alt+backspace=text:\x1b\x7f
 keybind = shift+enter=text:\n
+
+config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"

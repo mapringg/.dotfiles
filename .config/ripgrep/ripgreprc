@@ -2,19 +2,19 @@
 --hidden
 
 --glob=!.git/*
---glob=!node_modules/*
 --glob=!.next/*
---glob=!dist/*
---glob=!build/*
---glob=!coverage/*
---glob=!.turbo/*
 --glob=!.nuxt/*
 --glob=!.output/*
+--glob=!.turbo/*
 --glob=!.venv/*
 --glob=!__pycache__/*
 --glob=!.mypy_cache/*
+--glob=!build/*
+--glob=!coverage/*
+--glob=!dist/*
+--glob=!node_modules/*
 --glob=!*.lock
 --glob=!*-lock.json
---glob=!*.min.js
---glob=!*.min.css
 --glob=!*.map
+--glob=!*.min.css
+--glob=!*.min.js
