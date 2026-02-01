@@ -1,8 +1,8 @@
 bat
 biome
-git-delta
 eza
 fd
+git-delta
 fzf
 git
 github-cli
