@@ -94,6 +94,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
 autoload -Uz compinit
 compinit
