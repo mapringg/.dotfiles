@@ -124,4 +124,6 @@ for f in /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   [[ -f $f ]] && source $f
 done
 
+[[ -f "$HOME/.config/zsh/local.zsh" ]] && source "$HOME/.config/zsh/local.zsh"
+
 [[ -f $HOME/.p10k.zsh ]] && source "$HOME/.p10k.zsh"
