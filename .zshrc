@@ -1,5 +1,12 @@
 [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]] && source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 
+for f in /opt/homebrew/opt/antidote/share/antidote/antidote.zsh /usr/share/antidote/antidote.zsh; do
+  [[ -f $f ]] && source $f
+done
+if command -v antidote >/dev/null 2>&1; then
+  [[ -f $HOME/.zsh_plugins.zsh ]] && source "$HOME/.zsh_plugins.zsh"
+fi
+
 [[ $- != *i* ]] && return
 
 path=("$HOME/.local/bin" $path)
@@ -99,14 +106,6 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 autoload -Uz compinit
 compinit
 
-if [[ -f $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh ]]; then
-  source "$HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh"
-fi
-
-if [[ -f $HOME/.config/zsh/plugins/git/git.plugin.zsh ]]; then
-  source "$HOME/.config/zsh/plugins/git/git.plugin.zsh"
-fi
-
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh --cmd cd)"
 fi
@@ -119,18 +118,6 @@ if command -v fzf >/dev/null 2>&1; then
     [[ -f $f ]] && source $f
   done
 fi
-
-for f in /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh; do
-  [[ -f $f ]] && source $f
-done
-
-for f in /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme; do
-  [[ -f $f ]] && source $f
-done
-
-for f in /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; do
-  [[ -f $f ]] && source $f
-done
 
 [[ -f "$HOME/.config/zsh/local.zsh" ]] && source "$HOME/.config/zsh/local.zsh"
 [[ -f $HOME/.p10k.zsh ]] && source "$HOME/.p10k.zsh"

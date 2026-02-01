@@ -1,5 +1,6 @@
 bat
 biome
+delta
 eza
 fd
 fzf
@@ -10,10 +11,9 @@ jq
 lazygit
 mise
 neovim
+ripgrep
 stow
 tldr
 tmux
 zoxide
 zsh
-zsh-autosuggestions
-zsh-syntax-highlighting
