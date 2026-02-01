@@ -1,20 +1,20 @@
---smart-case
 --hidden
+--smart-case
 
+--glob=!*-lock.json
+--glob=!*.lock
+--glob=!*.map
+--glob=!*.min.css
+--glob=!*.min.js
 --glob=!.git/*
+--glob=!.mypy_cache/*
 --glob=!.next/*
 --glob=!.nuxt/*
 --glob=!.output/*
 --glob=!.turbo/*
 --glob=!.venv/*
 --glob=!__pycache__/*
---glob=!.mypy_cache/*
 --glob=!build/*
 --glob=!coverage/*
 --glob=!dist/*
 --glob=!node_modules/*
---glob=!*.lock
---glob=!*-lock.json
---glob=!*.map
---glob=!*.min.css
---glob=!*.min.js

@@ -1,29 +1,3 @@
-[delta "catppuccin-latte"]
-    blame-palette = "#eff1f5 #e6e9ef #dce0e8 #ccd0da #bcc0cc"
-    commit-decoration-style = "#9ca0b0" bold box ul
-    file-decoration-style = "#9ca0b0"
-    file-style = "#4c4f69"
-    hunk-header-decoration-style = "#9ca0b0" box ul
-    hunk-header-file-style = bold
-    hunk-header-line-number-style = bold "#6c6f85"
-    hunk-header-style = file line-number syntax
-    light = true
-    line-numbers-left-style = "#9ca0b0"
-    line-numbers-minus-style = bold "#d20f39"
-    line-numbers-plus-style = bold "#40a02b"
-    line-numbers-right-style = "#9ca0b0"
-    line-numbers-zero-style = "#9ca0b0"
-    map-styles = \
-        bold purple => syntax "#cbb1f2", \
-        bold blue => syntax "#a6c1f5", \
-        bold cyan => syntax "#9dd7ef", \
-        bold yellow => syntax "#eacfa9"
-    minus-emph-style = bold syntax "#e5a2b3"
-    minus-style = syntax "#e9c4cf"
-    plus-emph-style = bold syntax "#b2d5ae"
-    plus-style = syntax "#cce1cd"
-    syntax-theme = Catppuccin Latte
-
 [delta "catppuccin-frappe"]
     blame-palette = "#303446 #292c3c #232634 #414559 #51576d"
     commit-decoration-style = "#737994" bold box ul
@@ -49,6 +23,32 @@
     plus-emph-style = bold syntax "#596b5e"
     plus-style = syntax "#475453"
     syntax-theme = Catppuccin Frappe
+
+[delta "catppuccin-latte"]
+    blame-palette = "#eff1f5 #e6e9ef #dce0e8 #ccd0da #bcc0cc"
+    commit-decoration-style = "#9ca0b0" bold box ul
+    file-decoration-style = "#9ca0b0"
+    file-style = "#4c4f69"
+    hunk-header-decoration-style = "#9ca0b0" box ul
+    hunk-header-file-style = bold
+    hunk-header-line-number-style = bold "#6c6f85"
+    hunk-header-style = file line-number syntax
+    light = true
+    line-numbers-left-style = "#9ca0b0"
+    line-numbers-minus-style = bold "#d20f39"
+    line-numbers-plus-style = bold "#40a02b"
+    line-numbers-right-style = "#9ca0b0"
+    line-numbers-zero-style = "#9ca0b0"
+    map-styles = \
+        bold purple => syntax "#cbb1f2", \
+        bold blue => syntax "#a6c1f5", \
+        bold cyan => syntax "#9dd7ef", \
+        bold yellow => syntax "#eacfa9"
+    minus-emph-style = bold syntax "#e5a2b3"
+    minus-style = syntax "#e9c4cf"
+    plus-emph-style = bold syntax "#b2d5ae"
+    plus-style = syntax "#cce1cd"
+    syntax-theme = Catppuccin Latte
 
 [delta "catppuccin-macchiato"]
     blame-palette = "#24273a #1e2030 #181926 #363a4f #494d64"

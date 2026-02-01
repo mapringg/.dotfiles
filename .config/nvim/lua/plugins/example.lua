@@ -1,14 +1,20 @@
 if true then return {} end
 
 return {
+  { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.typescript" },
+  { import = "lazyvim.plugins.extras.ui.mini-starter" },
+
   { "ellisonleao/gruvbox.nvim" },
+  { "folke/trouble.nvim", enabled = false },
+
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "gruvbox",
     },
   },
-  { "folke/trouble.nvim", enabled = false },
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
@@ -16,6 +22,44 @@ return {
       table.insert(opts.sources, { name = "emoji" })
     end,
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "jose-elias-alvarez/typescript.nvim",
+      init = function()
+        require("lazyvim.util").lsp.on_attach(function(_, buffer)
+          vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
+          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { buffer = buffer, desc = "Rename File" })
+        end)
+      end,
+    },
+    opts = {
+      servers = {
+        pyright = {},
+        tsserver = {},
+      },
+      setup = {
+        tsserver = function(_, opts)
+          require("typescript").setup({ server = opts })
+          return true
+        end,
+      },
+    },
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      table.insert(opts.sections.lualine_x, {
+        function()
+          return "😄"
+        end,
+      })
+    end,
+  },
+
   {
     "nvim-telescope/telescope.nvim",
     keys = {
@@ -27,45 +71,14 @@ return {
     },
     opts = {
       defaults = {
-        layout_strategy = "horizontal",
         layout_config = { prompt_position = "top" },
+        layout_strategy = "horizontal",
         sorting_strategy = "ascending",
         winblend = 0,
       },
     },
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        pyright = {},
-      },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "jose-elias-alvarez/typescript.nvim",
-      init = function()
-        require("lazyvim.util").lsp.on_attach(function(_, buffer)
-          vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
-          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
-        end)
-      end,
-    },
-    opts = {
-      servers = {
-        tsserver = {},
-      },
-      setup = {
-        tsserver = function(_, opts)
-          require("typescript").setup({ server = opts })
-          return true
-        end,
-      },
-    },
-  },
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -87,27 +100,15 @@ return {
       },
     },
   },
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, {
-        function()
-          return "😄"
-        end,
-      })
-    end,
-  },
-  { import = "lazyvim.plugins.extras.ui.mini-starter" },
-  { import = "lazyvim.plugins.extras.lang.json" },
+
   {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua",
+        "flake8",
         "shellcheck",
         "shfmt",
-        "flake8",
+        "stylua",
       },
     },
   },

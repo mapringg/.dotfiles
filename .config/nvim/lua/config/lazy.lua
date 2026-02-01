@@ -22,16 +22,16 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
   },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
   defaults = {
     lazy = false,
     version = false,
   },
   install = {
     colorscheme = { "tokyonight", "habamax" },
-  },
-  checker = {
-    enabled = true,
-    notify = false,
   },
   performance = {
     rtp = {

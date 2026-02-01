@@ -1,7 +1,7 @@
 [tools]
+"npm:@antfu/ni" = "latest"
 bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
-"npm:@antfu/ni" = "latest"
 python = "latest"
 uv = "latest"
 
