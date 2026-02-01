@@ -3,7 +3,7 @@
     email = sorawit.k@tutanota.com
 
 [init]
-    defaultBranch = main
+    defaultBranch = master
 
 [branch]
     sort = -committerdate
