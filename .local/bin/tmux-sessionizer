@@ -2,64 +2,63 @@
 
 # Directories to search for projects (git repos)
 SEARCH_DIRS=(
-    "$HOME/code"
-    "$HOME/.dotfiles"
+  "$HOME/code"
+  "$HOME/.dotfiles"
 )
 
 # If argument provided, use it directly
 if [[ $# -eq 1 ]]; then
-    selected=$1
+  selected=$1
 else
-    # Get existing tmux sessions
-    existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
-    
-    # Find all git repos
-    all_dirs=$(
-        find "${SEARCH_DIRS[@]}" -maxdepth 2 -type d -name ".git" 2>/dev/null \
-        | sed 's|/.git$||' \
-        | while read -r dir; do
-            echo "${dir/#$HOME\//}" | sed 's|^code/||'
-        done \
-        | sort
-    )
-    
-    # Build the list: existing sessions first (marked), then new directories
-    selected=$(
-        {
-            # Existing sessions at the top with marker
-            echo "$existing_sessions" | while read -r session; do
-                [[ -n "$session" ]] && echo "● $session"
-            done
-            
-            # Separator if there are existing sessions
-            [[ -n "$existing_sessions" ]] && echo "──────────────────"
-            
-            # Directories that don't have sessions yet
-            echo "$all_dirs" | while read -r dir; do
-                session_name=$(echo "$dir" | tr '.:' '__')
-                if ! echo "$existing_sessions" | grep -qx "$session_name"; then
-                    echo "$dir"
-                fi
-            done
-        } \
-        | fzf --no-border --no-info --no-scrollbar \
-              --prompt=" " --pointer="▶" --reverse
-    )
-    
-    # Handle separator selection (re-run) or strip marker from existing session
-    [[ "$selected" == "──────────────────" ]] && exit 0
-    
-    # Check if this is an existing session (had ● marker)
-    if [[ "$selected" == "● "* ]]; then
-        session_name="${selected#● }"
-        # Jump directly to session switching
-        if [[ -z "$TMUX" ]]; then
-            tmux attach-session -t "$session_name"
-        else
-            tmux switch-client -t "$session_name"
+  # Get existing tmux sessions
+  existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
+
+  # Find all git repos
+  all_dirs=$(
+    find "${SEARCH_DIRS[@]}" -maxdepth 2 -type d -name ".git" 2>/dev/null |
+      sed 's|/.git$||' |
+      while read -r dir; do
+        echo "${dir/#$HOME\//}" | sed 's|^code/||'
+      done |
+      sort
+  )
+
+  # Build the list: existing sessions first (marked), then new directories
+  selected=$(
+    {
+      # Existing sessions at the top with marker
+      echo "$existing_sessions" | while read -r session; do
+        [[ -n "$session" ]] && echo "● $session"
+      done
+
+      # Separator if there are existing sessions
+      [[ -n "$existing_sessions" ]] && echo "──────────────────"
+
+      # Directories that don't have sessions yet
+      echo "$all_dirs" | while read -r dir; do
+        session_name=$(echo "$dir" | tr '.:' '__')
+        if ! echo "$existing_sessions" | grep -qx "$session_name"; then
+          echo "$dir"
         fi
-        exit 0
+      done
+    } |
+      fzf
+  )
+
+  # Handle separator selection (re-run) or strip marker from existing session
+  [[ "$selected" == "──────────────────" ]] && exit 0
+
+  # Check if this is an existing session (had ● marker)
+  if [[ "$selected" == "● "* ]]; then
+    session_name="${selected#● }"
+    # Jump directly to session switching
+    if [[ -z "$TMUX" ]]; then
+      tmux attach-session -t "$session_name"
+    else
+      tmux switch-client -t "$session_name"
     fi
+    exit 0
+  fi
 fi
 
 # Exit if nothing selected
@@ -67,15 +66,15 @@ fi
 
 # Convert back to full path if needed
 if [[ "$selected" != /* ]]; then
-    # Try $HOME/code first, then $HOME
-    if [[ -d "$HOME/code/$selected" ]]; then
-        selected="$HOME/code/$selected"
-    elif [[ -d "$HOME/$selected" ]]; then
-        selected="$HOME/$selected"
-    else
-        echo "Directory not found: $selected" >&2
-        exit 1
-    fi
+  # Try $HOME/code first, then $HOME
+  if [[ -d "$HOME/code/$selected" ]]; then
+    selected="$HOME/code/$selected"
+  elif [[ -d "$HOME/$selected" ]]; then
+    selected="$HOME/$selected"
+  else
+    echo "Directory not found: $selected" >&2
+    exit 1
+  fi
 fi
 
 # Create session name from path
@@ -86,18 +85,18 @@ tmux_running=$(pgrep tmux)
 
 # If not in tmux and tmux isn't running, start new session
 if [[ -z "$TMUX" ]] && [[ -z "$tmux_running" ]]; then
-    tmux new-session -s "$session_name" -c "$selected"
-    exit 0
+  tmux new-session -s "$session_name" -c "$selected"
+  exit 0
 fi
 
 # Create session if it doesn't exist
 if ! tmux has-session -t="$session_name" 2>/dev/null; then
-    tmux new-session -ds "$session_name" -c "$selected"
+  tmux new-session -ds "$session_name" -c "$selected"
 fi
 
 # Switch to session
 if [[ -z "$TMUX" ]]; then
-    tmux attach-session -t "$session_name"
+  tmux attach-session -t "$session_name"
 else
-    tmux switch-client -t "$session_name"
+  tmux switch-client -t "$session_name"
 fi
