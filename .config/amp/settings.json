@@ -1,4 +1,5 @@
 {
+    "amp.notifications.enabled": false,
     "amp.dangerouslyAllowAll": true,
     "amp.git.commit.ampThread.enabled": false,
     "amp.git.commit.coauthor.enabled": false,
