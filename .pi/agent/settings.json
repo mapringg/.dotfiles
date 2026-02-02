@@ -1,0 +1,15 @@
+{
+  "theme": "catppuccin-mocha",
+  "defaultModel": "claude-opus-4-5-thinking",
+  "defaultProvider": "google-antigravity",
+  "enabledModels": [
+    "claude-opus-4-5-thinking",
+    "claude-sonnet-4-5-thinking",
+    "gemini-3-pro-preview",
+    "gemini-3-flash-preview"
+  ],
+  "skills": [
+    "~/.claude/skills"
+  ],
+  "lastChangelogVersion": "0.51.0"
+}

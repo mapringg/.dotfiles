@@ -1,5 +1,6 @@
 [tools]
 "npm:@antfu/ni" = "latest"
+"npm:@mariozechner/pi-coding-agent" = "latest"
 bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 python = "latest"
