@@ -19,9 +19,7 @@ export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 export SUDO_EDITOR="$EDITOR"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export FZF_ALT_C_OPTS="--preview 'eza --tree --level=2 --color=always {}'"
 export FZF_CTRL_T_COMMAND="fd --type f --hidden --strip-cwd-prefix"
-export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {}'"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --strip-cwd-prefix"
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
@@ -37,6 +35,7 @@ alias a='amp'
 alias d='docker'
 alias fd='fd --hidden --ignore-case'
 alias l='lazygit'
+alias n='nvim'
 alias o='opencode'
 
 if command -v eza >/dev/null 2>&1; then
@@ -46,45 +45,7 @@ if command -v eza >/dev/null 2>&1; then
     alias lta='lt -a'
 fi
 
-ff() {
-    fzf --preview 'bat --style=numbers --color=always {}' "$@" || true
-}
-
-fzf-git-branch() {
-    git rev-parse HEAD > /dev/null 2>&1 || return
-    local branch=$(git branch --color=always --all --sort=-committerdate | grep -v HEAD | fzf --ansi --no-multi --preview 'git log -n 50 --color=always --date=short --pretty=format:"%C(auto)%cd %h%d %s" $(sed "s/^[* ]*//" <<<{})' | sed "s/^[* ]*//")
-    [[ -n "$branch" ]] && git checkout "$branch"
-    return 0
-}
-
-fzf-git-log() {
-    git rev-parse HEAD > /dev/null 2>&1 || return
-    local commit=$(git log --color=always --oneline --no-decorate -50 | fzf --ansi --no-multi --preview 'git show --color=always {1}' | cut -d' ' -f1)
-    [[ -n "$commit" ]] && git show "$commit"
-    return 0
-}
-
-h() {
-    if [[ -n "$API_COOKIE" ]]; then
-        http "$@" Cookie:"$API_COOKIE"
-    elif [[ -n "$API_TOKEN" ]]; then
-        http "$@" Authorization:"Bearer $API_TOKEN"
-    else
-        echo "Set API_TOKEN or API_COOKIE in .env"
-    fi
-}
-
-n() {
-    if [[ $# -eq 0 ]]; then
-        nvim .
-    else
-        nvim "$@"
-    fi
-}
-
 bindkey -e
-bindkey -s '\eG' $'\C-ufzf-git-log\n'
-bindkey -s '\eg' $'\C-ufzf-git-branch\n'
 bindkey -s '^g' $'tmux-sessionizer\n'
 
 HISTFILE=$HOME/.zsh_history

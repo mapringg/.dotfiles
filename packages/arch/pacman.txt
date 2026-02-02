@@ -6,8 +6,6 @@ git-delta
 fzf
 git
 github-cli
-httpie
-jq
 lazygit
 mise
 neovim
