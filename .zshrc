@@ -46,7 +46,7 @@ if command -v eza >/dev/null 2>&1; then
 fi
 
 bindkey -e
-bindkey -s '^g' $'tmux-sessionizer\n'
+bindkey -s '^g' $'tms\n'
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=5000
