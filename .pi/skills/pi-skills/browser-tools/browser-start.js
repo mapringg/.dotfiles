@@ -1,9 +1,23 @@
 #!/usr/bin/env node
 
+import { existsSync } from "node:fs";
 import { spawn, execSync } from "node:child_process";
 import puppeteer from "puppeteer-core";
 
 const useProfile = process.argv[2] === "--profile";
+
+const isMac = process.platform === "darwin";
+const CHROME_PATH = isMac
+	? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+	: "/usr/bin/google-chrome-stable";
+const CHROME_PROFILE = isMac
+	? `${process.env.HOME}/Library/Application Support/Google/Chrome/`
+	: `${process.env.HOME}/.config/google-chrome/`;
+
+if (!existsSync(CHROME_PATH)) {
+	console.error(`✗ Chrome not found at ${CHROME_PATH}`);
+	process.exit(1);
+}
 
 if (process.argv[2] && process.argv[2] !== "--profile") {
 	console.log("Usage: browser-start.js [--profile]");
@@ -45,14 +59,14 @@ if (useProfile) {
 			--exclude='*/Current Tabs' \
 			--exclude='*/Last Session' \
 			--exclude='*/Last Tabs' \
-			"${process.env.HOME}/Library/Application Support/Google/Chrome/" "${SCRAPING_DIR}/"`,
+			"${CHROME_PROFILE}" "${SCRAPING_DIR}/"`,
 		{ stdio: "pipe" },
 	);
 }
 
 // Start Chrome with flags to force new instance
 spawn(
-	"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+	CHROME_PATH,
 	[
 		"--remote-debugging-port=9222",
 		`--user-data-dir=${SCRAPING_DIR}`,
