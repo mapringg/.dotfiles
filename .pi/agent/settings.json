@@ -10,7 +10,8 @@
     "gemini-3-flash-preview"
   ],
   "skills": [
-    "~/.claude/skills"
+    "~/.claude/skills",
+    "~/.pi/skills"
   ],
   "lastChangelogVersion": "0.51.2"
 }
