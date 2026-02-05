@@ -1,7 +1,7 @@
 {
   "theme": "catppuccin-mocha",
-  "defaultModel": "claude-opus-4-5-thinking",
-  "defaultProvider": "google-antigravity",
+  "defaultModel": "gpt-5.2",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "high",
   "enabledModels": [
     "claude-opus-4-5-thinking",
