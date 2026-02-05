@@ -25,30 +25,32 @@ ldc() {
     command -v fzf >/dev/null 2>&1 || return
     git rev-parse --git-dir >/dev/null 2>&1 || return
 
-    out="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='diff> ' --header='enter:commit  alt-enter:commit..HEAD  alt-s:stacked commit..HEAD' --expect=alt-enter,alt-s)" || return
+    while true; do
+        out="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='diff> ' --header='enter:commit  alt-enter:commit..HEAD  alt-s:stacked commit..HEAD' --expect=alt-enter,alt-s)" || break
 
-    if [[ "$out" == *$'\n'* ]]; then
-        key="${out%%$'\n'*}"
-        line="${out#*$'\n'}"
-    else
-        key=''
-        line="$out"
-    fi
+        if [[ "$out" == *$'\n'* ]]; then
+            key="${out%%$'\n'*}"
+            line="${out#*$'\n'}"
+        else
+            key=''
+            line="$out"
+        fi
 
-    ref="${line%% *}"
-    [[ -n "$ref" ]] || return
+        ref="${line%% *}"
+        [[ -n "$ref" ]] || continue
 
-    if [[ "$key" == alt-enter ]]; then
-        lumen diff "$ref..HEAD"
-        return
-    fi
+        if [[ "$key" == alt-enter ]]; then
+            lumen diff "$ref..HEAD"
+            continue
+        fi
 
-    if [[ "$key" == alt-s ]]; then
-        lumen diff --stacked "$ref..HEAD"
-        return
-    fi
+        if [[ "$key" == alt-s ]]; then
+            lumen diff --stacked "$ref..HEAD"
+            continue
+        fi
 
-    lumen diff "$ref"
+        lumen diff "$ref"
+    done
 }
 
 lec() {
