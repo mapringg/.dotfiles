@@ -1,36 +1,53 @@
 ---
 name: tmux
-description: Manage background processes (servers, builds) via tmux windows.
+description: Manages background processes via tmux panes or windows. Use when running long-lived processes like dev servers, watchers, or builds.
 ---
 
 # Tmux Skill
 
 Run and monitor long-running processes without blocking the main session.
 
+## Prerequisites
+
+Check if inside a tmux session before proceeding:
+
+```bash
+if [ -z "$TMUX" ]; then echo "Error: Not in a tmux session"; exit 1; fi
+```
+
+If not in tmux, stop and inform the user.
+
+## Workflow
+
+1. Ask the user: "pane or window?"
+2. Create based on their choice (see commands below)
+3. Capture the ID from the output for subsequent commands
+4. Use the ID to send commands, read output, or clean up
+
 ## Quick Reference
 
 | Action | Command |
 |--------|---------|
-| Create window | `tmux new-window -n "ID" -d` |
+| Create pane (split right) | `tmux split-window -h -d -c "$(pwd)" -P -F '#{pane_id}'` |
+| Create window (end of list) | `tmux new-window -d -c "$(pwd)" -P -F '#{window_id}'` |
 | Run command | `tmux send-keys -t "ID" "CMD" C-m` |
 | Read output | `tmux capture-pane -p -t "ID"` |
 | Full scrollback | `tmux capture-pane -p -S - -t "ID"` |
 | Interrupt (Ctrl+C) | `tmux send-keys -t "ID" C-c` |
+| Kill pane | `tmux kill-pane -t "ID"` |
 | Kill window | `tmux kill-window -t "ID"` |
-
-## Workflow
-
-1. Create a detached window: `tmux new-window -n "server" -d`
-2. Send command to it: `tmux send-keys -t "server" "npm start" C-m`
-3. Check output anytime: `tmux capture-pane -p -t "server"`
-4. Clean up when done: `tmux kill-window -t "server"`
 
 ## Examples
 
 ```bash
-# One-liner: create window and start process
-tmux new-window -n "server" -d ';' send-keys -t "server" "npm start" C-m
+# Create pane, capture ID, run command
+PANE_ID=$(tmux split-window -h -d -c "$(pwd)" -P -F '#{pane_id}')
+tmux send-keys -t "$PANE_ID" "npm start" C-m
 
-# Read full output history
-tmux capture-pane -p -S - -t "server"
+# Create window, capture ID, run command
+WINDOW_ID=$(tmux new-window -d -c "$(pwd)" -P -F '#{window_id}')
+tmux send-keys -t "$WINDOW_ID" "npm run build" C-m
+
+# Read output from a pane
+tmux capture-pane -p -S - -t "$PANE_ID"
 ```
