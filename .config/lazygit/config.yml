@@ -1,8 +1,3 @@
-git:
-    pagers:
-        - colorArg: always
-          pager: delta --dark --paging=never --features catppuccin-mocha
-
 gui:
     nerdFontsVersion: "3"
     showIcons: true

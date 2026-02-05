@@ -2,7 +2,6 @@ bat
 biome
 eza
 fd
-git-delta
 fzf
 git
 github-cli
