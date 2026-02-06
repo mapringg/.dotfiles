@@ -20,13 +20,13 @@ ld() {
 }
 
 ldc() {
-    local out key line ref
+    local end out key line ref
 
     command -v fzf >/dev/null 2>&1 || return
     git rev-parse --git-dir >/dev/null 2>&1 || return
 
     while true; do
-        out="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='diff> ' --header='enter:commit  alt-enter:commit..HEAD  alt-s:stacked commit..HEAD' --expect=alt-enter,alt-s)" || break
+        out="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='diff> ' --header='enter:commit  tab:commit..ref  alt-s:stacked commit..ref' --expect=tab,alt-s)" || break
 
         if [[ "$out" == *$'\n'* ]]; then
             key="${out%%$'\n'*}"
@@ -39,13 +39,19 @@ ldc() {
         ref="${line%% *}"
         [[ -n "$ref" ]] || continue
 
-        if [[ "$key" == alt-enter ]]; then
-            lumen diff "$ref..HEAD"
+        if [[ "$key" == tab ]]; then
+            end="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='end> ')" || continue
+            end="${end%% *}"
+            [[ -n "$end" ]] || continue
+            lumen diff "$ref^..$end"
             continue
         fi
 
         if [[ "$key" == alt-s ]]; then
-            lumen diff --stacked "$ref..HEAD"
+            end="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='end> ')" || continue
+            end="${end%% *}"
+            [[ -n "$end" ]] || continue
+            lumen diff --stacked "$ref^..$end"
             continue
         fi
 
@@ -59,9 +65,7 @@ lec() {
     command -v fzf >/dev/null 2>&1 || return
     git rev-parse --git-dir >/dev/null 2>&1 || return
 
-    end="${1:-HEAD}"
-
-    out="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='explain> ' --header='enter:commit  alt-enter:commit..END' --expect=alt-enter)" || return
+    out="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='explain> ' --header='enter:commit  tab:commit..ref' --expect=tab)" || return
 
     if [[ "$out" == *$'\n'* ]]; then
         key="${out%%$'\n'*}"
@@ -74,8 +78,11 @@ lec() {
     ref="${line%% *}"
     [[ -n "$ref" ]] || return
 
-    if [[ "$key" == alt-enter ]]; then
-        lumen explain "$ref..$end"
+    if [[ "$key" == tab ]]; then
+        end="$(git log --oneline --decorate -n 500 2>/dev/null | fzf --reverse --prompt='end> ')" || return
+        end="${end%% *}"
+        [[ -n "$end" ]] || return
+        lumen explain "$ref^..$end"
         return
     fi
 
