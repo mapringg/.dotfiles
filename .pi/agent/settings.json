@@ -1,10 +1,10 @@
 {
   "theme": "catppuccin-mocha",
-  "defaultModel": "claude-opus-4-6-thinking",
+  "defaultModel": "claude-opus-4-5-thinking",
   "defaultProvider": "google-antigravity",
   "defaultThinkingLevel": "high",
   "enabledModels": [
-    "claude-opus-4-6-thinking",
+    "claude-opus-4-5-thinking",
     "gemini-3-pro-preview",
     "gpt-5.2 codex"
   ],
@@ -12,5 +12,5 @@
     "~/.claude/skills",
     "~/.pi/skills"
   ],
-  "lastChangelogVersion": "0.52.8"
+  "lastChangelogVersion": "0.52.9"
 }
