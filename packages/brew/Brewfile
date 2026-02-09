@@ -23,6 +23,7 @@ brew "zoxide"
 
 cask "bitwarden"
 cask "brave-browser"
+cask "gcloud-cli"
 cask "ghostty"
 cask "google-chrome"
 cask "handy"
