@@ -12,5 +12,8 @@
     "~/.claude/skills",
     "~/.pi/skills"
   ],
+  "packages": [
+    "git:github.com/pasky/pi-amplike"
+  ],
   "lastChangelogVersion": "0.52.9"
 }
