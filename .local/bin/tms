@@ -8,6 +8,8 @@ setup_session() {
     tmux send-keys -t "$session:2" "n" Enter
     tmux new-window -t "$session" -c "$dir"
     tmux send-keys -t "$session:3" "ld" Enter
+    tmux new-window -t "$session" -c "$dir"
+    tmux send-keys -t "$session:4" "l" Enter
     tmux select-window -t "$session:1"
 }
 
