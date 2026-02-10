@@ -1,12 +1,11 @@
 {
   "theme": "catppuccin-mocha",
-  "defaultModel": "claude-opus-4-5-thinking",
+  "defaultModel": "claude-sonnet-4-5-thinking",
   "defaultProvider": "google-antigravity",
   "defaultThinkingLevel": "high",
   "enabledModels": [
-    "claude-opus-4-5-thinking",
-    "gemini-3-pro-preview",
-    "gpt-5.2 codex"
+    "claude-sonnet-4-5-thinking",
+    "gemini-3-pro-preview"
   ],
   "skills": [
     "~/.claude/skills",
