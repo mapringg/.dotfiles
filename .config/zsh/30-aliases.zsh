@@ -4,7 +4,10 @@ alias ....='cd ../../..'
 
 alias a='amp'
 alias d='docker'
+alias c='claude --dangerously-skip-permissions'
+alias co='codex --dangerously-bypass-approvals-and-sandbox'
 alias fd='fd --hidden --ignore-case'
+alias g='gemini --yolo'
 alias l='lazygit'
 alias n='nvim'
 
