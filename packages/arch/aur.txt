@@ -1,3 +1,4 @@
+google-cloud-cli
 opencode-bin
 stripe-cli-bin
 zsh-antidote
