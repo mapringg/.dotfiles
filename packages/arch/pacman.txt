@@ -3,12 +3,14 @@ biome
 eza
 fd
 fzf
+gemini-cli
 git
 github-cli
 lazygit
 mise
 mdcat
 neovim
+openai-codex
 ripgrep
 stow
 tldr
