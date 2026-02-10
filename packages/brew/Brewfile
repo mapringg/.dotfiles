@@ -1,8 +1,6 @@
-tap "anomalyco/tap"
 tap "stripe/stripe-cli"
 
 brew "antidote"
-brew "anomalyco/tap/opencode"
 brew "bat"
 brew "biome"
 brew "eza"

@@ -1,6 +1,5 @@
 {
     "amp.dangerouslyAllowAll": true,
-    "amp.experimental.modes": ["bombadil"],
     "amp.git.commit.ampThread.enabled": false,
     "amp.git.commit.coauthor.enabled": false,
     "amp.internal.deepReasoningEffort": "xhigh",

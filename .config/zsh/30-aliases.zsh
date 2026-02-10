@@ -6,10 +6,7 @@ alias a='amp'
 alias d='docker'
 alias fd='fd --hidden --ignore-case'
 alias l='lazygit'
-alias le='lumen explain'
-alias les='lumen explain --staged'
 alias n='nvim'
-alias o='opencode'
 
 if command -v brew >/dev/null 2>&1; then
     alias up='brew update && brew upgrade && mise up'
