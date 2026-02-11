@@ -1,6 +1,7 @@
 font-family = "MonoLisa Nerd Font"
 theme = Catppuccin Mocha
 
+maximize = true
 window-padding-balance = true
 window-padding-x = 4
 window-padding-y = 4
