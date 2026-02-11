@@ -1,7 +1,6 @@
 # Agent Guidelines
 
 ## Configuration File Standards
-
 When modifying configuration files in this repository:
 
 ### 1. Logical Grouping
@@ -21,8 +20,8 @@ Merge duplicate sections when found (e.g., multiple `[diff]` sections in git con
 
 ### 6. Consistent Indentation
 Use consistent indentation:
-- 4 spaces for shell configs
-- 4 spaces for git configs
+- 2 spaces for shell configs
+- 2 spaces for git configs
 - 2 spaces for Lua configs
 - Follow existing conventions for other formats
 
