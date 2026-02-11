@@ -5,7 +5,7 @@ setup_session() {
   local dir=$2
   tmux send-keys -t "$session:1" "a" Enter
   tmux new-window -t "$session" -c "$dir"
-  tmux send-keys -t "$session:2" "ld" Enter
+  tmux send-keys -t "$session:2" "l" Enter
   tmux select-window -t "$session:1"
 }
 
