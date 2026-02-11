@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
-setup_session() {
-  local session=$1
-  local dir=$2
-  tmux send-keys -t "$session:1" "a" Enter
-  tmux new-window -t "$session" -c "$dir"
-  tmux send-keys -t "$session:2" "l" Enter
-  tmux select-window -t "$session:1"
-}
-
 SEARCH_DIRS=(
   "$HOME/.dotfiles"
   "$HOME/code"
@@ -77,14 +68,14 @@ tmux_running=$(pgrep tmux)
 
 if [[ -z "$TMUX" ]] && [[ -z "$tmux_running" ]]; then
   tmux new-session -ds "$session_name" -c "$selected"
-  [[ "$selected" == "$HOME/code/"* ]] && setup_session "$session_name" "$selected"
+
   tmux attach-session -t "$session_name"
   exit 0
 fi
 
 if ! tmux has-session -t="$session_name" 2>/dev/null; then
   tmux new-session -ds "$session_name" -c "$selected"
-  [[ "$selected" == "$HOME/code/"* ]] && setup_session "$session_name" "$selected"
+
 fi
 
 if [[ -z "$TMUX" ]]; then
