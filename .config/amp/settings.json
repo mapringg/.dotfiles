@@ -1,8 +1,8 @@
 {
-    "amp.dangerouslyAllowAll": true,
-    "amp.git.commit.ampThread.enabled": false,
-    "amp.git.commit.coauthor.enabled": false,
-    "amp.internal.deepReasoningEffort": "xhigh",
-    "amp.notifications.enabled": false,
-    "amp.terminal.theme": "catppuccin-mocha"
+  "amp.dangerouslyAllowAll": true,
+  "amp.git.commit.ampThread.enabled": false,
+  "amp.git.commit.coauthor.enabled": false,
+  "amp.internal.deepReasoningEffort": "xhigh",
+  "amp.notifications.enabled": false,
+  "amp.terminal.theme": "catppuccin-mocha"
 }
