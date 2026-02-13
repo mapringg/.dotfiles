@@ -21,15 +21,14 @@ define require_file
 	@[ -f "$(1)" ] || { printf "Missing: %s\n" "$(1)"; exit 1; }
 endef
 
-.PHONY: help doctor deps deps-linux deps-mac link local setup tmux tools zsh
+.PHONY: help doctor deps deps-linux deps-mac link setup tmux tools zsh
 
 help:
 	@printf "%s\n" \
 		"  deps     Install OS packages" \
 		"  doctor   Check prerequisites" \
 		"  link     Symlink dotfiles (stow)" \
-		"  local    Create local.zsh if missing" \
-		"  setup    deps + link + tools + tmux + zsh + local" \
+		"  setup    deps + link + tools + tmux + zsh" \
 		"  tmux     Install TPM plugins" \
 		"  tools    Install mise tools" \
 		"  zsh      Install zsh plugins"
@@ -62,10 +61,7 @@ link:
 	$(call require,stow,$(STOW))
 	@stow --no-folding --target="$$HOME" --restow --verbose=1 .
 
-local:
-	@[ -f "$$HOME/.config/zsh/local.zsh" ] || { mkdir -p "$$HOME/.config/zsh" && touch "$$HOME/.config/zsh/local.zsh"; }
-
-setup: deps link tools tmux zsh local
+setup: deps link tools tmux zsh
 
 tmux:
 	@[ -d "$$HOME/.config/tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm "$$HOME/.config/tmux/plugins/tpm"
