@@ -1,6 +1,6 @@
 ---
-name: committing-changes
-description: "Generates conventional commit messages from staged or working tree diffs. Use when asked to commit, draft a commit message, or write a commit."
+name: commit
+description: Generates a concise git commit message from the current diff using conventional commit format. Use when asked to commit changes or create a commit message.
 ---
 
 # Committing Changes

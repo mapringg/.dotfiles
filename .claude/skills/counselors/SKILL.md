@@ -1,7 +1,7 @@
 ---
-name: consulting-counselors
-description: "Gets parallel second opinions from multiple AI coding agents via the counselors CLI. Use when the user wants independent reviews, architecture feedback, or a sanity check from other AI models."
-argument-hint: "[question or topic to review]"
+name: counselors
+description: Fans out a prompt to multiple AI coding agents in parallel and synthesizes their responses. Use when asked to get multi-agent review or multiple opinions on code.
+argument-hint: prompt or question to send to the agents
 ---
 
 # Counselors — Multi-Agent Review Skill
@@ -22,7 +22,7 @@ Parse `$ARGUMENTS` to understand what the user wants reviewed. Then auto-gather 
 2. **Recent changes**: Run `git diff HEAD` and `git diff --staged` to capture recent work
 3. **Related code**: Search for key terms from the prompt and read the most relevant files (up to 5 files, ~50KB total cap)
 
-Be selective — pick the most relevant code sections.
+Be selective — don't dump the entire codebase. Pick the most relevant code sections.
 
 ---
 
@@ -32,10 +32,11 @@ Be selective — pick the most relevant code sections.
    ```bash
    counselors ls
    ```
+   This lists all configured agents with their IDs and binaries.
 
-2. **Print the full agent list, then ask the user which to use.**
+2. **MANDATORY: Print the full agent list, then ask the user which to use.**
 
-   Always print the full `counselors ls` output as inline text. Do NOT reformat or abbreviate it.
+   **Always print the full `counselors ls` output as inline text** (not inside AskUserQuestion). Just show the raw output from the command so the user sees every agent with its ID and binary. Do NOT reformat or abbreviate it.
 
    Then ask the user to pick:
 
@@ -46,15 +47,15 @@ Be selective — pick the most relevant code sections.
    - Option 2-4: The first 3 individual agents by ID
    - The user can always select "Other" to type a comma-separated list of agent IDs from the printed list above
 
-   Do NOT combine agents into preset groups. Each option must be a single agent or "All".
+   Do NOT combine agents into preset groups (e.g. "claude + codex + gemini"). Each option must be a single agent or "All".
 
 3. Wait for the user's selection before proceeding.
 
-4. **Confirm the selection before continuing.** After the user picks agents, echo back the exact list you will dispatch to:
+4. **MANDATORY: Confirm the selection before continuing.** After the user picks agents, echo back the exact list you will dispatch to:
 
    > Dispatching to: **claude-opus**, **codex-5.3-high**, **gemini-pro**
 
-   Then ask the user to confirm before proceeding to Phase 3.
+   Then ask the user to confirm (e.g. "Look good?") before proceeding to Phase 3. This prevents silent tool omissions. If the user corrects the list, update your selection accordingly.
 
 ---
 
@@ -64,12 +65,15 @@ Be selective — pick the most relevant code sections.
    - "review the auth flow" → `auth-flow-review`
    - "is this migration safe" → `migration-safety-review`
 
-2. **Create the output directory** via Bash. The directory name MUST always be prefixed with a UNIX timestamp (seconds) so runs are lexically sortable and never collide:
+2. **Create the output directory** via Bash. The directory name MUST always be prefixed with a **second-precision** UNIX timestamp so runs are lexically sortable and never collide:
    ```
    ./agents/counselors/TIMESTAMP-[slug]
    ```
+   For example: `./agents/counselors/1770676882-auth-flow-review`
 
-3. **Write the prompt file** to `./agents/counselors/TIMESTAMP-[slug]/prompt.md`:
+   > **Mac tip:** Generate with `date +%s` (seconds since epoch). Millisecond precision is NOT available via `date` on macOS without GNU coreutils — use `date +%s` for portable second-precision timestamps.
+
+3. **Write the prompt file** using the Write tool to `./agents/counselors/TIMESTAMP-[slug]/prompt.md`:
 
 ```markdown
 # Review Request
@@ -107,7 +111,11 @@ Run counselors via Bash with the prompt file, passing the user's selected agents
 counselors run -f ./agents/counselors/[slug]/prompt.md --tools [comma-separated-selections] --json
 ```
 
-Use `timeout: 600000` (10 minutes). Use `-f` (file mode) so the prompt is sent as-is. Use `--json` for structured output.
+Example: `--tools claude,codex,gemini`
+
+Use `timeout: 600000` (10 minutes). Counselors dispatches to the selected agents in parallel and writes results to the output directory shown in the JSON output.
+
+**Important**: Use `-f` (file mode) so the prompt is sent as-is without wrapping. Use `--json` to get structured output for parsing.
 
 ---
 
