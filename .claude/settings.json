@@ -1,9 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "model": "claude-opus-4-6",
   "env": {
     "CLAUDE_CODE_USE_VERTEX": "1",
     "CLOUD_ML_REGION": "global",
     "ANTHROPIC_VERTEX_PROJECT_ID": "gen-lang-client-0873367143"
-  }
+  },
+  "model": "claude-opus-4-6",
+  "skipDangerousModePermissionPrompt": true
 }
