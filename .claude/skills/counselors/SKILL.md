@@ -16,27 +16,28 @@ Arguments: $ARGUMENTS
 
 ## Phase 1: Context Gathering
 
-Parse `$ARGUMENTS` to understand what the user wants reviewed. Then auto-gather relevant context:
+Parse `$ARGUMENTS` to understand what the user wants reviewed. Then identify relevant context:
 
 1. **Files mentioned in the prompt**: Use Glob/Grep to find files referenced by name, class, function, or keyword
-2. **Recent changes**: Run `git diff HEAD` and `git diff --staged` to capture recent work
-3. **Related code**: Search for key terms from the prompt and read the most relevant files (up to 5 files, ~50KB total cap)
+2. **Recent changes**: Run `git diff HEAD` and `git diff --staged` to identify what changed
+3. **Related code**: Search for key terms from the prompt to identify the most relevant files (up to 5 files)
 
-Be selective — don't dump the entire codebase. Pick the most relevant code sections.
+**Important**: You do NOT need to read and inline every file. Subagents have access to the filesystem and git — they can read files and run git commands themselves. Your job is to *identify* the relevant files and reference them, not to copy their contents into the prompt. See Phase 3 for how to use `@file` references.
 
 ---
 
 ## Phase 2: Agent Selection
 
-1. **Discover available agents** by running via Bash:
+1. **Discover available agents and groups** by running via Bash:
    ```bash
    counselors ls
+   counselors groups ls
    ```
-   This lists all configured agents with their IDs and binaries.
+   The first command lists all configured agents with their IDs and binaries. The second lists any configured **groups** (predefined sets of tool IDs).
 
-2. **MANDATORY: Print the full agent list, then ask the user which to use.**
+2. **MANDATORY: Print the full agent list and group list, then ask the user which to use.**
 
-   **Always print the full `counselors ls` output as inline text** (not inside AskUserQuestion). Just show the raw output from the command so the user sees every agent with its ID and binary. Do NOT reformat or abbreviate it.
+   **Always print the full `counselors ls` output and `counselors groups ls` output as inline text** (not inside AskUserQuestion). Just show the raw output so the user sees every tool/group. Do NOT reformat or abbreviate it.
 
    Then ask the user to pick:
 
@@ -47,7 +48,8 @@ Be selective — don't dump the entire codebase. Pick the most relevant code sec
    - Option 2-4: The first 3 individual agents by ID
    - The user can always select "Other" to type a comma-separated list of agent IDs from the printed list above
 
-   Do NOT combine agents into preset groups (e.g. "claude + codex + gemini"). Each option must be a single agent or "All".
+   If groups exist, you MAY offer group options (e.g. "Group: smart"), but you MUST expand them to the underlying tool IDs and confirm that expanded list with the user before dispatch. This avoids silently omitting or adding agents.
+   If the user says something like "use the smart group", you MUST look up that group in the configured groups list (`counselors groups ls`). If it exists, use it (via `--group smart` or by expanding to tool IDs) and confirm the expanded tool list before dispatch. If it does not exist, tell the user and ask them to choose again — do not guess.
 
 3. Wait for the user's selection before proceeding.
 
@@ -65,15 +67,20 @@ Be selective — don't dump the entire codebase. Pick the most relevant code sec
    - "review the auth flow" → `auth-flow-review`
    - "is this migration safe" → `migration-safety-review`
 
-2. **Create the output directory** via Bash. The directory name MUST always be prefixed with a **second-precision** UNIX timestamp so runs are lexically sortable and never collide:
+2. **Create the output directory** via Bash inside your project's counselors output directory (default: `agents/counselors/`) in your current working directory. The directory name MUST always be prefixed with a UNIX timestamp (seconds) so runs are lexically sortable and never collide:
    ```
-   ./agents/counselors/TIMESTAMP-[slug]
+   <cwd>/<outputDir>/TIMESTAMP-[slug]
    ```
-   For example: `./agents/counselors/1770676882-auth-flow-review`
+   By default, `<outputDir>` is `agents/counselors`, but users can customize it via config (`defaults.outputDir`) or the `counselors run -o <dir>` flag.
+   For example, if your cwd is `/Users/me/project`: `/Users/me/project/agents/counselors/1770676882-auth-flow-review`
 
-   > **Mac tip:** Generate with `date +%s` (seconds since epoch). Millisecond precision is NOT available via `date` on macOS without GNU coreutils — use `date +%s` for portable second-precision timestamps.
+3. **Write the prompt file** using the Write tool to the directory you just created — `<cwd>/<outputDir>/TIMESTAMP-[slug]/prompt.md`. Use an absolute path based on your current working directory, NOT a relative path.
 
-3. **Write the prompt file** using the Write tool to `./agents/counselors/TIMESTAMP-[slug]/prompt.md`:
+   **IMPORTANT:** Do NOT write the prompt file to `/tmp`, `~/tmp`, or any temporary directory outside the project. Counselor agents are sandboxed to the project directory and will not have access to files outside it. The file MUST be inside the `<outputDir>` directory you just created.
+
+   **Subagents can read files and use git.** You do NOT need to inline file contents or diff output into the prompt. Instead, use `@path/to/file` references to point subagents at the relevant files. They will read the files themselves. This keeps the prompt concise and avoids bloating it with copied code.
+
+   Only inline small, critical snippets if they're essential for framing the question (e.g. a specific function signature or error message). For everything else, use `@file` references.
 
 ```markdown
 # Review Request
@@ -83,17 +90,19 @@ Be selective — don't dump the entire codebase. Pick the most relevant code sec
 
 ## Context
 
-### Files Referenced
-[Contents of the most relevant files found in Phase 1]
+### Files to Review
+[List @path/to/file references for each relevant file found in Phase 1]
+[e.g. @src/core/executor.ts, @src/adapters/claude.ts]
 
 ### Recent Changes
-[git diff output, if any]
+[Brief description of what changed. If a diff is relevant, tell the agent to run `git diff HEAD` themselves, or inline only a small critical snippet]
 
 ### Related Code
-[Related files discovered via search]
+[@path/to/file references for related files discovered via search]
 
 ## Instructions
 You are providing an independent review. Be critical and thorough.
+- Read the referenced files to understand the full context
 - Analyze the question in the context provided
 - Identify risks, tradeoffs, and blind spots
 - Suggest alternatives if you see better approaches
@@ -105,13 +114,16 @@ You are providing an independent review. Be critical and thorough.
 
 ## Phase 4: Dispatch
 
-Run counselors via Bash with the prompt file, passing the user's selected agents:
+Run counselors via Bash with the prompt file (using the absolute path from Phase 3), passing the user's selected agents:
 
 ```bash
-counselors run -f ./agents/counselors/[slug]/prompt.md --tools [comma-separated-selections] --json
+counselors run -f <cwd>/<outputDir>/TIMESTAMP-[slug]/prompt.md --tools [comma-separated-tool-ids] --json
 ```
 
-Example: `--tools claude,codex,gemini`
+Examples:
+- `--tools claude,codex,gemini`
+- `--group smart` (uses the configured group)
+- `--group smart --tools codex` (group plus explicit tools)
 
 Use `timeout: 600000` (10 minutes). Counselors dispatches to the selected agents in parallel and writes results to the output directory shown in the JSON output.
 
