@@ -3,18 +3,25 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias a='amp'
-alias d='docker'
 alias c='claude --dangerously-skip-permissions'
 alias co='codex --dangerously-bypass-approvals-and-sandbox'
+alias d='docker'
 alias fd='fd --hidden --ignore-case'
 alias g='gemini --yolo'
 alias l='lazygit'
-alias n='nvim'
 
 if command -v brew >/dev/null 2>&1; then
-  alias up='brew update && brew upgrade && mise up'
+  if command -v mise >/dev/null 2>&1; then
+    alias up='brew update && brew upgrade && mise up'
+  else
+    alias up='brew update && brew upgrade'
+  fi
 elif command -v yay >/dev/null 2>&1; then
-  alias up='yay -Syu && mise up'
+  if command -v mise >/dev/null 2>&1; then
+    alias up='yay -Syu && mise up'
+  else
+    alias up='yay -Syu'
+  fi
 fi
 
 if command -v eza >/dev/null 2>&1; then

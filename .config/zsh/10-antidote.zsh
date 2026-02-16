@@ -1,3 +1,4 @@
+typeset -U path
 path=("$HOME/.local/bin" $path)
 
 for f in /opt/homebrew/opt/antidote/share/antidote/antidote.zsh /usr/share/zsh-antidote/antidote.zsh; do
