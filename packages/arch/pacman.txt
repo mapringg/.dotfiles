@@ -5,7 +5,6 @@ fd
 fzf
 gemini-cli
 git
-git-delta
 github-cli
 lazygit
 mise
