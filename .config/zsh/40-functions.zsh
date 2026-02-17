@@ -140,7 +140,6 @@ t() {
     command -v fd >/dev/null 2>&1 || return
     command -v fzf >/dev/null 2>&1 || return
 
-    local all_dirs
     all_dirs=$(
       fd --type d --hidden --no-ignore --glob '.git' --max-depth 3 "${SEARCH_DIRS[@]}" 2>/dev/null |
         sed "s|/.git/$||; s|^$HOME/||; s|^code/||" |
@@ -151,7 +150,7 @@ t() {
     [[ -n "$TMUX" ]] && original_session=$(tmux display-message -p '#{session_name}')
 
     while true; do
-      local existing_sessions fzf_out fzf_key
+      local fzf_out fzf_key
       existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
 
       local -a fzf_opts=(--cycle --expect=tab --header='tab: kill session' --no-sort)
