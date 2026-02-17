@@ -1,4 +1,4 @@
-brk() {
+b() {
   command -v fd >/dev/null 2>&1 || return
 
   fd --hidden --type l \
@@ -31,7 +31,7 @@ fe() {
   "${EDITOR:-nvim}" "$file"
 }
 
-fkill() {
+fk() {
   local pid
   local -a ps_cmd
 
@@ -48,7 +48,7 @@ fkill() {
   kill -15 "$pid"
 }
 
-gcof() {
+fb() {
   local branch
 
   command -v fzf >/dev/null 2>&1 || return
@@ -59,7 +59,7 @@ gcof() {
   git checkout "$branch"
 }
 
-ghprf() {
+fp() {
   local pr
 
   command -v gh >/dev/null 2>&1 || return
@@ -89,7 +89,7 @@ tf() {
   tldr "$cmd"
 }
 
-tms() {
+t() {
   local selected session_name tmux_running
   local -a SEARCH_DIRS
   local existing_sessions all_dirs

@@ -7,7 +7,7 @@ alias c='claude --dangerously-skip-permissions'
 alias co='codex --dangerously-bypass-approvals-and-sandbox'
 alias d='docker'
 alias fd='fd --hidden --ignore-case'
-alias g='gemini --yolo'
+alias ge='gemini --yolo'
 alias l='lazygit'
 
 if command -v brew >/dev/null 2>&1; then
