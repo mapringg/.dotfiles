@@ -20,6 +20,7 @@ brew "tealdeer"
 brew "tmux"
 brew "zoxide"
 
+cask "aqua-voice"
 cask "bitwarden"
 cask "brave-browser"
 cask "claude-code"
@@ -32,7 +33,6 @@ cask "nextcloud"
 cask "raycast"
 cask "tailscale-app"
 cask "visual-studio-code"
-cask "wispr-flow"
 
 mas "LINE", id: 539883307
 mas "WireGuard", id: 1451685025
