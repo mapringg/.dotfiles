@@ -154,7 +154,7 @@ t() {
       local existing_sessions fzf_out fzf_key
       existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
 
-      local -a fzf_opts=(--expect=tab --header='tab: kill session')
+      local -a fzf_opts=(--expect=tab --header='tab: kill session' --no-sort)
       if [[ -n "$TMUX" ]]; then
         fzf_opts+=(--bind "focus:execute-silent(echo {} | grep -q '^● ' && tmux switch-client -t \"\$(echo {} | sed 's/^● //')\" 2>/dev/null || tmux switch-client -t '$original_session' 2>/dev/null)")
       fi
@@ -162,8 +162,6 @@ t() {
       fzf_out=$(
         {
           [[ -n "$existing_sessions" ]] && sed 's/^/● /' <<< "$existing_sessions"
-          [[ -n "$existing_sessions" ]] && echo "──────────────────"
-
           if [[ -n "$existing_sessions" ]]; then
             local sessions_as_keys=$(echo "$existing_sessions" | paste -sd'|' -)
             echo "$all_dirs" | awk -v keys="$sessions_as_keys" '
@@ -190,8 +188,6 @@ t() {
 
       break
     done
-
-    [[ "$selected" == "──────────────────" ]] && return 0
 
     if [[ "$selected" == "● "* ]]; then
       session_name="${selected#● }"
