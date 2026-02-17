@@ -9,6 +9,7 @@ window-padding-y = 4
 confirm-close-surface = false
 copy-on-select = clipboard
 macos-option-as-alt = true
+macos-titlebar-proxy-icon = hidden
 shell-integration-features = no-title,no-cursor,ssh-env
 
 keybind = alt+backspace=text:\x1b\x7f
