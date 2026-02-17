@@ -112,9 +112,17 @@ tms() {
         sort
     )
 
+    local original_session
+    [[ -n "$TMUX" ]] && original_session=$(tmux display-message -p '#{session_name}')
+
     while true; do
       local existing_sessions fzf_out fzf_key
       existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
+
+      local -a fzf_opts=(--expect=tab --header='tab: kill session')
+      if [[ -n "$TMUX" ]]; then
+        fzf_opts+=(--bind "focus:execute-silent(echo {} | grep -q '^● ' && tmux switch-client -t \"\$(echo {} | sed 's/^● //')\" 2>/dev/null || tmux switch-client -t '$original_session' 2>/dev/null)")
+      fi
 
       fzf_out=$(
         {
@@ -131,8 +139,11 @@ tms() {
             echo "$all_dirs"
           fi
         } |
-          fzf --expect=tab --header='tab: kill session'
-      ) || return
+          fzf "${fzf_opts[@]}"
+      ) || {
+        [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
+        return
+      }
 
       fzf_key=$(head -1 <<< "$fzf_out")
       selected=$(tail -1 <<< "$fzf_out")
