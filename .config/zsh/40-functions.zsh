@@ -102,36 +102,48 @@ tms() {
   if [[ $# -eq 1 ]]; then
     selected=$1
   else
+    command -v fd >/dev/null 2>&1 || return
     command -v fzf >/dev/null 2>&1 || return
 
-    existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
-
+    local all_dirs
     all_dirs=$(
-      find "${SEARCH_DIRS[@]}" -maxdepth 2 -type d -name ".git" 2>/dev/null |
-        sed 's|/.git$||' |
-        while read -r dir; do
-          echo "${dir/#$HOME\//}" | sed 's|^code/||'
-        done |
+      fd --type d --hidden --no-ignore --glob '.git' --max-depth 3 "${SEARCH_DIRS[@]}" 2>/dev/null |
+        sed "s|/.git/$||; s|^$HOME/||; s|^code/||" |
         sort
     )
 
-    selected=$(
-      {
-        echo "$existing_sessions" | while read -r session; do
-          [[ -n "$session" ]] && echo "● $session"
-        done
+    while true; do
+      local existing_sessions fzf_out fzf_key
+      existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
 
-        [[ -n "$existing_sessions" ]] && echo "──────────────────"
+      fzf_out=$(
+        {
+          [[ -n "$existing_sessions" ]] && sed 's/^/● /' <<< "$existing_sessions"
+          [[ -n "$existing_sessions" ]] && echo "──────────────────"
 
-        echo "$all_dirs" | while read -r dir; do
-          session_name=$(echo "$dir" | tr '.:' '__')
-          if ! echo "$existing_sessions" | grep -qx "$session_name"; then
-            echo "$dir"
+          if [[ -n "$existing_sessions" ]]; then
+            local sessions_as_keys=$(echo "$existing_sessions" | paste -sd'|' -)
+            echo "$all_dirs" | awk -v keys="$sessions_as_keys" '
+              BEGIN { n=split(keys, a, "|"); for(i=1;i<=n;i++) { gsub(/[.:]/, "_", a[i]); seen[a[i]]=1 } }
+              { k=$0; gsub(/[.:]/, "_", k); if(!seen[k]) print }
+            '
+          else
+            echo "$all_dirs"
           fi
-        done
-      } |
-        fzf
-    )
+        } |
+          fzf --expect=tab --header='tab: kill session'
+      ) || return
+
+      fzf_key=$(head -1 <<< "$fzf_out")
+      selected=$(tail -1 <<< "$fzf_out")
+
+      if [[ "$fzf_key" == "tab" ]]; then
+        [[ "$selected" == "● "* ]] && tmux kill-session -t "${selected#● }" 2>/dev/null
+        continue
+      fi
+
+      break
+    done
 
     [[ "$selected" == "──────────────────" ]] && return 0
 
