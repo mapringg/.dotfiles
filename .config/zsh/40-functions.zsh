@@ -89,15 +89,72 @@ tf() {
   tldr "$cmd"
 }
 
-t() {
-   local selected session_name tmux_running
-   local -a SEARCH_DIRS
-   local existing_sessions all_dirs
+ts() {
+  local selected session_name
+  local existing_sessions original_session
 
-   SEARCH_DIRS=(
-     "$HOME/.dotfiles"
-     "$HOME/code"
-   )
+  command -v fzf >/dev/null 2>&1 || return
+
+  [[ -n "$TMUX" ]] && original_session=$(tmux display-message -p '#{session_name}')
+
+  while true; do
+    local fzf_out fzf_key
+    existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
+    [[ -z "$existing_sessions" ]] && return
+
+    local -a fzf_opts=(--cycle --expect=tab --header='tab: kill session' --no-sort)
+    if [[ -n "$TMUX" ]]; then
+      fzf_opts+=(--bind "focus:execute-silent(echo {} | grep -q '^● ' && tmux switch-client -t \"\$(echo {} | sed 's/^● //')\" 2>/dev/null || tmux switch-client -t '$original_session' 2>/dev/null)")
+    fi
+
+    fzf_out=$(
+      {
+        if [[ -n "$original_session" ]]; then
+          grep -v "^${original_session}$" <<< "$existing_sessions" | grep -v '^$' | sed 's/^/● /'
+        else
+          sed 's/^/● /' <<< "$existing_sessions"
+        fi
+      } |
+        fzf "${fzf_opts[@]}"
+    ) || {
+      [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
+      return
+    }
+
+    fzf_key=$(head -1 <<< "$fzf_out")
+    selected=$(tail -1 <<< "$fzf_out")
+
+    if [[ "$fzf_key" == "tab" ]]; then
+      if [[ "$selected" == "● "* ]]; then
+        local kill_target="${selected#● }"
+        tmux kill-session -t "$kill_target" 2>/dev/null
+        [[ "$kill_target" == "$original_session" ]] && original_session=""
+      fi
+      continue
+    fi
+
+    break
+  done
+
+  [[ -z "$selected" ]] && return 0
+  session_name="${selected#● }"
+
+  if [[ -z "$TMUX" ]]; then
+    tmux attach-session -t "$session_name"
+  else
+    [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
+    tmux switch-client -t "$session_name"
+  fi
+}
+
+tp() {
+  local selected session_name tmux_running
+  local -a SEARCH_DIRS
+
+  SEARCH_DIRS=(
+    "$HOME/.dotfiles"
+    "$HOME/code"
+  )
 
   if [[ $# -eq 1 ]]; then
     selected=$1
@@ -105,75 +162,30 @@ t() {
     command -v fd >/dev/null 2>&1 || return
     command -v fzf >/dev/null 2>&1 || return
 
+    local all_dirs existing_sessions
+
     all_dirs=$(
       fd --type d --hidden --no-ignore --glob '.git' --max-depth 3 "${SEARCH_DIRS[@]}" 2>/dev/null |
         sed "s|/.git/$||; s|^$HOME/||; s|^code/||" |
         sort
     )
 
-    local original_session
-    [[ -n "$TMUX" ]] && original_session=$(tmux display-message -p '#{session_name}')
+    existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
 
-    while true; do
-      local fzf_out fzf_key
-      existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
-
-      local -a fzf_opts=(--cycle --expect=tab --header='tab: kill session' --no-sort)
-      if [[ -n "$TMUX" ]]; then
-        fzf_opts+=(--bind "focus:execute-silent(echo {} | grep -q '^● ' && tmux switch-client -t \"\$(echo {} | sed 's/^● //')\" 2>/dev/null || tmux switch-client -t '$original_session' 2>/dev/null)")
-      fi
-
-      fzf_out=$(
-        {
-          if [[ -n "$existing_sessions" ]]; then
-            if [[ -n "$original_session" ]]; then
-              echo "● $original_session"
-              grep -v "^${original_session}$" <<< "$existing_sessions" | grep -v '^$' | sed 's/^/● /'
-            else
-              sed 's/^/● /' <<< "$existing_sessions"
-            fi
-          fi
-          if [[ -n "$existing_sessions" ]]; then
-            local sessions_as_keys=$(echo "$existing_sessions" | paste -sd'|' -)
-            echo "$all_dirs" | awk -v keys="$sessions_as_keys" '
-              BEGIN { n=split(keys, a, "|"); for(i=1;i<=n;i++) { gsub(/[.:]/, "_", a[i]); seen[a[i]]=1 } }
-              { k=$0; gsub(/[.:]/, "_", k); if(!seen[k]) print }
-            '
-          else
-            echo "$all_dirs"
-          fi
-        } |
-          fzf "${fzf_opts[@]}"
-      ) || {
-        [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
-        return
-      }
-
-      fzf_key=$(head -1 <<< "$fzf_out")
-      selected=$(tail -1 <<< "$fzf_out")
-
-      if [[ "$fzf_key" == "tab" ]]; then
-        if [[ "$selected" == "● "* ]]; then
-          local kill_target="${selected#● }"
-          tmux kill-session -t "$kill_target" 2>/dev/null
-          [[ "$kill_target" == "$original_session" ]] && original_session=""
+    selected=$(
+      {
+        if [[ -n "$existing_sessions" ]]; then
+          local sessions_as_keys=$(echo "$existing_sessions" | paste -sd'|' -)
+          echo "$all_dirs" | awk -v keys="$sessions_as_keys" '
+            BEGIN { n=split(keys, a, "|"); for(i=1;i<=n;i++) { gsub(/[.:]/, "_", a[i]); seen[a[i]]=1 } }
+            { k=$0; gsub(/[.:]/, "_", k); if(!seen[k]) print }
+          '
+        else
+          echo "$all_dirs"
         fi
-        continue
-      fi
-
-      break
-    done
-
-    if [[ "$selected" == "● "* ]]; then
-      session_name="${selected#● }"
-      if [[ -z "$TMUX" ]]; then
-        tmux attach-session -t "$session_name"
-      else
-        [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
-        tmux switch-client -t "$session_name"
-      fi
-      return 0
-    fi
+      } |
+        fzf --cycle --no-sort
+    ) || return
   fi
 
   [[ -z "$selected" ]] && return 0
@@ -205,7 +217,6 @@ t() {
   if [[ -z "$TMUX" ]]; then
     tmux attach-session -t "$session_name"
   else
-    [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
     tmux switch-client -t "$session_name"
   fi
 }
