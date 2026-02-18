@@ -10,8 +10,6 @@ brew "gemini-cli"
 brew "gh"
 brew "git"
 brew "lazygit"
-brew "mas"
-brew "mdcat"
 brew "mise"
 brew "neovim"
 brew "stow"
@@ -33,6 +31,3 @@ cask "nextcloud"
 cask "raycast"
 cask "tailscale-app"
 cask "visual-studio-code"
-
-mas "LINE", id: 539883307
-mas "WireGuard", id: 1451685025
