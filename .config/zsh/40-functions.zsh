@@ -10,17 +10,7 @@ b() {
     --exec sh -c 'test ! -e "$1" && echo "$1"' _ {}
 }
 
-fcd() {
-  local dir
-
-  command -v fd >/dev/null 2>&1 || return
-  command -v fzf >/dev/null 2>&1 || return
-
-  dir="$(fd --hidden --type d --exclude .git . "${1:-.}" | fzf --reverse --prompt='cd> ')" || return
-  cd "$dir" || return
-}
-
-fe() {
+ff() {
   local file
 
   command -v bat >/dev/null 2>&1 || return
@@ -29,34 +19,6 @@ fe() {
 
   file="$(fd --hidden --type f . "${1:-.}" | fzf --reverse --prompt='edit> ' --preview 'bat --color=always --style=plain --line-range=:200 {}')" || return
   "${EDITOR:-nvim}" "$file"
-}
-
-fk() {
-  local pid
-  local -a ps_cmd
-
-  command -v fzf >/dev/null 2>&1 || return
-
-  if [[ "$(uname -s)" == Darwin ]]; then
-    ps_cmd=(ps -Ao pid=,comm=,%cpu=,%mem= -r)
-  else
-    ps_cmd=(ps -eo pid=,comm=,%cpu=,%mem= --sort=-%cpu)
-  fi
-
-  pid="$("${ps_cmd[@]}" | fzf --reverse --prompt='kill pid> ' | awk '{print $1}')" || return
-  [[ -n "$pid" ]] || return
-  kill -15 "$pid"
-}
-
-fb() {
-  local branch
-
-  command -v fzf >/dev/null 2>&1 || return
-  git rev-parse --git-dir >/dev/null 2>&1 || return
-
-  branch="$(git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads refs/remotes | grep -v '^origin/HEAD$' | sed 's#^origin/##' | awk '!seen[$0]++' | fzf --reverse --prompt='checkout> ')" || return
-  [[ -n "$branch" ]] || return
-  git checkout "$branch"
 }
 
 fp() {
@@ -89,63 +51,6 @@ tf() {
   tldr "$cmd"
 }
 
-ts() {
-  local selected session_name
-  local existing_sessions original_session
-
-  command -v fzf >/dev/null 2>&1 || return
-
-  [[ -n "$TMUX" ]] && original_session=$(tmux display-message -p '#{session_name}')
-
-  while true; do
-    local fzf_out fzf_key
-    existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
-    [[ -z "$existing_sessions" ]] && return
-
-    local -a fzf_opts=(--cycle --expect=tab --header='tab: kill session' --no-sort)
-    if [[ -n "$TMUX" ]]; then
-      fzf_opts+=(--bind "focus:execute-silent(echo {} | grep -q '^● ' && tmux switch-client -t \"\$(echo {} | sed 's/^● //')\" 2>/dev/null || tmux switch-client -t '$original_session' 2>/dev/null)")
-    fi
-
-    fzf_out=$(
-      {
-        if [[ -n "$original_session" ]]; then
-          grep -v "^${original_session}$" <<< "$existing_sessions" | grep -v '^$' | sed 's/^/● /'
-        else
-          sed 's/^/● /' <<< "$existing_sessions"
-        fi
-      } |
-        fzf "${fzf_opts[@]}"
-    ) || {
-      [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
-      return
-    }
-
-    fzf_key=$(head -1 <<< "$fzf_out")
-    selected=$(tail -1 <<< "$fzf_out")
-
-    if [[ "$fzf_key" == "tab" ]]; then
-      if [[ "$selected" == "● "* ]]; then
-        local kill_target="${selected#● }"
-        tmux kill-session -t "$kill_target" 2>/dev/null
-        [[ "$kill_target" == "$original_session" ]] && original_session=""
-      fi
-      continue
-    fi
-
-    break
-  done
-
-  [[ -z "$selected" ]] && return 0
-  session_name="${selected#● }"
-
-  if [[ -z "$TMUX" ]]; then
-    tmux attach-session -t "$session_name"
-  else
-    [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
-    tmux switch-client -t "$session_name"
-  fi
-}
 
 tp() {
   local selected session_name tmux_running
@@ -217,6 +122,64 @@ tp() {
   if [[ -z "$TMUX" ]]; then
     tmux attach-session -t "$session_name"
   else
+    tmux switch-client -t "$session_name"
+  fi
+}
+
+ts() {
+  local selected session_name
+  local existing_sessions original_session
+
+  command -v fzf >/dev/null 2>&1 || return
+
+  [[ -n "$TMUX" ]] && original_session=$(tmux display-message -p '#{session_name}')
+
+  while true; do
+    local fzf_out fzf_key
+    existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null)
+    [[ -z "$existing_sessions" ]] && return
+
+    local -a fzf_opts=(--cycle --expect=tab --header='tab: kill session' --no-sort)
+    if [[ -n "$TMUX" ]]; then
+      fzf_opts+=(--bind "focus:execute-silent(echo {} | grep -q '^● ' && tmux switch-client -t \"\$(echo {} | sed 's/^● //')\" 2>/dev/null || tmux switch-client -t '$original_session' 2>/dev/null)")
+    fi
+
+    fzf_out=$(
+      {
+        if [[ -n "$original_session" ]]; then
+          grep -v "^${original_session}$" <<< "$existing_sessions" | grep -v '^$' | sed 's/^/● /'
+        else
+          sed 's/^/● /' <<< "$existing_sessions"
+        fi
+      } |
+        fzf "${fzf_opts[@]}"
+    ) || {
+      [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
+      return
+    }
+
+    fzf_key=$(head -1 <<< "$fzf_out")
+    selected=$(tail -1 <<< "$fzf_out")
+
+    if [[ "$fzf_key" == "tab" ]]; then
+      if [[ "$selected" == "● "* ]]; then
+        local kill_target="${selected#● }"
+        tmux kill-session -t "$kill_target" 2>/dev/null
+        [[ "$kill_target" == "$original_session" ]] && original_session=""
+      fi
+      continue
+    fi
+
+    break
+  done
+
+  [[ -z "$selected" ]] && return 0
+  session_name="${selected#● }"
+
+  if [[ -z "$TMUX" ]]; then
+    tmux attach-session -t "$session_name"
+  else
+    [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
     tmux switch-client -t "$session_name"
   fi
 }
