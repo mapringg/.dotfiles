@@ -89,41 +89,6 @@ tf() {
   tldr "$cmd"
 }
 
-gw() {
-  cat << 'EOF'
-─── ALIASES ───
-
-ga   = git add
-gapa = git add --patch
-gcb  = git checkout -b
-gc   = git commit
-gco  = git checkout
-gd   = git diff
-gp   = git push
-gst  = git status
-
-─── WORKFLOW ───
-
-1. CREATE BRANCH & WORK
-   gco -b jira-123
-   gapa && gc -m "message"
-   (repeat: gapa && gc)
-
-2. PUSH & OPEN PR
-   gp
-   gh pr create -d  (draft, let CI run)
-
-3. FEEDBACK
-   gapa && gc -m "message"
-   gp
-   (no rebase, no amend, just commit again)
-
-4. MERGE
-   (GitHub UI: squash merge)
-
-EOF
-}
-
 t() {
    local selected session_name tmux_running
    local -a SEARCH_DIRS
