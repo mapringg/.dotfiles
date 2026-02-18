@@ -169,6 +169,7 @@ t() {
       if [[ -z "$TMUX" ]]; then
         tmux attach-session -t "$session_name"
       else
+        [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
         tmux switch-client -t "$session_name"
       fi
       return 0
@@ -204,6 +205,7 @@ t() {
   if [[ -z "$TMUX" ]]; then
     tmux attach-session -t "$session_name"
   else
+    [[ -n "$original_session" ]] && tmux switch-client -t "$original_session" 2>/dev/null
     tmux switch-client -t "$session_name"
   fi
 }
