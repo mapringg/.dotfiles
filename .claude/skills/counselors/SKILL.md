@@ -1,6 +1,6 @@
 ---
 name: counselors
-description: Fans out a prompt to multiple AI coding agents in parallel and synthesizes their responses. Use when asked to get multi-agent review or multiple opinions on code.
+description: Get parallel second opinions from multiple AI coding agents. Use when the user wants independent reviews, architecture feedback, or a sanity check from other AI models.
 argument-hint: prompt or question to send to the agents
 ---
 
@@ -128,6 +128,8 @@ Examples:
 Use `timeout: 600000` (10 minutes). Counselors dispatches to the selected agents in parallel and writes results to the output directory shown in the JSON output.
 
 **Important**: Use `-f` (file mode) so the prompt is sent as-is without wrapping. Use `--json` to get structured output for parsing.
+
+**Timing**: Sessions commonly take more than 10 minutes. Counselors prints each child process PID alongside the agent name in its progress output (e.g. `PID 12345  claude`). If a run seems stuck, you can verify processes are still alive with `ps -p <PID>` (macOS/Linux) or `tasklist /FI "PID eq <PID>"` (Windows).
 
 ---
 
