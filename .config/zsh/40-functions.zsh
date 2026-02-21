@@ -92,7 +92,7 @@ t() {
             sed "s|/.git/$||; s|^$HOME/||; s|^code/||" |
             sort >| "$cache_tmp" &&
             mv -f "$cache_tmp" "$cache_file"
-        ) >/dev/null 2>&1 &
+        ) >/dev/null 2>&1 &!
       fi
     else
       all_dirs=$(
