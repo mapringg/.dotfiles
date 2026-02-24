@@ -49,5 +49,11 @@ return {
       range = true,
       desc = "Add file reference (with selection) to Amp prompt",
     })
+
+    require("which-key").add({
+      { "<leader>a", group = "amp", icon = "󰚩", mode = "v" },
+      { "<leader>as", ":AmpPromptSelection<cr>", desc = "Add selection", icon = "󰚩", mode = "v" },
+      { "<leader>ar", ":AmpPromptRef<cr>", desc = "Add reference", icon = "󰚩", mode = "v" },
+    })
   end,
 }
