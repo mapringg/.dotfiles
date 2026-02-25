@@ -36,8 +36,8 @@ doctor:
 
 deps:
 	$(call require,brew,$(BREW))
-	$(call require_file,packages/brew/Brewfile)
-	@brew bundle --file packages/brew/Brewfile
+	$(call require_file,Brewfile)
+	@brew bundle --file Brewfile
 
 link:
 	$(call require,stow,$(STOW))

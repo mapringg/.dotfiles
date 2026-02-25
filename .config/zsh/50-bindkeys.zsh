@@ -1,3 +1,0 @@
-bindkey -e
-
-

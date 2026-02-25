@@ -1,4 +1,3 @@
 .git
-AGENTS.md
 Makefile
-packages
+Brewfile
