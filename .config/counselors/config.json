@@ -69,7 +69,7 @@
         "model_reasoning_effort=high"
       ]
     },
-    "gemini-3-pro": {
+    "gemini-3.1-pro": {
       "binary": "gemini",
       "readOnly": {
         "level": "enforced"
@@ -78,7 +78,7 @@
       "adapter": "gemini",
       "extraFlags": [
         "-m",
-        "gemini-3-pro-preview"
+        "gemini-3.1-pro-preview"
       ]
     },
     "gemini-3-flash": {
@@ -120,7 +120,7 @@
     "smart": [
       "claude-opus",
       "codex-5.3-xhigh",
-      "gemini-3-pro"
+      "gemini-3.1-pro"
     ],
     "fast": [
       "claude-sonnet",
