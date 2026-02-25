@@ -79,11 +79,7 @@ t() {
 
     if [[ -s "$cache_file" ]]; then
       all_dirs="$(<"$cache_file")"
-      cache_mtime=$(
-        stat -f '%m' "$cache_file" 2>/dev/null ||
-          stat -c '%Y' "$cache_file" 2>/dev/null ||
-          echo 0
-      )
+      cache_mtime=$(stat -f '%m' "$cache_file")
       cache_age=$(( $(date +%s) - cache_mtime ))
       if (( cache_age >= 120 )); then
         cache_tmp="$cache_file.$$"

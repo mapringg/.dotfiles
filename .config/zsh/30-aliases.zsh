@@ -10,18 +10,10 @@ alias fd='fd --hidden --ignore-case'
 alias ge='gemini --yolo'
 alias l='lazygit'
 
-if command -v brew >/dev/null 2>&1; then
-  if command -v mise >/dev/null 2>&1; then
-    alias up='brew update && brew upgrade && mise up'
-  else
-    alias up='brew update && brew upgrade'
-  fi
-elif command -v yay >/dev/null 2>&1; then
-  if command -v mise >/dev/null 2>&1; then
-    alias up='yay -Syu && mise up'
-  else
-    alias up='yay -Syu'
-  fi
+if command -v mise >/dev/null 2>&1; then
+  alias up='brew update && brew upgrade && mise up'
+else
+  alias up='brew update && brew upgrade'
 fi
 
 if command -v eza >/dev/null 2>&1; then
