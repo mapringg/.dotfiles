@@ -10,21 +10,33 @@ Generate a concise git commit message from the current diff using conventional c
 ## Workflow
 
 1. Run `git diff --staged` to get the staged diff
-2. If no staged changes, ask the user whether to stage all changes or select specific files
+2. If no staged changes, run `git status` to show the user what's available, then ask whether to stage all changes or select specific files
 3. Analyze the diff and generate a commit message
-4. Present the message to the user for approval
-5. Run `git commit -m "<message>"` only after user confirms
+4. Present the message to the user for approval — explain your reasoning briefly (e.g., why you chose the type/scope)
+5. Run `git commit` only after user confirms, using a HEREDOC for the message
 
 ## Commit Message Format
 
 ```
 <type>(<optional scope>): <description>
+
+<optional body>
 ```
 
-- **Maximum 72 characters** for the first line
+### Subject Line
+
+- **Maximum 72 characters**
 - Write in **present tense** ("add feature" not "added feature")
 - Be concise and direct
 - No period at the end
+
+### Body (optional)
+
+- Include a body when the diff is non-trivial or touches multiple areas
+- Separate from the subject with a blank line
+- Wrap lines at 72 characters
+- Explain **what** changed and **why**, not how
+- Use bullet points for multiple distinct changes
 
 ## Commit Types
 
@@ -44,9 +56,8 @@ Generate a concise git commit message from the current diff using conventional c
 
 ## Rules
 
-- Output only the commit message, no explanations
 - Choose the type that best describes the overall change
 - Scope is optional — use it when the change is clearly scoped to a module/component
 - Focus on what the change does, not how
-- Exclude unnecessary details like translation or file listings
+- Exclude unnecessary details like file listings or translation strings
 - If the diff contains multiple unrelated changes, suggest splitting into separate commits
