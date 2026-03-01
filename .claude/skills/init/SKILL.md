@@ -1,7 +1,6 @@
 ---
 name: init
-disable-model-invocation: true
-description: Initialize project rules for your detected stack, or manage init helpers (create, update, reconcile, research). Use '/init' to get started.
+description: Initializes project rules for your detected stack, or manages init helpers (create, update, reconcile, research). Use '/init' to get started.
 argument-hint: "[topic]"
 ---
 
@@ -29,11 +28,11 @@ Read the corresponding file and follow its instructions:
 
 | Choice | Read this file |
 |--------|---------------|
-| Initialize project | [setup.md](setup.md) |
-| Create new init | [add.md](add.md) |
-| Update an init | [update.md](update.md) |
-| Reconcile | [reconcile.md](reconcile.md) |
-| Research frameworks | [research.md](research.md) |
-| Research from URL | [research-url.md](research-url.md) |
+| Initialize project | [setup.md](reference/setup.md) |
+| Create new init | [add.md](reference/add.md) |
+| Update an init | [update.md](reference/update.md) |
+| Reconcile | [reconcile.md](reference/reconcile.md) |
+| Research frameworks | [research.md](reference/research.md) |
+| Research from URL | [research-url.md](reference/research-url.md) |
 
 Pass any `$ARGUMENTS` through to the action file.

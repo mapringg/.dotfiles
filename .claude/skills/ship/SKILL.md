@@ -1,7 +1,6 @@
 ---
 name: ship
-disable-model-invocation: true
-description: Ship your work — run tests, clean up code, and commit. Use when you're done with a feature, fix, or any piece of work you want to commit.
+description: Ships your work — runs tests, cleans up code, and commits. Use when you're done with a feature, fix, or any piece of work you want to commit.
 ---
 
 # Ship
@@ -24,15 +23,15 @@ Execute the chosen steps sequentially. Read the corresponding files and follow t
 
 ### Full pipeline
 
-1. Read and follow [tests.md](tests.md)
-2. Read and follow [finalize.md](finalize.md)
-3. Read and follow [commit.md](commit.md)
+1. Read and follow [tests.md](reference/tests.md)
+2. Read and follow [finalize.md](reference/finalize.md)
+3. Read and follow [commit.md](reference/commit.md)
 
 ### Skip tests
 
-1. Read and follow [finalize.md](finalize.md)
-2. Read and follow [commit.md](commit.md)
+1. Read and follow [finalize.md](reference/finalize.md)
+2. Read and follow [commit.md](reference/commit.md)
 
 ### Just commit
 
-1. Read and follow [commit.md](commit.md)
+1. Read and follow [commit.md](reference/commit.md)

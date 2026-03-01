@@ -4,7 +4,7 @@ Reference file for audit-dead-code. Contains detailed prompts for each parallel 
 
 ## Subagent 1: Unreachable Code (100% Confidence)
 
-```
+````
 Audit this codebase for unreachable code that can be safely removed.
 
 Tech stack: [from Phase 1]
@@ -68,11 +68,11 @@ Report each finding with:
 - Why it's unreachable
 - Safe to delete: YES (100% confidence)
 
-```
+````
 
 ## Subagent 2: Unused Imports & Exports
 
-```
+````
 
 Audit this codebase for unused imports and exports.
 
@@ -133,11 +133,11 @@ Report each finding with:
 - Confidence level
 - Suggested action: remove or verify
 
-```
+````
 
 ## Subagent 3: Orphaned Files
 
-```
+````
 
 Audit this codebase for files not reachable from any entry point.
 
@@ -206,11 +206,11 @@ Report each finding with:
 - Confidence level
 - Suggested action: delete or verify
 
-```
+````
 
 ## Subagent 4: Commented-out Code
 
-```
+````
 
 Audit this codebase for commented-out code that should be deleted.
 
@@ -288,11 +288,11 @@ Report each finding with:
 - Confidence level
 - Suggested action: delete (recoverable via git)
 
-```
+````
 
 ## Subagent 5: Stale Feature Flags & Dead Conditionals
 
-```
+````
 
 Audit this codebase for stale feature flags and dead conditional branches.
 
@@ -377,3 +377,4 @@ Report each finding with:
 - Age of last modification
 - Code that can be removed
 - Suggested cleanup
+````

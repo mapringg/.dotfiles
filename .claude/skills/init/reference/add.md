@@ -6,7 +6,7 @@ Create a new /init-* command.
 
 Create a new `/init-*` command following our established patterns. This command will guide you through the process interactively.
 
-**Reference**: Follow `~/.claude/skills/init/conventions.md` for the standard rules file workflow.
+**Reference**: Follow `~/.claude/skills/init/reference/conventions.md` for the standard rules file workflow.
 
 ## Phase 1: Gather Information
 
@@ -33,7 +33,7 @@ Create `~/.claude/skills/init/helpers/init-{name}.md` using this template:
 ```markdown
 # Initialize {Name} Best Practices
 
-Add {Name} best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**
+Add {Name} best practices. **Follow `~/.claude/skills/init/reference/conventions.md` for standard file handling.**
 
 ## Target File
 

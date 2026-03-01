@@ -1,8 +1,6 @@
 ---
 name: gha
-disable-model-invocation: true
-context: fork
-description: Check GitHub Actions and fix any failures. Use when CI is failing, workflows need debugging, or you need to diagnose and fix build/test/lint errors.
+description: Checks GitHub Actions and fixes any failures. Use when CI is failing, workflows need debugging, or you need to diagnose and fix build/test/lint errors.
 ---
 
 # GitHub Actions Diagnosis and Fix
