@@ -1,4 +1,3 @@
-
 # State Drift Audit
 
 Detect and fix state synchronization issues, impossible states, and state management anti-patterns.

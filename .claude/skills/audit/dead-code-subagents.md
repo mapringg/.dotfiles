@@ -377,5 +377,3 @@ Report each finding with:
 - Age of last modification
 - Code that can be removed
 - Suggested cleanup
-
-```

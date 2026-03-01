@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize Base UI Best Practices
 
 Add Base UI best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**

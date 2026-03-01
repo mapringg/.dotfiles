@@ -1,4 +1,3 @@
-
 # Deep Product Research Prompt Generator
 
 Deep product analysis tool.

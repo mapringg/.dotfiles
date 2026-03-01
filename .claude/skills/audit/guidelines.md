@@ -1,4 +1,3 @@
-
 # Guidelines Audit
 
 Audit codebase against coding guidelines using parallel subagents.

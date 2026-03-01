@@ -1,4 +1,3 @@
-
 # Deep Stack Research Prompt Generator
 
 Deep stack analysis tool.

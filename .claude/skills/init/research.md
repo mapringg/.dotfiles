@@ -1,4 +1,3 @@
-
 # Research Init Commands for Updates
 
 Research frameworks for best practices.
@@ -118,6 +117,7 @@ Claude: Researching 2 init commands...
    use tauri::DragDropEvent;
    app.on_drag_drop_event(|event| { ... });
    ```
+
 1. **Deep linking setup** for protocol handlers
 
 ### Updates Needed

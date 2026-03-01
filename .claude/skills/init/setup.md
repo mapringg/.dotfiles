@@ -1,4 +1,3 @@
-
 # Initialize All Applicable Best Practices
 
 Run all applicable init helpers for the detected stack.

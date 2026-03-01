@@ -1,4 +1,3 @@
-
 # Add New Init Command
 
 Create a new /init-* command.

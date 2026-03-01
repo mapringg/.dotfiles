@@ -1,4 +1,3 @@
-
 # Audit Idiomatic
 
 Analyze a codebase and audit for idiomatic usage of detected languages and frameworks.

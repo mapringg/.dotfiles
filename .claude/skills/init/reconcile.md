@@ -1,4 +1,3 @@
-
 # Reconcile Init Command
 
 Reconcile local project rules with the master init commands. Performs a two-way comparison and synchronizes differences.

@@ -1,4 +1,3 @@
-
 # TODOs Audit
 
 Detect and prioritize technical debt markers, stale TODOs, and forgotten FIXMEs.
@@ -63,6 +62,7 @@ Pass issue tracker patterns and code ownership from Phase 1 to each subagent.
 ## Phase 3: Generate Report
 
 ### Summary Statistics
+
 ```markdown
 ## TODO Audit Summary
 

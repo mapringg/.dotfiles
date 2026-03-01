@@ -1,4 +1,3 @@
-
 # Names Audit
 
 Detect vague, inconsistent, and confusing identifier names that hurt code comprehension.

@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize React Native Best Practices
 
 Add React Native (New Architecture) best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**

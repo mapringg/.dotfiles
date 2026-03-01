@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize TanStack Query Best Practices
 
 Add TanStack Query best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**

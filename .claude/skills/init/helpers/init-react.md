@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize React Best Practices
 
 Add React 19 + TypeScript best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**
