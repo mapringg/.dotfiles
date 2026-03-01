@@ -28,10 +28,12 @@ Parse `$ARGUMENTS` to understand what the user wants reviewed. Then identify rel
 ## Phase 2: Agent Selection
 
 1. **Discover available agents and groups** by running via Bash:
+
    ```bash
    counselors ls
    counselors groups ls
    ```
+
    The first command lists all configured agents with their IDs and binaries. The second lists any configured **groups** (predefined sets of tool IDs).
 
 2. **MANDATORY: Print the full agent list and group list, then ask the user which to use.**
@@ -67,9 +69,11 @@ Parse `$ARGUMENTS` to understand what the user wants reviewed. Then identify rel
    - "is this migration safe" → `migration-safety-review`
 
 2. **Create the output directory** via Bash inside your project's counselors output directory (default: `agents/counselors/`) in your current working directory. The directory name MUST always be prefixed with a UNIX timestamp (seconds) so runs are lexically sortable and never collide:
+
    ```
    <cwd>/<outputDir>/TIMESTAMP-[slug]
    ```
+
    By default, `<outputDir>` is `agents/counselors`, but users can customize it via config (`defaults.outputDir`) or the `counselors run -o <dir>` flag.
    For example, if your cwd is `/Users/me/project`: `/Users/me/project/agents/counselors/1770676882-auth-flow-review`
 
@@ -120,6 +124,7 @@ counselors run -f <cwd>/<outputDir>/TIMESTAMP-[slug]/prompt.md --tools [comma-se
 ```
 
 Examples:
+
 - `--tools claude,codex,gemini`
 - `--group smart` (uses the configured group)
 - `--group smart --tools codex` (group plus explicit tools)
