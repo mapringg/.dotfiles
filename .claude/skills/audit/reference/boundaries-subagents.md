@@ -6,7 +6,7 @@ These are the subagent prompt templates for the boundaries audit. Each is launch
 
 ## Subagent 1: Presentation → Data Violations
 
-```
+````
 Audit this codebase for presentation layer directly accessing data layer.
 
 Tech stack: [from Phase 1]
@@ -71,13 +71,13 @@ Report each finding with:
 - Source layer → target layer
 - Suggested fix: introduce service layer, use repository pattern
 
-```
+````
 
 ---
 
 ## Subagent 2: Domain → Infrastructure Violations
 
-```
+````
 
 Audit this codebase for domain layer depending on infrastructure.
 
@@ -142,13 +142,13 @@ Report each finding with:
 - What infrastructure it depends on
 - Suggested fix: define interface in domain, implement in infrastructure
 
-```
+````
 
 ---
 
 ## Subagent 3: Business Logic in Controllers
 
-```
+````
 
 Audit this codebase for fat controllers with business logic.
 
@@ -179,7 +179,7 @@ const total = items.reduce((sum, item) =>
 );
 ```
 
-1. **Business rule conditionals**:
+2. **Business rule conditionals**:
 
 ```typescript
 // Business rules in controller - BAD
@@ -188,7 +188,7 @@ if (user.role === 'admin' || (user.role === 'manager' && user.department === ord
 }
 ```
 
-1. **Multiple repository calls orchestrated**:
+3. **Multiple repository calls orchestrated**:
 
 ```typescript
 // Orchestration in controller - BAD
@@ -227,13 +227,13 @@ Report each finding with:
 - Business logic indicators found
 - Suggested extraction to service layer
 
-```
+````
 
 ---
 
 ## Subagent 4: ORM & Database Access Violations
 
-```
+````
 
 Audit this codebase for database queries outside repository/data layer.
 
@@ -307,13 +307,13 @@ Report each finding with:
 - What database access it contains
 - Suggested refactor to repository pattern
 
-```
+````
 
 ---
 
 ## Subagent 5: Configuration & Environment Violations
 
-```
+````
 
 Audit this codebase for scattered environment variable access.
 
@@ -378,3 +378,5 @@ Report each finding with:
 - The env var access
 - Where it should be defined (config module)
 - Suggested config structure
+
+````

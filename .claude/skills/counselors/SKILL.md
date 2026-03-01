@@ -1,6 +1,6 @@
 ---
 name: counselors
-description: Get parallel second opinions from multiple AI coding agents. Use when the user wants independent reviews, architecture feedback, or a sanity check from other AI models.
+description: Gets parallel second opinions from multiple AI coding agents. Use when the user wants independent reviews, architecture feedback, or a sanity check from other AI models.
 ---
 
 # Counselors — Multi-Agent Review Skill

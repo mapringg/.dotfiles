@@ -103,7 +103,7 @@ Show the user:
    // Code example if available
    ```
 
-1. **{Topic}**
+2. **{Topic}**
    ...
 
 ### Conflicts with Current Init

@@ -4,7 +4,7 @@ Reference file for audit-names. Contains detailed prompts for each parallel suba
 
 ## Subagent 1: Vague Generic Names
 
-```
+````
 Audit this codebase for vague and generic identifier names.
 
 Tech stack: [from Phase 1]
@@ -72,11 +72,11 @@ Report each finding with:
 - Its scope size
 - Suggested qualified alternatives
 
-```
+````
 
 ## Subagent 2: Single-letter Variables
 
-```
+````
 
 Audit this codebase for inappropriate single-letter variable names.
 
@@ -137,11 +137,11 @@ Report each finding with:
 - Its scope and context
 - Suggested descriptive name
 
-```
+````
 
 ## Subagent 3: Boolean Naming Issues
 
-```
+````
 
 Audit this codebase for boolean naming problems.
 
@@ -232,11 +232,11 @@ Report each finding with:
 - Negation issues if present
 - Suggested positive form
 
-```
+````
 
 ## Subagent 4: Casing Inconsistency
 
-```
+````
 
 Audit this codebase for naming convention inconsistencies.
 
@@ -291,11 +291,11 @@ Report each finding with:
 - Expected convention (based on language/codebase)
 - Suggested fix
 
-```
+````
 
 ## Subagent 5: Abbreviation Inconsistency
 
-```
+````
 
 Audit this codebase for inconsistent abbreviation usage.
 
@@ -385,3 +385,5 @@ Report each finding with:
 - Both forms found in codebase
 - Count of each form
 - Suggested standardization
+
+````
