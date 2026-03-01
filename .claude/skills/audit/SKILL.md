@@ -1,7 +1,6 @@
 ---
 name: audit
-context: fork
-description: Run code quality audits on the codebase. Detects issues across boundaries, dead code, state drift, errors, idiomatic usage, naming, TODOs, and guideline violations.
+description: Runs code quality audits on the codebase. Detects issues across boundaries, dead code, state drift, errors, idiomatic usage, naming, TODOs, and guideline violations.
 ---
 
 # Code Audit
@@ -41,14 +40,14 @@ Read the corresponding audit file from this skill's directory and follow its ins
 
 | Type | Read this file |
 |------|---------------|
-| boundaries | [boundaries.md](boundaries.md) |
-| dead-code | [dead-code.md](dead-code.md) |
-| drift | [drift.md](drift.md) |
-| errors | [errors.md](errors.md) |
-| idiomatic | [idiomatic.md](idiomatic.md) |
-| names | [names.md](names.md) |
-| todo | [todo.md](todo.md) |
-| guidelines | [guidelines.md](guidelines.md) |
+| boundaries | [boundaries.md](reference/boundaries.md) |
+| dead-code | [dead-code.md](reference/dead-code.md) |
+| drift | [drift.md](reference/drift.md) |
+| errors | [errors.md](reference/errors.md) |
+| idiomatic | [idiomatic.md](reference/idiomatic.md) |
+| names | [names.md](reference/names.md) |
+| todo | [todo.md](reference/todo.md) |
+| guidelines | [guidelines.md](reference/guidelines.md) |
 
 Some audit files reference additional subagent prompt files (e.g., `boundaries-subagents.md`). Read those too when instructed.
 

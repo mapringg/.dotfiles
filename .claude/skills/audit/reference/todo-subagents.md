@@ -4,7 +4,7 @@ Reference file for audit-todo. Contains detailed prompts for each parallel subag
 
 ## Subagent 1: TODO Inventory & Age Analysis
 
-```
+````
 Audit this codebase for all TODO/FIXME markers and their age.
 
 ## DETECTION PATTERNS
@@ -63,11 +63,11 @@ For each TODO found:
 
 Sort by age descending (oldest first).
 
-```
+````
 
 ## Subagent 2: Security & Bug Markers
 
-```
+````
 
 Audit this codebase for high-priority security and bug-related TODOs.
 
@@ -128,11 +128,11 @@ Report each finding with:
 - Priority (base + modifiers)
 - Suggested action
 
-```
+````
 
 ## Subagent 3: Issue Tracker Integration
 
-```
+````
 
 Audit this codebase for TODOs referencing issues, and check their status.
 
@@ -197,11 +197,11 @@ Report each finding with:
 - Issue close date (if closed)
 - Priority (closed = Critical)
 
-```
+````
 
 ## Subagent 4: Quality & Context Analysis
 
-```
+````
 
 Audit this codebase for low-quality TODOs lacking context.
 
@@ -285,11 +285,11 @@ Report each finding with:
 - What's missing (explanation/owner/specificity)
 - Suggested improvement
 
-```
+````
 
 ## Subagent 5: Prioritization & Categorization
 
-```
+````
 
 Analyze all TODOs and produce prioritized report.
 
@@ -367,3 +367,4 @@ Group TODOs into actionable categories:
 - Oldest: X days (file:line)
 - By type: TODO: X, FIXME: X, HACK: X, etc.
 - Quality score distribution: ...
+````

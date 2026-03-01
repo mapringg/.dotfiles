@@ -1,7 +1,6 @@
 ---
 name: think
-disable-model-invocation: true
-description: Think before building — research best practices or refine a vague idea into a concrete spec. Use when you need to explore a topic or shape an idea.
+description: Thinks before building — researches best practices or refines a vague idea into a concrete spec. Use when you need to explore a topic or shape an idea.
 ---
 
 # Think
@@ -24,6 +23,6 @@ Read the corresponding file and follow its instructions:
 
 | Choice | File |
 |--------|------|
-| Product research | [product.md](product.md) |
-| Technical research | [stack.md](stack.md) |
-| Refine an idea | [interview.md](interview.md) |
+| Product research | [product.md](reference/product.md) |
+| Technical research | [stack.md](reference/stack.md) |
+| Refine an idea | [interview.md](reference/interview.md) |

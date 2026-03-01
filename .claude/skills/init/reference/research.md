@@ -118,7 +118,7 @@ Claude: Researching 2 init commands...
    app.on_drag_drop_event(|event| { ... });
    ```
 
-1. **Deep linking setup** for protocol handlers
+2. **Deep linking setup** for protocol handlers
 
 ### Updates Needed
 
