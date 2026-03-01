@@ -1,4 +1,3 @@
-
 # Research Init From URL
 
 Research URL for init guidelines.

@@ -1,4 +1,3 @@
-
 # Errors Audit
 
 Detect error handling inconsistencies, anti-patterns, and silent failures.

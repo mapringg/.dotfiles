@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize TanStack Best Practices
 
 Add TanStack Start/Router best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**

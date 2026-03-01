@@ -367,6 +367,3 @@ Group TODOs into actionable categories:
 - Oldest: X days (file:line)
 - By type: TODO: X, FIXME: X, HACK: X, etc.
 - Quality score distribution: ...
-```
-
-```

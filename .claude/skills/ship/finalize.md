@@ -1,4 +1,3 @@
-
 # Finalize Recent Work
 
 Clean up completed feature work.

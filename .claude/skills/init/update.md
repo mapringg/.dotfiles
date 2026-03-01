@@ -1,4 +1,3 @@
-
 # Update Init Command
 
 Update existing init command.

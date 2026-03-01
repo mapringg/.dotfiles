@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize MCP TypeScript Best Practices
 
 Add MCP TypeScript best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**
