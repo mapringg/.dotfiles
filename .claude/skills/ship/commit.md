@@ -1,7 +1,3 @@
----
-name: commit
-description: Generates a concise git commit message from the current diff using conventional commit format. Use when asked to commit changes or create a commit message.
----
 
 # Committing Changes
 
