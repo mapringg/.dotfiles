@@ -1,4 +1,3 @@
-
 # Committing Changes
 
 Generate a concise git commit message from the current diff using conventional commit format.

@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize Dockerfile Best Practices
 
 Add Docker/Dockerfile best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**

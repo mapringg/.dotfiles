@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize Tailwind Best Practices
 
 Add Tailwind CSS v4 best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**

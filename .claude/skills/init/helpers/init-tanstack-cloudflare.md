@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize TanStack Cloudflare Best Practices
 
 Add TanStack Start/Router + Cloudflare Workers deployment best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**

@@ -378,5 +378,3 @@ Report each finding with:
 - The env var access
 - Where it should be defined (config module)
 - Suggested config structure
-
-```

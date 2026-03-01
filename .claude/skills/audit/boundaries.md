@@ -1,4 +1,3 @@
-
 # Boundaries Audit
 
 Detect architectural layer violations and improper dependencies between modules.

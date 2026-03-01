@@ -385,5 +385,3 @@ Report each finding with:
 - Both forms found in codebase
 - Count of each form
 - Suggested standardization
-
-```

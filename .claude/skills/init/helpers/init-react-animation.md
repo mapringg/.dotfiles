@@ -1,7 +1,3 @@
----
-disable-model-invocation: true
----
-
 # Initialize React Animation Best Practices
 
 Add React animation and simulation best practices. **Follow `~/.claude/skills/init/conventions.md` for standard file handling.**
