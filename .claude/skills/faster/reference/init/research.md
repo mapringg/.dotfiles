@@ -1,12 +1,12 @@
-# Research Init Commands for Updates
+# Research Init Helpers for Updates
 
-Research frameworks for best practices.
+Research frameworks for best practices. This workflow is accessed via `/faster` → Init → Research frameworks.
 
 ## Instructions
 
-Research specified init commands to find updated best practices, new features, or guidelines we've missed. This command researches each framework's latest documentation and community guidelines.
+Research specified init helpers to find updated best practices, new features, or guidelines we've missed. This workflow researches each framework's latest documentation and community guidelines.
 
-If the init names are not already known from context, ask the user which init commands to research (e.g., `react`, `vue`, `tailwind`).
+If the init names are not already known from context, ask the user which init helpers to research (e.g., `react`, `vue`, `tailwind`).
 
 ## Workflow
 
@@ -40,7 +40,7 @@ For each valid init name, sequentially:
 **Research approach for each init**:
 
 ```
-Research updates for the `/init-{name}` command.
+Research updates for the `init-{name}` helper.
 
 Current content is at: ~/.claude/skills/faster/reference/init/helpers/init-{name}.md
 
@@ -98,9 +98,9 @@ If user confirms, apply the updates directly to the init files.
 ## Example
 
 ```
-User: /init research tauri inertia
+User: /faster → Init → Research frameworks → tauri inertia
 
-Researching 2 init commands...
+Researching 2 init helpers...
 
 [Researches tauri, then inertia]
 
@@ -136,7 +136,7 @@ Researching 2 init commands...
 
 ## Notes
 
-- Research is performed sequentially for each init command
+- Research is performed sequentially for each init helper
 - Search the web to find latest documentation and best practices
 - Focus on actionable, specific improvements with code examples
 - Don't just list features — compare to what we already have

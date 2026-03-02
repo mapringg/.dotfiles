@@ -1,10 +1,10 @@
-# Add New Init Command
+# Add New Init Helper
 
-Create a new /init-* command.
+Create a new init helper. This workflow is accessed via `/faster` → Init → Create new init.
 
 ## Instructions
 
-Create a new `/init-*` command following our established patterns. This command will guide you through the process interactively.
+Create a new init helper following our established patterns. This workflow will guide you through the process interactively.
 
 **Reference**: Follow `~/.claude/skills/faster/reference/init/conventions.md` for the standard rules file workflow.
 
@@ -12,8 +12,8 @@ Create a new `/init-*` command following our established patterns. This command 
 
 **Ask the user these questions in order:**
 
-1. **Name**: "What should the init command be called? (e.g., `nextjs`, `svelte`, `django`)"
-   - This becomes `/init-{name}`
+1. **Name**: "What should the init helper be called? (e.g., `nextjs`, `svelte`, `django`)"
+   - This becomes `init-{name}.md` in the helpers directory
    - Use lowercase, no spaces
 
 2. **Path pattern**: "What file types do these rules apply to? (e.g., `**/*.{tsx,jsx}` for React, or leave blank if rules apply broadly)"
@@ -80,7 +80,7 @@ Report to the user:
 Created:
   - ~/.claude/skills/faster/reference/init/helpers/init-{name}.md
 
-Run `/init` in any project to auto-detect and apply {Name} best practices.
+Run `/faster` → Init → Initialize project in any project to auto-detect and apply {Name} best practices.
 The rules will be written to `.claude/rules/{name}.md`
 ```
 
@@ -102,5 +102,5 @@ When formatting the user's content:
 - Always ask for the name first, then path pattern, then content
 - The user may provide raw notes — format them nicely
 - If content seems incomplete, ask clarifying questions
-- Test that the command name doesn't conflict with existing commands
+- Test that the helper name doesn't conflict with existing helpers
 - Rules files are idempotent — safe to run repeatedly to update

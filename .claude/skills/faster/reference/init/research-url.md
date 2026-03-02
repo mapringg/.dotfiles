@@ -1,10 +1,10 @@
 # Research Init From URL
 
-Research URL for init guidelines.
+Research URL for init guidelines. This workflow is accessed via `/faster` → Init → Research from URL.
 
 ## Instructions
 
-Fetch a URL and determine which `/init-*` command it applies to, then offer to update or add guidelines based on the content.
+Fetch a URL and determine which init helper it applies to, then offer to update or add guidelines based on the content.
 
 If the URL is not already known from context, ask the user for the URL to fetch and analyze.
 
@@ -25,13 +25,13 @@ If the URL is not already known from context, ask the user for the URL to fetch 
 
 ## Phase 2: Identify the Init Command
 
-Based on the fetched content, determine which init command this relates to.
+Based on the fetched content, determine which init helper this relates to.
 
 **Detection strategy:**
 
 1. **List available inits** dynamically:
 
-   Scan `~/.claude/skills/faster/reference/init/helpers/init-*.md` to discover all available init commands. Extract each helper's name from the filename.
+   Scan `~/.claude/skills/faster/reference/init/helpers/init-*.md` to discover all available init helpers. Extract each helper's name from the filename.
 
 2. **Match content to an init**:
    - Analyze the fetched URL's domain and content keywords (framework names, imports, package names)
@@ -40,7 +40,7 @@ Based on the fetched content, determine which init command this relates to.
 
 3. **If no clear match**:
    - Ask user which init this should apply to
-   - Or offer to create a new init command
+   - Or offer to create a new init helper
 
 ---
 
@@ -70,7 +70,7 @@ Show the user:
 ## URL Analysis: {url}
 
 **Detected framework**: {Name}
-**Matched init**: `/init-{name}`
+**Matched init helper**: `init-{name}`
 
 ### Already Covered
 - [things we already have]
@@ -101,7 +101,7 @@ Ask the user:
 
 Would you like me to:
 
-1. Add all new content to `/init-{name}`
+1. Add all new content to the `init-{name}` helper
 2. Add selected items only (I'll ask which ones)
 3. Skip — just keep this as research
 

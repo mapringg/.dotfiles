@@ -1,10 +1,10 @@
 # Standard Init Workflow
 
-This document defines the standard workflow for all `/init-*` commands. Individual init commands should reference this instead of duplicating these instructions.
+This document defines the standard workflow for all init helpers. Individual init helpers should reference this instead of duplicating these instructions.
 
 ## Core Principle: Simple File Overwrite
 
-All init commands write to `.claude/rules/{name}.md`:
+All init helpers write to `.claude/rules/{name}.md`:
 
 - Each init owns its own file completely
 - Running an init **overwrites** its rules file with the latest content
@@ -15,7 +15,7 @@ All init commands write to `.claude/rules/{name}.md`:
 
 **Location**: `.claude/rules/` in the project root
 
-Each init command writes to a single file:
+Each init helper writes to a single file:
 
 - `init-react` → `.claude/rules/react.md`
 - `init-tailwind` → `.claude/rules/tailwind.md`
@@ -55,7 +55,7 @@ paths: "**/*.{tsx,jsx}"
 2. **Write file**: Create/overwrite `.claude/rules/{name}.md` with the init content
 3. **Report**: "Created/updated .claude/rules/{name}.md"
 
-**Note**: Init commands do NOT add `@` imports to CLAUDE.md. Rules in `.claude/rules/` auto-load:
+**Note**: Init helpers do NOT add `@` imports to CLAUDE.md. Rules in `.claude/rules/` auto-load:
 
 - With `paths:` frontmatter → loads for matching files only
 - Without `paths:` → loads for all files
@@ -97,4 +97,4 @@ In Claude Code, the `@` symbol at the start of a line is interpreted as a file i
 
 - Ask before making changes (show what will be modified)
 - Handle case where `.claude/` directory doesn't exist (create it)
-- Individual init commands are simple: just write/overwrite their rules file
+- Individual init helpers are simple: just write/overwrite their rules file

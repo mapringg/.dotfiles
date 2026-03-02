@@ -1,6 +1,6 @@
-# Reconcile Init Command
+# Reconcile Init Helper
 
-Reconcile local project rules with the master init commands. Performs a two-way comparison and synchronizes differences.
+Reconcile local project rules with the master init helpers. Performs a two-way comparison and synchronizes differences. This workflow is accessed via `/faster` → Init → Reconcile.
 
 If the init name is not already known from context, the user will be asked to select one.
 
@@ -9,7 +9,7 @@ If the init name is not already known from context, the user will be asked to se
 ## Phase 1: Detect Available Inits to Reconcile
 
 1. **Check for local rules directory**: Look for `.claude/rules/` in the current project
-   - If it doesn't exist, report: "No `.claude/rules/` directory found. Run `/init` first to set up your project rules."
+   - If it doesn't exist, report: "No `.claude/rules/` directory found. Run `/faster` → Init → Initialize project first to set up your project rules."
    - Exit
 
 2. **Find reconcilable inits**: List all `.md` files in `.claude/rules/`
