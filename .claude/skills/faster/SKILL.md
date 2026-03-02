@@ -77,10 +77,8 @@ Ask a follow-up:
 - **Options**:
   1. **Initialize project** — "Detect your stack and set up all framework rules"
   2. **Create new init** — "Add a helper for a framework we don't support yet"
-  3. **Update an init** — "Add learnings or new content to an existing init helper"
+  3. **Update an init** — "Add learnings, research, or new content to an existing init helper"
   4. **Reconcile** — "Sync local project rules with master init helpers (two-way)"
-
-If the user's input contains a URL or mentions "research", also offer research options.
 
 Then read the corresponding file and follow its instructions:
 
@@ -90,8 +88,6 @@ Then read the corresponding file and follow its instructions:
 | Create new init | [add.md](reference/init/add.md) |
 | Update an init | [update.md](reference/init/update.md) |
 | Reconcile | [reconcile.md](reference/init/reconcile.md) |
-| Research frameworks | [research.md](reference/init/research.md) |
-| Research from URL | [research-url.md](reference/init/research-url.md) |
 
 ### Ship
 
