@@ -2,6 +2,12 @@
 
 Add Tailwind CSS v4 best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `package.json` with `tailwindcss` or `@tailwindcss/vite` or `@tailwindcss/postcss`
+- `tailwind.config.js` or `tailwind.config.ts` (v3) or CSS file with `@import "tailwindcss"` (v4)
+- `postcss.config.*` with tailwindcss plugin
+
 ## Target File
 
 `.claude/rules/tailwind.md`
@@ -60,12 +66,26 @@ All customization in CSS via `@theme`. Variables auto-generate utilities:
 | `@import "tailwindcss"` | Load Tailwind |
 | `@theme { }` | Define theme variables |
 | `@config "./file.js"` | Load JS config (migration) |
-| `@source "../path"` / `not` | Add/exclude content paths |
+| `@source "../path"` / `@source not` | Add/exclude content paths |
 | `@plugin "@tailwindcss/forms"` | Load plugins |
 | `@utility name { }` | Custom utility with variants |
 | `@variant dark { }` | Apply variant in CSS |
 | `@custom-variant name (selector)` | Define custom variant |
-| `@reference "../app.css"` | Reference in scoped styles |
+| `@reference "../app.css"` | Import theme tokens without emitting CSS (for scoped styles/CSS modules) |
+
+### \@source and \@reference
+
+```css
+/* Add content paths beyond auto-detection */
+@source "../node_modules/@my-ui/components";
+
+/* Exclude paths from scanning */
+@source not "../legacy";
+
+/* Import theme tokens in scoped styles without emitting CSS */
+/* Useful for CSS Modules or Shadow DOM components */
+@reference "../app.css";
+```
 
 ### Custom Utilities
 

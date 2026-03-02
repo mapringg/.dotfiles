@@ -81,10 +81,10 @@ Omit `paths:` for rules that apply broadly (e.g., Inertia affects both PHP and J
 
 ## Escaping `@` in Rule Content
 
-The `@` symbol at the start of a line is interpreted as a file import. Escape with `\@` in prose/headings:
+In Claude Code, the `@` symbol at the start of a line is interpreted as a file import. Escape with `\@` in prose/headings to avoid this:
 
 ```markdown
-# Wrong - interpreted as import
+# Wrong - interpreted as import in Claude Code
 ### @theme Directive
 
 # Correct

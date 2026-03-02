@@ -13,7 +13,7 @@ Before starting, ask the user:
 
 ## Phase 2: Explore the repo for context
 
-After the user selects a mode, silently explore the current repo to ground your questions. Use Glob and Grep to understand:
+After the user selects a mode, silently explore the current repo to ground your questions. Use glob and Grep to understand:
 
 - What kind of project this is (language, framework, stack)
 - Key architectural patterns in use

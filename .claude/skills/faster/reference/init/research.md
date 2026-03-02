@@ -100,7 +100,7 @@ If user confirms, apply the updates directly to the init files.
 ```
 User: /init research tauri inertia
 
-Claude: Researching 2 init commands...
+Researching 2 init commands...
 
 [Researches tauri, then inertia]
 
@@ -133,20 +133,6 @@ Claude: Researching 2 init commands...
 ...
 
 ```
-
-## Framework-Specific Research Hints
-
-To help agents find the right documentation:
-
-| Init | Primary Sources |
-|------|-----------------|
-| tauri | v2.tauri.app, github.com/tauri-apps/tauri/releases |
-| inertia | inertiajs.com, github.com/inertiajs releases |
-| laravel | laravel.com/docs, Laravel News |
-| react | react.dev, React blog |
-| vue | vuejs.org, Vue blog |
-| livewire | livewire.laravel.com, Livewire releases |
-| tailwind | tailwindcss.com/docs |
 
 ## Notes
 

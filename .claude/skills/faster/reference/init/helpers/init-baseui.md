@@ -2,6 +2,12 @@
 
 Add Base UI best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `package.json` with `@base-ui/react`
+- Files importing from `@base-ui/react/*`
+- **Note**: Headless component library; typically used alongside React
+
 ## Target File
 
 `.claude/rules/baseui.md`
@@ -110,12 +116,12 @@ Base UI uses a `render` prop (not `asChild` like Radix) to compose with custom c
 />
 ```
 
-**Critical requirement**: Custom components used with `render` must forward refs and spread all props:
+**Critical requirement**: Custom components used with `render` must spread all props and accept a ref prop (React 19 passes ref as a regular prop — no `forwardRef` needed):
 
 ```tsx
-const MyButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => <button ref={ref} {...props} className={`custom ${props.className}`} />
-);
+function MyButton({ ref, ...props }: ButtonProps & { ref?: React.Ref<HTMLButtonElement> }) {
+  return <button ref={ref} {...props} className={`custom ${props.className}`} />;
+}
 ```
 
 ### Nested composition pattern
@@ -552,32 +558,32 @@ Base UI handles:
 
 1. **Accessible names** — provide labels for all form controls:
 
-```tsx
-// Using Field.Label (recommended)
-<Field.Root>
-  <Field.Label>Email</Field.Label>
-  <Input />
-</Field.Root>
+   ```tsx
+   // Using Field.Label (recommended)
+   <Field.Root>
+     <Field.Label>Email</Field.Label>
+     <Input />
+   </Field.Root>
 
-// Using aria-label
-<Input aria-label="Email address" />
+   // Using aria-label
+   <Input aria-label="Email address" />
 
-// Icon buttons require aria-label
-<Dialog.Trigger aria-label="Close">
-  <CloseIcon />
-</Dialog.Trigger>
-```
+   // Icon buttons require aria-label
+   <Dialog.Trigger aria-label="Close">
+     <CloseIcon />
+   </Dialog.Trigger>
+   ```
 
-1. **Focus indicators** — style focus states:
+2. **Focus indicators** — style focus states:
 
-```css
-button:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-```
+   ```css
+   button:focus-visible {
+     outline: 2px solid #2563eb;
+     outline-offset: 2px;
+   }
+   ```
 
-1. **Color contrast** — implement WCAG-compliant contrast ratios in styling.
+3. **Color contrast** — implement WCAG-compliant contrast ratios in styling.
 
 ### Focus management props
 
@@ -706,39 +712,24 @@ import { Tooltip, Menu } from '@base-ui/react';
 
 ### Memoization
 
-Define slot components outside render functions:
+Define render prop components outside the render function to keep stable references:
 
 ```tsx
 // Bad - component recreated each render
 function App() {
   const [name, setName] = useState('');
-  const CustomHeader = () => <input value={name} onChange={(e) => setName(e.target.value)} />;
-  return <Component slots={{ header: CustomHeader }} />;
-}
-
-// Good - stable reference
-const CustomHeader = ({ name, setName }) => (
-  <input value={name} onChange={(e) => setName(e.target.value)} />
-);
-
-function App() {
-  const [name, setName] = useState('');
   return (
-    <Component
-      slots={{ header: CustomHeader }}
-      slotProps={{ header: { name, setName } }}
+    <Switch.Thumb
+      render={() => <span>{name}</span>}  // New function every render
     />
   );
 }
-```
 
-For expensive render prop components, use `React.memo`:
-
-```tsx
+// Good - stable component with React.memo
 const ExpensiveThumb = React.memo(
-  React.forwardRef<HTMLSpanElement, Props>((props, ref) => (
-    <span ref={ref} {...props}>{/* expensive rendering */}</span>
-  ))
+  (props: React.ComponentPropsWithRef<'span'>) => (
+    <span {...props}>{/* expensive rendering */}</span>
+  )
 );
 
 <Switch.Thumb render={<ExpensiveThumb />} />
@@ -777,15 +768,15 @@ body {
 Custom components in `render` prop fail silently:
 
 ```tsx
-// Broken - no ref forwarding, props not spread
+// Broken - no ref prop, props not spread
 const BadButton = ({ onClick, children }) => (
   <button onClick={onClick}>{children}</button>
 );
 
-// Correct
-const GoodButton = React.forwardRef<HTMLButtonElement, Props>(
-  (props, ref) => <button ref={ref} {...props} />
-);
+// Correct - accept ref as prop (React 19), spread all props
+function GoodButton({ ref, ...props }: Props & { ref?: React.Ref<HTMLButtonElement> }) {
+  return <button ref={ref} {...props} />;
+}
 ```
 
 ### Event propagation in portaled content

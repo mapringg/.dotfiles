@@ -2,6 +2,14 @@
 
 Add React Native (New Architecture) best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `package.json` with `react-native`
+- `metro.config.js` or `metro.config.ts`
+- `android/` and `ios/` directories
+- `app.json` with `expo` or React Native config
+- **Note**: Skip `init-react` if React Native detected (different patterns)
+
 ## Target File
 
 `.claude/rules/reactnative.md`
@@ -89,7 +97,7 @@ const styles = StyleSheet.create({
 
 **Touch targets**: 44pt (iOS), 48dp (Android)
 
-**Navigation**: Use `\@react-navigation/native-stack` (native performance)
+**Navigation**: Use `@react-navigation/native-stack` (native) or Expo Router (file-based routing for Expo projects)
 
 **Safe areas**: `useSafeAreaInsets()` hook, not SafeAreaView component
 
@@ -217,7 +225,7 @@ await waitFor(() => expect(onSubmit).toHaveBeenCalled());
 | Server state | TanStack Query |
 | Client state | Zustand |
 | Storage | MMKV |
-| Navigation | native-stack + typed params |
+| Navigation | Expo Router or native-stack + typed params |
 | Animations | Reanimated 3 / Animated + useNativeDriver |
 | Safe areas | `useSafeAreaInsets()` |
 <!-- RULES_END -->

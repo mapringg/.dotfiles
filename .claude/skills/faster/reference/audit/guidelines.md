@@ -6,6 +6,7 @@ Audit codebase against coding guidelines using parallel subagents.
 
 1. **Scan for guidelines**:
    - Check `.claude/rules/*.md` in current project
+   - Check for `AGENTS.md` files at project root and in subdirectories (Cursor-style coding guidelines)
    - For monorepos, also check `../../.claude/rules/` at root
 
 2. **Ask the user** (allow multiple selections):
@@ -44,7 +45,7 @@ Audit this codebase for [CATEGORY] guideline compliance.
 
 ## Search Strategy
 - Use Grep to find pattern violations
-- Use Glob to check file organization
+- Use glob to check file organization
 - Read key files to verify patterns
 - Focus on src/, app/, lib/ - skip vendor/, node_modules/
 

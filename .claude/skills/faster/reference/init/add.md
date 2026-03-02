@@ -35,6 +35,11 @@ Create `~/.claude/skills/faster/reference/init/helpers/init-{name}.md` using thi
 
 Add {Name} best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- {DETECTION_INDICATORS — files, packages, config entries that signal this framework}
+- {ADDITIONAL_INDICATORS}
+
 ## Target File
 
 `.claude/rules/{name}.md`
@@ -67,22 +72,7 @@ paths: "{PATH_PATTERN}"
 - Omit the frontmatter section entirely if rules apply broadly
 - Keep ALL code examples — these are the most valuable part
 
-## Phase 3: Update /init Setup
-
-Add detection logic to `~/.claude/skills/faster/reference/init/setup.md`:
-
-1. Find the "## Phase 2: Detect Stack" section
-2. Add a new detection block for the framework:
-
-```markdown
-### {Name}
-- {detection_indicators} (e.g., files, package.json entries, config files)
-- **If found**: Queue `init-{name}`
-```
-
-**Ask the user**: "How should I detect {name} in a project? What files or package.json entries indicate it's being used?"
-
-## Phase 4: Summary
+## Phase 3: Summary
 
 Report to the user:
 
@@ -90,12 +80,11 @@ Report to the user:
 Created:
   - ~/.claude/skills/faster/reference/init/helpers/init-{name}.md
 
-Updated:
-  - /init setup — added {Name} detection
-
 Run `/init` in any project to auto-detect and apply {Name} best practices.
 The rules will be written to `.claude/rules/{name}.md`
 ```
+
+**Note**: No need to update `setup.md` — it dynamically discovers helpers by scanning the `helpers/` directory and reading each helper's `## Detection` section.
 
 ## Guidelines for Content Formatting
 
