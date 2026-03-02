@@ -33,40 +33,19 @@ Examine project root to identify the technology stack:
 
 **Output**: Create a stack summary listing primary language, framework(s), and notable tools.
 
-## Phase 2: Parallel Audit
+## Phase 2: Parallel Audit (Using Subagents)
 
-Systematically review source files. For large codebases:
+**Launch 5 subagents in parallel.** See [idiomatic-subagents.md](idiomatic-subagents.md) for detailed prompts.
 
-- Prioritize core application code over tests/configs
-- Sample representative files from each major directory
-- Focus on recent/active files when git history available
+| Subagent | Focus |
+|----------|-------|
+| 1 | Language idioms (preferred constructs, error handling, type usage) |
+| 2 | Framework conventions (directory structure, component patterns, routing, ORM) |
+| 3 | Anti-patterns (reinventing framework features, legacy patterns, ignored conventions) |
+| 4 | Performance idioms (framework-specific optimizations, memory/resource management) |
+| 5 | Consistency (inconsistent style within the codebase, mixed paradigms) |
 
-Check code against idioms for the detected stack. Categories to evaluate:
-
-**Language Idioms**
-
-- Preferred constructs (e.g., list comprehensions in Python, pattern matching in Rust)
-- Error handling patterns (e.g., Go's explicit errors, Rust's Result type)
-- Naming conventions (snake_case, camelCase, etc.)
-- Type usage and annotations
-- Memory/resource management patterns
-
-**Framework Conventions**
-
-- Directory structure and file organization
-- Component/class patterns (e.g., Laravel service providers, React hooks)
-- Configuration approaches
-- Routing conventions
-- Database/ORM patterns
-- Testing patterns
-
-**Common Anti-Patterns to Flag**
-
-- Reinventing framework functionality
-- Ignoring framework conventions without reason
-- Legacy patterns when modern alternatives exist
-- Inconsistent style within the codebase
-- Missing framework-specific optimizations
+Pass tech stack and existing guidelines from Phase 1 to each subagent.
 
 ## Phase 3: Prioritize Findings
 

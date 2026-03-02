@@ -171,7 +171,7 @@ Algorithm:
 
 ## FALSE POSITIVES - Don't flag
 
-- Test files (*_test.*, *.spec.*, **tests**/*)
+- Test files (*_test.*, *.spec.*, \_\_tests\_\_/*)
 - Config files (*.config.js, .eslintrc, etc.)
 - Build scripts
 - Migration files

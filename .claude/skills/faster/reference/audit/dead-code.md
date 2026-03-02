@@ -21,7 +21,7 @@ Dead code degrades comprehensibility and introduces maintenance risk. Research (
 
 1. **Identify entry points**:
    - Package.json main/exports/bin
-   - Index files (index.ts, index.js, **init**.py)
+   - Index files (index.ts, index.js, \_\_init\_\_.py)
    - Framework entry points (app.ts, main.py, App.vue)
    - Route definitions
    - Test entry points

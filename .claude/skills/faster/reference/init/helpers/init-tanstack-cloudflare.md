@@ -2,6 +2,11 @@
 
 Add TanStack Start/Router + Cloudflare Workers deployment best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `wrangler.jsonc` or `wrangler.toml` present
+- **AND** `package.json` with `@tanstack/react-start` or `@tanstack/react-router`
+
 ## Target File
 
 `.claude/rules/tanstack-cloudflare.md`
@@ -149,7 +154,7 @@ export default defineConfig({
 
 ### Accessing Bindings
 
-**Always use module import** (NOT `getContext("cloudflare")` — issue #3468):
+**Always use module import** (NOT `getContext("cloudflare")`):
 
 ```typescript
 import { createServerFn } from "@tanstack/react-start"
@@ -352,15 +357,18 @@ async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise
 **Usage**:
 
 ```typescript
-// Text generation
-const response = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', {
+// Text generation (check Workers AI docs for current model catalog)
+const response = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', {
   prompt: 'Classify this text...',
   max_tokens: 100,
 })
 
 // Vision (image analysis)
 const imageBuffer = await fetch(imageUrl).then(r => r.arrayBuffer())
-const base64 = btoa(String.fromCharCode(...new Uint8Array(imageBuffer)))
+const bytes = new Uint8Array(imageBuffer)
+let binary = ''
+for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i])
+const base64 = btoa(binary)
 const response = await env.AI.run('@cf/meta/llama-3.2-11b-vision-instruct', {
   messages: [{
     role: 'user',
@@ -603,7 +611,7 @@ npx wrangler d1 execute my-db --remote --command "SELECT * FROM table LIMIT 10"
 
 | Issue | Fix |
 |-------|-----|
-| `getContext("cloudflare")` empty in SSR | Use `import { env } from "cloudflare:workers"` |
+| `getContext("cloudflare")` not working | Use `import { env } from "cloudflare:workers"` |
 | Internal API route calls fail in server fns | Use direct database calls |
 | WebSocket packages (Supabase) broken | Use HTTP-based alternatives or module aliases |
 | DB drivers requiring WebSockets | Use Cloudflare-compatible (Neon HTTP, D1) |

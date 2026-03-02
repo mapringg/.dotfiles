@@ -29,37 +29,16 @@ Based on the fetched content, determine which init command this relates to.
 
 **Detection strategy:**
 
-1. **Check the domain** for framework hints:
+1. **List available inits** dynamically:
 
-   | Domain pattern | Likely init |
-   |----------------|-------------|
-   | react.dev, reactjs.org | init-react |
-   | vuejs.org | init-vue |
-   | laravel.com | init-laravel-app |
-   | livewire.laravel.com | init-livewire |
-   | inertiajs.com | init-inertia |
-   | tauri.app | init-tauri |
-   | tailwindcss.com | init-tailwind |
-   | charm.sh | init-charm |
-   | filamentphp.com | init-filament |
-   | doc.qt.io, pyside | init-pyside6 |
-   | swift.org, developer.apple.com/swift | init-swift |
-   | reactnative.dev | init-reactnative |
-   | tanstack.com/query | init-tanstack-query |
+   Scan `~/.claude/skills/faster/reference/init/helpers/init-*.md` to discover all available init commands. Extract each helper's name from the filename.
 
-2. **Analyze content keywords** if domain doesn't match:
-   - Look for framework names, imports, package names
-   - Match against existing init commands
+2. **Match content to an init**:
+   - Analyze the fetched URL's domain and content keywords (framework names, imports, package names)
+   - Match against the discovered init helper names
+   - If multiple could match, pick the most specific one
 
-3. **List available inits** for reference:
-
-   ```
-   ls ~/.claude/skills/faster/reference/init/helpers/init-*.md
-   ```
-
-   Read the list and match content to the most appropriate one
-
-4. **If no clear match**:
+3. **If no clear match**:
    - Ask user which init this should apply to
    - Or offer to create a new init command
 

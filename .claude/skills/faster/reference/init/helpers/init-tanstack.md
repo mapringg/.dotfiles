@@ -2,6 +2,10 @@
 
 Add TanStack Start/Router best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `package.json` with `@tanstack/react-start` or `@tanstack/react-router`
+
 ## Target File
 
 `.claude/rules/tanstack.md`

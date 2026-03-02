@@ -27,11 +27,15 @@ Ask a follow-up:
 
 - **Question**: "What would you like to audit?"
 - **Options**:
-  - **All audits** — "Run all 8 audit types sequentially"
-  - **Boundaries** — "Layer violations, improper dependencies"
-  - **Dead code** — "Unused exports, orphaned files, commented-out code"
-  - **State drift** — "Impossible states, boolean explosions, duplicated state"
-  - If user picks "Other", present the remaining types: errors, idiomatic, names, todo, guidelines
+  1. **All audits** — "Run all 8 audit types sequentially"
+  2. **Boundaries** — "Layer violations, improper dependencies"
+  3. **Dead code** — "Unused exports, orphaned files, commented-out code"
+  4. **State drift** — "Impossible states, boolean explosions, duplicated state"
+  5. **Errors** — "Empty catches, lost exception chains, unhandled promises"
+  6. **Idiomatic** — "Non-idiomatic language and framework usage"
+  7. **Names** — "Vague, inconsistent, or confusing identifier names"
+  8. **TODOs** — "Stale TODOs, missing context, forgotten FIXMEs"
+  9. **Guidelines** — "Audit against project coding guidelines"
 
 Then read the corresponding audit reference file and follow its instructions:
 
@@ -93,19 +97,21 @@ Then read the corresponding file and follow its instructions:
 
 Ask a follow-up:
 
-- **Question**: "What do you want to ship?"
+- **Question**: "What do you want to do?"
 - **Options**:
   1. **Full pipeline** — "Run tests, clean up false starts, then commit"
   2. **Skip tests** — "Clean up and commit without running tests"
   3. **Just commit** — "Generate a commit message and commit"
+  4. **Review changes** — "Review a PR or diff for bugs, security, and guidelines"
 
-Then execute the chosen steps sequentially:
+Then execute the chosen steps:
 
 | Choice | Steps |
 |--------|-------|
 | Full pipeline | [tests.md](reference/ship/tests.md) → [finalize.md](reference/ship/finalize.md) → [commit.md](reference/ship/commit.md) |
 | Skip tests | [finalize.md](reference/ship/finalize.md) → [commit.md](reference/ship/commit.md) |
 | Just commit | [commit.md](reference/ship/commit.md) |
+| Review changes | [review.md](reference/ship/review.md) |
 
 ### Think
 
@@ -116,6 +122,7 @@ Ask a follow-up:
   1. **Product research** — "UX patterns, user behavior, design best practices for your product"
   2. **Technical research** — "Security, performance, testing best practices for your stack"
   3. **Refine an idea** — "Turn a vague idea into a concrete spec through interviewing"
+  4. **Debug** — "Systematically diagnose and fix a bug or broken behavior"
 
 Then read the corresponding file and follow its instructions:
 
@@ -124,3 +131,4 @@ Then read the corresponding file and follow its instructions:
 | Product research | [product.md](reference/think/product.md) |
 | Technical research | [stack.md](reference/think/stack.md) |
 | Refine an idea | [interview.md](reference/think/interview.md) |
+| Debug | [debug.md](reference/think/debug.md) |
