@@ -1,8 +1,8 @@
-# Update Init Command
+# Update Init Helper
 
-Update existing init command.
+Update an existing init helper. This workflow is accessed via `/faster` → Init → Update an init.
 
-Update an existing init helper with new content. Updates:
+Updates:
 
 1. The master init helper at `~/.claude/skills/faster/reference/init/helpers/init-{name}.md`
 2. The current project's `.claude/rules/{name}.md` (if it exists)
@@ -14,11 +14,11 @@ If the init name is not already known from context, ask the user which init to u
 ## Phase 1: Validate the Init Command
 
 1. Determine the init name from context or by asking the user
-   - If empty, list available init commands (glob `~/.claude/skills/faster/reference/init/helpers/init-*.md`) and ask which one to update
+   - If empty, list available init helpers (glob `~/.claude/skills/faster/reference/init/helpers/init-*.md`) and ask which one to update
    - Strip any leading `init-` prefix if user included it
 
 2. Check that `~/.claude/skills/faster/reference/init/helpers/init-{name}.md` exists
-   - If not found, show available commands and ask user to pick one
+   - If not found, show available helpers and ask user to pick one
 
 ---
 
@@ -141,6 +141,6 @@ Changes made:
 
 ## Notes
 
-- This command modifies the master init helper, affecting future `/init` runs
+- This modifies the master init helper, affecting future init setup runs
 - If user's update is unclear, ask clarifying questions
 - Backup is not needed — git tracks changes to `~/.claude/skills/`
