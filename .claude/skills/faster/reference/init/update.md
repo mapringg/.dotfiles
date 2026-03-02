@@ -32,6 +32,9 @@ Ask the user:
 
 1. **Extract from conversation** — "I'll analyze our conversation and extract relevant learnings to add"
 2. **Manual input** — "You describe or paste the content to add"
+3. **Research** — "I'll search the web for latest best practices and updates"
+
+If the user provided a URL in context, skip this question and go directly to Phase 3c using that URL.
 
 ---
 
@@ -83,6 +86,55 @@ If the user chose "Manual input":
 
 ---
 
+## Phase 3c: Research
+
+If the user chose "Research" or provided a URL:
+
+1. **Read the current init file** to understand existing content
+
+2. **Gather new information**:
+
+   **If user provided a URL**:
+   - Fetch the URL and extract best practices, guidelines, patterns, and code examples
+   - Supplement with web search if the URL doesn't fully cover the topic
+
+   **If no URL** (web search):
+   - Search for latest {Name} documentation and release notes
+   - Official best practices guides
+   - Breaking changes from recent versions
+   - Community-recommended patterns
+   - Performance tips and common mistakes
+   - TypeScript/type safety improvements
+
+3. **Compare findings** with current init content:
+   - **Already covered**: Topics/rules we already address
+   - **New content**: Guidelines, patterns, or examples not in our init
+   - **Outdated content**: Anything that needs updating
+   - **Conflicts**: Anything that contradicts our current advice
+
+4. **Present findings** to the user:
+
+   ```
+   ## {Name} Research Results
+
+   ### Already Covered
+   - [summary of good coverage]
+
+   ### Recommended Additions
+   1. [specific addition with code example]
+   2. [another addition]
+
+   ### Updates Needed
+   - [specific changes to existing content]
+   ```
+
+5. Ask: "Would you like me to apply these updates?"
+   - Let user approve all, select specific items, or skip
+
+6. If approved, proceed to Phase 4
+
+---
+
 ## Phase 4: Integrate and Confirm
 
 ### 4a. Draft the Integration
@@ -121,8 +173,8 @@ Once confirmed:
 
 ```
 Updated:
-  ✓ ~/.claude/skills/faster/reference/init/helpers/init-{name}.md — master init helper
-  ✓ ./.claude/rules/{name}.md — project rules file  (or "skipped — file doesn't exist")
+  - ~/.claude/skills/faster/reference/init/helpers/init-{name}.md — master init helper
+  - ./.claude/rules/{name}.md — project rules file  (or "skipped — file doesn't exist")
 
 Changes made:
   - [Brief description of what was added/changed]
