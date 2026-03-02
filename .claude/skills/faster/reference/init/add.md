@@ -4,31 +4,55 @@ Create a new init helper. This workflow is accessed via `/faster` → Init → C
 
 ## Instructions
 
-Create a new init helper following our established patterns. This workflow will guide you through the process interactively.
+Create a new init helper by autonomously researching best practices. The user provides the framework name (or it's inferred from context); you do the research.
 
 **Reference**: Follow `~/.claude/skills/faster/reference/init/conventions.md` for the standard rules file workflow.
 
-## Phase 1: Gather Information
+## Phase 1: Determine Name and Source
 
-**Ask the user these questions in order:**
-
-1. **Name**: "What should the init helper be called? (e.g., `nextjs`, `svelte`, `django`)"
+1. **Name**: Infer from context, or ask: "What framework/tool should I create an init for?"
    - This becomes `init-{name}.md` in the helpers directory
    - Use lowercase, no spaces
+   - Verify it doesn't conflict with existing helpers (glob `~/.claude/skills/faster/reference/init/helpers/init-*.md`)
 
-2. **Path pattern**: "What file types do these rules apply to? (e.g., `**/*.{tsx,jsx}` for React, or leave blank if rules apply broadly)"
+2. **Source**: Check if the user provided a URL
+   - **URL provided** → use it as the primary research source (Phase 2a)
+   - **No URL** → do autonomous web research (Phase 2b)
 
-3. **Content**: "Please provide the best practices content for {name}. Include:
-   - Code examples (these are critical!)
-   - Common mistakes
+---
+
+## Phase 2a: Research from URL
+
+1. Fetch the URL and extract best practices, guidelines, patterns, and code examples
+2. Supplement with a web search if the URL alone doesn't cover:
+   - Common mistakes and pitfalls
    - Performance tips
-   - Any framework-specific patterns
+   - TypeScript patterns
+   - Detection indicators (what files/packages signal this framework)
 
-   I'll format it according to our template."
+---
 
-## Phase 2: Create the Init Command
+## Phase 2b: Autonomous Web Research
 
-Create `~/.claude/skills/faster/reference/init/helpers/init-{name}.md` using this template:
+Search the web for the framework's latest best practices:
+
+1. **Official documentation** — current version features, API patterns, recommended usage
+2. **Best practices guides** — from official docs and reputable community sources
+3. **Common mistakes** — pitfalls, anti-patterns, things beginners get wrong
+4. **Performance tips** — optimization patterns specific to this framework
+5. **TypeScript integration** — type patterns, generics usage, common type issues
+6. **Code examples** — idiomatic usage patterns (these are the most valuable part)
+
+Also determine:
+
+- **Path pattern**: What file types do these rules apply to? (e.g., `**/*.{tsx,jsx}` for React, blank if broad)
+- **Detection indicators**: What files, packages, or config entries signal this framework?
+
+---
+
+## Phase 3: Draft the Init Helper
+
+Create the helper content using this template, then **present it to the user for review**:
 
 ```markdown
 # Initialize {Name} Best Practices
@@ -57,11 +81,11 @@ paths: "{PATH_PATTERN}"
 
 # {Name} Rules
 
-{USER_PROVIDED_CONTENT}
+{RESEARCHED_CONTENT}
 
 ### Common Mistakes
 
-{EXTRACT_OR_ASK_FOR_COMMON_MISTAKES}
+{COMMON_MISTAKES}
 <!-- RULES_END -->
 ```
 
@@ -72,9 +96,15 @@ paths: "{PATH_PATTERN}"
 - Omit the frontmatter section entirely if rules apply broadly
 - Keep ALL code examples — these are the most valuable part
 
-## Phase 3: Summary
+**Present the draft to the user** — show the full content and ask: "Does this look right, or would you like me to adjust anything?"
 
-Report to the user:
+If the user wants changes, revise and confirm again.
+
+---
+
+## Phase 4: Write and Report
+
+Once confirmed, write to `~/.claude/skills/faster/reference/init/helpers/init-{name}.md`, then report:
 
 ```
 Created:
@@ -86,21 +116,17 @@ The rules will be written to `.claude/rules/{name}.md`
 
 **Note**: No need to update `setup.md` — it dynamically discovers helpers by scanning the `helpers/` directory and reading each helper's `## Detection` section.
 
-## Guidelines for Content Formatting
-
-When formatting the user's content:
+## Guidelines for Content
 
 1. **Keep ALL code examples** — these are the most valuable part
 2. **Use tables** for quick reference where appropriate
 3. **Structure with ### subheadings** for different topics
-4. **Add "Common Mistakes" section** if not provided — ask user for common pitfalls
+4. **Always include a "Common Mistakes" section**
 5. **Add "Quick Reference" table** if the content is substantial
-6. Ensure code examples have proper syntax highlighting (```typescript,```php, etc.)
+6. Ensure code examples have proper syntax highlighting (```typescript, ```php, etc.)
 
 ## Notes
 
-- Always ask for the name first, then path pattern, then content
-- The user may provide raw notes — format them nicely
-- If content seems incomplete, ask clarifying questions
-- Test that the helper name doesn't conflict with existing helpers
+- Research autonomously — don't ask the user to provide content
+- The user reviews and corrects the output, not the input
 - Rules files are idempotent — safe to run repeatedly to update
