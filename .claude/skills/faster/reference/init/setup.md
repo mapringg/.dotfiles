@@ -1,6 +1,6 @@
 # Initialize All Applicable Best Practices
 
-Run all applicable init helpers for the detected stack.
+Run all applicable init helpers for the detected stack. This workflow is accessed via `/faster` → Init → Initialize project.
 
 ## Instructions
 
@@ -22,7 +22,7 @@ Analyze the current repository to detect which frameworks and tools are in use, 
 **Why this matters:**
 
 - Guidelines evolve over time
-- Running `/init` ensures all guidelines are current
+- Running init setup ensures all guidelines are current
 - No need to check if content "matches" — just overwrite
 
 ## Phase 1: Check for Monorepo
@@ -51,7 +51,7 @@ Set up layered rules for each workspace? [Y/n]
 ```
 
 - If user confirms → set up layered rules for each workspace (run applicable inits per workspace)
-- If user declines → continue with `/init` (will only set up root rules)
+- If user declines → continue with root-level init only (will only set up root rules)
 
 ## Phase 2: Discover Available Helpers & Detect Stack
 
@@ -59,7 +59,7 @@ Set up layered rules for each workspace? [Y/n]
 
 ### Step 1: Scan for helpers
 
-List all files in `~/.claude/skills/faster/reference/init/helpers/init-*.md` to discover every available init command.
+List all files in `~/.claude/skills/faster/reference/init/helpers/init-*.md` to discover every available init helper.
 
 ### Step 2: Read detection rules
 

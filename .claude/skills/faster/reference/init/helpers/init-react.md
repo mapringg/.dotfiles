@@ -2,7 +2,7 @@
 
 Add React 19 + TypeScript best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
-**Note**: These rules assume client components only — no React Server Components. For Base UI components, `/init` will detect and apply those rules separately.
+**Note**: These rules assume client components only — no React Server Components. For Base UI components, init setup will detect and apply those rules separately.
 
 ## Detection
 
