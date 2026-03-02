@@ -2,13 +2,18 @@
 
 Add MCP TypeScript best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `package.json` with `@modelcontextprotocol/sdk`
+- `.ts` files importing from `@modelcontextprotocol/sdk`
+
 ## Target File
 
 `.claude/rules/mcp-typescript.md`
 
 ## Path Pattern
 
-`**/*.ts`
+`**/*.{ts,json}`
 
 ## Content
 
@@ -19,7 +24,7 @@ paths: "**/*.{ts,json}"
 
 # MCP TypeScript Rules
 
-MCP (Model Context Protocol) is the universal standard for connecting AI systems to external data and tools. These rules apply to MCP server development using the official TypeScript SDK.
+MCP (Model Context Protocol) is the universal standard for connecting AI systems to external data and tools. These rules apply to MCP server development using the official TypeScript SDK (`@modelcontextprotocol/sdk`). Requires `zod` as a peer dependency for input/output schema validation.
 
 ### Quick Reference
 

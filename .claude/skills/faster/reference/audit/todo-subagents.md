@@ -116,7 +116,7 @@ Boost priority based on file location:
 | /auth/, /security/ | +3 (security code) |
 | /api/, /public/ | +2 (exposed surface) |
 | /payment/, /billing/ | +3 (financial) |
-| /test/, /spec/, /**tests**/ | -1 (test code) |
+| /test/, /spec/, /\_\_tests\_\_/ | -1 (test code) |
 | /examples/, /demo/ | -2 (non-production) |
 | /vendor/, /node_modules/ | Skip entirely |
 
@@ -367,4 +367,5 @@ Group TODOs into actionable categories:
 - Oldest: X days (file:line)
 - By type: TODO: X, FIXME: X, HACK: X, etc.
 - Quality score distribution: ...
+```
 ````

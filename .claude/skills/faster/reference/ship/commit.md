@@ -8,7 +8,7 @@ Generate a concise git commit message from the current diff using conventional c
 2. If no staged changes, run `git status` to show the user what's available, then ask whether to stage all changes or select specific files
 3. Analyze the diff and generate a commit message
 4. Present the message to the user for approval — explain your reasoning briefly (e.g., why you chose the type/scope)
-5. Run `git commit` only after user confirms, using a HEREDOC for the message
+5. Run `git commit` only after user confirms
 
 ## Commit Message Format
 

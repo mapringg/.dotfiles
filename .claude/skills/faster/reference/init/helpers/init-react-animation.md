@@ -2,6 +2,12 @@
 
 Add React animation and simulation best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `package.json` with `motion` (Motion/Framer Motion) or `@react-spring/web` or `react-native-reanimated`
+- `.tsx`/`.jsx` files using `useSpring`, `useAnimatedStyle`, `motion.div`, or `requestAnimationFrame` patterns
+- **Note**: Also useful for any React project doing canvas/WebGL animation
+
 ## Target File
 
 `.claude/rules/react-animation.md`
@@ -207,10 +213,10 @@ elements.forEach((el, i) => {
 
 ## Animation Libraries
 
-### Framer Motion (Recommended for UI)
+### Motion (Recommended for UI)
 
 ```tsx
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -251,11 +257,11 @@ useEffect(() => {
 }, [])
 ```
 
-| Feature | Framer Motion | React Spring | GSAP |
-|---------|---------------|--------------|------|
-| Ease of use | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
-| Physics | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
-| Performance | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Feature | Motion | React Spring | GSAP |
+|---------|--------|--------------|------|
+| Ease of use | Best | Moderate | Moderate |
+| Physics | Good | Best | Moderate |
+| Performance | Good | Good | Best |
 | Exit animations | Built-in | Manual | Manual |
 | Timeline | Basic | Good | Excellent |
 

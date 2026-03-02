@@ -2,6 +2,12 @@
 
 Add Docker/Dockerfile best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
+## Detection
+
+- `Dockerfile` or `Dockerfile.*` in root or subdirectories
+- `docker-compose.yml` or `docker-compose.yaml`
+- `.dockerignore` file
+
 ## Target File
 
 `.claude/rules/dockerfile.md`
@@ -87,7 +93,7 @@ RUN pip install --no-cache /wheels/*
 
 ```dockerfile
 # syntax=docker/dockerfile:1
-FROM node:20-slim                       # Pinned version, slim variant
+FROM node:22-slim                       # Pinned version, slim variant
 LABEL maintainer="team@example.com"
 ENV NODE_ENV=production
 WORKDIR /app
@@ -97,7 +103,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./                   # Dependency manifests first
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 COPY . .                                # Source code last
 
@@ -137,10 +143,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
 Parallel stage execution:
 
 ```dockerfile
-FROM node:20-slim AS frontend
+FROM node:22-slim AS frontend
 RUN npm ci && npm run build
 
-FROM python:3.11-slim AS backend        # Builds in parallel
+FROM python:3.12-slim AS backend        # Builds in parallel
 RUN pip install -r requirements.txt
 
 FROM nginx:alpine
@@ -194,14 +200,14 @@ build/
 
 ```dockerfile
 # Multi-stage with non-root user
-FROM node:20-slim AS build
+FROM node:22-slim AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM node:20-slim
+FROM node:22-slim
 WORKDIR /app
 RUN groupadd -r app && useradd -r -g app app
 COPY --from=build --chown=app:app /app/dist ./dist

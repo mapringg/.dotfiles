@@ -51,7 +51,7 @@ LAYERS = {
 
 ## Phase 2: Parallel Audit (Using Subagents)
 
-**Launch these subagents in parallel.**
+**Launch 5 subagents in parallel.**
 
 Use the detailed prompt templates from [boundaries-subagents.md](boundaries-subagents.md). Each subagent covers one violation category:
 

@@ -2,7 +2,15 @@
 
 Add React 19 + TypeScript best practices. **Follow `~/.claude/skills/faster/reference/init/conventions.md` for standard file handling.**
 
-**Note**: These rules assume client components only — no React Server Components. For Base UI components, `/init-all` will detect and apply those rules separately.
+**Note**: These rules assume client components only — no React Server Components. For Base UI components, `/init` will detect and apply those rules separately.
+
+## Detection
+
+- `package.json` with `react` (v18+/v19+)
+- `.tsx` or `.jsx` files in `src/`
+- `vite.config.*` or `next.config.*` with React
+- **Skip if**: React Native detected (use `init-react-native` instead)
+- **Note**: If Next.js detected, mention that init-react assumes client components only
 
 ## Target File
 
@@ -33,7 +41,7 @@ paths: "**/*.{tsx,jsx}"
 **New Hooks**:
 
 ```typescript
-const [state, submitAction, isPending] = useActionState(serverAction, initialState);
+const [state, submitAction, isPending] = useActionState(action, initialState);
 const [optimisticName, setOptimisticName] = useOptimistic(currentName);
 const { pending, data } = useFormStatus();  // Must be in child of <form>
 const data = use(dataPromise);  // Read promises/context conditionally

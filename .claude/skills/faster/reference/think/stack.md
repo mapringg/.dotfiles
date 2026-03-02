@@ -130,7 +130,7 @@ Generate output in this format (replace placeholders with actual stack details):
 
 **START OF GENERATED PROMPT**
 
-I'm working on a web application with the following technology stack:
+I'm working on a project with the following technology stack:
 
 **Backend:**
 

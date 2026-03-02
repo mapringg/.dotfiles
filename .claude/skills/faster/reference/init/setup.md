@@ -47,317 +47,80 @@ This appears to be a monorepo:
   - Apps: apps/web, apps/api, apps/desktop
 
 Monorepos need layered .claude/rules/ at each level.
-Run `/init-monorepo` instead? [Y/n]
+Set up layered rules for each workspace? [Y/n]
 ```
 
-- If user confirms → set up layered rules for each workspace (if `/init-monorepo` exists, run it; otherwise handle manually)
+- If user confirms → set up layered rules for each workspace (run applicable inits per workspace)
 - If user declines → continue with `/init` (will only set up root rules)
 
-## Phase 2: Detect Stack
+## Phase 2: Discover Available Helpers & Detect Stack
 
-Check for these indicators:
+**This phase is fully dynamic — no hardcoded framework list.**
 
-### Laravel
+### Step 1: Scan for helpers
 
-- `artisan` file in root
-- `composer.json` with `laravel/framework`
-- `app/Http/Controllers/` directory
-- **If found**: Queue `init-laravel-app`
+List all files in `~/.claude/skills/faster/reference/init/helpers/init-*.md` to discover every available init command.
 
-### Laravel Package
+### Step 2: Read detection rules
 
-- `src/` directory exists
-- `composer.json` with `orchestra/testbench` in require-dev
-- **If found**: Queue `init-laravel-app-package`
-- **Note**: Skip `init-laravel-app` if Laravel Package detected (different patterns)
+For each discovered helper, read its `## Detection` section. This section contains:
 
-### Filament
+- Files, packages, or config entries that indicate the framework is in use
+- **Skip if** conditions (e.g., skip `init-react` if React Native detected)
+- **AND** conditions for combo inits (e.g., `init-tanstack-cloudflare` requires both TanStack AND wrangler config)
+- **Note** annotations with extra context
 
-- `composer.json` with `filament/filament`
-- `app/Filament/` directory
-- **If found**: Queue `init-filament`
+### Step 3: Detect frameworks in parallel
 
-### Livewire
+Launch **parallel subagents** to check the repository against all discovered detection rules. Group by category for efficiency:
 
-- `composer.json` with `livewire/livewire`
-- `app/Livewire/` directory or `resources/views/livewire/`
-- **If found**: Queue `init-livewire`
-
-### Inertia.js
-
-- `composer.json` with `inertiajs/inertia-laravel`
-- `package.json` with `@inertiajs/vue3` or `@inertiajs/react`
-- `HandleInertiaRequests.php` middleware
-- **If found**: Queue `init-inertia`
-
-### Spring Boot
-
-- `pom.xml` with `spring-boot-starter` dependencies
-- `build.gradle` or `build.gradle.kts` with `org.springframework.boot` plugin
-- `src/main/java/` directory structure
-- `application.yml` or `application.properties` in `src/main/resources/`
-- **If found**: Queue `init-spring-boot`
-
-### Vue
-
-- `package.json` with `vue` (v3+)
-- `.vue` files in `src/` or `resources/js/`
-- `vite.config.*` with Vue plugin
-- **If found**: Queue `init-vue`
-
-### React
-
-- `package.json` with `react` (v18+/v19+)
-- `.tsx` or `.jsx` files in `src/`
-- `vite.config.*` or `next.config.*` with React
-- **If found**: Queue `init-react`
-- **Note**: If Next.js detected, mention that init-react assumes client components only
-
-### Base UI
-
-- `package.json` with `@base-ui/react`
-- Files importing from `@base-ui/react/*`
-- **If found**: Queue `init-baseui`
-- **Note**: Base UI is a headless component library; typically used alongside React
-
-### React Native
-
-- `package.json` with `react-native`
-- `metro.config.js` or `metro.config.ts`
-- `android/` and `ios/` directories
-- `app.json` with `expo` or React Native config
-- **If found**: Queue `init-react-native`
-- **Note**: Skip `init-react` if React Native detected (different patterns)
-
-### Tauri
-
-- `src-tauri/` directory
-- `tauri.conf.json`
-- `Cargo.toml` with `tauri`
-- **If found**: Queue `init-tauri`
-
-### NativePHP Desktop
-
-- `composer.json` with `nativephp/desktop`
-- `config/nativephp.php` file
-- `app/Providers/NativeAppServiceProvider.php`
-- **If found**: Queue `init-nativephp-desktop`
-
-### Go CLI (Cobra)
-
-- `go.mod` file present
-- `github.com/spf13/cobra` in go.mod dependencies
-- **If found**: Queue `init-go-cli`
-- **Note**: Skip if Charm (Bubble Tea) detected (use `init-charm` for TUI apps instead)
-
-### Charm (Bubble Tea)
-
-- `go.mod` with `github.com/charmbracelet/bubbletea`
-- `github.com/charmbracelet/lipgloss`
-- `github.com/charmbracelet/huh`
-- **If found**: Queue `init-charm`
-- **Note**: If both Cobra and Charm detected, use `init-charm` (TUI patterns supersede basic CLI)
-
-### libvaxis (Zig TUI)
-
-- `build.zig.zon` with `libvaxis` dependency
-- `.zig` files with `\@import("vaxis")` or `\@import("vxfw")`
-- **If found**: Queue `init-zig-libvaxis`
-
-### Tailwind CSS
-
-- `package.json` with `tailwindcss` or `@tailwindcss/vite` or `@tailwindcss/postcss`
-- `tailwind.config.js` or `tailwind.config.ts` (v3) or CSS file with `\@import "tailwindcss"` (v4)
-- `postcss.config.*` with tailwindcss plugin
-- **If found**: Queue `init-tailwind`
-
-### Ink (React CLI)
-
-- `package.json` with `ink`
-- `.tsx` files with Ink imports (`import { Box, Text } from 'ink'`)
-- **If found**: Queue `init-ink`
-- **Note**: Skip `init-react` if Ink detected (different patterns for CLI vs web)
-
-### TanStack Query
-
-- `package.json` with `@tanstack/react-query`
-- Files importing from `@tanstack/react-query` (useQuery, useMutation)
-- **If found**: Queue `init-tanstack-query`
-
-### Tauri + TanStack Query + Specta
-
-- `src-tauri/` directory (Tauri detected)
-- **AND** `package.json` with `@tanstack/react-query`
-- **AND** `Cargo.toml` with `tauri-specta` or `specta` in dependencies
-- **If found**: Queue `init-tauri-tanstack-specta`
-- **Note**: This is a combo init for the integration glue; also queue `init-tauri` and `init-tanstack-query` separately
-
-### TanStack (Start/Router)
-
-- `package.json` with `@tanstack/react-start` or `@tanstack/react-router`
-- **If found**: Queue `init-tanstack`
-
-### TanStack + Cloudflare
-
-- `wrangler.jsonc` or `wrangler.toml` present
-- **AND** `package.json` with `@tanstack/react-start` or `@tanstack/react-router`
-- **If found**: Queue `init-tanstack-cloudflare`
-
-### Cloudflare Durable Objects
-
-- `wrangler.jsonc` or `wrangler.toml` with `durable_objects` configuration
-- `.ts` files extending `DurableObject` from `cloudflare:workers`
-- Files using `DurableObjectNamespace` or `ctx.acceptWebSocket()`
-- **If found**: Queue `init-cloudflare-durable-object`
-
-### MCP TypeScript
-
-- `package.json` with `@modelcontextprotocol/sdk`
-- `.ts` files importing from `@modelcontextprotocol/sdk`
-- **If found**: Queue `init-mcp-typescript`
-
-### Motion Canvas (4K Animation)
-
-- `package.json` with `@motion-canvas/core` or `@motion-canvas/2d`
-- `src/project.ts` with `makeProject` import
-- **If found**: Queue `init-motion4k`
-
-### Swift (Base)
-
-- `Package.swift` or `*.xcodeproj`/`*.xcworkspace` present
-- Any `.swift` files in the project
-- **If found**: Queue `init-swift` (universal Swift guidelines)
-- **Then**: Check for SwiftUI and/or AppKit below
-
-### SwiftUI
-
-- Swift project detected (above)
-- Any `.swift` file contains `import SwiftUI`
-- **If found**: Queue `init-swift-swiftui`
-- **Note**: Requires `init-swift` to run first
-
-### AppKit
-
-- Swift project detected (above)
-- Any `.swift` file contains `import AppKit`
-- **If found**: Queue `init-swift-appkit`
-- **Note**: Requires `init-swift` to run first; if both SwiftUI and AppKit detected, run both
-
-### PySide6 (Qt for Python)
-
-- `requirements.txt` or `pyproject.toml` with `PySide6`
-- `.py` files with `from PySide6` imports
-- **If found**: Queue `init-pyside6`
-
-### Dockerfile
-
-- `Dockerfile` or `Dockerfile.*` in root or subdirectories
-- `docker-compose.yml` or `docker-compose.yaml`
-- `.dockerignore` file
-- **If found**: Queue `init-dockerfile`
-
-### Swift-RS FFI
-
-- `Cargo.toml` with `swift-rs` in dependencies
-- `swift-lib/` or similar Swift package directory alongside `src-tauri/`
-- `build.rs` with `SwiftLinker` usage
-- **If found**: Queue `init-swift-rs-ffi`
-- **Note**: Typically used with Tauri; queue after `init-tauri`
-
-### Parallel Detection Strategy
-
-To speed up detection, launch **parallel subagents**:
-
-**Subagent 1: Backend Detection**
+**Subagent 1: Package manifest detection**
 
 ```
-Detect backend frameworks in this repository.
+Read package.json, composer.json, Cargo.toml, go.mod, pyproject.toml,
+requirements.txt, build.gradle, pom.xml, pubspec.yaml, mix.exs,
+Package.swift, build.zig.zon — whatever exists.
 
-Check for:
-- Laravel: artisan file, composer.json with laravel/framework, app/Http/Controllers/
-- Laravel Package: src/ + orchestra/testbench in composer.json
-- Filament: composer.json with filament/filament, app/Filament/
-- Livewire: composer.json with livewire/livewire, app/Livewire/
-- Inertia: composer.json with inertiajs/inertia-laravel
-- Spring Boot: pom.xml with spring-boot-starter, build.gradle with org.springframework.boot, src/main/java/, application.yml or application.properties
+Check for these package/dependency indicators:
+[list all package-based detection rules extracted from helpers]
 
-Return list of detected frameworks with evidence.
+Return which packages were found.
 ```
 
-**Subagent 2: Frontend Detection**
+**Subagent 2: File & directory detection**
 
 ```
-Detect frontend frameworks in this repository.
+Check for these files and directories:
+[list all file/directory-based detection rules extracted from helpers]
 
-Check for:
-- Vue: package.json with vue (v3+), .vue files
-- React: package.json with react (v18+/v19+), .tsx/.jsx files
-- React Native: package.json with react-native, metro.config.*, android/ + ios/
-- Base UI: package.json with @base-ui/react
-- Tailwind: package.json with tailwindcss, tailwind.config.* or CSS with \@import "tailwindcss"
-- TanStack Query: package.json with @tanstack/react-query
-- MCP TypeScript: package.json with @modelcontextprotocol/sdk
-- Motion Canvas: package.json with @motion-canvas/core or @motion-canvas/2d
-
-Return list of detected frameworks with evidence.
+Return which files/directories were found.
 ```
 
-**Subagent 3: Desktop/CLI Detection**
+**Wait for all subagents**, then match results against each helper's detection rules to build the queue.
 
-```
-Detect desktop and CLI frameworks in this repository.
+### Step 4: Apply skip/override rules
 
-Check for:
-- Tauri: src-tauri/, tauri.conf.json, Cargo.toml with tauri
-- NativePHP Desktop: composer.json with nativephp/desktop, config/nativephp.php
-- Go CLI (Cobra): go.mod with github.com/spf13/cobra
-- Charm (Bubble Tea): go.mod with github.com/charmbracelet/bubbletea
-- libvaxis (Zig TUI): build.zig.zon with libvaxis dependency
-- Ink: package.json with ink
-- PySide6: requirements.txt or pyproject.toml with PySide6
+After building the initial queue, apply **Skip if** rules:
 
-Return list of detected frameworks with evidence.
-```
-
-**Subagent 4: Swift Detection**
-
-```
-Detect Swift frameworks in this repository.
-
-Check for:
-- Swift base: Package.swift or *.xcodeproj/*.xcworkspace, .swift files
-- SwiftUI: .swift files with import SwiftUI
-- AppKit: .swift files with import AppKit
-- Swift-RS FFI: Cargo.toml with swift-rs, build.rs with SwiftLinker
-
-Return list of detected frameworks with evidence.
-```
-
-**Wait for all subagents to complete**, then merge results and proceed to Phase 3.
+- If a helper says "Skip if X detected", remove it from the queue when X is also queued
+- If a helper has **AND** conditions, only keep it if ALL conditions are met
 
 ## Phase 3: Check Existing State
 
 1. **Check for `.claude/rules/` directory**: Does it exist? What files are in it?
-2. **Check for CLAUDE.md, AGENTS.md, GEMINI.md**: Do they exist?
 
 **DO NOT check if files "already exist" or "match latest"** — just run all inits. They overwrite with current content.
 
 ### Check for Stale Rules
 
-Look for `.claude/rules/{name}.md` files for tech that's NO LONGER in the project:
-
-- `.claude/rules/tauri.md` but no `src-tauri/` directory
-- `.claude/rules/react.md` but no React in package.json
-- `.claude/rules/laravel.md` but no `artisan` file
-- `.claude/rules/vue.md` but no Vue in package.json
-- etc.
+Look for `.claude/rules/{name}.md` files that have a corresponding `init-{name}` helper, but the framework was NOT detected in Phase 2.
 
 If stale rules found, ask the user:
 
 ```
 Found rules for tech no longer in the project:
-  - .claude/rules/tauri.md — no src-tauri/ directory found
-  - .claude/rules/vue.md — no Vue in package.json
+  - .claude/rules/tauri.md — no Tauri indicators found
+  - .claude/rules/vue.md — no Vue indicators found
 
 Remove these stale files? [Y/n]
 ```
@@ -370,17 +133,17 @@ Present to the user:
 
 ```
 Detected stack:
-  - Laravel 11 (composer.json)
-  - Filament v3 (composer.json)
-  - Vue 3 (package.json)
+  - React 19 (package.json)
+  - Tailwind CSS v4 (package.json)
+  - TanStack Query (package.json)
 
 Will create/update:
-  - .claude/rules/laravel.md
-  - .claude/rules/filament.md
-  - .claude/rules/vue.md
+  - .claude/rules/react.md
+  - .claude/rules/tailwind.md
+  - .claude/rules/tanstack-query.md
 
 Stale rules to remove:
-  - .claude/rules/tauri.md (no longer in project)
+  - .claude/rules/vue.md (no longer in project)
 
 Proceed? [Y/n]
 ```
@@ -416,12 +179,7 @@ If user confirms:
    All 3 inits completed.
    ```
 
-4. **Run the built-in `/init` command**
-   - This sets up the foundational CLAUDE.md file
-   - Running after framework inits means `/init` can be aware of what's in `.claude/rules/`
-   - Avoids duplicate content between CLAUDE.md and framework-specific rules
-
-5. **Report completion with count**: "Ran X inits, created X rule files, removed Y stale files"
+4. **Report completion with count**: "Ran X inits, created X rule files, removed Y stale files"
 
 **Note on auto-loading:** Rules in `.claude/rules/` with `paths:` frontmatter automatically load when you work on matching files. No `@` imports needed in CLAUDE.md — this keeps context usage low by only loading relevant rules.
 
@@ -439,7 +197,12 @@ After initialization:
 - If no frameworks detected, inform user and suggest manual setup
 - Order matters: backend before frontend
 - If a framework is detected but uncertain, ask the user to confirm
-- If a framework is detected but no init helper exists at `~/.claude/skills/faster/reference/init/helpers/init-{name}.md`, note this in the report (e.g., "Detected Next.js but no init-nextjs helper available")
+
+## Adding New Helpers
+
+To add a new init helper, just create `~/.claude/skills/faster/reference/init/helpers/init-{name}.md` with a `## Detection` section. Setup will automatically discover and use it — no need to update this file.
+
+See [add.md](add.md) for the full workflow.
 
 ## Common Mistakes to Avoid
 
