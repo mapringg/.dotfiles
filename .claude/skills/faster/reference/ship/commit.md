@@ -31,7 +31,7 @@ Generate a concise git commit message from the current diff using conventional c
 - Separate from the subject with a blank line
 - Wrap lines at 72 characters
 - Explain **what** changed and **why**, not how
-- Use bullet points for multiple distinct changes
+- **Always use bullet points** — never write prose paragraphs
 
 ## Commit Types
 
