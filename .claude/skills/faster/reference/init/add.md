@@ -1,10 +1,6 @@
 # Add New Init Helper
 
-Create a new init helper. This workflow is accessed via `/faster` → Init → Create new init.
-
-## Instructions
-
-Create a new init helper by autonomously researching best practices. The user provides the framework name (or it's inferred from context); you do the research.
+Create a new init helper by autonomously researching best practices. The user provides the framework name (or it's inferred from context); you do the research. This workflow is accessed via `/faster` → Init → Create new init.
 
 **Reference**: Follow `~/.claude/skills/faster/reference/init/conventions.md` for the standard rules file workflow.
 

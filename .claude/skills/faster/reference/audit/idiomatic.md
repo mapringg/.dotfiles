@@ -1,6 +1,20 @@
-# Audit Idiomatic
+# Idiomatic Audit
 
 Analyze a codebase and audit for idiomatic usage of detected languages and frameworks.
+
+## The Core Problem
+
+Non-idiomatic code fights against a language or framework's design philosophy, leading to harder maintenance, missed optimizations, and confusion for developers familiar with community conventions. Idiomatic code leverages built-in features and established patterns, improving readability and reducing defects.
+
+## What This Command Detects
+
+| Pattern | Description |
+|---------|-------------|
+| **Language Idiom Violations** | Using non-preferred constructs for the language |
+| **Framework Convention Violations** | Ignoring framework directory structure, patterns, or APIs |
+| **Anti-patterns** | Reinventing framework features or using legacy patterns |
+| **Performance Idiom Misses** | Missing framework-specific optimizations |
+| **Consistency Issues** | Mixed paradigms or inconsistent style within the codebase |
 
 ## Phase 1: Discover the Codebase
 
@@ -58,36 +72,31 @@ Pass tech stack and existing guidelines from Phase 1 to each subagent.
 
 ## Phase 4: Present Findings
 
-Structure findings as:
-
 ```markdown
-# Idiomatic Audit Report
+## Idiomatic Audit Results
 
-## Stack Detected
+### Stack Detected
 - **Language**: [language + version if detectable]
 - **Framework**: [framework(s)]
 - **Notable Tools**: [build tools, linters, etc.]
 
-## Summary
-[2-3 sentence overview of findings]
+### Summary
+- X language idiom violations
+- X framework convention violations
+- X anti-patterns
+- X performance idiom misses
+- X consistency issues
 
-## Guideline Conflicts
+### Guideline Conflicts
 [If .claude/rules/ exists, note any intentional deviations from community idioms]
-[e.g., "Your guidelines specify X, but idiomatic Go would be Y — this appears intentional"]
 
-## Findings
+### P1 Critical
+| Issue | Location | Current | Idiomatic |
+|-------|----------|---------|-----------|
+| ... | file:line | ... | ... |
 
-### Critical (should fix)
-[Issues that violate core idioms or cause problems]
-
-### Recommended (improve quality)
-[Patterns that could be more idiomatic]
-
-### Minor (style preferences)
-[Small improvements, optional]
-
-## Positive Patterns Observed
-[What the codebase does well idiomatically]
+### P2 High
+...
 ```
 
 ## Phase 5: Fix Options
@@ -99,11 +108,10 @@ Structure findings as:
 
 When fixing: show before/after with idiomatic alternative, explain the benefit.
 
-## Guidelines
+## Notes
 
 - Be specific: cite file paths and line numbers
 - Explain why: describe the idiomatic alternative and its benefits
-- Prioritize: focus on impactful improvements over nitpicks
 - Respect context: some "non-idiomatic" choices may be intentional
 - Consider consistency: existing patterns in the codebase may take precedence over general idioms
 - Defer to project rules: if `.claude/rules/` contradicts an idiom, note it but don't flag as a violation

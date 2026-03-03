@@ -1,3 +1,8 @@
+---
+name: debug
+description: Systematically diagnose and fix bugs. Use when the user reports a bug, error, crash, wrong behavior, or asks to debug something.
+---
+
 # Debug — Structured Troubleshooting
 
 Systematic debugging workflow for when something is broken.

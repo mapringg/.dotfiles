@@ -2,11 +2,11 @@
 
 Detect and fix state synchronization issues, impossible states, and state management anti-patterns.
 
-## What This Command Detects
+## The Core Problem
 
 State drift occurs when application state becomes inconsistent, duplicated, or poorly modeled. This leads to subtle bugs where the UI shows stale data, impossible combinations occur, or changes in one place don't propagate to another.
 
-### Categories of State Drift
+## What This Command Detects
 
 | Category | Description |
 |----------|-------------|

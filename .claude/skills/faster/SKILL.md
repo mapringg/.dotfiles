@@ -1,6 +1,6 @@
 ---
 name: faster
-description: Unified skill hub — audit, CI, init, ship, and think. Asks drill-down questions to route to the right workflow.
+description: Runs code audits, manages CI pipelines, initializes project rules, ships commits, and researches best practices. Use when asked to audit code quality, fix or add CI, set up project config, commit work, or think through an idea.
 ---
 
 # Faster
@@ -14,7 +14,7 @@ One skill to rule them all. Ask the user what they need, then drill down.
 - **Question**: "What do you want to do?"
 - **Options**:
   1. **Audit** — "Run code quality audits (boundaries, dead code, drift, errors, naming, etc.)"
-  2. **Fix CI** — "Diagnose and fix failing GitHub Actions"
+  2. **CI** — "Manage your CI pipeline"
   3. **Init** — "Set up project rules or manage init helpers"
   4. **Ship** — "Run tests, clean up, and commit your work"
   5. **Think** — "Research best practices or refine a vague idea into a spec"
@@ -50,7 +50,7 @@ Then read the corresponding audit reference file and follow its instructions:
 | todo | [todo.md](reference/audit/todo.md) |
 | guidelines | [guidelines.md](reference/audit/guidelines.md) |
 
-Some audit files reference additional subagent prompt files (e.g., `boundaries-subagents.md`). Read those too when instructed.
+All audit files (except guidelines) have a corresponding subagent prompt file (e.g., `boundaries-subagents.md`). Read those too when instructed by the audit file.
 
 **If running all audits**: Execute sequentially. Present findings after each audit. At the end, provide a combined summary:
 
@@ -65,9 +65,21 @@ Some audit files reference additional subagent prompt files (e.g., `boundaries-s
 | **Total** | X | X | X | X |
 ```
 
-### Fix CI
+### CI
 
-Read and follow [gha.md](reference/gha.md).
+Ask a follow-up:
+
+- **Question**: "What do you want to do?"
+- **Options**:
+  1. **Fix CI** — "Diagnose and fix failing GitHub Actions"
+  2. **Add CI** — "Set up a new GitHub Actions workflow"
+
+Then read the corresponding file and follow its instructions:
+
+| Choice | Read this file |
+|--------|---------------|
+| Fix CI | [fix.md](reference/ci/fix.md) |
+| Add CI | [add.md](reference/ci/add.md) |
 
 ### Init
 
@@ -98,7 +110,6 @@ Ask a follow-up:
   1. **Full pipeline** — "Run tests, clean up false starts, then commit"
   2. **Skip tests** — "Clean up and commit without running tests"
   3. **Just commit** — "Generate a commit message and commit"
-  4. **Review changes** — "Review a PR or diff for bugs, security, and guidelines"
 
 Then execute the chosen steps:
 
@@ -107,7 +118,6 @@ Then execute the chosen steps:
 | Full pipeline | [tests.md](reference/ship/tests.md) → [finalize.md](reference/ship/finalize.md) → [commit.md](reference/ship/commit.md) |
 | Skip tests | [finalize.md](reference/ship/finalize.md) → [commit.md](reference/ship/commit.md) |
 | Just commit | [commit.md](reference/ship/commit.md) |
-| Review changes | [review.md](reference/ship/review.md) |
 
 ### Think
 
@@ -118,7 +128,6 @@ Ask a follow-up:
   1. **Product research** — "UX patterns, user behavior, design best practices for your product"
   2. **Technical research** — "Security, performance, testing best practices for your stack"
   3. **Refine an idea** — "Turn a vague idea into a concrete spec through interviewing"
-  4. **Debug** — "Systematically diagnose and fix a bug or broken behavior"
 
 Then read the corresponding file and follow its instructions:
 
@@ -127,4 +136,3 @@ Then read the corresponding file and follow its instructions:
 | Product research | [product.md](reference/think/product.md) |
 | Technical research | [stack.md](reference/think/stack.md) |
 | Refine an idea | [interview.md](reference/think/interview.md) |
-| Debug | [debug.md](reference/think/debug.md) |
