@@ -1,16 +1,15 @@
 # Committing Changes
 
-Generate a concise git commit message from the current diff using conventional commit format.
+Generate a concise git commit message from the current diff using conventional commit format. Stage and commit changes with a well-crafted conventional commit message. Analyze the diff to determine the appropriate type, scope, and description, then present it for user approval before committing.
 
-## Workflow
+## Phase 1: Check Staged Changes
 
-1. Run `git diff --staged` to get the staged diff
-2. If no staged changes, run `git status` to show the user what's available, then ask whether to stage all changes or select specific files
-3. Analyze the diff and generate a commit message
-4. Present the message to the user for approval — explain your reasoning briefly (e.g., why you chose the type/scope)
-5. Run `git commit` only after user confirms
+1. **Run `git diff --staged`** to get the staged diff
+2. **If no staged changes**, run `git status` to show the user what's available, then ask whether to stage all changes or select specific files
 
-## Commit Message Format
+## Phase 2: Generate Commit Message
+
+Analyze the diff and generate a commit message using this format:
 
 ```
 <type>(<optional scope>): <description>
@@ -33,7 +32,7 @@ Generate a concise git commit message from the current diff using conventional c
 - Explain **what** changed and **why**, not how
 - **Always use bullet points** — never write prose paragraphs
 
-## Commit Types
+### Commit Types
 
 | Type | Description |
 |------|-------------|
@@ -49,10 +48,16 @@ Generate a concise git commit message from the current diff using conventional c
 | chore | Other changes that don't modify src or test files |
 | revert | Reverts a previous commit |
 
-## Rules
+## Phase 3: User Approval
 
-- Choose the type that best describes the overall change
-- Scope is optional — use it when the change is clearly scoped to a module/component
-- Focus on what the change does, not how
-- Exclude unnecessary details like file listings or translation strings
-- If the diff contains multiple unrelated changes, suggest splitting into separate commits
+1. **Present the message** to the user for approval
+2. **Explain your reasoning** briefly (e.g., why you chose the type/scope)
+3. **Run `git commit`** only after user confirms
+
+## Notes
+
+- **Choose the type that best describes the overall change**
+- **Scope is optional** — use it when the change is clearly scoped to a module/component
+- **Focus on what the change does**, not how
+- **Exclude unnecessary details** like file listings or translation strings
+- **If the diff contains multiple unrelated changes**, suggest splitting into separate commits

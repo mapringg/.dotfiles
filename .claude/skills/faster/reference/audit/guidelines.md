@@ -2,6 +2,21 @@
 
 Audit codebase against coding guidelines using parallel subagents.
 
+## The Core Problem
+
+Coding guidelines exist to enforce consistency, prevent known pitfalls, and encode team decisions — but without regular audits, codebases drift from their own rules. Violations accumulate silently, undermining the purpose of having guidelines in the first place.
+
+## What This Command Detects
+
+| Pattern | Description |
+|---------|-------------|
+| **Style Violations** | Naming, file structure, formatting deviations |
+| **Architecture Violations** | Patterns, anti-patterns, code location issues |
+| **Framework Violations** | Framework-specific rules not followed |
+| **Testing Gaps** | Test patterns, naming, coverage not meeting guidelines |
+| **Security Violations** | Validation, auth, injection prevention gaps |
+| **Performance Violations** | Caching, queries, optimization rules not followed |
+
 ## Phase 1: Discover the Codebase
 
 1. **Scan for guidelines**:
@@ -16,7 +31,7 @@ Audit codebase against coding guidelines using parallel subagents.
 
 3. **Report what was found** (e.g., `Found in .claude/rules/: laravel.md, react.md, tailwind.md`)
 
-## Phase 2: Parallel Audit
+## Phase 2: Parallel Audit (Using Subagents)
 
 Read selected guidelines and categorize into:
 

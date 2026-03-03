@@ -1,14 +1,8 @@
 # Finalize Recent Work
 
-Clean up completed feature work.
-
-## Purpose
-
 Clean up the feature or refactor we've been working on in this session. Remove false starts, dead-end approaches, and experimental code now that we have a working solution. This is NOT a general codebase cleanup — it's specifically about consolidating the recent work into a clean, final implementation.
 
-## Instructions
-
-### Phase 1: Identify Recent Work Scope
+## Phase 1: Identify Recent Work Scope
 
 1. **Review the conversation** to understand:
    - What feature/refactor we've been building
@@ -22,7 +16,7 @@ Clean up the feature or refactor we've been working on in this session. Remove f
    git diff --stat HEAD~5  # recent commits if applicable
    ```
 
-### Phase 2: Identify Cleanup Targets
+## Phase 2: Identify Cleanup Targets
 
 Look for these patterns in the files we touched:
 
@@ -49,7 +43,7 @@ Look for these patterns in the files we touched:
    - Configuration options that will never vary
    - Extra parameters that always have the same value
 
-### Phase 3: Clean Up
+## Phase 3: Clean Up
 
 For each file in scope:
 
@@ -59,13 +53,13 @@ For each file in scope:
 4. **Simplify** — remove unnecessary indirection or abstraction
 5. **Ensure consistency** — make sure the final implementation follows project conventions
 
-### Phase 4: Verify
+## Phase 4: Verify
 
 1. **Run tests** to ensure the cleanup didn't break anything
 2. **Run the build** if applicable
 3. **Quick manual test** of the feature if appropriate
 
-### Phase 5: Summary
+## Phase 5: Summary
 
 Report back with:
 
@@ -73,7 +67,7 @@ Report back with:
 - What was removed/consolidated
 - Any concerns or items that need user input
 
-## Important
+## Notes
 
 - **Don't expand scope** — only touch files related to the recent work
 - **Preserve the working solution** — this is about cleaning, not reimplementing
