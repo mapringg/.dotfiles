@@ -10,7 +10,7 @@
     "pr": ""
   },
   "permissions": {
-    "defaultMode": "acceptEdits"
+    "defaultMode": "bypassPermissions"
   },
   "model": "claude-opus-4-6",
   "statusLine": {
