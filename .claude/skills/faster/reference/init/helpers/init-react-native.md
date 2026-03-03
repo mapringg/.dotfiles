@@ -12,7 +12,7 @@ Add React Native (New Architecture) best practices. **Follow `~/.claude/skills/f
 
 ## Target File
 
-`.claude/rules/reactnative.md`
+`.claude/rules/react-native.md`
 
 ## Path Pattern
 
