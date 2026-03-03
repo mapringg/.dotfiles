@@ -2,8 +2,6 @@
 
 These are the subagent prompt templates for the boundaries audit. Each is launched in parallel.
 
----
-
 ## Subagent 1: Presentation → Data Violations
 
 ````
@@ -73,8 +71,6 @@ Report each finding with:
 
 ````
 
----
-
 ## Subagent 2: Domain → Infrastructure Violations
 
 ````
@@ -143,8 +139,6 @@ Report each finding with:
 - Suggested fix: define interface in domain, implement in infrastructure
 
 ````
-
----
 
 ## Subagent 3: Business Logic in Controllers
 
@@ -229,8 +223,6 @@ Report each finding with:
 
 ````
 
----
-
 ## Subagent 4: ORM & Database Access Violations
 
 ````
@@ -308,8 +300,6 @@ Report each finding with:
 - Suggested refactor to repository pattern
 
 ````
-
----
 
 ## Subagent 5: Configuration & Environment Violations
 

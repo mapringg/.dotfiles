@@ -1,14 +1,6 @@
 # Deep Stack Research Prompt Generator
 
-Deep stack analysis tool.
-
-## Instructions
-
-Generate a comprehensive deep research prompt for the user's topic, tailored to the current project's technology stack.
-
-**If the topic is not already known from context**, ask the user what topic they want to research (e.g., security, performance, maintainability, scalability, testing, deployment, accessibility).
-
----
+Generate a deep research prompt tailored to the current project's technology stack. Create a comprehensive deep research prompt for the user's topic, tailored to the current project's technology stack. If the topic is not already known from context, ask the user what topic they want to research (e.g., security, performance, maintainability, scalability, testing, deployment, accessibility).
 
 ## Phase 1: Detect the Technology Stack
 
@@ -74,8 +66,6 @@ For each technology found, extract the version:
 - Lock files (`package-lock.json`, `composer.lock`) have exact versions
 - `.env` or Docker configs may specify database versions
 
----
-
 ## Phase 2: Confirm Stack with User
 
 **IMPORTANT: First output the detected stack as a text message to the user.**
@@ -116,8 +106,6 @@ AFTER displaying the stack details above, ask the user a simple confirmation que
 
 **Wait for user confirmation before proceeding.** If the user provides corrections, incorporate them into the stack.
 
----
-
 ## Phase 3: Generate the Deep Research Prompt
 
 Once the stack is confirmed, generate a comprehensive research prompt. The prompt should be structured for a deep research tool (like Claude, Perplexity, or similar).
@@ -125,8 +113,6 @@ Once the stack is confirmed, generate a comprehensive research prompt. The promp
 ### Prompt Template
 
 Generate output in this format (replace placeholders with actual stack details):
-
----
 
 **START OF GENERATED PROMPT**
 
@@ -233,8 +219,6 @@ Please provide your findings organized as:
 
 **END OF GENERATED PROMPT**
 
----
-
 ## Phase 4: Present the Output
 
 Output the generated prompt as plain text that the user can easily copy.
@@ -247,59 +231,55 @@ After the prompt, add:
 
 > **Tip:** This prompt works well with Claude, ChatGPT, Perplexity, or similar AI research tools. For best results, use a tool that can search the web for current information.
 
----
-
-## Topic-Specific Additions
+### Topic-Specific Additions
 
 Depending on the topic, emphasize different aspects:
 
-### If topic is "security"
+#### If topic is "security"
 
 - Emphasize CVEs, OWASP Top 10, authentication, authorization, input validation
 - Include encryption, secrets management, dependency vulnerabilities
 - Request exploit examples and mitigation strategies
 
-### If topic is "performance"
+#### If topic is "performance"
 
 - Emphasize profiling, caching strategies, database optimization, lazy loading
 - Include bundle size, Core Web Vitals, memory management
 - Request benchmarking approaches and monitoring tools
 
-### If topic is "testing"
+#### If topic is "testing"
 
 - Emphasize unit, integration, e2e testing strategies for the stack
 - Include mocking strategies, test data management, CI/CD integration
 - Request coverage goals and testing anti-patterns
 
-### If topic is "maintainability"
+#### If topic is "maintainability"
 
 - Emphasize code organization, naming conventions, documentation
 - Include refactoring patterns, technical debt management
 - Request code review checklists and architecture patterns
 
-### If topic is "scalability"
+#### If topic is "scalability"
 
 - Emphasize horizontal/vertical scaling, load balancing, caching
 - Include database sharding, microservices considerations
 - Request capacity planning and bottleneck identification
 
-### If topic is "deployment"
+#### If topic is "deployment"
 
 - Emphasize CI/CD, containerization, environment management
 - Include rollback strategies, zero-downtime deployments
 - Request infrastructure as code and monitoring setup
 
-### If topic is "accessibility"
+#### If topic is "accessibility"
 
 - Emphasize WCAG compliance, screen reader support, keyboard navigation
 - Include ARIA patterns, color contrast, focus management
 - Request testing tools and audit approaches
 
----
-
 ## Notes
 
-- Always include version numbers — they matter for accurate research
-- If you can't detect a version, note it as "[version unknown]" and ask the user
-- The generated prompt should be self-contained and not require additional context
-- Tailor the integration section to the actual technologies detected (don't include generic examples)
+- **Always include version numbers** — they matter for accurate research
+- **If you can't detect a version**, note it as "[version unknown]" and ask the user
+- **The generated prompt should be self-contained** and not require additional context
+- **Tailor the integration section** to the actual technologies detected (don't include generic examples)

@@ -1,3 +1,8 @@
+---
+name: code-review
+description: Perform a formal code review. Use ONLY when the user explicitly requests a code review. Do NOT use when "review" appears in other contexts like "review changes for context" or "review what happened".
+---
+
 # Review Changes
 
 Structured review of a PR, diff, or set of changes.

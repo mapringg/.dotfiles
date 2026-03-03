@@ -1,10 +1,6 @@
 # Initialize All Applicable Best Practices
 
-Run all applicable init helpers for the detected stack. This workflow is accessed via `/faster` → Init → Initialize project.
-
-## Instructions
-
-Analyze the current repository to detect which frameworks and tools are in use, then run ALL applicable init helpers from `~/.claude/skills/faster/reference/init/helpers/`.
+Analyze the current repository to detect which frameworks and tools are in use, then run ALL applicable init helpers from `~/.claude/skills/faster/reference/init/helpers/`. This workflow is accessed via `/faster` → Init → Initialize project.
 
 **This command uses parallel subagents for efficient detection.**
 

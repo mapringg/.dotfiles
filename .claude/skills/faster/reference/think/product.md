@@ -1,14 +1,6 @@
 # Deep Product Research Prompt Generator
 
-Deep product analysis tool.
-
-## Instructions
-
-Generate a comprehensive deep research prompt for the user's product question, tailored to the current project's product context — its users, UI/UX patterns, domain, and existing design decisions.
-
-**If the topic is not already known from context**, ask the user what product question they want to research (e.g., onboarding flow, navigation patterns, empty states, pricing page, settings UX, notification design, search experience, mobile responsiveness).
-
----
+Generate a deep research prompt tailored to the current project's product context. Create a comprehensive deep research prompt for the user's product question, tailored to the current project's product context — its users, UI/UX patterns, domain, and existing design decisions. If the topic is not already known from context, ask the user what product question they want to research (e.g., onboarding flow, navigation patterns, empty states, pricing page, settings UX, notification design, search experience, mobile responsiveness).
 
 ## Phase 1: Understand the Product
 
@@ -71,8 +63,6 @@ Piece together who uses this product:
 - **Collaboration**: Multi-user? Teams? Sharing? Real-time?
 - **Data ownership**: Personal data, team data, public data?
 
----
-
 ## Phase 2: Confirm Product Profile with User
 
 **IMPORTANT: First output the detected product profile as a text message to the user.**
@@ -118,8 +108,6 @@ AFTER displaying the profile above, ask the user a simple confirmation question:
 
 **Wait for user confirmation before proceeding.** If the user provides corrections, incorporate them.
 
----
-
 ## Phase 3: Generate the Deep Research Prompt
 
 Once the profile is confirmed, generate a comprehensive research prompt. The prompt should be structured for a deep research tool (like Claude, Perplexity, or similar).
@@ -127,8 +115,6 @@ Once the profile is confirmed, generate a comprehensive research prompt. The pro
 ### Prompt Template
 
 Generate output in this format (replace placeholders with actual product details):
-
----
 
 **START OF GENERATED PROMPT**
 
@@ -266,8 +252,6 @@ Please provide your findings organized as:
 
 **END OF GENERATED PROMPT**
 
----
-
 ## Phase 4: Present the Output
 
 Output the generated prompt as plain text that the user can easily copy.
@@ -280,102 +264,98 @@ After the prompt, add:
 
 > **Tip:** This prompt works well with Claude, ChatGPT, Perplexity, or similar AI research tools. For best results, use a tool that can search the web for current information and real product examples.
 
----
-
-## Topic-Specific Additions
+### Topic-Specific Additions
 
 Depending on the topic, emphasize different aspects:
 
-### If topic is about "onboarding" / "first-run" / "setup"
+#### If topic is about "onboarding" / "first-run" / "setup"
 
 - Emphasize time-to-value, activation metrics, progressive profiling
 - Include wizard vs. contextual onboarding patterns, empty state design
 - Request examples of great onboarding from similar product types
 
-### If topic is about "navigation" / "information architecture"
+#### If topic is about "navigation" / "information architecture"
 
 - Emphasize wayfinding, discoverability, mental models
 - Include sidebar vs. top nav vs. command palette patterns, breadcrumbs, search
 - Request examples of navigation scaling from simple to complex
 
-### If topic is about "search" / "filtering" / "discovery"
+#### If topic is about "search" / "filtering" / "discovery"
 
 - Emphasize query patterns, faceted search, typeahead, result ranking
 - Include empty results, suggested searches, filter UX, saved searches
 - Request examples from data-heavy products in similar domains
 
-### If topic is about "settings" / "preferences" / "configuration"
+#### If topic is about "settings" / "preferences" / "configuration"
 
 - Emphasize organization, discoverability, defaults, dangerous settings
 - Include inline vs. dedicated settings page, search within settings, import/export
 - Request examples of settings UX that scales well
 
-### If topic is about "notifications" / "alerts" / "messaging"
+#### If topic is about "notifications" / "alerts" / "messaging"
 
 - Emphasize notification fatigue, urgency levels, channel selection
 - Include in-app vs. push vs. email, notification preferences, batching
 - Request examples of notification systems users actually like
 
-### If topic is about "empty states" / "zero data"
+#### If topic is about "empty states" / "zero data"
 
 - Emphasize first-time experience, calls to action, placeholder content
 - Include illustration vs. text, educational empty states, sample data
 - Request examples of empty states that drive engagement
 
-### If topic is about "forms" / "data entry" / "input"
+#### If topic is about "forms" / "data entry" / "input"
 
 - Emphasize validation UX, inline errors, progressive forms, autosave
 - Include multi-step forms, conditional fields, smart defaults
 - Request examples of complex forms that feel simple
 
-### If topic is about "tables" / "lists" / "data display"
+#### If topic is about "tables" / "lists" / "data display"
 
 - Emphasize sorting, pagination vs. infinite scroll, bulk actions, column management
 - Include responsive table patterns, inline editing, density controls
 - Request examples of data-dense UIs that remain usable
 
-### If topic is about "dashboard" / "home" / "overview"
+#### If topic is about "dashboard" / "home" / "overview"
 
 - Emphasize information hierarchy, actionable vs. informational, customization
 - Include widget patterns, activity feeds, status summaries, quick actions
 - Request examples of dashboards that serve both new and power users
 
-### If topic is about "pricing" / "plans" / "billing"
+#### If topic is about "pricing" / "plans" / "billing"
 
 - Emphasize comparison clarity, plan differentiation, upgrade paths
 - Include pricing psychology, trial experiences, plan change UX
 - Request examples of pricing pages with high conversion rates
 
-### If topic is about "mobile" / "responsive" / "touch"
+#### If topic is about "mobile" / "responsive" / "touch"
 
 - Emphasize touch targets, thumb zones, progressive enhancement
 - Include responsive patterns, mobile-specific interactions, offline states
 - Request examples of products that transition well between desktop and mobile
 
-### If topic is about "dark mode" / "theming"
+#### If topic is about "dark mode" / "theming"
 
 - Emphasize readability, color contrast, image handling, user preference
 - Include system preference detection, smooth transitions, edge cases
 - Request examples of products with excellent dark mode implementations
 
-### If topic is about "error handling" / "error states"
+#### If topic is about "error handling" / "error states"
 
 - Emphasize error recovery, clear messaging, suggested actions
 - Include form errors, page-level errors, network errors, permission errors
 - Request examples of products with graceful error handling
 
-### If topic is about "collaboration" / "sharing" / "teams"
+#### If topic is about "collaboration" / "sharing" / "teams"
 
 - Emphasize permissions, real-time presence, conflict resolution
 - Include sharing models, role management, activity feeds, mentions
 - Request examples of collaboration UX from similar product types
 
----
-
 ## Notes
 
-- Always include the product's actual features and user types — they matter for relevant research
-- If you can't determine something about the product, note it as "[unknown]" and ask the user
-- The generated prompt should be self-contained and not require additional context
-- Tailor the examples section to the actual product domain (don't request generic examples)
-- Focus on product/UX decisions, not technical implementation — the prompt should help someone make design decisions, not write code
+- **Always include the product's actual features and user types** — they matter for relevant research
+- **If you can't determine something about the product**, note it as "[unknown]" and ask the user
+- **The generated prompt should be self-contained** and not require additional context
+- **Tailor the examples section** to the actual product domain (don't request generic examples)
+- **Focus on product/UX decisions**, not technical implementation — the prompt should help someone make design decisions, not write code

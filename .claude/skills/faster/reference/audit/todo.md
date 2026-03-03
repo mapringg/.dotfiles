@@ -45,7 +45,7 @@ TODOs have an average lifespan of **166 days**. Nearly **47% are low-quality**, 
    - git blame for authorship
    - Team/module boundaries
 
-## Phase 2: Parallel Audit
+## Phase 2: Parallel Audit (Using Subagents)
 
 **Launch 5 subagents in parallel.** See [todo-subagents.md](todo-subagents.md) for detailed prompts.
 
