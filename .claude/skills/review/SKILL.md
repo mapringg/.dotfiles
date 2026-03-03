@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: review
 description: Perform a formal code review. Use ONLY when the user explicitly requests a code review. Do NOT use when "review" appears in other contexts like "review changes for context" or "review what happened".
 ---
 
