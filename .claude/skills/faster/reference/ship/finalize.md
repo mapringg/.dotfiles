@@ -11,8 +11,8 @@ Clean up the feature or refactor we've been working on in this session. Remove f
 
 2. **Check git status** to see uncommitted changes and recently modified files:
 
-   ```
-   git status
+    ```bash
+    git status
    git diff --stat HEAD~5  # recent commits if applicable
    ```
 

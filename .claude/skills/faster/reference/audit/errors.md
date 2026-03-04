@@ -9,7 +9,7 @@ Error handling inconsistency creates unpredictable failure modes and debugging n
 ## What This Command Detects
 
 | Pattern | Description |
-|---------|-------------|
+| --- | --- |
 | **Empty Catch Blocks** | Exceptions caught but ignored |
 | **Overly Broad Catches** | Catching Exception/Throwable/BaseException |
 | **Lost Exception Chains** | Re-throwing without original cause |
@@ -34,7 +34,7 @@ Error handling inconsistency creates unpredictable failure modes and debugging n
 **Launch 5 subagents in parallel.** See [errors-subagents.md](errors-subagents.md) for detailed prompts.
 
 | Subagent | Focus |
-|----------|-------|
+| --- | --- |
 | 1 | Empty & broad catch blocks (silent failures) |
 | 2 | Lost exception chains & pointless rethrows |
 | 3 | Promise & async error handling (floating promises, missing catch) |
@@ -48,7 +48,7 @@ Pass tech stack and error handling conventions from Phase 1 to each subagent.
 ## Phase 3: Prioritize Findings
 
 | Priority | Pattern | Rationale |
-|----------|---------|-----------|
+| --- | --- | --- |
 | **P1 Critical** | Empty catch with data operations | Silent data loss |
 | **P1 Critical** | Floating promises in critical paths | Unhandled failures |
 | **P2 High** | Empty catch (general) | Masks all failures |
@@ -97,7 +97,7 @@ Pass tech stack and error handling conventions from Phase 1 to each subagent.
 ## Recommended Fixes Reference
 
 | Anti-Pattern | Fix |
-|--------------|-----|
+| --- | --- |
 | Empty catch | Log error or propagate; use explicit suppression if intentional |
 | Lost chain | Pass original as cause: `new Error(msg, { cause })` |
 | Generic catch | Catch specific types; use multiple catch blocks |

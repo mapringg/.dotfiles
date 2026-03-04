@@ -13,14 +13,14 @@ Determine what to review based on user input:
 
 **If PR number or URL provided:**
 
-```
+```bash
 gh pr view <number> --json title,body,baseRefName,headRefName,additions,deletions,changedFiles
 gh pr diff <number>
 ```
 
 **If branch/diff range provided:**
 
-```
+```bash
 git diff <base>...<head> --stat
 git diff <base>...<head>
 git log <base>...<head> --oneline
@@ -48,7 +48,7 @@ Launch up to 4 subagents depending on what's relevant to the changes:
 
 ### Subagent 1: Correctness & Logic
 
-```
+```text
 Review these changes for correctness issues.
 
 ## Changes
@@ -72,7 +72,7 @@ For each issue:
 
 ### Subagent 2: Security & Data Safety
 
-```
+```text
 Review these changes for security concerns.
 
 ## Changes
@@ -100,7 +100,7 @@ For each issue:
 
 Only launch if `.claude/rules/*.md` files exist.
 
-```
+```text
 Review these changes against project coding guidelines.
 
 ## Changes
@@ -124,7 +124,7 @@ For each violation:
 
 ### Subagent 4: Test Coverage
 
-```
+```text
 Review these changes for testing gaps.
 
 ## Changes
@@ -192,7 +192,7 @@ After presenting the review:
 
 ### If posting as PR comment
 
-```
+```bash
 gh pr review <number> --comment --body "$(cat <<'EOF'
 ## Review
 

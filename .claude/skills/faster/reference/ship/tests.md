@@ -11,8 +11,8 @@ Review the feature or changes we've been working on in this session and identify
 
 2. **Check git status** to see the changes:
 
-   ```
-   git status
+    ```bash
+    git status
    git diff --stat HEAD~5  # recent commits if applicable
    git diff HEAD  # uncommitted changes
    ```

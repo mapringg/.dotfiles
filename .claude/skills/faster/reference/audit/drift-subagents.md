@@ -4,7 +4,7 @@ Reference file for audit-drift. Contains detailed prompts for each parallel suba
 
 ## Subagent 1: Boolean Explosion & Impossible States
 
-````
+````text
 Audit this codebase for boolean explosion and impossible state patterns.
 
 Tech stack: [from Phase 1]
@@ -61,7 +61,7 @@ Report each finding with:
 
 ## Subagent 2: Magic Strings & Status Mismatches
 
-````
+````text
 
 Audit this codebase for magic strings and status/enum mismatches.
 
@@ -121,7 +121,7 @@ Report each finding with:
 
 ## Subagent 3: Duplicated & Derived State
 
-````
+````text
 
 Audit this codebase for duplicated and derived state anti-patterns.
 
@@ -191,7 +191,7 @@ Report each finding with:
 
 ## Subagent 4: State Machine Opportunities
 
-````
+````text
 
 Audit this codebase for ad-hoc state transitions that should be state machines.
 
@@ -263,7 +263,7 @@ Report each finding with:
 
 ## Subagent 5: Single Source of Truth Violations
 
-````
+````text
 
 Audit this codebase for single source of truth violations.
 

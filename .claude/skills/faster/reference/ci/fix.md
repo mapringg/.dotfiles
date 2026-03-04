@@ -6,25 +6,25 @@ Check GitHub Actions for the current branch, diagnose any failures, and fix them
 
 1. **Get the current branch**:
 
-   ```
-   git branch --show-current
-   ```
+    ```bash
+    git branch --show-current
+    ```
 
 2. **If on main/master, create a fix branch**:
-   - Check if the current branch is `main` or `master`
-   - If so, create and switch to a new branch for the fix:
+    - Check if the current branch is `main` or `master`
+    - If so, create and switch to a new branch for the fix:
 
-     ```
-     git checkout -b fix/gha-<short-description-or-timestamp>
-     ```
+      ```bash
+      git checkout -b fix/gha-<short-description-or-timestamp>
+      ```
 
    - You'll push this branch and create a PR later instead of pushing directly to main/master
 
 3. **Find the latest workflow run(s) for the original branch** (use main/master if you just branched off):
 
-   ```
-   gh run list --branch <branch> --limit 5
-   ```
+    ```bash
+    gh run list --branch <branch> --limit 5
+    ```
 
 4. **If no runs exist**, inform the user and stop.
 
@@ -36,27 +36,27 @@ Check GitHub Actions for the current branch, diagnose any failures, and fix them
 
 1. **Get details of the failed run**:
 
-   ```
-   gh run view <run_id>
-   ```
+    ```bash
+    gh run view <run_id>
+    ```
 
 2. **Fetch the failed job logs**:
 
-   ```
-   gh run view <run_id> --log-failed
-   ```
+    ```bash
+    gh run view <run_id> --log-failed
+    ```
 
 3. **Get the workflow file** to understand the CI configuration:
 
-   ```
-   cat .github/workflows/<workflow-file>.yml
-   ```
+    ```bash
+    cat .github/workflows/<workflow-file>.yml
+    ```
 
 4. **Check recent runs for flakiness pattern**:
 
-   ```
-   gh run list --branch <branch> --limit 10 --json status,conclusion,name
-   ```
+    ```bash
+    gh run list --branch <branch> --limit 10 --json status,conclusion,name
+    ```
 
 ## Phase 3: Parallel Diagnosis (Using Subagents)
 
@@ -66,7 +66,7 @@ Based on the failure type, launch relevant subagents. Not all are needed every t
 
 Launch if: logs contain compile errors, type errors, missing modules, or build step failures.
 
-```
+```text
 Diagnose this CI build failure.
 
 ## Failed Logs
@@ -95,7 +95,7 @@ Report: exact error, root cause, and specific fix with file:line.
 
 Launch if: logs show test runner output with failed assertions.
 
-```
+```text
 Diagnose this CI test failure.
 
 ## Failed Logs
@@ -126,7 +126,7 @@ Report: failing test, root cause, and whether to fix the code or fix the test.
 
 Launch if: logs show package install failures, action version errors, permission denied, or "not found" for system tools.
 
-```
+```text
 Diagnose this CI environment/dependency failure.
 
 ## Failed Logs
@@ -156,7 +156,7 @@ Report: failing step, root cause, and specific fix to workflow or config.
 
 Launch if: logs show auth errors, 403/401 responses, missing secrets, or deployment step failures.
 
-```
+```text
 Diagnose this CI secrets/permissions/deployment failure.
 
 ## Failed Logs
@@ -205,19 +205,19 @@ the user to update repository settings.
 
 5. **Commit and push the fix** (only after user confirms the approach):
 
-   ```
-   git add <relevant-files>
-   git commit -m "fix: <description of what was fixed>"
-   git push -u origin HEAD
-   ```
+    ```bash
+    git add <relevant-files>
+    git commit -m "fix: <description of what was fixed>"
+    git push -u origin HEAD
+    ```
 
 ## Phase 5: Monitor
 
 1. **Watch for the new run to complete**:
 
-   ```
-   gh run watch
-   ```
+    ```bash
+    gh run watch
+    ```
 
 2. **If the fix didn't work** (new run also fails):
    - Fetch the new failure logs

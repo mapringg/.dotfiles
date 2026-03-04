@@ -70,9 +70,9 @@ Parse `$ARGUMENTS` to understand what the user wants reviewed. Then identify rel
 
 2. **Create the output directory** via Bash inside your project's counselors output directory (default: `agents/counselors/`) in your current working directory. The directory name MUST always be prefixed with a UNIX timestamp (seconds) so runs are lexically sortable and never collide:
 
-   ```
-   <cwd>/<outputDir>/TIMESTAMP-[slug]
-   ```
+    ```text
+    <cwd>/<outputDir>/TIMESTAMP-[slug]
+    ```
 
    By default, `<outputDir>` is `agents/counselors`, but users can customize it via config (`defaults.outputDir`) or the `counselors run -o <dir>` flag.
    For example, if your cwd is `/Users/me/project`: `/Users/me/project/agents/counselors/1770676882-auth-flow-review`

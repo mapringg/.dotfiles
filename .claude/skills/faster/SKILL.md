@@ -40,7 +40,7 @@ Ask a follow-up:
 Then read the corresponding audit reference file and follow its instructions:
 
 | Type | Read this file |
-|------|---------------|
+| --- | --- |
 | boundaries | [boundaries.md](reference/audit/boundaries.md) |
 | dead-code | [dead-code.md](reference/audit/dead-code.md) |
 | drift | [drift.md](reference/audit/drift.md) |
@@ -54,14 +54,14 @@ All audit files (except guidelines) have a corresponding subagent prompt file (e
 
 **If running all audits**: Execute sequentially. Present findings after each audit. At the end, provide a combined summary:
 
-```
+```markdown
 ## Combined Audit Summary
 
 | Audit | Critical | High | Medium | Low |
-|-------|----------|------|--------|-----|
+| --- | --- | --- | --- | --- |
 | Boundaries | X | X | X | X |
 | Dead Code | X | X | X | X |
-| ... | | | | |
+| ... |  |  |  |  |
 | **Total** | X | X | X | X |
 ```
 
@@ -77,7 +77,7 @@ Ask a follow-up:
 Then read the corresponding file and follow its instructions:
 
 | Choice | Read this file |
-|--------|---------------|
+| --- | --- |
 | Fix CI | [fix.md](reference/ci/fix.md) |
 | Add CI | [add.md](reference/ci/add.md) |
 
@@ -95,7 +95,7 @@ Ask a follow-up:
 Then read the corresponding file and follow its instructions:
 
 | Choice | Read this file |
-|--------|---------------|
+| --- | --- |
 | Initialize project | [setup.md](reference/init/setup.md) |
 | Create new init | [add.md](reference/init/add.md) |
 | Update an init | [update.md](reference/init/update.md) |
@@ -114,7 +114,7 @@ Ask a follow-up:
 Then execute the chosen steps:
 
 | Choice | Steps |
-|--------|-------|
+| --- | --- |
 | Full pipeline | [tests.md](reference/ship/tests.md) → [finalize.md](reference/ship/finalize.md) → [commit.md](reference/ship/commit.md) |
 | Skip tests | [finalize.md](reference/ship/finalize.md) → [commit.md](reference/ship/commit.md) |
 | Just commit | [commit.md](reference/ship/commit.md) |
@@ -132,7 +132,7 @@ Ask a follow-up:
 Then read the corresponding file and follow its instructions:
 
 | Choice | Read this file |
-|--------|---------------|
+| --- | --- |
 | Product research | [product.md](reference/think/product.md) |
 | Technical research | [stack.md](reference/think/stack.md) |
 | Refine an idea | [interview.md](reference/think/interview.md) |

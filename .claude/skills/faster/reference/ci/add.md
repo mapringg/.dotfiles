@@ -11,9 +11,9 @@ Set up a new GitHub Actions workflow for the project.
 
 2. **Check for existing workflows**:
 
-   ```
-   ls .github/workflows/ 2>/dev/null
-   ```
+    ```bash
+    ls .github/workflows/ 2>/dev/null
+    ```
 
    - If workflows already exist, read them to understand existing CI setup
    - Avoid duplicating steps that are already covered
@@ -55,18 +55,18 @@ Set up a new GitHub Actions workflow for the project.
 
 2. **Commit and push** (only after user confirms):
 
-   ```
-   mkdir -p .github/workflows
-   git add .github/workflows/<name>.yml
-   git commit -m "ci: add <description> workflow"
-   git push -u origin HEAD
-   ```
+    ```bash
+    mkdir -p .github/workflows
+    git add .github/workflows/<name>.yml
+    git commit -m "ci: add <description> workflow"
+    git push -u origin HEAD
+    ```
 
 3. **Watch the first run**:
 
-   ```
-   gh run watch
-   ```
+    ```bash
+    gh run watch
+    ```
 
 4. **If the run fails**, switch to the Fix CI workflow to diagnose and fix
 

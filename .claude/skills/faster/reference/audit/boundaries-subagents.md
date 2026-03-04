@@ -4,7 +4,7 @@ These are the subagent prompt templates for the boundaries audit. Each is launch
 
 ## Subagent 1: Presentation → Data Violations
 
-````
+````text
 Audit this codebase for presentation layer directly accessing data layer.
 
 Tech stack: [from Phase 1]
@@ -73,7 +73,7 @@ Report each finding with:
 
 ## Subagent 2: Domain → Infrastructure Violations
 
-````
+````text
 
 Audit this codebase for domain layer depending on infrastructure.
 
@@ -142,7 +142,7 @@ Report each finding with:
 
 ## Subagent 3: Business Logic in Controllers
 
-````
+````text
 
 Audit this codebase for fat controllers with business logic.
 
@@ -225,7 +225,7 @@ Report each finding with:
 
 ## Subagent 4: ORM & Database Access Violations
 
-````
+````text
 
 Audit this codebase for database queries outside repository/data layer.
 
@@ -303,7 +303,7 @@ Report each finding with:
 
 ## Subagent 5: Configuration & Environment Violations
 
-````
+````text
 
 Audit this codebase for scattered environment variable access.
 

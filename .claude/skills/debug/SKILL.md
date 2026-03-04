@@ -62,7 +62,7 @@ git bisect reset
 
 Test each layer independently to find where the fault lies:
 
-```
+```text
 Request → Router → Middleware → Controller → Service → Database
                                                     ↑ Problem here?
 
@@ -101,7 +101,7 @@ Once the problem location is isolated, identify *why* it fails:
 ### Common Root Causes
 
 | Category | Symptoms | Check For |
-|----------|----------|-----------|
+| --- | --- | --- |
 | **State** | Works first time, fails after | Stale closures, missing cleanup, shared mutable state |
 | **Timing** | Intermittent failures | Race conditions, missing awaits, unhandled promises |
 | **Data** | Fails with specific inputs | Null/undefined, type coercion, encoding issues, edge cases |
@@ -174,7 +174,7 @@ EXPLAIN ANALYZE SELECT ...
 After fixing, consider whether this class of bug can be prevented:
 
 | Prevention | Example |
-|------------|---------|
+| --- | --- |
 | **Type narrowing** | `if (!user) throw` before using `user.name` |
 | **Validation at boundaries** | Zod schema on API input |
 | **Linting rule** | ESLint rule for exhaustive deps, no floating promises |

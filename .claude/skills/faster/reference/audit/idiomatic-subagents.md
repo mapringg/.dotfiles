@@ -4,7 +4,7 @@ Reference file for audit-idiomatic. Contains detailed prompts for each parallel 
 
 ## Subagent 1: Language Idioms
 
-````
+````text
 Audit this codebase for non-idiomatic language usage.
 
 Tech stack: [from Phase 1]
@@ -151,7 +151,7 @@ let s = format!("hello {world}");
 Flag code that doesn't follow the language's error handling idioms:
 
 | Language | Idiomatic Pattern | Anti-Pattern |
-|----------|------------------|--------------|
+| --- | --- | --- |
 | Go | Explicit `if err != nil` checks | Ignoring errors with `_` |
 | Rust | `Result<T, E>` with `?` propagation | `.unwrap()` outside tests |
 | Python | Specific exception types | Bare `except:` or `except Exception:` |
@@ -199,7 +199,7 @@ Report each finding with:
 
 ## Subagent 2: Framework Conventions
 
-````
+````text
 Audit this codebase for framework convention violations.
 
 Tech stack: [from Phase 1]
@@ -361,7 +361,7 @@ Report each finding with:
 
 ## Subagent 3: Anti-Patterns
 
-````
+````text
 Audit this codebase for common anti-patterns specific to the detected stack.
 
 Tech stack: [from Phase 1]
@@ -486,7 +486,7 @@ Report each finding with:
 
 ## Subagent 4: Performance Idioms
 
-````
+````text
 Audit this codebase for missing performance idioms specific to the detected stack.
 
 Tech stack: [from Phase 1]
@@ -687,7 +687,7 @@ Report each finding with:
 
 ## Subagent 5: Consistency
 
-````
+````text
 Audit this codebase for internal consistency issues — places where the codebase contradicts its own established patterns.
 
 Tech stack: [from Phase 1]
