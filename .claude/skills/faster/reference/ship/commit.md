@@ -11,7 +11,7 @@ Generate a concise git commit message from the current diff using conventional c
 
 Analyze the diff and generate a commit message using this format:
 
-```
+```text
 <type>(<optional scope>): <description>
 
 <optional body>
@@ -35,7 +35,7 @@ Analyze the diff and generate a commit message using this format:
 ### Commit Types
 
 | Type | Description |
-|------|-------------|
+| --- | --- |
 | feat | A new feature |
 | fix | A bug fix |
 | docs | Documentation only changes |

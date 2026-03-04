@@ -9,7 +9,7 @@ Non-idiomatic code fights against a language or framework's design philosophy, l
 ## What This Command Detects
 
 | Pattern | Description |
-|---------|-------------|
+| --- | --- |
 | **Language Idiom Violations** | Using non-preferred constructs for the language |
 | **Framework Convention Violations** | Ignoring framework directory structure, patterns, or APIs |
 | **Anti-patterns** | Reinventing framework features or using legacy patterns |
@@ -52,7 +52,7 @@ Examine project root to identify the technology stack:
 **Launch 5 subagents in parallel.** See [idiomatic-subagents.md](idiomatic-subagents.md) for detailed prompts.
 
 | Subagent | Focus |
-|----------|-------|
+| --- | --- |
 | 1 | Language idioms (preferred constructs, error handling, type usage) |
 | 2 | Framework conventions (directory structure, component patterns, routing, ORM) |
 | 3 | Anti-patterns (reinventing framework features, legacy patterns, ignored conventions) |
@@ -64,7 +64,7 @@ Pass tech stack and existing guidelines from Phase 1 to each subagent.
 ## Phase 3: Prioritize Findings
 
 | Priority | Issue | Rationale |
-|----------|-------|-----------|
+| --- | --- | --- |
 | **P1 Critical** | Core idiom violation causing bugs | Incorrect usage that leads to errors |
 | **P2 High** | Framework convention violation | Missed optimizations, maintainability risk |
 | **P3 Medium** | Non-idiomatic patterns | Works but not best practice |

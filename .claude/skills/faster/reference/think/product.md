@@ -26,7 +26,7 @@ Look in:
 Map the product surface by scanning routes, pages, and navigation:
 
 | Source | What to look for |
-|--------|-----------------|
+| --- | --- |
 | Route definitions (e.g., `routes/web.php`, `app/routes.ts`, `src/pages/`, `src/app/`) | Feature scope — what screens/pages exist |
 | Navigation components (sidebar, header, tabs) | Information architecture — how features are organized |
 | Layout files | Page structure patterns — shared chrome, content areas |
@@ -71,7 +71,7 @@ Piece together who uses this product:
 
 Output a message like this (with actual detected values):
 
-```
+```markdown
 I built the following product profile for this project:
 
 **Product:**
@@ -116,7 +116,7 @@ Once the profile is confirmed, generate a comprehensive research prompt. The pro
 
 Generate output in this format (replace placeholders with actual product details):
 
-**START OF GENERATED PROMPT**
+## START OF GENERATED PROMPT
 
 I'm building a product with the following profile:
 
@@ -250,7 +250,7 @@ Please provide your findings organized as:
    - Design system references
    - Tools for prototyping or testing [TOPIC]
 
-**END OF GENERATED PROMPT**
+## END OF GENERATED PROMPT
 
 ## Phase 4: Present the Output
 

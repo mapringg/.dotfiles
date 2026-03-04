@@ -9,7 +9,7 @@ Coding guidelines exist to enforce consistency, prevent known pitfalls, and enco
 ## What This Command Detects
 
 | Pattern | Description |
-|---------|-------------|
+| --- | --- |
 | **Style Violations** | Naming, file structure, formatting deviations |
 | **Architecture Violations** | Patterns, anti-patterns, code location issues |
 | **Framework Violations** | Framework-specific rules not followed |
@@ -36,7 +36,7 @@ Coding guidelines exist to enforce consistency, prevent known pitfalls, and enco
 Read selected guidelines and categorize into:
 
 | Category | What to Extract |
-|----------|-----------------|
+| --- | --- |
 | **Style** | Naming, file structure, formatting |
 | **Architecture** | Patterns, anti-patterns, code locations |
 | **Framework** | Framework-specific rules, common mistakes |
@@ -52,7 +52,7 @@ Launch all applicable subagents in parallel.
 
 Each subagent prompt should follow this structure:
 
-```
+```text
 Audit this codebase for [CATEGORY] guideline compliance.
 
 ## Rules to Check
@@ -77,7 +77,7 @@ If compliant, list what was checked.
 ## Phase 3: Prioritize Findings
 
 | Priority | Criteria |
-|----------|----------|
+| --- | --- |
 | **Critical** | Security violations, architecture anti-patterns |
 | **High** | Framework convention violations, testing gaps |
 | **Medium** | Style and naming deviations |

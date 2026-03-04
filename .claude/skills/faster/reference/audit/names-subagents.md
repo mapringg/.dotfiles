@@ -4,7 +4,7 @@ Reference file for audit-names. Contains detailed prompts for each parallel suba
 
 ## Subagent 1: Vague Generic Names
 
-````
+````text
 Audit this codebase for vague and generic identifier names.
 
 Tech stack: [from Phase 1]
@@ -76,7 +76,7 @@ Report each finding with:
 
 ## Subagent 2: Single-letter Variables
 
-````
+````text
 
 Audit this codebase for inappropriate single-letter variable names.
 
@@ -141,7 +141,7 @@ Report each finding with:
 
 ## Subagent 3: Boolean Naming Issues
 
-````
+````text
 
 Audit this codebase for boolean naming problems.
 
@@ -236,7 +236,7 @@ Report each finding with:
 
 ## Subagent 4: Casing Inconsistency
 
-````
+````text
 
 Audit this codebase for naming convention inconsistencies.
 
@@ -277,7 +277,7 @@ const maxRetries = 3;          // Should be MAX_RETRIES
 ## LANGUAGE-SPECIFIC CONVENTIONS
 
 | Language | Variables | Functions | Classes | Constants |
-|----------|-----------|-----------|---------|-----------|
+| --- | --- | --- | --- | --- |
 | JavaScript/TypeScript | camelCase | camelCase | PascalCase | SCREAMING_SNAKE |
 | Python | snake_case | snake_case | PascalCase | SCREAMING_SNAKE |
 | Java | camelCase | camelCase | PascalCase | SCREAMING_SNAKE |
@@ -295,7 +295,7 @@ Report each finding with:
 
 ## Subagent 5: Abbreviation Inconsistency
 
-````
+````text
 
 Audit this codebase for inconsistent abbreviation usage.
 

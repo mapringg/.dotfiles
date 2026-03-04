@@ -9,7 +9,7 @@ Dead code degrades comprehensibility and introduces maintenance risk. Research (
 ## What This Command Detects
 
 | Pattern | Confidence | Description |
-|---------|------------|-------------|
+| --- | --- | --- |
 | **Unreachable Code** | 100% | Code after return/throw/break |
 | **Unused Imports** | 90% | Imported but never referenced |
 | **Orphaned Files** | 85% | Files unreachable from entry points |
@@ -42,7 +42,7 @@ Dead code degrades comprehensibility and introduces maintenance risk. Research (
 **Launch 5 subagents in parallel.** See [dead-code-subagents.md](dead-code-subagents.md) for detailed prompts.
 
 | Subagent | Focus | Confidence |
-|----------|-------|------------|
+| --- | --- | --- |
 | 1 | Unreachable code (after return/throw/break, always-true/false conditions, duplicate branches) | 100% |
 | 2 | Unused imports & exports | 60-90% |
 | 3 | Orphaned files (unreachable from entry points) | 85% |
@@ -54,7 +54,7 @@ Pass tech stack and entry points from Phase 1 to each subagent.
 ## Phase 3: Confidence-Based Actions
 
 | Confidence | Action | Automation |
-|------------|--------|------------|
+| --- | --- | --- |
 | **100%** | Auto-remove safe | Can delete without review |
 | **90%** | Brief review | Quick check, usually safe |
 | **85%** | Check for dynamic usage | Verify no runtime loading |

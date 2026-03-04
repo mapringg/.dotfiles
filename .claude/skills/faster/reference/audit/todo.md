@@ -9,7 +9,7 @@ TODOs have an average lifespan of **166 days**. Nearly **47% are low-quality**, 
 ## What This Command Detects
 
 | Pattern | Description |
-|---------|-------------|
+| --- | --- |
 | **Stale TODOs** | Old markers that should be resolved or removed |
 | **Security TODOs** | Debt related to auth, validation, encryption |
 | **Bug Markers** | FIXME, BUG, XXX indicating known defects |
@@ -20,7 +20,7 @@ TODOs have an average lifespan of **166 days**. Nearly **47% are low-quality**, 
 ## Marker Types & Severity
 
 | Marker | Meaning | Default Priority |
-|--------|---------|------------------|
+| --- | --- | --- |
 | `TODO` | Planned improvement | Medium |
 | `FIXME` | Known bug, needs fix | High |
 | `HACK` | Temporary workaround | High |
@@ -50,7 +50,7 @@ TODOs have an average lifespan of **166 days**. Nearly **47% are low-quality**, 
 **Launch 5 subagents in parallel.** See [todo-subagents.md](todo-subagents.md) for detailed prompts.
 
 | Subagent | Focus |
-|----------|-------|
+| --- | --- |
 | 1 | TODO inventory & age analysis (git blame scoring) |
 | 2 | Security & bug markers (critical priority keywords) |
 | 3 | Issue tracker integration (check if referenced issues are closed) |
@@ -64,7 +64,7 @@ Pass issue tracker patterns and code ownership from Phase 1 to each subagent.
 Use the scoring formula from Subagent 5 to rank all findings. Apply priority boosts from age, location, and content analysis.
 
 | Priority | Criteria |
-|----------|----------|
+| --- | --- |
 | **Critical** | Security TODOs, BUG markers, closed issue references |
 | **High** | FIXME/HACK markers, >1 year old, in critical paths |
 | **Medium** | Standard TODOs, 6-12 months old |
@@ -84,7 +84,7 @@ Use the scoring formula from Subagent 5 to rank all findings. Apply priority boo
 
 ### By Type
 | Type | Count | Avg Age |
-|------|-------|---------|
+| --- | --- | --- |
 | TODO | X | X days |
 | FIXME | X | X days |
 | HACK | X | X days |
@@ -92,7 +92,7 @@ Use the scoring formula from Subagent 5 to rank all findings. Apply priority boo
 
 ### By Priority
 | Priority | Count | Action |
-|----------|-------|--------|
+| --- | --- | --- |
 | Critical | X | Resolve now |
 | High | X | Plan soon |
 | Medium | X | Add to backlog |
@@ -124,7 +124,7 @@ Technical Debt Index: X/100
 ## Recommended Actions by Priority
 
 | Priority | Action |
-|----------|--------|
+| --- | --- |
 | **Critical** | Resolve immediately or create P1 issue |
 | **High** | Create issue, assign to sprint |
 | **Medium** | Add to backlog with context |
