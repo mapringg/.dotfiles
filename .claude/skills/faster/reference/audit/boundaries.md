@@ -9,7 +9,7 @@ Clean Architecture's fundamental rule: "Source code dependencies can only point 
 ## What This Command Detects
 
 | Pattern | Description |
-|---------|-------------|
+| --- | --- |
 | **UI → Database Direct** | Presentation layer accessing persistence directly |
 | **Domain → Infrastructure** | Core business logic depending on external services |
 | **Business Logic in Controllers** | Fat controllers doing too much |
@@ -43,7 +43,7 @@ LAYERS = {
 **File naming patterns**:
 
 | Pattern | Inferred Layer |
-|---------|---------------|
+| --- | --- |
 | `*Controller.*`, `*Handler.*` | Presentation |
 | `*Service.*`, `*UseCase.*` | Application |
 | `*Entity.*`, `*Model.*` | Domain |
@@ -68,7 +68,7 @@ Fill in `[from Phase 1]` placeholders with detected tech stack and architecture 
 ## Phase 3: Prioritize Findings
 
 | Priority | Violation | Impact |
-|----------|-----------|--------|
+| --- | --- | --- |
 | **P1 Critical** | UI → Database direct | Bypasses validation, security risk |
 | **P1 Critical** | Domain → Infrastructure | Core architecture violation |
 | **P2 High** | Controller with DB queries | Untestable, tightly coupled |
@@ -119,7 +119,7 @@ Fill in `[from Phase 1]` placeholders with detected tech stack and architecture 
 ## Recommended Fixes Reference
 
 | Violation | Fix Strategy |
-|-----------|--------------|
+| --- | --- |
 | UI→DB | Introduce service layer; use DTOs not raw entities |
 | Domain→Infra | Define interfaces (ports) in domain, implement in infrastructure |
 | Fat Controller | Extract to application service/use-case |

@@ -9,7 +9,7 @@ Research by Butler et al. found **statistically significant associations** betwe
 ## What This Command Detects
 
 | Pattern | Description |
-|---------|-------------|
+| --- | --- |
 | **Vague Generic Names** | data, info, item, thing, handler, manager |
 | **Single-letter Variables** | Non-idiomatic use of i, j, x outside loops/math |
 | **Missing Boolean Prefixes** | `loading` instead of `isLoading` |
@@ -34,7 +34,7 @@ Research by Butler et al. found **statistically significant associations** betwe
 **Launch 5 subagents in parallel.** See [names-subagents.md](names-subagents.md) for detailed prompts.
 
 | Subagent | Focus |
-|----------|-------|
+| --- | --- |
 | 1 | Vague generic names (data, info, item, handler, etc.) |
 | 2 | Single-letter variables outside idiomatic contexts |
 | 3 | Boolean naming (missing prefixes, negative booleans) |
@@ -46,7 +46,7 @@ Pass tech stack and naming conventions from Phase 1 to each subagent.
 ## Phase 3: Prioritize Findings
 
 | Priority | Issue | Rationale |
-|----------|-------|-----------|
+| --- | --- | --- |
 | **P1 Critical** | Single-letter in public API | Unusable API |
 | **P1 Critical** | Negative boolean in conditionals | Logic errors |
 | **P2 High** | Vague names in public APIs | Documentation debt |
@@ -95,7 +95,7 @@ Pass tech stack and naming conventions from Phase 1 to each subagent.
 ## Recommended Fixes Reference
 
 | Issue | Fix |
-|-------|-----|
+| --- | --- |
 | `data` | `userData`, `configData`, `responseData` |
 | `info` | `userInfo`, `metaInfo`, `displayInfo` |
 | `handler` | `formSubmitHandler`, `errorHandler` |

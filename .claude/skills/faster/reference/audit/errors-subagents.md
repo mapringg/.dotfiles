@@ -4,7 +4,7 @@ Reference file for audit-errors. Contains detailed prompts for each parallel sub
 
 ## Subagent 1: Empty & Broad Catch Blocks
 
-````
+````text
 Audit this codebase for empty catch blocks and overly broad exception handling.
 
 Tech stack: [from Phase 1]
@@ -14,7 +14,7 @@ Find catch/except blocks with no meaningful handling:
 
 Language patterns:
 | Language | Empty Catch Pattern |
-|----------|---------------------|
+| --- | --- |
 | JavaScript/TypeScript | `catch (e) { }` or `catch { }` |
 | Python | `except: pass` or `except Exception: ...` with only pass/continue |
 | Java/C# | `catch (Exception e) { }` |
@@ -30,7 +30,7 @@ Search for:
 Find catches that are too generic:
 
 | Language | Overly Broad Types |
-|----------|-------------------|
+| --- | --- |
 | Java | Exception, Throwable, Error |
 | Python | bare `except:`, `except BaseException`, `except Exception` |
 | C# | Exception, SystemException |
@@ -59,7 +59,7 @@ Report each finding with:
 
 ## Subagent 2: Lost Exception Chains
 
-````
+````text
 Audit this codebase for lost exception chains and re-throw anti-patterns.
 
 Tech stack: [from Phase 1]
@@ -140,7 +140,7 @@ Report each finding with:
 
 ## Subagent 3: Promise & Async Error Handling
 
-````
+````text
 
 Audit this codebase for unhandled promise rejections and async error gaps.
 
@@ -226,7 +226,7 @@ Report each finding with:
 
 ## Subagent 4: Error Strategy Consistency
 
-````
+````text
 
 Audit this codebase for inconsistent error handling strategies.
 
@@ -237,7 +237,7 @@ Tech stack: [from Phase 1]
 Identify which strategies are used and where:
 
 | Strategy | Detection Markers |
-|----------|-------------------|
+| --- | --- |
 | Exceptions | throw, raise, catch, except, try |
 | Result types | Result<, Either<, Ok(, Err(, Some(, None |
 | Error codes | return -1, return null, errno, error codes |
@@ -303,7 +303,7 @@ Report each finding with:
 
 ## Subagent 5: Error Message Quality
 
-````
+````text
 
 Audit this codebase for poor error messages and debugging gaps.
 

@@ -9,7 +9,7 @@ State drift occurs when application state becomes inconsistent, duplicated, or p
 ## What This Command Detects
 
 | Category | Description |
-|----------|-------------|
+| --- | --- |
 | **Boolean Explosion** | Multiple booleans creating 2^n states, many impossible |
 | **Magic Strings** | String literals for status/state instead of enums/constants |
 | **Duplicated State** | Same data stored in multiple locations |
@@ -39,7 +39,7 @@ State drift occurs when application state becomes inconsistent, duplicated, or p
 **Launch 5 subagents in parallel.** See [drift-subagents.md](drift-subagents.md) for detailed prompts.
 
 | Subagent | Focus |
-|----------|-------|
+| --- | --- |
 | 1 | Boolean explosion & impossible states (bags of optionals) |
 | 2 | Magic strings & status mismatches (db vs code enums) |
 | 3 | Duplicated & derived state (stored instead of computed) |
@@ -55,7 +55,7 @@ Pass tech stack and state locations from Phase 1 to each subagent.
 Categorize by severity:
 
 | Priority | Criteria | Examples |
-|----------|----------|----------|
+| --- | --- | --- |
 | **P1 Critical** | Causes bugs now | Impossible states reached, data corruption |
 | **P2 High** | Will cause bugs | Missing state machine, race conditions likely |
 | **P3 Medium** | Tech debt | Magic strings, derived state stored |

@@ -9,7 +9,7 @@ Analyze the current project to identify all technologies and their versions. Che
 ### Backend Detection
 
 | File | Technology |
-|------|------------|
+| --- | --- |
 | `composer.json` | PHP ecosystem (Laravel, Symfony, etc.) — check `require` for framework and PHP version |
 | `package.json` | Node.js ecosystem (Express, Fastify, NestJS, etc.) — check for server-side frameworks |
 | `requirements.txt` / `pyproject.toml` / `Pipfile` | Python (Django, Flask, FastAPI) |
@@ -74,7 +74,7 @@ For each technology found, extract the version:
 
 Output a message like this (with actual detected values):
 
-```
+```markdown
 I detected the following technology stack for this project:
 
 **Backend:**
@@ -114,7 +114,7 @@ Once the stack is confirmed, generate a comprehensive research prompt. The promp
 
 Generate output in this format (replace placeholders with actual stack details):
 
-**START OF GENERATED PROMPT**
+## START OF GENERATED PROMPT
 
 I'm working on a project with the following technology stack:
 
@@ -217,7 +217,7 @@ Please provide your findings organized as:
    - Recommended articles, tutorials, talks
    - Tools that help with **[TOPIC]** for this stack
 
-**END OF GENERATED PROMPT**
+## END OF GENERATED PROMPT
 
 ## Phase 4: Present the Output
 
