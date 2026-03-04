@@ -27,7 +27,7 @@ Parse `$ARGUMENTS` to understand what the user wants reviewed. Then identify rel
 2. **Recent changes**: Run `git diff HEAD` and `git diff --staged` to identify what changed
 3. **Related code**: Search for key terms from the prompt to identify the most relevant files (up to 5 files)
 
-**Important**: You do NOT need to read and inline every file. Subagents have access to the filesystem and git — they can read files and run git commands themselves. Your job is to *identify* the relevant files and reference them, not to copy their contents into the prompt. See Phase 4 for how to use `@file` references.
+**Important**: You do NOT need to read and inline every file. Subagents have access to the filesystem and git — they can read files and run git commands themselves. Your job is to _identify_ the relevant files and reference them, not to copy their contents into the prompt. See Phase 4 for how to use `@file` references.
 
 ---
 
@@ -98,30 +98,36 @@ For preset loop mode and inline loop mode, skip this phase — counselors handle
 
 **Note:** Counselors automatically appends execution boilerplate (general guidelines about focusing on source dirs, skipping vendor/binary files, providing file paths for findings) to every prompt before dispatch. You do not need to include these instructions yourself.
 
-   **Subagents can read files and use git.** You do NOT need to inline file contents or diff output into the prompt. Instead, use `@path/to/file` references to point subagents at the relevant files. They will read the files themselves. This keeps the prompt concise and avoids bloating it with copied code.
+**Subagents can read files and use git.** You do NOT need to inline file contents or diff output into the prompt. Instead, use `@path/to/file` references to point subagents at the relevant files. They will read the files themselves. This keeps the prompt concise and avoids bloating it with copied code.
 
-   Only inline small, critical snippets if they're essential for framing the question (e.g. a specific function signature or error message). For everything else, use `@file` references.
+Only inline small, critical snippets if they're essential for framing the question (e.g. a specific function signature or error message). For everything else, use `@file` references.
 
 ```markdown
 # Review Request
 
 ## Question
+
 [User's original prompt/question from $ARGUMENTS]
 
 ## Context
 
 ### Files to Review
+
 [List @path/to/file references for each relevant file found in Phase 1]
 [e.g. @src/core/executor.ts, @src/adapters/claude.ts]
 
 ### Recent Changes
+
 [Brief description of what changed. If a diff is relevant, tell the agent to run `git diff HEAD` themselves, or inline only a small critical snippet]
 
 ### Related Code
+
 [@path/to/file references for related files discovered via search]
 
 ## Instructions
+
 You are providing an independent review. Be critical and thorough.
+
 - Read the referenced files to understand the full context
 - Analyze the question in the context provided
 - Identify risks, tradeoffs, and blind spots
@@ -208,13 +214,13 @@ In rounds 2+, counselors automatically augments the prompt with `@file` referenc
 
 ### Common flags for all loop modes
 
-| Flag | Description |
-| --- | --- |
-| `--rounds <N>` | Number of rounds (default: 3) |
-| `--duration <time>` | Max wall time (`30m`, `1h`); unlimited rounds when set alone |
-| `--convergence-threshold <ratio>` | Early stop ratio (default: 0.3) |
-| `--discovery-tool <id>` | Agent for prep phases (default: first tool) |
-| `--no-inline-enhancement` | Skip discovery/prompt-writing for inline prompts |
+| Flag                              | Description                                                  |
+| --------------------------------- | ------------------------------------------------------------ |
+| `--rounds <N>`                    | Number of rounds (default: 3)                                |
+| `--duration <time>`               | Max wall time (`30m`, `1h`); unlimited rounds when set alone |
+| `--convergence-threshold <ratio>` | Early stop ratio (default: 0.3)                              |
+| `--discovery-tool <id>`           | Agent for prep phases (default: first tool)                  |
+| `--no-inline-enhancement`         | Skip discovery/prompt-writing for inline prompts             |
 
 Use `timeout: 600000` (10 minutes) or higher. Counselors dispatches to the selected agents in parallel and writes results to the output directory shown in the JSON output.
 
@@ -273,6 +279,7 @@ Combine all agent responses into a synthesis:
 **Recommendation:** [Your synthesized recommendation based on all inputs]
 
 ---
+
 Reports saved to: [output directory from manifest]
 ```
 
