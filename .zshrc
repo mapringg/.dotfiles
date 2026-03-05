@@ -64,52 +64,6 @@ n() {
   fi
 }
 
-t() {
-  local selected session_name
-
-  command -v fd >/dev/null 2>&1 || return
-  command -v fzf >/dev/null 2>&1 || return
-
-  selected=$(
-    fd --type d --hidden --no-ignore --glob '.git' --max-depth 3 \
-      "$HOME/.dotfiles" "$HOME/code" 2>/dev/null |
-      sed "s|/.git/$||; s|^$HOME/||; s|^code/||" |
-      sort |
-      fzf --cycle
-  ) || return
-
-  [[ -z "$selected" ]] && return 0
-
-  if [[ "$selected" != /* ]]; then
-    if [[ -d "$HOME/code/$selected" ]]; then
-      selected="$HOME/code/$selected"
-    elif [[ -d "$HOME/$selected" ]]; then
-      selected="$HOME/$selected"
-    fi
-  fi
-
-  session_name="${selected#"$HOME/"}"
-  session_name="${session_name#code/}"
-  session_name="${session_name//[.:]/_}"
-
-  if ! tmux has-session -t="$session_name" 2>/dev/null; then
-    tmux new-session -ds "$session_name" -c "$selected"
-    tmux new-window -t "$session_name" -c "$selected"
-    tmux new-window -t "$session_name" -c "$selected"
-    tmux select-window -t "$session_name:1"
-    sleep 0.5
-    tmux send-keys -t "$session_name:1" 'amp' Enter
-    tmux send-keys -t "$session_name:2" 'n' Enter
-    tmux send-keys -t "$session_name:3" 'lazygit' Enter
-  fi
-
-  if [[ -z "$TMUX" ]]; then
-    tmux attach-session -t "$session_name"
-  else
-    tmux switch-client -t "$session_name"
-  fi
-}
-
 bindkey -e
 
 HISTSIZE=5000
