@@ -18,8 +18,9 @@ link:
 setup: deps link tools tmux zsh
 
 tmux:
-	@[ -d "$$HOME/.tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm "$$HOME/.tmux/plugins/tpm"
-	"$$HOME/.tmux/plugins/tpm/bin/install_plugins"
+	@mkdir -p "$$HOME/.config/tmux/plugins"
+	@[ -d "$$HOME/.config/tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm "$$HOME/.config/tmux/plugins/tpm"
+	"$$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
 
 tools:
 	mise install
