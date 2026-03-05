@@ -6,9 +6,3 @@ suppress_unstable_features_warning = true
 apply_patch_freeform = true
 shell_snapshot = true
 unified_exec = true
-
-[projects."/Users/mapring/.dotfiles"]
-trust_level = "trusted"
-
-[projects."/Users/mapring/code"]
-trust_level = "trusted"
