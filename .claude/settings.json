@@ -22,5 +22,6 @@
   },
   "spinnerTipsEnabled": false,
   "skipDangerousModePermissionPrompt": true,
-  "terminalProgressBarEnabled": false
+  "terminalProgressBarEnabled": false,
+  "effortLevel": "high"
 }
