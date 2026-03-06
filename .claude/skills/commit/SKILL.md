@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Generate a concise git commit message from the current diff using conventional commit format. Stage and commit changes with a well-crafted message, then present it for user approval before committing.
+description: Generates a concise git commit message from the current diff using conventional commit format. Use when ready to commit staged changes or asked to commit.
 ---
 
 # Committing Changes
