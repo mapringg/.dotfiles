@@ -41,6 +41,34 @@
         "claude-haiku-4-5"
       ]
     },
+    "gpt-5.4-xhigh": {
+      "binary": "codex",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "codex",
+      "extraFlags": [
+        "-m",
+        "gpt-5.4",
+        "-c",
+        "model_reasoning_effort=xhigh"
+      ]
+    },
+    "gpt-5.4-high": {
+      "binary": "codex",
+      "readOnly": {
+        "level": "enforced"
+      },
+      "timeout": 900,
+      "adapter": "codex",
+      "extraFlags": [
+        "-m",
+        "gpt-5.4",
+        "-c",
+        "model_reasoning_effort=high"
+      ]
+    },
     "codex-5.3-xhigh": {
       "binary": "codex",
       "readOnly": {
@@ -119,11 +147,13 @@
   "groups": {
     "smart": [
       "claude-opus",
+      "gpt-5.4-xhigh",
       "codex-5.3-xhigh",
       "gemini-3.1-pro"
     ],
     "fast": [
       "claude-sonnet",
+      "gpt-5.4-high",
       "codex-5.3-high",
       "gemini-3-flash"
     ],
