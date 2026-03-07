@@ -31,11 +31,9 @@ Analyze the diff and generate a commit message using this format:
 
 ### Body (optional)
 
-- Include a body when the diff is non-trivial or touches multiple areas
-- Separate from the subject with a blank line
-- Wrap lines at 72 characters
-- Explain **what** changed and **why**, not how
-- **Always use bullet points** — never write prose paragraphs
+- **Omit the body by default** — prefer subject-only commits
+- Only include a body for large, complex changes touching multiple unrelated areas
+- If included: use bullet points, wrap at 72 chars, explain **what** and **why**
 
 ### Commit Types
 
