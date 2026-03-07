@@ -1,11 +1,6 @@
-model = "gpt-5.3-codex"
+model = "gpt-5.4"
 model_reasoning_effort = "high"
-suppress_unstable_features_warning = true
-
-[features]
-apply_patch_freeform = true
-shell_snapshot = true
-unified_exec = true
+personality = "pragmatic"
 
 [projects."/Users/mapring/.dotfiles"]
 trust_level = "trusted"
