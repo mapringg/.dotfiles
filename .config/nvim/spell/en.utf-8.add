@@ -12,3 +12,5 @@ macOS
 stderr
 backend
 frontend
+tmux
+config
