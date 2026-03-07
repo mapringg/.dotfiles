@@ -4,6 +4,7 @@ setup:
 	brew bundle --file Brewfile
 	stow --no-folding --target="$$HOME" --restow --verbose=1 .
 	mise install
+	@mkdir -p "$$HOME/.ssh/sockets"
 	@mkdir -p "$$HOME/.config/tmux/plugins"
 	-@git clone https://github.com/tmux-plugins/tpm "$$HOME/.config/tmux/plugins/tpm" 2>/dev/null
 	"$$HOME/.config/tmux/plugins/tpm/bin/install_plugins"
