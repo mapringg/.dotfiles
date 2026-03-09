@@ -16,7 +16,9 @@
       "adapter": "claude",
       "extraFlags": [
         "--model",
-        "claude-opus-4-6"
+        "claude-opus-4-6",
+        "--effort",
+        "high"
       ]
     },
     "claude-sonnet": {
@@ -27,7 +29,9 @@
       "adapter": "claude",
       "extraFlags": [
         "--model",
-        "claude-sonnet-4-6"
+        "claude-sonnet-4-6",
+        "--effort",
+        "high"
       ]
     },
     "claude-haiku": {
@@ -38,7 +42,9 @@
       "adapter": "claude",
       "extraFlags": [
         "--model",
-        "claude-haiku-4-5"
+        "claude-haiku-4-5",
+        "--effort",
+        "high"
       ]
     },
     "gpt-5.4-xhigh": {
@@ -158,6 +164,7 @@
       "gemini-3-flash"
     ],
     "opus-swarm": [
+      "claude-opus",
       "claude-opus",
       "claude-opus",
       "claude-opus"
