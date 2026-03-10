@@ -1,6 +1,4 @@
 gui:
-  nerdFontsVersion: "3"
-  showIcons: true
   theme:
     activeBorderColor:
       - "#89b4fa"
