@@ -17,8 +17,8 @@ fi
 selected=$(
   {
     fd --type d --hidden --no-ignore --glob '.git' --max-depth 3 \
-      "$HOME/.dotfiles" "$HOME/code" 2>/dev/null |
-      sed "s|/.git/$||; s|^$HOME/||; s|^code/||" |
+      "$HOME/.dotfiles" "$HOME/Developer" 2>/dev/null |
+      sed "s|/.git/$||; s|^$HOME/||; s|^Developer/||" |
       sort
     (( ${#ssh_hosts[@]} )) && printf '%s\n' "${ssh_hosts[@]}"
   } | fzf --cycle
@@ -36,15 +36,15 @@ if [[ "$selected" == ssh:* ]]; then
   fi
 else
   if [[ "$selected" != /* ]]; then
-    if [[ -d "$HOME/code/$selected" ]]; then
-      selected="$HOME/code/$selected"
+    if [[ -d "$HOME/Developer/$selected" ]]; then
+      selected="$HOME/Developer/$selected"
     elif [[ -d "$HOME/$selected" ]]; then
       selected="$HOME/$selected"
     fi
   fi
 
   session_name="${selected#"$HOME/"}"
-  session_name="${session_name#code/}"
+  session_name="${session_name#Developer/}"
   session_name="${session_name//[.:]/_}"
 
   if ! tmux has-session -t="$session_name" 2>/dev/null; then
