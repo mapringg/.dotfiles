@@ -23,11 +23,9 @@ if OS.mac?
   cask "brave-browser"
   cask "gcloud-cli"
   cask "ghostty"
-  cask "google-chrome"
   cask "karabiner-elements"
   cask "nextcloud"
   cask "raycast"
   cask "tailscale-app"
   cask "telegram"
-  cask "zed"
 end
