@@ -5,8 +5,9 @@
 typeset -U path
 path=("$HOME/.local/bin" $path)
 
-if [[ -f /opt/homebrew/opt/antidote/share/antidote/antidote.zsh ]]; then
-  source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+if command -v brew >/dev/null 2>&1; then
+  local antidote_path="$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+  [[ -f "$antidote_path" ]] && source "$antidote_path"
 fi
 
 if command -v antidote >/dev/null 2>&1; then
