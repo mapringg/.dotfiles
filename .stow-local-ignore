@@ -1,4 +1,5 @@
 .git
 .markdownlint.json
+AGENTS.md
 Brewfile
 Makefile
