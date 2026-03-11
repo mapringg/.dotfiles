@@ -18,7 +18,6 @@ export BAT_THEME=ansi
 export EDITOR=nvim
 export HOMEBREW_NO_ENV_HINTS=1
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export FZF_CTRL_T_COMMAND="fd --type f --hidden --strip-cwd-prefix"
