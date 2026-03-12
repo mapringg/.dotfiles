@@ -34,6 +34,12 @@ export SUDO_EDITOR="$EDITOR"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias a='amp'
+alias cc='claude'
+alias c='codex --full-auto'
+alias g='gemini --yolo'
+alias l='lazygit'
+alias lu='lumen'
 
 if command -v mise >/dev/null 2>&1; then
   alias up='brew update && brew upgrade && mise up'
