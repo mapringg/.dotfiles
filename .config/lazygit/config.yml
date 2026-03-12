@@ -19,3 +19,18 @@ gui:
       - "#313244"
     unstagedChangesColor:
       - "#f38ba8"
+customCommands:
+  - key: '<c-l>'
+    context: 'files'
+    command: 'lumen draft | tee >(pbcopy)'
+    loadingText: 'Generating message...'
+    output: popup
+  - key: '<c-k>'
+    context: 'files'
+    command: 'lumen draft -c {{.Form.Context | quote}} | tee >(pbcopy)'
+    loadingText: 'Generating message...'
+    prompts:
+      - type: 'input'
+        title: 'Context'
+        key: 'Context'
+    output: popup
