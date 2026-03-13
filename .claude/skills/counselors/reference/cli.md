@@ -1,8 +1,21 @@
 # Counselors CLI Reference
 
-## Run Mode (single-shot)
+## Discovery
 
-Create output directory and prompt file, then dispatch:
+```bash
+counselors ls           # list configured agents (IDs + binaries)
+counselors groups ls    # list configured groups (predefined tool sets)
+```
+
+Tool selection flags (apply to both `run` and `loop`):
+
+- `--tools claude,codex,gemini` — explicit tool list
+- `--group smart` — use a configured group
+- `--group smart --tools codex` — group plus additional tools
+
+## Prompt File Creation
+
+Both `run` and `loop + file` modes require a prompt file. Create one via:
 
 ```bash
 cat <<'PROMPT' | counselors mkdir --json
@@ -10,27 +23,23 @@ cat <<'PROMPT' | counselors mkdir --json
 PROMPT
 ```
 
-Parse the JSON output and read `promptFilePath`, then dispatch:
+Parse the JSON output to read `promptFilePath` and `outputDir`.
+
+## Run Mode (single-shot)
 
 ```bash
 counselors run -f <promptFilePath> --tools [comma-separated-tool-ids] --json
 ```
 
-Tool selection examples:
-
-- `--tools claude,codex,gemini`
-- `--group smart` (uses the configured group)
-- `--group smart --tools codex` (group plus explicit tools)
-
 ## Loop Mode (iterative)
 
-### Custom prompt file
+### Loop + file (custom prompt)
 
 ```bash
 counselors loop -f <promptFilePath> --tools [comma-separated-tool-ids] --json
 ```
 
-### Inline prompt (auto-enhanced)
+### Loop + inline (auto-enhanced)
 
 ```bash
 counselors loop "find race conditions in the worker pool" --tools [comma-separated-tool-ids] --json
@@ -38,7 +47,7 @@ counselors loop "find race conditions in the worker pool" --tools [comma-separat
 
 Add `--no-inline-enhancement` to skip discovery/prompt-writing and send the raw prompt as-is.
 
-### Preset
+### Loop + preset
 
 ```bash
 counselors loop --preset <preset-name> "<focus area>" --tools [comma-separated-tool-ids] --json
@@ -58,7 +67,7 @@ List available presets: `counselors loop --list-presets`
 
 ### Loop Behavior
 
-In rounds 2+, counselors augments the prompt with `@file` references to prior round outputs. Agents are instructed to not repeat findings, challenge prior claims, and label overlaps as confirmed/refined/invalidated/duplicate.
+In rounds 2+, counselors augments the prompt with `@file` references to prior round outputs. Agents are instructed to not repeat findings, challenge prior claims, follow adjacent code paths discovered in earlier rounds, and label overlaps as confirmed/refined/invalidated/duplicate.
 
 ## Output Structure
 
@@ -69,6 +78,8 @@ In rounds 2+, counselors augments the prompt with `@file` references to prior ro
 ├── prompt.md
 └── {tool-id}.md
 ```
+
+Read each `{tool-id}.md` for the agent's response.
 
 ### Loop output
 
@@ -84,8 +95,10 @@ In rounds 2+, counselors augments the prompt with `@file` references to prior ro
 └── run.json
 ```
 
-Start with `final-notes.md` for a high-level summary, then drill into individual round outputs as needed.
+The manifest's `rounds` array contains per-round tool reports. `totalRounds` and `durationMs` are top-level fields.
+
+**Reading order**: start with `final-notes.md` for a cross-round summary, then `round-notes.md` per round, then drill into per-agent `{tool-id}.md` files as needed.
 
 ## Timing
 
-Sessions commonly take **10–20+ minutes**. Counselors prints each child PID alongside the agent name. Verify with `ps -p <PID>`.
+Sessions commonly take **10–20+ minutes**. Counselors emits periodic heartbeat lines to stdout and prints each child PID alongside the agent name. Verify with `ps -p <PID>`.
