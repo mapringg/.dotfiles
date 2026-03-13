@@ -10,6 +10,8 @@ uv = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
 
+"cargo:lumen" = "latest"
+
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
 npm.bun = true
