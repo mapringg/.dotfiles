@@ -19,7 +19,6 @@ brew "zoxide"
 if OS.mac?
   cask "aqua-voice"
   cask "brave-browser"
-  cask "gcloud-cli"
   cask "ghostty"
   cask "karabiner-elements"
   cask "nextcloud"
