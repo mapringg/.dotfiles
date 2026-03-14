@@ -19,9 +19,9 @@ selected=$(
     fd --type d --hidden --no-ignore --glob '.git' --max-depth 3 \
       "$HOME/.dotfiles" "$HOME/Developer" 2>/dev/null |
       sed "s|/.git/$||; s|^$HOME/||; s|^Developer/||" |
-      sort
+      LC_ALL=C sort
     (( ${#ssh_hosts[@]} )) && printf '%s\n' "${ssh_hosts[@]}"
-  } | fzf --cycle
+  } | fzf --cycle --layout=reverse
 ) || exit
 
 [[ -z "$selected" ]] && exit 0
