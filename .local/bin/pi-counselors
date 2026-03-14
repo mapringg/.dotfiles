@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ -f "$HOME/.env" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "$HOME/.env"
+  status=$?
+  set +a
+  if [ "$status" -ne 0 ]; then
+    echo "Failed to source $HOME/.env" >&2
+    exit "$status"
+  fi
+fi
+
+exec pi "$@"

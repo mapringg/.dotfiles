@@ -9,122 +9,171 @@
   },
   "tools": {
     "claude-opus": {
-      "binary": "claude",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
-      "adapter": "claude",
       "extraFlags": [
+        "-p",
+        "--no-session",
         "--model",
-        "claude-opus-4-6",
-        "--effort",
+        "vercel-ai-gateway/anthropic/claude-opus-4.6",
+        "--thinking",
         "high"
       ]
     },
     "claude-sonnet": {
-      "binary": "claude",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
-      "adapter": "claude",
       "extraFlags": [
+        "-p",
+        "--no-session",
         "--model",
-        "claude-sonnet-4-6",
-        "--effort",
+        "vercel-ai-gateway/anthropic/claude-sonnet-4.6",
+        "--thinking",
         "high"
       ]
     },
     "claude-haiku": {
-      "binary": "claude",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
-      "adapter": "claude",
       "extraFlags": [
+        "-p",
+        "--no-session",
         "--model",
-        "claude-haiku-4-5",
-        "--effort",
+        "vercel-ai-gateway/anthropic/claude-haiku-4.5",
+        "--thinking",
         "high"
       ]
     },
     "gpt-5.4-xhigh": {
-      "binary": "codex",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
       "timeout": 900,
-      "adapter": "codex",
       "extraFlags": [
-        "-m",
-        "gpt-5.4",
-        "-c",
-        "model_reasoning_effort=xhigh"
+        "-p",
+        "--no-session",
+        "--model",
+        "openai-codex/gpt-5.4",
+        "--thinking",
+        "xhigh"
       ]
     },
     "gpt-5.4-high": {
-      "binary": "codex",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
       "timeout": 900,
-      "adapter": "codex",
       "extraFlags": [
-        "-m",
-        "gpt-5.4",
-        "-c",
-        "model_reasoning_effort=high"
+        "-p",
+        "--no-session",
+        "--model",
+        "openai-codex/gpt-5.4",
+        "--thinking",
+        "high"
       ]
     },
     "codex-5.3-xhigh": {
-      "binary": "codex",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
       "timeout": 900,
-      "adapter": "codex",
       "extraFlags": [
-        "-m",
-        "gpt-5.3-codex",
-        "-c",
-        "model_reasoning_effort=xhigh"
+        "-p",
+        "--no-session",
+        "--model",
+        "openai-codex/gpt-5.3-codex",
+        "--thinking",
+        "xhigh"
       ]
     },
     "codex-5.3-high": {
-      "binary": "codex",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
       "timeout": 900,
-      "adapter": "codex",
       "extraFlags": [
-        "-m",
-        "gpt-5.3-codex",
-        "-c",
-        "model_reasoning_effort=high"
+        "-p",
+        "--no-session",
+        "--model",
+        "openai-codex/gpt-5.3-codex",
+        "--thinking",
+        "high"
       ]
     },
     "gemini-3.1-pro": {
-      "binary": "gemini",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
       "timeout": 900,
-      "adapter": "gemini",
       "extraFlags": [
-        "-m",
-        "gemini-3.1-pro-preview"
+        "-p",
+        "--no-session",
+        "--model",
+        "google/gemini-3.1-pro-preview",
+        "--thinking",
+        "high"
       ]
     },
     "gemini-3-flash": {
-      "binary": "gemini",
+      "binary": "/home/mapring/.local/bin/pi-counselors",
       "readOnly": {
-        "level": "enforced"
+        "level": "enforced",
+        "flags": [
+          "--tools",
+          "read,grep,find,ls"
+        ]
       },
       "timeout": 900,
-      "adapter": "gemini",
       "extraFlags": [
-        "-m",
-        "gemini-3-flash-preview"
+        "-p",
+        "--no-session",
+        "--model",
+        "google/gemini-3-flash-preview",
+        "--thinking",
+        "high"
       ]
     },
     "amp-smart": {

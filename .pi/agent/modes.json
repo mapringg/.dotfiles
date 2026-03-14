@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "currentMode": "smart",
+  "modes": {
+    "rush": {
+      "provider": "vercel-ai-gateway",
+      "modelId": "anthropic/claude-haiku-4.5",
+      "thinkingLevel": "medium",
+      "color": "yellow"
+    },
+    "smart": {
+      "provider": "vercel-ai-gateway",
+      "modelId": "anthropic/claude-opus-4.6",
+      "thinkingLevel": "medium",
+      "color": "green"
+    },
+    "deep": {
+      "provider": "openai-codex",
+      "modelId": "gpt-5.3-codex",
+      "thinkingLevel": "xhigh",
+      "color": "cyan"
+    }
+  }
+}
