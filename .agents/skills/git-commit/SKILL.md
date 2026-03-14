@@ -87,8 +87,10 @@ git add -p
 Analyze the diff to determine:
 
 - **Type**: What kind of change is this?
-- **Scope**: What area/module is affected?
+- **Scope**: Optional. Use only when it adds clarity.
 - **Description**: One-line summary of what changed (present tense, imperative mood, <72 chars)
+- **Body**: Omit by default. Add only when the change is complex or non-obvious.
+- **Body style**: Prefer concise bullets for multi-part/hard-to-read commits; use plain prose when a short sentence is enough.
 
 ### 4. Execute Commit
 
@@ -110,6 +112,11 @@ EOF
 ## Best Practices
 
 - One logical change per commit
+- Scope is optional; include it only when it meaningfully clarifies the affected area
+- Prefer subject-only commits for simple/obvious changes
+- Add a commit body only for complex, non-obvious, or multi-part changes
+- Prefer bullet points in body when they improve readability, but use them sparingly
+- Keep bullets concise (typically 2-4) and focused on what changed/why
 - Present tense: "add" not "added"
 - Imperative mood: "fix bug" not "fixes bug"
 - Reference issues: `Closes #123`, `Refs #456`
