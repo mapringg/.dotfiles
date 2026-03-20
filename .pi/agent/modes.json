@@ -16,8 +16,8 @@
     },
     "deep": {
       "provider": "openai-codex",
-      "modelId": "gpt-5.3-codex",
-      "thinkingLevel": "xhigh",
+      "modelId": "gpt-5.4",
+      "thinkingLevel": "high",
       "color": "cyan"
     }
   }
