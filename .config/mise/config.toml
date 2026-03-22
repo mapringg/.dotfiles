@@ -6,7 +6,6 @@ rust = "latest"
 uv = "latest"
 
 "npm:@antfu/ni" = "latest"
-"npm:counselors" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
 
