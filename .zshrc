@@ -39,7 +39,6 @@ alias cc='claude'
 alias c='codex'
 alias g='gemini'
 alias l='lazygit'
-alias lu='lumen'
 
 if command -v mise >/dev/null 2>&1; then
   alias up='brew update && brew upgrade && mise up'
