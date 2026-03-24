@@ -34,6 +34,7 @@ export SUDO_EDITOR="$EDITOR"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias n='nvim'
 alias a='amp'
 alias cc='claude'
 alias c='codex'
@@ -59,14 +60,6 @@ b() {
   fd --hidden --type l \
     . ~ \
     --exec sh -c 'test ! -e "$1" && echo "$1"' _ {}
-}
-
-n() {
-  if [[ "$#" -eq 0 ]]; then
-    nvim .
-  else
-    nvim "$@"
-  fi
 }
 
 bindkey -e
