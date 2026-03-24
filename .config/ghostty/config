@@ -12,6 +12,7 @@ copy-on-select = clipboard
 macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = hidden
+macos-icon = xray
 shell-integration-features = no-title,no-cursor,ssh-env
 
 keybind = alt+backspace=text:\x1b\x7f
