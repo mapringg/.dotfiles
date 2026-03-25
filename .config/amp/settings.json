@@ -1,3 +1,4 @@
 {
-  "amp.terminal.theme": "catppuccin-mocha"
+  "amp.terminal.theme": "catppuccin-mocha",
+  "amp.agent.deepReasoningEffort": "xhigh"
 }
