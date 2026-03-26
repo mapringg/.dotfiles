@@ -1,7 +1,5 @@
 brew "antidote"
-brew "bat"
 brew "biome"
-brew "eza"
 brew "fd"
 brew "fzf"
 brew "gh"
@@ -9,11 +7,8 @@ brew "git"
 brew "jq"
 brew "lazygit"
 brew "mise"
-brew "neovim"
 brew "ripgrep"
 brew "stow"
-brew "tealdeer"
-brew "tmux"
 brew "zoxide"
 
 if OS.mac?
@@ -25,4 +20,5 @@ if OS.mac?
   cask "raycast"
   cask "tailscale-app"
   cask "telegram"
+  cask "visual-studio-code"
 end

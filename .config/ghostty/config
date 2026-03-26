@@ -1,19 +1,2 @@
-font-family = "MonoLisa Nerd Font"
-theme = Catppuccin Mocha
-title = "Ghostty"
-
-maximize = true
-window-padding-balance = true
-window-padding-x = 12
-window-padding-y = 12,8
-
-confirm-close-surface = false
-copy-on-select = clipboard
-macos-option-as-alt = true
-macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = hidden
-macos-icon = xray
-shell-integration-features = no-title,no-cursor,ssh-env
-
-keybind = alt+backspace=text:\x1b\x7f
-keybind = shift+enter=text:\n
+font-family = "Geist Mono"
+shell-integration-features = ssh-env

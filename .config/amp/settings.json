@@ -1,4 +1,4 @@
 {
-  "amp.terminal.theme": "catppuccin-mocha",
-  "amp.agent.deepReasoningEffort": "xhigh"
+  "amp.agent.deepReasoningEffort": "xhigh",
+  "amp.dangerouslyAllowAll": true
 }
