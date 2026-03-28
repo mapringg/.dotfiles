@@ -14,6 +14,8 @@ brew "zoxide"
 if OS.mac?
   cask "aqua-voice"
   cask "brave-browser"
+  cask "font-geist"
+  cask "font-geist-mono"
   cask "ghostty"
   cask "karabiner-elements"
   cask "nextcloud"
