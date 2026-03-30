@@ -1,0 +1,8 @@
+customCommands:
+  - key: "<c-a>"
+    description: "Generate commit message with AI"
+    context: "files"
+    command: >-
+      bash -c "git diff --cached | claude -p 'Generate a single-line commit message for this diff. Use Conventional Commits format (feat:, fix:, chore:, docs:, refactor:). Output ONLY the raw commit message. No quotes, no explanation, no period at the end.' 2>/dev/null | tee >(pbcopy)"
+    loadingText: "Generating commit message..."
+    output: popup
