@@ -7,4 +7,5 @@ elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 fi
 
 typeset -U path
-path=("$HOME/.local/bin" "$HOME/.local/share/mise/shims" $path)
+path=("$HOME/.local/bin" $path)
+eval "$(mise activate zsh --shims)"
