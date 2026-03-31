@@ -1,4 +1,3 @@
-brew "antidote"
 brew "biome"
 brew "fd"
 brew "fzf"
@@ -10,6 +9,9 @@ brew "mise"
 brew "ripgrep"
 brew "stow"
 brew "zoxide"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 
 if OS.mac?
   cask "aqua-voice"

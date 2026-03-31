@@ -1,9 +1,7 @@
+BREW_PREFIX="/opt/homebrew"
 
-source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
-
-[[ ! -f $HOME/.zsh_plugins.zsh || $HOME/.zsh_plugins.txt -nt $HOME/.zsh_plugins.zsh ]] \
-  && antidote bundle <"$HOME/.zsh_plugins.txt" >"$HOME/.zsh_plugins.zsh"
-source "$HOME/.zsh_plugins.zsh"
+source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 bindkey -e
 bindkey '^p' history-search-backward
@@ -18,11 +16,14 @@ setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt sharehistory
 
+FPATH="$BREW_PREFIX/share/zsh-completions:$FPATH"
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 autoload -Uz compinit
-compinit
+compinit -C
 
-source <(fzf --zsh)
+source "$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+source "$BREW_PREFIX/opt/fzf/shell/completion.zsh"
 
 eval "$(zoxide init zsh --cmd cd)"
