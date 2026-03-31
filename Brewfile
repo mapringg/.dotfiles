@@ -23,6 +23,5 @@ if OS.mac?
   cask "nextcloud"
   cask "raycast"
   cask "tailscale-app"
-  cask "telegram"
   cask "visual-studio-code"
 end
