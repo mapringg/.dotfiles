@@ -1,4 +1,3 @@
-[[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-$USER.zsh" ]] && source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-$USER.zsh"
 
 source "$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
 
@@ -27,5 +26,3 @@ compinit
 source <(fzf --zsh)
 
 eval "$(zoxide init zsh --cmd cd)"
-
-[[ -f $HOME/.p10k.zsh ]] && source "$HOME/.p10k.zsh"
