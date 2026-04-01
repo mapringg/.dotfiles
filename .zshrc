@@ -27,3 +27,4 @@ source "$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 source "$BREW_PREFIX/opt/fzf/shell/completion.zsh"
 
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
