@@ -25,6 +25,6 @@ customCommands:
     description: "Generate commit message with AI"
     context: "files"
     command: >-
-      bash -c "git diff --cached | codex exec --ephemeral 'Generate a single-line commit message for this diff. Use Conventional Commits format (feat:, fix:, chore:, docs:, refactor:). Output ONLY the raw commit message. No quotes, no explanation, no period at the end.' 2>/dev/null | tee >(pbcopy)"
+      bash -c "git diff --cached | codex exec --ephemeral -m gpt-5.4-mini 'Generate a single-line commit message for this diff. Use Conventional Commits format (feat:, fix:, chore:, docs:, refactor:). Output ONLY the raw commit message. No quotes, no explanation, no period at the end.' 2>/dev/null | tee >(pbcopy)"
     loadingText: "Generating commit message..."
     output: popup
