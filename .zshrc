@@ -1,3 +1,5 @@
+export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
+
 BREW_PREFIX="/opt/homebrew"
 
 source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
