@@ -1,4 +1,5 @@
+command = /bin/zsh
 font-family = "Geist Mono"
+shell-integration-features = ssh-env
 theme = Catppuccin Mocha
 window-padding-x = 12
-shell-integration-features = ssh-env
