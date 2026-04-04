@@ -16,6 +16,7 @@ brew "zsh-syntax-highlighting"
 
 if OS.mac?
   cask "aqua-voice"
+  cask "bitwarden"
   cask "brave-browser"
   cask "font-geist"
   cask "font-geist-mono"
