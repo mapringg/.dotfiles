@@ -2,9 +2,11 @@ export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
 export EDITOR=vim
 
 BREW_PREFIX="/opt/homebrew"
+FPATH="$BREW_PREFIX/share/zsh-completions:$FPATH"
 
-source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+autoload -Uz compinit
+compinit -C
 
 bindkey -e
 bindkey '^p' history-search-backward
@@ -19,15 +21,11 @@ setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt sharehistory
 
-FPATH="$BREW_PREFIX/share/zsh-completions:$FPATH"
-
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
-autoload -Uz compinit
-compinit -C
-
-source "$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 source "$BREW_PREFIX/opt/fzf/shell/completion.zsh"
+source "$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+source "$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
