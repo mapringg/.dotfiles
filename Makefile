@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 PATH := $(HOME)/.local/bin:$(PATH)
 UNAME_S := $(shell uname -s)
-FEDORA_PACKAGES := fd fzf gh git jq ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
+FEDORA_PACKAGES := fd-find fzf gh git jq ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
 
 .PHONY: setup setup-common setup-macos setup-fedora install-macos-packages install-fedora-packages install-mise install-starship install-claude install-amp
 
