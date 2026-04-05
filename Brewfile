@@ -3,13 +3,10 @@ brew "fzf"
 brew "gh"
 brew "git"
 brew "jq"
-brew "mise"
 brew "ripgrep"
-brew "starship"
 brew "stow"
 brew "zoxide"
 brew "zsh-autosuggestions"
-brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 if OS.mac?
