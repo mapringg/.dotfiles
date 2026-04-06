@@ -3,7 +3,7 @@ PATH := $(HOME)/.local/bin:$(PATH)
 UNAME_S := $(shell uname -s)
 ARCH_PACKAGES := fd fzf github-cli git jq ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
 
-.PHONY: setup setup-common setup-macos setup-arch install-macos-packages install-arch-packages install-claude install-amp link-omarchy-theme
+.PHONY: setup setup-common setup-macos setup-arch install-macos-packages install-arch-packages install-claude install-amp
 
 setup:
 ifeq ($(UNAME_S),Darwin)
@@ -22,11 +22,13 @@ setup-common:
 	$(MAKE) install-amp
 
 setup-macos: install-macos-packages setup-common
+	cp defaults/neovim-theme.lua $$HOME/.config/nvim/lua/plugins/theme.lua
 
 install-macos-packages:
 	brew bundle --file Brewfile
 
-setup-arch: install-arch-packages setup-common link-omarchy-theme
+setup-arch: install-arch-packages setup-common
+	ln -sf $$HOME/.config/omarchy/current/theme/neovim.lua $$HOME/.config/nvim/lua/plugins/theme.lua
 
 install-arch-packages:
 	sudo pacman -S --needed --noconfirm $(ARCH_PACKAGES)
@@ -44,6 +46,3 @@ install-amp:
 	else \
 		curl -fsSL https://ampcode.com/install.sh | bash; \
 	fi
-
-link-omarchy-theme:
-	ln -sf $$HOME/.config/omarchy/current/theme/neovim.lua $$HOME/.config/nvim/lua/plugins/theme.lua
