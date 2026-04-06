@@ -1,5 +1,5 @@
 export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
-export EDITOR=vim
+export EDITOR=nvim
 
 if [[ -x /opt/homebrew/bin/brew ]]; then
   BREW_PREFIX="/opt/homebrew"
