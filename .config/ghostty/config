@@ -35,3 +35,6 @@ mouse-scroll-multiplier = 0.95
 
 # Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
 async-backend = epoll
+
+# Use Option as Alt key on macOS
+macos-option-as-alt = true
