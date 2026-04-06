@@ -38,13 +38,13 @@ setopt sharehistory
 source_first \
   "$HOME/.fzf/shell/completion.zsh" \
   "${BREW_PREFIX:+$BREW_PREFIX/opt/fzf/shell/completion.zsh}" \
-  /usr/share/fzf/shell/completion.zsh \
+  /usr/share/fzf/completion.zsh \
   /usr/share/doc/fzf/examples/completion.zsh
 
 source_first \
   "$HOME/.fzf/shell/key-bindings.zsh" \
   "${BREW_PREFIX:+$BREW_PREFIX/opt/fzf/shell/key-bindings.zsh}" \
-  /usr/share/fzf/shell/key-bindings.zsh \
+  /usr/share/fzf/key-bindings.zsh \
   /usr/share/doc/fzf/examples/key-bindings.zsh
 
 if command -v zoxide >/dev/null 2>&1; then
@@ -57,8 +57,8 @@ fi
 
 source_first \
   "${BREW_PREFIX:+$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh}" \
-  /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source_first \
   "${BREW_PREFIX:+$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh}" \
-  /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
