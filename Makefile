@@ -1,15 +1,15 @@
 SHELL := /bin/bash
 PATH := $(HOME)/.local/bin:$(PATH)
 UNAME_S := $(shell uname -s)
-FEDORA_PACKAGES := fd-find fzf gh git jq ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
+ARCH_PACKAGES := fd fzf github-cli git jq ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
 
-.PHONY: setup setup-common setup-macos setup-fedora install-macos-packages install-fedora-packages install-mise install-starship install-claude install-amp
+.PHONY: setup setup-common setup-macos setup-arch install-macos-packages install-arch-packages install-mise install-starship install-claude install-amp
 
 setup:
 ifeq ($(UNAME_S),Darwin)
 	$(MAKE) setup-macos
 else ifeq ($(UNAME_S),Linux)
-	$(MAKE) setup-fedora
+	$(MAKE) setup-arch
 else
 	@echo "Unsupported OS: $(UNAME_S)" >&2
 	@exit 1
@@ -26,14 +26,10 @@ setup-macos: install-macos-packages install-mise install-starship setup-common
 install-macos-packages:
 	brew bundle --file Brewfile
 
-setup-fedora: install-fedora-packages install-mise install-starship setup-common
+setup-arch: install-arch-packages install-mise install-starship setup-common
 
-install-fedora-packages:
-	@if [[ ! -f /etc/fedora-release ]]; then \
-		echo "setup-fedora is only supported on Fedora" >&2; \
-		exit 1; \
-	fi
-	sudo dnf install -y $(FEDORA_PACKAGES)
+install-arch-packages:
+	sudo pacman -S --needed --noconfirm $(ARCH_PACKAGES)
 
 install-mise:
 	@if command -v mise >/dev/null 2>&1; then \
