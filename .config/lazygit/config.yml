@@ -26,13 +26,6 @@ customCommands:
     description: "Generate commit message with AI"
     context: "files"
     command: >-
-      bash -c "git diff --cached | pi -p --no-session --no-tools --no-extensions --no-skills --no-prompt-templates --thinking off --system-prompt 'You generate git commit messages. Respond with exactly one single-line Conventional Commit message and nothing else. No bullets, no quotes, no explanation, no markdown, no trailing period.' --model openai-codex/gpt-5.4-mini 'Generate a commit message for this diff. Allowed types: feat, fix, chore, docs, refactor. Output ONLY the raw commit message.' 2>/dev/null | tee >(clipboard-copy)"
+      bash -c 'msg=$(git diff --cached | pi -p --no-session --no-tools --no-extensions --no-skills --no-prompt-templates --thinking off --system-prompt "You generate git commit messages. Respond with exactly one single-line Conventional Commit message and nothing else. No bullets, no quotes, no explanation, no markdown, no trailing period." --model openai-codex/gpt-5.4-mini "Generate a commit message for this diff. Allowed types: feat, fix, chore, docs, refactor. Output ONLY the raw commit message." 2>/dev/null); git commit -m "$msg"'
     loadingText: "Generating commit message..."
-    output: popup
-  - key: "<c-a>"
-    description: "Generate commit message for selected commit with AI"
-    context: "commits"
-    command: >-
-      bash -c "git show --stat --patch {{.SelectedLocalCommit.Hash}} | pi -p --no-session --no-tools --no-extensions --no-skills --no-prompt-templates --thinking off --system-prompt 'You generate git commit messages. Respond with exactly one single-line Conventional Commit message and nothing else. No bullets, no quotes, no explanation, no markdown, no trailing period.' --model openai-codex/gpt-5.4-mini 'Generate a better commit message for this commit. Allowed types: feat, fix, chore, docs, refactor. Output ONLY the raw commit message.' 2>/dev/null | tee >(clipboard-copy)"
-    loadingText: "Generating commit message..."
-    output: popup
+
