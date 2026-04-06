@@ -16,12 +16,6 @@
   colorMoved = default
   mnemonicPrefix = true
 
-[fetch]
-  prune = true
-
-[merge]
-  conflictstyle = diff3
-
 [pull]
   rebase = true
 
