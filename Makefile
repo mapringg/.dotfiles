@@ -22,13 +22,11 @@ setup-common:
 	$(MAKE) install-amp
 
 setup-macos: install-macos-packages setup-common
-	cp defaults/neovim-theme.lua $$HOME/.config/nvim/lua/plugins/theme.lua
 
 install-macos-packages:
 	brew bundle --file Brewfile
 
 setup-arch: install-arch-packages setup-common
-	ln -sf $$HOME/.config/omarchy/current/theme/neovim.lua $$HOME/.config/nvim/lua/plugins/theme.lua
 
 install-arch-packages:
 	sudo pacman -S --needed --noconfirm $(ARCH_PACKAGES)
