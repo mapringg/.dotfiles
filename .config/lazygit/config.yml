@@ -6,5 +6,5 @@ customCommands:
     description: "Generate commit message with AI"
     context: "files"
     command: >-
-      bash -c 'msg=$(git diff --cached | pi -p --no-session --no-tools --no-extensions --no-skills --no-prompt-templates --thinking off --system-prompt "You generate git commit messages. Respond with exactly one single-line Conventional Commit message and nothing else. No bullets, no quotes, no explanation, no markdown, no trailing period." --model openai-codex/gpt-5.4-mini "Generate a commit message for this diff. Allowed types: feat, fix, chore, docs, refactor. Output ONLY the raw commit message." 2>/dev/null); git commit -m "$msg"'
+      bash -c 'tmp=$(mktemp); git diff --cached | codex exec --ephemeral --sandbox read-only --color never -m gpt-5.4-mini -o "$tmp" "You generate git commit messages. Respond with exactly one single-line Conventional Commit message and nothing else. No bullets, no quotes, no explanation, no markdown, no trailing period. Generate a commit message for this diff. Allowed types: feat, fix, chore, docs, refactor. Output ONLY the raw commit message." && msg=$(cat "$tmp") && rm -f "$tmp" && [ -n "$msg" ] && git commit -m "$msg"'
     loadingText: "Generating commit message..."
