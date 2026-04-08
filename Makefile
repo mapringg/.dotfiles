@@ -1,9 +1,9 @@
 SHELL := /bin/bash
 PATH := $(HOME)/.local/bin:$(PATH)
 UNAME_S := $(shell uname -s)
-ARCH_PACKAGES := biome fd fzf github-cli git jq ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
+ARCH_PACKAGES := biome fd fzf github-cli git jq ripgrep stow tmux wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
 
-.PHONY: setup setup-common setup-macos setup-arch install-macos-packages install-arch-packages install-claude install-amp
+.PHONY: setup setup-common setup-macos setup-arch install-macos-packages install-arch-packages install-claude install-amp install-tpm
 
 setup:
 ifeq ($(UNAME_S),Darwin)
@@ -20,6 +20,7 @@ setup-common:
 	mise install
 	$(MAKE) install-claude
 	$(MAKE) install-amp
+	$(MAKE) install-tpm
 
 setup-macos: install-macos-packages setup-common
 
@@ -43,4 +44,11 @@ install-amp:
 		echo "amp already installed"; \
 	else \
 		curl -fsSL https://ampcode.com/install.sh | bash; \
+	fi
+
+install-tpm:
+	@if [ -d "$$HOME/.config/tmux/plugins/tpm" ]; then \
+		echo "tpm already installed"; \
+	else \
+		git clone --depth 1 https://github.com/tmux-plugins/tpm "$$HOME/.config/tmux/plugins/tpm"; \
 	fi
