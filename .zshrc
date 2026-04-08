@@ -1,6 +1,8 @@
 export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
 export EDITOR=nvim
 
+alias t='tmux attach 2>/dev/null || tmux new-session -s _dotfiles -c ~/.dotfiles'
+
 if [[ -x /opt/homebrew/bin/brew ]]; then
   BREW_PREFIX="/opt/homebrew"
 fi
