@@ -1,4 +1,4 @@
-# Dynamic theme colors
+# Theme
 config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 theme = TokyoNight
 
@@ -6,23 +6,23 @@ theme = TokyoNight
 font-family = "JetBrainsMono Nerd Font"
 font-style = Regular
 
-# Window
-window-theme = ghostty
-window-padding-x = 4
-window-padding-balance = true
-confirm-close-surface = false
-resize-overlay = never
-gtk-toolbar-style = flat
-
-# Cursor styling
-cursor-style = "block"
+# Cursor
+cursor-style = block
 cursor-style-blink = false
 
-# Cursor styling + SSH session terminfo
-# (all shell integration options must be passed together)
+# Window
+confirm-close-surface = false
+copy-on-select = clipboard
+resize-overlay = never
+window-padding-x = 12
+window-padding-y = 12,8
+window-padding-balance = true
+window-theme = ghostty
+
+# Shell integration (all options must be passed together)
 shell-integration-features = no-cursor,ssh-env
 
-# Keyboard bindings
+# Keybindings
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
 keybind = super+control+shift+alt+arrow_down=resize_split:down,100
@@ -30,11 +30,14 @@ keybind = super+control+shift+alt+arrow_up=resize_split:up,100
 keybind = super+control+shift+alt+arrow_left=resize_split:left,100
 keybind = super+control+shift+alt+arrow_right=resize_split:right,100
 
-# Slowdown mouse scrolling
+# Input
 mouse-scroll-multiplier = 0.95
 
-# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
-async-backend = epoll
-
-# Use Option as Alt key on macOS
+# macOS
 macos-option-as-alt = true
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = hidden
+
+# Linux
+async-backend = epoll
+gtk-toolbar-style = flat
