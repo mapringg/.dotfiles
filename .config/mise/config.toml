@@ -3,6 +3,8 @@ bun = "latest"
 node = { version = "lts", postinstall = "corepack enable" }
 
 "npm:@antfu/ni" = "latest"
+"npm:@openai/codex" = "latest"
+"npm:@google/gemini-cli" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]

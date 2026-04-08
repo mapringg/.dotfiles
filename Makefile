@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 PATH := $(HOME)/.local/bin:$(PATH)
 UNAME_S := $(shell uname -s)
-ARCH_PACKAGES := biome fd fzf gemini-cli github-cli git jq openai-codex ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
+ARCH_PACKAGES := biome fd fzf github-cli git jq ripgrep stow wl-clipboard zoxide zsh zsh-autosuggestions zsh-syntax-highlighting
 
 .PHONY: setup setup-common setup-macos setup-arch install-macos-packages install-arch-packages install-claude install-amp
 
