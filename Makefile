@@ -16,7 +16,7 @@ else
 endif
 
 setup-common:
-	stow --no-folding --target="$$HOME" --restow --verbose=1 .
+	stow --no-folding --target="$(HOME)" --restow --verbose=1 .
 	mise install
 	$(MAKE) install-claude
 	$(MAKE) install-amp
@@ -32,23 +32,23 @@ setup-arch: install-arch-packages setup-common
 install-arch-packages:
 	sudo pacman -S --needed --noconfirm $(ARCH_PACKAGES)
 
+define install-tool
+@if command -v $(1) >/dev/null 2>&1; then \
+	echo "$(1) already installed"; \
+else \
+	curl -fsSL $(2) | bash; \
+fi
+endef
+
 install-claude:
-	@if command -v claude >/dev/null 2>&1; then \
-		echo "claude already installed"; \
-	else \
-		curl -fsSL https://claude.ai/install.sh | bash; \
-	fi
+	$(call install-tool,claude,https://claude.ai/install.sh)
 
 install-amp:
-	@if command -v amp >/dev/null 2>&1; then \
-		echo "amp already installed"; \
-	else \
-		curl -fsSL https://ampcode.com/install.sh | bash; \
-	fi
+	$(call install-tool,amp,https://ampcode.com/install.sh)
 
 install-tpm:
-	@if [ -d "$$HOME/.config/tmux/plugins/tpm" ]; then \
+	@if [ -d "$(HOME)/.config/tmux/plugins/tpm" ]; then \
 		echo "tpm already installed"; \
 	else \
-		git clone --depth 1 https://github.com/tmux-plugins/tpm "$$HOME/.config/tmux/plugins/tpm"; \
+		git clone --depth 1 https://github.com/tmux-plugins/tpm "$(HOME)/.config/tmux/plugins/tpm"; \
 	fi
