@@ -1,10 +1,10 @@
 gui:
   showBottomLine: false
-
 customCommands:
   - key: "<c-a>"
     description: "Generate commit message with AI"
     context: "files"
     command: >-
-      bash -c 'tmp=$(mktemp); git diff --cached | codex exec --ephemeral --sandbox read-only --color never -m gpt-5.4-mini -o "$tmp" "You generate git commit messages. Respond with exactly one single-line Conventional Commit message and nothing else. No bullets, no quotes, no explanation, no markdown, no trailing period. Generate a commit message for this diff. Allowed types: feat, fix, chore, docs, refactor. Output ONLY the raw commit message." && msg=$(cat "$tmp") && rm -f "$tmp" && [ -n "$msg" ] && git commit -m "$msg"'
+      bash -c ' DIFF=$(git diff --cached); if [ -z "$DIFF" ]; then echo "No staged changes." && exit 1; fi; printf "You are a commit message generator that follows these rules:\n1. Write in present tense\n2. Be concise and direct\n3. Output only the commit message without any explanations\n4. Follow the format: <type>(<optional scope>): <commit message>\n\nGenerate a concise git commit message for the following diff.\n\nChoose a type from: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert.\nCommit message must be a maximum of 72 characters.\nYour entire response will be passed directly into git commit.\n\nCode diff:\n\`\`\`diff\n%s\n\`\`\`" "$DIFF" | opencode run -m vercel/openai/gpt-5-mini --dangerously-skip-permissions 2>/dev/null | tail -1 | tee >(pbcopy)'
     loadingText: "Generating commit message..."
+    output: popup
