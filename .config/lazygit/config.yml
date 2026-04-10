@@ -6,3 +6,10 @@ customCommands:
       bash -c ' DIFF=$(git diff --cached); if [ -z "$DIFF" ]; then echo "No staged changes." && exit 1; fi; printf "You are a commit message generator that follows these rules:\n1. Write in present tense\n2. Be concise and direct\n3. Output only the commit message without any explanations\n4. Follow the format: <type>(<optional scope>): <commit message>\n\nGenerate a concise git commit message for the following diff.\n\nChoose a type from: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert.\nCommit message must be a maximum of 72 characters.\nYour entire response will be passed directly into git commit.\n\nCode diff:\n\`\`\`diff\n%s\n\`\`\`" "$DIFF" | opencode run -m vercel/openai/gpt-5-mini --dangerously-skip-permissions 2>/dev/null | tail -1 | tee >(pbcopy)'
     loadingText: "Generating commit message..."
     output: popup
+  - key: "<c-a>"
+    description: "Regenerate commit message with AI"
+    context: "commits"
+    command: >-
+      bash -c ' DIFF=$(git show --format="" {{.SelectedLocalCommit.Sha}}); if [ -z "$DIFF" ]; then echo "No diff found." && exit 1; fi; printf "You are a commit message generator that follows these rules:\n1. Write in present tense\n2. Be concise and direct\n3. Output only the commit message without any explanations\n4. Follow the format: <type>(<optional scope>): <commit message>\n\nGenerate a concise git commit message for the following diff.\n\nChoose a type from: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert.\nCommit message must be a maximum of 72 characters.\nYour entire response will be passed directly into git commit.\n\nCode diff:\n\`\`\`diff\n%s\n\`\`\`" "$DIFF" | opencode run -m vercel/openai/gpt-5-mini --dangerously-skip-permissions 2>/dev/null | tail -1 | tee >(pbcopy)'
+    loadingText: "Regenerating commit message..."
+    output: popup
