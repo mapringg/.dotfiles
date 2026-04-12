@@ -8,9 +8,17 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "disable_ai": true,
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark",
+  "buffer_font_family": "Geist Mono",
+  "theme": "One Dark",
+  "cursor_blink": false,
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "inline_code_actions": false,
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
   },
 }
