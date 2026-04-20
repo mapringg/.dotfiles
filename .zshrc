@@ -2,6 +2,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export EDITOR=vi
+export PATH="$HOME/.local/bin:$PATH"
+export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
+export XDG_CONFIG_HOME="$HOME/.config"
+
+for brewpath in /opt/homebrew /home/linuxbrew/.linuxbrew; do
+  [[ -x "$brewpath/bin/brew" ]] && eval "$("$brewpath/bin/brew" shellenv)" && break
+done
+
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit
 compinit -C
@@ -23,6 +32,8 @@ source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
 source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
 eval "$(zoxide init zsh)"
+eval "$(mise activate zsh)"
+
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
