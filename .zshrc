@@ -4,7 +4,6 @@ fi
 
 export EDITOR=vi
 export PATH="$HOME/.local/bin:$PATH"
-export SSH_AUTH_SOCK=~/.bitwarden-ssh-agent.sock
 export XDG_CONFIG_HOME="$HOME/.config"
 
 for brewpath in /opt/homebrew /home/linuxbrew/.linuxbrew; do
