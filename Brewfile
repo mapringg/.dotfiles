@@ -14,12 +14,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 if OS.mac?
-  cask "bitwarden"
   cask "brave-browser"
   cask "ghostty"
-  cask "karabiner-elements"
-  cask "nextcloud"
-  cask "raycast"
   cask "tailscale-app"
   cask "wispr-flow"
   cask "zed"
