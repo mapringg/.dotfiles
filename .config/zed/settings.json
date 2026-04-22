@@ -8,7 +8,6 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "disable_ai": true,
-  "buffer_font_family": "Geist Mono",
   "theme": "One Dark",
   "cursor_blink": false,
   "git": {
