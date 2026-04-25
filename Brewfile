@@ -14,9 +14,11 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 if OS.mac?
-  cask "brave-browser"
   cask "ghostty"
+  cask "karabiner-elements"
+  cask "microsoft-edge"
+  cask "raycast"
   cask "tailscale-app"
+  cask "visual-studio-code"
   cask "wispr-flow"
-  cask "zed"
 end
