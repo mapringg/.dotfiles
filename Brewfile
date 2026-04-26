@@ -1,4 +1,6 @@
+brew "bat"
 brew "biome"
+brew "eza"
 brew "fd"
 brew "fzf"
 brew "gh"

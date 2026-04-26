@@ -5,6 +5,7 @@ fi
 export EDITOR=vi
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
+export BAT_THEME=ansi
 
 for brewpath in /opt/homebrew /home/linuxbrew/.linuxbrew; do
   [[ -x "$brewpath/bin/brew" ]] && eval "$("$brewpath/bin/brew" shellenv)" && break
@@ -26,6 +27,13 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt sharehistory
+
+alias ls='eza'
+alias la='eza -a'
+alias ll='eza -la'
+alias lt='eza -T'
+alias lta='eza -laT'
+alias cat='bat'
 
 source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
 source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
