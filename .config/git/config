@@ -28,3 +28,18 @@
 
 [tag]
   sort = -version:refname
+
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+
+[delta]
+  navigate = true
+  side-by-side = false
+  line-numbers = true
+  hyperlinks = true
+
+[interactive]
+  diffFilter = delta --color-only
