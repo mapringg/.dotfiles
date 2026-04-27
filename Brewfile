@@ -27,3 +27,7 @@ if OS.mac?
   cask "visual-studio-code"
   cask "wispr-flow"
 end
+
+if OS.linux?
+  brew "keychain"
+end

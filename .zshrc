@@ -1,7 +1,3 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 export EDITOR=vi
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -10,6 +6,14 @@ export BAT_THEME=ansi
 for brewpath in /opt/homebrew /home/linuxbrew/.linuxbrew; do
   [[ -x "$brewpath/bin/brew" ]] && eval "$("$brewpath/bin/brew" shellenv)" && break
 done
+
+if (( $+commands[keychain] )) && [[ -f ~/.ssh/id_ed25519 ]]; then
+  eval "$(keychain --eval --quiet id_ed25519)"
+fi
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload -Uz compinit
