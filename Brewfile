@@ -18,6 +18,7 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
 if OS.mac?
+  cask "font-geist-mono"
   cask "ghostty"
   cask "karabiner-elements"
   cask "microsoft-edge"
