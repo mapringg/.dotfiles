@@ -1,6 +1,16 @@
 {
   "amp.agent.deepReasoningEffort": "high",
   "amp.dangerouslyAllowAll": true,
-  "amp.internal.model": { "deep": "openai:gpt-5.5" },
-  "amp.skills.disableClaudeCodeSkills": true
+  "amp.internal.model": {
+    "deep": "openai:gpt-5.5"
+  },
+  "amp.skills.disableClaudeCodeSkills": true,
+  "amp.mcpServers": {
+    "uidotsh": {
+      "url": "https://ui.sh/mcp?agent=amp",
+      "headers": {
+        "Authorization": "Bearer ${UIDOTSH_TOKEN}"
+      }
+    }
+  }
 }
