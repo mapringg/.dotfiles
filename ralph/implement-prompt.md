@@ -1,10 +1,8 @@
 # ISSUES
 
-Local issue files from `.scratch/` are provided at start of context. Parse them to understand the open issues.
+Local issue files from `.scratch/` and recent commits are provided above in `<issues>` and `<recent-commits>` blocks. Parse them to understand the open issues and prior work.
 
 You will work on the AFK issues only, not the HITL ones.
-
-You've also been passed a file containing the last few commits. Review these to understand what work has been done.
 
 If all AFK tasks are complete, output <promise>NO MORE TASKS</promise>.
 
@@ -28,7 +26,7 @@ TL;DR - build a tiny, end-to-end slice of the feature first, then expand it out.
 
 # EXPLORATION
 
-Explore the repo.
+Explore the repo and fill your context window with relevant information that will allow you to complete the task. Pay extra attention to test files that touch the relevant parts of the code.
 
 # IMPLEMENTATION
 
@@ -45,9 +43,10 @@ Before committing, run the feedback loops:
 
 Make a git commit. The commit message must:
 
-1. Include key decisions made
-2. Include files changed
-3. Blockers or notes for next iteration
+1. Start with `AFK:` prefix
+2. Include key decisions made
+3. Include files changed
+4. Blockers or notes for next iteration
 
 # THE ISSUE
 
