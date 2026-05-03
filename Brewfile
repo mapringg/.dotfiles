@@ -1,6 +1,5 @@
 brew "bat"
 brew "biome"
-brew "delta"
 brew "eza"
 brew "fd"
 brew "fzf"

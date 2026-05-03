@@ -2,20 +2,6 @@
   name = Sorawit Kongnurat
   email = sorawit.k@tutanota.com
 
-[branch]
-  sort = -committerdate
-
-[column]
-  ui = auto
-
-[commit]
-  verbose = true
-
-[diff]
-  algorithm = histogram
-  colorMoved = default
-  mnemonicPrefix = true
-
 [pull]
   rebase = true
 
@@ -25,21 +11,3 @@
 [rerere]
   enabled = true
   autoupdate = true
-
-[tag]
-  sort = -version:refname
-
-[pager]
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
-
-[delta]
-  navigate = true
-  side-by-side = false
-  line-numbers = true
-  hyperlinks = true
-
-[interactive]
-  diffFilter = delta --color-only
