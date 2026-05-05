@@ -1,15 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "effortLevel": "high",
   "env": {
-    "ENABLE_CLAUDEAI_MCP_SERVERS": "false",
-    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+    "ENABLE_CLAUDEAI_MCP_SERVERS": "false"
   },
   "permissions": {
     "defaultMode": "bypassPermissions"
   },
+  "skipDangerousModePermissionPrompt": true,
   "statusLine": {
-    "type": "command",
-    "command": "input=$(cat); pct=$(echo \"$input\" | jq -r '.context_window.used_percentage // empty'); size=$(echo \"$input\" | jq -r '.context_window.context_window_size // empty'); if [ -n \"$pct\" ] && [ -n \"$size\" ]; then awk -v p=\"$pct\" -v s=\"$size\" 'BEGIN { used = p * s / 100; k = int(used / 1000 + 0.5); ratio = used / 100000; if (ratio > 1) ratio = 1; if (ratio < 0.5) { r = int(ratio * 2 * 255); g = 255 } else { r = 255; g = int((1 - (ratio - 0.5) * 2) * 255) } printf \"\\033[38;2;%d;%d;%dm%dk\\033[0m\\n\", r, g, 0, k }'; fi"
-  },
-  "skipDangerousModePermissionPrompt": true
+    "command": "input=$(cat); pct=$(echo \"$input\" | jq -r '.context_window.used_percentage // empty'); size=$(echo \"$input\" | jq -r '.context_window.context_window_size // empty'); if [ -n \"$pct\" ] && [ -n \"$size\" ]; then awk -v p=\"$pct\" -v s=\"$size\" 'BEGIN { used = p * s / 100; k = int(used / 1000 + 0.5); ratio = used / 100000; if (ratio > 1) ratio = 1; if (ratio < 0.5) { r = int(ratio * 2 * 255); g = 255 } else { r = 255; g = int((1 - (ratio - 0.5) * 2) * 255) } printf \"\\033[38;2;%d;%d;%dm%dk\\033[0m\\n\", r, g, 0, k }'; fi",
+    "type": "command"
+  }
 }
