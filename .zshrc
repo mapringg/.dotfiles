@@ -4,7 +4,6 @@ fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR=vi
-export BAT_THEME=ansi
 export PATH="$HOME/.local/bin:$PATH"
 
 for brewpath in /opt/homebrew /home/linuxbrew/.linuxbrew; do
@@ -32,21 +31,12 @@ if (( $+commands[keychain] )) && [[ -f ~/.ssh/id_ed25519 ]]; then
   eval "$(keychain --eval --quiet id_ed25519)"
 fi
 
-alias ls='eza'
-alias la='eza -a'
-alias ll='eza -la'
-alias lt='eza -T'
-alias lta='eza -laT'
-alias cat='bat'
-
 source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
 source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
 eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
 
-source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
