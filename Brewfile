@@ -1,3 +1,4 @@
+brew "fd"
 brew "fzf"
 brew "gh"
 brew "git"
@@ -5,6 +6,7 @@ brew "jq"
 brew "lazygit"
 brew "mise"
 brew "powerlevel10k"
+brew "ripgrep"
 brew "stow"
 brew "zoxide"
 
