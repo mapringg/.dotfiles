@@ -1,0 +1,23 @@
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "jq"
+brew "lazygit"
+brew "mise"
+brew "ripgrep"
+brew "stow"
+brew "zoxide"
+
+if OS.mac?
+  cask "anydesk"
+  cask "ghostty"
+  cask "firefox"
+  cask "font-geist-mono-nerd-font"
+  cask "google-chrome"
+  cask "karabiner-elements"
+  cask "raycast"
+  cask "tailscale-app"
+  cask "wispr-flow"
+  cask "zed"
+end
