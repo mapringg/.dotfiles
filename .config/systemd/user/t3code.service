@@ -1,0 +1,17 @@
+[Unit]
+Description=T3 Code headless server (Tailscale Serve)
+Documentation=https://github.com/pingdotgg/t3code
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+Environment=PATH=%h/.local/share/mise/shims:%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=T3CODE_HOME=%h/.local/share/t3code
+ExecStart=%h/.local/share/mise/shims/t3 serve --tailscale-serve --host 127.0.0.1
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

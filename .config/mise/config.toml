@@ -1,0 +1,12 @@
+[tools]
+bun = "latest"
+node = { version = "lts", postinstall = "corepack enable" }
+
+"npm:@antfu/ni" = "latest"
+"npm:corepack" = "latest"
+"npm:portless" = "latest"
+"npm:eas-cli" = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+npm.bun = true

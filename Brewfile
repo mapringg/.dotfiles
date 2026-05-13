@@ -1,0 +1,37 @@
+brew "atuin"
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "herdr"
+brew "hunk"
+brew "jq"
+brew "lazygit"
+brew "mise"
+brew "mosh"
+brew "ripgrep"
+brew "stow"
+brew "zoxide"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+if OS.linux?
+  brew "watchman"
+end
+
+if OS.mac?
+  brew "autossh"
+  cask "anydesk"
+  cask "bruno"
+  cask "ghostty"
+  cask "firefox"
+  cask "font-geist-mono-nerd-font"
+  cask "google-chrome"
+  cask "karabiner-elements"
+  cask "lens"
+  cask "raycast"
+  cask "t3-code@nightly"
+  cask "tailscale-app"
+  cask "visual-studio-code"
+  cask "wispr-flow"
+end
