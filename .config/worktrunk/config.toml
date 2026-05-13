@@ -1,0 +1,19 @@
+[commit.generation]
+command = "CLAUDECODE= MAX_THINKING_TOKENS=0 claude -p --no-session-persistence --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+template = """
+Write a one-line git commit message for the staged changes below.
+
+Rules:
+- Output ONLY the subject line. No body, no blank line, no bullet points, no quotes, no code blocks — one line regardless of how large the change is.
+- Use plain, descriptive prose. Do NOT use Conventional Commit prefixes (feat:, fix:, docs:, chore:, refactor:, etc.) or any "type(scope):" form.
+- Start with a capital letter, use the imperative mood ("Add x" not "Added x"), keep it under 72 characters, and do not end with a period.
+- Describe what the change does, not why.
+
+<diffstat>
+{{ git_diff_stat }}
+</diffstat>
+
+<diff>
+{{ git_diff }}
+</diff>
+"""
