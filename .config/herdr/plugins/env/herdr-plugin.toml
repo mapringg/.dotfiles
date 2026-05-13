@@ -1,0 +1,14 @@
+id = "env"
+name = "Environment file copier"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "Copy nested environment files from source checkouts into Herdr worktrees."
+platforms = ["linux", "macos"]
+
+[[events]]
+on = "worktree.created"
+command = ["bash", "setup.sh"]
+
+[[events]]
+on = "worktree.opened"
+command = ["bash", "setup.sh"]

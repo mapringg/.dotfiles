@@ -1,0 +1,12 @@
+onboarding = false
+
+[theme]
+name = "gruvbox"
+auto_switch = true
+dark_name = "gruvbox"
+light_name = "gruvbox-light"
+
+[ui]
+confirm_close = false
+prompt_new_tab_name = false
+mobile_width_threshold = 100

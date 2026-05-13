@@ -1,0 +1,13 @@
+{
+  "buffer_font_size": 15,
+  "cli_default_open_behavior": "existing_window",
+  "terminal": {
+    "font_family": "GeistMono Nerd Font Mono"
+  },
+  "theme": {
+    "dark": "Gruvbox Dark Hard",
+    "light": "Gruvbox Light Hard",
+    "mode": "system"
+  },
+  "ui_font_size": 16
+}
