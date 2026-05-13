@@ -1,0 +1,4 @@
+font-family = MonoLisa
+font-feature = liga, calt, zero, ss01, ss11, ss12
+macos-option-as-alt = left
+theme = TokyoNight Night

@@ -1,0 +1,11 @@
+[tools]
+node = "lts"
+
+"npm:@antfu/ni" = "latest"
+"npm:agent-browser" = { version = "latest", postinstall = "agent-browser install" }
+"npm:corepack" = { version = "latest", postinstall = "corepack enable" }
+"npm:eas-cli" = { version = "latest", os = ["linux"] }
+"npm:portless" = { version = "latest", os = ["linux"] }
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
