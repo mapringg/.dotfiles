@@ -1,0 +1,9 @@
+[user]
+  name = Sorawit Kongnurat
+  email = sorawit.k@tutanota.com
+
+[pull]
+  rebase = true
+
+[push]
+  autoSetupRemote = true

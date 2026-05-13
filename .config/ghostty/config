@@ -1,0 +1,5 @@
+font-family = Cascadia Code
+theme = Dark+
+title = "🍎 Macintosh"
+macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = left
